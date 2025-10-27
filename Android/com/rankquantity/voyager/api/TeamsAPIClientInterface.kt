@@ -566,6 +566,8 @@ public interface TeamsAPIClientInterface {
    */
   public suspend fun watchStory(request: WatchStoryRequest, headers: Headers = emptyMap()): ResponseMessage<WatchStoryResponse>
 
+  public suspend fun unWatchStory(request: UnWatchStoryRequest, headers: Headers = emptyMap()): ResponseMessage<UnWatchStoryResponse>
+
   /**
    * / 收藏故事
    * / 将故事添加到用户的个人收藏夹，方便后续查看

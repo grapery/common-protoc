@@ -232,6 +232,16 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rankquantity_voyager_api_WatchStoryResponse_Data_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rankquantity_voyager_api_UnWatchStoryRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rankquantity_voyager_api_UnWatchStoryRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rankquantity_voyager_api_UnWatchStoryResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rankquantity_voyager_api_UnWatchStoryResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_rankquantity_voyager_api_LikeStoryboardRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -854,316 +864,320 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
       "sponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 " +
       "\001(\tR\007message\022E\n\004data\030\003 \001(\01321.rankquantit" +
       "y.voyager.api.WatchStoryResponse.DataR\004d" +
-      "ata\032!\n\004Data\022\031\n\010story_id\030\001 \001(\003R\007storyId\"f" +
-      "\n\025LikeStoryboardRequest\022\031\n\010board_id\030\001 \001(" +
-      "\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010s" +
-      "tory_id\030\003 \001(\003R\007storyId\"\203\002\n\026LikeStoryboar" +
-      "dResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message" +
-      "\030\002 \001(\tR\007message\022I\n\004data\030\003 \001(\01325.rankquan" +
-      "tity.voyager.api.LikeStoryboardResponse." +
-      "DataR\004data\032p\n\004Data\022\031\n\010story_id\030\001 \001(\003R\007st" +
-      "oryId\022\031\n\010board_id\030\002 \001(\003R\007boardId\022\027\n\007user" +
-      "_id\030\003 \001(\003R\006userId\022\031\n\010like_num\030\004 \001(\003R\007lik" +
-      "eNum\"h\n\027UnLikeStoryboardRequest\022\031\n\010board" +
-      "_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006use" +
-      "rId\022\031\n\010story_id\030\003 \001(\003R\007storyId\"H\n\030UnLike" +
-      "StoryboardResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030" +
-      "\n\007message\030\002 \001(\tR\007message\"g\n\026ShareStorybo" +
-      "ardRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n" +
-      "\007user_id\030\002 \001(\003R\006userId\022\031\n\010story_id\030\003 \001(\003" +
-      "R\007storyId\"\207\002\n\027ShareStoryboardResponse\022\022\n" +
-      "\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\022J\n\004data\030\003 \001(\01326.rankquantity.voyager" +
-      ".api.ShareStoryboardResponse.DataR\004data\032" +
-      "r\n\004Data\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\031\n\010bo" +
-      "ard_id\030\002 \001(\003R\007boardId\022\027\n\007user_id\030\003 \001(\003R\006" +
-      "userId\022\033\n\tshare_num\030\004 \001(\003R\010shareNum\"\317\001\n\022" +
-      "RenderStoryRequest\022\031\n\010story_id\030\001 \001(\003R\007st" +
-      "oryId\022\027\n\007user_id\030\002 \001(\003R\006userId\022#\n\ris_reg" +
-      "enerate\030\004 \001(\010R\014isRegenerate\022\031\n\010board_id\030" +
-      "\007 \001(\003R\007boardId\022E\n\013render_type\030\t \001(\0162$.ra" +
-      "nkquantity.voyager.api.RenderTypeR\nrende" +
-      "rType\"\375\001\n\031RenderStoryStructureValue\022\022\n\004t" +
-      "ext\030\001 \001(\tR\004text\022\022\n\004urls\030\002 \003(\tR\004urls\022\024\n\005v" +
-      "alue\030\003 \001(\005R\005value\022\022\n\004nums\030\004 \001(\005R\004nums\022T\n" +
-      "\005extra\030\005 \003(\0132>.rankquantity.voyager.api." +
-      "RenderStoryStructureValue.ExtraEntryR\005ex" +
-      "tra\0328\n\nExtraEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005v" +
-      "alue\030\002 \001(\tR\005value:\0028\001\"\305\001\n\014StoryChapter\022Q" +
-      "\n\017chapter_summary\030\001 \001(\0132(.rankquantity.v" +
-      "oyager.api.ChapterSummaryR\016chapterSummar" +
-      "y\022b\n\023chapter_detail_info\030\002 \001(\01322.rankqua" +
-      "ntity.voyager.api.ChapterDetailInformati" +
-      "onR\021chapterDetailInfo\"\205\001\n\016ChapterSummary" +
-      "\022\024\n\005title\030\001 \001(\tR\005title\022\030\n\007content\030\002 \001(\tR" +
-      "\007content\022C\n\ncharacters\030\003 \003(\0132#.rankquant" +
-      "ity.voyager.api.CharacterR\ncharacters\"[\n" +
-      "\030ChapterDetailInformation\022?\n\007details\030\001 \003" +
-      "(\0132%.rankquantity.voyager.api.DetailScen" +
-      "eR\007details\"\237\001\n\013DetailScene\022\016\n\002id\030\001 \001(\tR\002" +
-      "id\022\030\n\007content\030\002 \001(\tR\007content\022C\n\ncharacte" +
-      "rs\030\003 \003(\0132#.rankquantity.voyager.api.Char" +
-      "acterR\ncharacters\022!\n\014image_prompt\030\004 \001(\tR" +
-      "\013imagePrompt\"p\n\tCharacter\022\016\n\002id\030\001 \001(\tR\002i" +
-      "d\022\022\n\004name\030\002 \001(\tR\004name\022 \n\013description\030\003 \001" +
-      "(\tR\013description\022\035\n\navatar_url\030\004 \001(\tR\tava" +
-      "tarUrl\"\272\001\n\tStoryInfo\022`\n\024story_name_and_t" +
-      "heme\030\001 \001(\0132+.rankquantity.voyager.api.St" +
-      "oryNameAndThemeR\025\346\225\205\344\272\213\345\220\215\347\247\260\345\222\214\344\270\273\351\242\230\022K" +
-      "\n\016story_chapters\030\002 \003(\0132%.rankquantity.vo" +
-      "yager.api.ChapterInfoR\014\346\225\205\344\272\213\347\253\240\350\212\202\"o\n\021S" +
-      "toryNameAndTheme\022\032\n\004name\030\001 \001(\tR\014\346\225\205\344\272\213\345\220" +
-      "\215\347\247\260\022\033\n\005theme\030\002 \001(\tR\014\346\225\205\344\272\213\344\270\273\351\242\230\022!\n\013des" +
-      "cription\030\003 \001(\tR\014\346\225\205\344\272\213\347\256\200\344\273\213\"_\n\013ChapterI" +
-      "nfo\022\024\n\002id\030\001 \001(\tR\010\347\253\240\350\212\202ID\022\033\n\005title\030\002 \001(\t" +
-      "R\014\347\253\240\350\212\202\351\242\230\347\233\256\022\035\n\007content\030\003 \001(\tR\014\347\253\240\350\212\202\345" +
-      "\206\205\345\256\271\"\302\002\n\021RenderStoryDetail\022\022\n\004text\030\001 \001(" +
-      "\tR\004text\022\026\n\006status\030\002 \001(\005R\006status\022\022\n\004urls\030" +
-      "\003 \003(\tR\004urls\022\031\n\010story_id\030\004 \001(\003R\007storyId\022\031" +
-      "\n\010board_id\030\005 \001(\003R\007boardId\022\027\n\007user_id\030\006 \001" +
-      "(\003R\006userId\022E\n\013render_type\030\007 \001(\0162$.rankqu" +
-      "antity.voyager.api.RenderTypeR\nrenderTyp" +
-      "e\022;\n\006result\030\010 \001(\0132#.rankquantity.voyager" +
-      ".api.StoryInfoR\006result\022\032\n\010timecost\030\t \001(\005" +
-      "R\010timecost\"\204\001\n\023RenderStoryResponse\022\022\n\004co" +
+      "ata\032!\n\004Data\022\031\n\010story_id\030\001 \001(\003R\007storyId\"I" +
+      "\n\023UnWatchStoryRequest\022\031\n\010story_id\030\001 \001(\003R" +
+      "\007storyId\022\027\n\007user_id\030\002 \001(\003R\006userId\"D\n\024UnW" +
+      "atchStoryResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n" +
+      "\007message\030\002 \001(\tR\007message\"f\n\025LikeStoryboar" +
+      "dRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007u" +
+      "ser_id\030\002 \001(\003R\006userId\022\031\n\010story_id\030\003 \001(\003R\007" +
+      "storyId\"\203\002\n\026LikeStoryboardResponse\022\022\n\004co" +
       "de\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message" +
-      "\022?\n\004data\030\003 \001(\0132+.rankquantity.voyager.ap" +
-      "i.RenderStoryDetailR\004data\"\324\001\n\027RenderStor" +
-      "yboardRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId" +
-      "\022\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n\007user_id\030\003" +
-      " \001(\003R\006userId\022#\n\ris_regenerate\030\004 \001(\010R\014isR" +
-      "egenerate\022E\n\013render_type\030\006 \001(\0162$.rankqua" +
-      "ntity.voyager.api.RenderTypeR\nrenderType" +
-      "\"\312\002\n\026RenderStoryboardDetail\022\022\n\004text\030\001 \001(" +
-      "\tR\004text\022\026\n\006status\030\002 \001(\005R\006status\022\022\n\004urls\030" +
-      "\003 \003(\tR\004urls\022\031\n\010story_id\030\004 \001(\003R\007storyId\022\031" +
-      "\n\010board_id\030\005 \001(\003R\007boardId\022\027\n\007user_id\030\006 \001" +
-      "(\003R\006userId\022E\n\013render_type\030\007 \001(\0162$.rankqu" +
-      "antity.voyager.api.RenderTypeR\nrenderTyp" +
-      "e\022>\n\006result\030\010 \001(\0132&.rankquantity.voyager" +
-      ".api.StoryChapterR\006result\022\032\n\010timecost\030\t " +
-      "\001(\005R\010timecost\"\216\001\n\030RenderStoryboardRespon" +
-      "se\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR" +
-      "\007message\022D\n\004data\030\003 \001(\01320.rankquantity.vo" +
-      "yager.api.RenderStoryboardDetailR\004data\"\235" +
-      "\002\n\030GenStoryboardTextRequest\022\031\n\010board_id\030" +
-      "\001 \001(\003R\007boardId\022\031\n\010story_id\030\002 \001(\003R\007storyI" +
-      "d\022\027\n\007user_id\030\003 \001(\003R\006userId\022E\n\013render_typ" +
-      "e\030\006 \001(\0162$.rankquantity.voyager.api.Rende" +
-      "rTypeR\nrenderType\022\026\n\006prompt\030\t \001(\tR\006promp" +
-      "t\022\024\n\005title\030\n \001(\tR\005title\022 \n\013description\030\013" +
-      " \001(\tR\013description\022\033\n\tsence_num\030\r \001(\005R\010se" +
-      "nceNum\"\217\001\n\031GenStoryboardTextResponse\022\022\n\004" +
-      "code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messa" +
-      "ge\022D\n\004data\030\003 \001(\01320.rankquantity.voyager." +
-      "api.RenderStoryboardDetailR\004data\"\260\002\n\032Gen" +
-      "StoryboardImagesRequest\022\031\n\010board_id\030\001 \001(" +
-      "\003R\007boardId\022\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n" +
-      "\007user_id\030\003 \001(\003R\006userId\022#\n\ris_regenerate\030" +
-      "\004 \001(\010R\014isRegenerate\022E\n\013render_type\030\006 \001(\016" +
-      "2$.rankquantity.voyager.api.RenderTypeR\n" +
-      "renderType\022\031\n\010sence_id\030\007 \001(\005R\007senceId\022$\n" +
-      "\016sence_name_key\030\010 \001(\tR\014senceNameKey\022\026\n\006p" +
-      "rompt\030\t \001(\tR\006prompt\"\221\001\n\033GenStoryboardIma" +
-      "gesResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007messa" +
-      "ge\030\002 \001(\tR\007message\022D\n\004data\030\003 \001(\01320.rankqu" +
-      "antity.voyager.api.RenderStoryboardDetai" +
-      "lR\004data\"~\n\027FetchGroupStorysRequest\022\031\n\010gr" +
-      "oup_id\030\001 \001(\003R\007groupId\022\027\n\007user_id\030\002 \001(\003R\006" +
-      "userId\022\022\n\004page\030\003 \001(\005R\004page\022\033\n\tpage_size\030" +
-      "\004 \001(\005R\010pageSize\"\304\002\n\030FetchGroupStorysResp" +
-      "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\022K\n\004data\030\003 \001(\01327.rankquantity." +
-      "voyager.api.FetchGroupStorysResponse.Dat" +
-      "aR\004data\032\254\001\n\004Data\0223\n\004list\030\001 \003(\0132\037.rankqua" +
-      "ntity.voyager.api.StoryR\004list\022<\n\007creator" +
-      "\030\003 \003(\0132\".rankquantity.voyager.api.UserIn" +
-      "foR\007creator\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thav" +
-      "e_more\030\005 \001(\010R\010haveMore\"\221\001\n\025GetStoryRende" +
-      "rRequest\022\031\n\010story_id\030\001 \001(\003R\007storyId\022#\n\rr" +
-      "ender_status\030\002 \001(\005R\014renderStatus\022\037\n\013rend" +
-      "er_type\030\003 \001(\005R\nrenderType\022\027\n\007user_id\030\004 \001" +
-      "(\003R\006userId\"\332\001\n\026GetStoryRenderResponse\022\022\n" +
-      "\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\022I\n\004data\030\003 \001(\01325.rankquantity.voyager" +
-      ".api.GetStoryRenderResponse.DataR\004data\032G" +
-      "\n\004Data\022?\n\004list\030\001 \003(\0132+.rankquantity.voya" +
-      "ger.api.RenderStoryDetailR\004list\"}\n\032GetSt" +
-      "oryBoardRenderRequest\022\031\n\010board_id\030\001 \001(\003R" +
-      "\007boardId\022#\n\rrender_status\030\002 \001(\005R\014renderS" +
-      "tatus\022\037\n\013render_type\030\003 \001(\005R\nrenderType\"\351" +
-      "\001\n\033GetStoryBoardRenderResponse\022\022\n\004code\030\001" +
-      " \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022N\n\004" +
-      "data\030\003 \001(\0132:.rankquantity.voyager.api.Ge" +
-      "tStoryBoardRenderResponse.DataR\004data\032L\n\004" +
-      "Data\022D\n\004list\030\001 \003(\01320.rankquantity.voyage" +
-      "r.api.RenderStoryboardDetailR\004list\"\346\002\n\032C" +
-      "ontinueRenderStoryRequest\022\031\n\010story_id\030\001 " +
-      "\001(\003R\007storyId\022\"\n\rprev_board_id\030\002 \001(\003R\013pre" +
-      "vBoardId\022\027\n\007user_id\030\003 \001(\003R\006userId\022E\n\013ren" +
-      "der_type\030\004 \001(\0162$.rankquantity.voyager.ap" +
-      "i.RenderTypeR\nrenderType\022\026\n\006prompt\030\005 \001(\t" +
-      "R\006prompt\022\024\n\005title\030\006 \001(\tR\005title\022 \n\013descri" +
-      "ption\030\007 \001(\tR\013description\022\036\n\nbackground\030\010",
-      " \001(\tR\nbackground\0229\n\005roles\030\t \003(\0132#.rankqu" +
-      "antity.voyager.api.StoryRoleR\005roles\"\221\001\n\033" +
-      "ContinueRenderStoryResponse\022\022\n\004code\030\001 \001(" +
+      "\022I\n\004data\030\003 \001(\01325.rankquantity.voyager.ap" +
+      "i.LikeStoryboardResponse.DataR\004data\032p\n\004D" +
+      "ata\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\031\n\010board_" +
+      "id\030\002 \001(\003R\007boardId\022\027\n\007user_id\030\003 \001(\003R\006user" +
+      "Id\022\031\n\010like_num\030\004 \001(\003R\007likeNum\"h\n\027UnLikeS" +
+      "toryboardRequest\022\031\n\010board_id\030\001 \001(\003R\007boar" +
+      "dId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010story_id" +
+      "\030\003 \001(\003R\007storyId\"H\n\030UnLikeStoryboardRespo" +
+      "nse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\t" +
+      "R\007message\"g\n\026ShareStoryboardRequest\022\031\n\010b" +
+      "oard_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R" +
+      "\006userId\022\031\n\010story_id\030\003 \001(\003R\007storyId\"\207\002\n\027S" +
+      "hareStoryboardResponse\022\022\n\004code\030\001 \001(\005R\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022J\n\004data\030\003 \001" +
+      "(\01326.rankquantity.voyager.api.ShareStory" +
+      "boardResponse.DataR\004data\032r\n\004Data\022\031\n\010stor" +
+      "y_id\030\001 \001(\003R\007storyId\022\031\n\010board_id\030\002 \001(\003R\007b" +
+      "oardId\022\027\n\007user_id\030\003 \001(\003R\006userId\022\033\n\tshare" +
+      "_num\030\004 \001(\003R\010shareNum\"\317\001\n\022RenderStoryRequ" +
+      "est\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\027\n\007user_i" +
+      "d\030\002 \001(\003R\006userId\022#\n\ris_regenerate\030\004 \001(\010R\014" +
+      "isRegenerate\022\031\n\010board_id\030\007 \001(\003R\007boardId\022" +
+      "E\n\013render_type\030\t \001(\0162$.rankquantity.voya" +
+      "ger.api.RenderTypeR\nrenderType\"\375\001\n\031Rende" +
+      "rStoryStructureValue\022\022\n\004text\030\001 \001(\tR\004text" +
+      "\022\022\n\004urls\030\002 \003(\tR\004urls\022\024\n\005value\030\003 \001(\005R\005val" +
+      "ue\022\022\n\004nums\030\004 \001(\005R\004nums\022T\n\005extra\030\005 \003(\0132>." +
+      "rankquantity.voyager.api.RenderStoryStru" +
+      "ctureValue.ExtraEntryR\005extra\0328\n\nExtraEnt" +
+      "ry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005val" +
+      "ue:\0028\001\"\305\001\n\014StoryChapter\022Q\n\017chapter_summa" +
+      "ry\030\001 \001(\0132(.rankquantity.voyager.api.Chap" +
+      "terSummaryR\016chapterSummary\022b\n\023chapter_de" +
+      "tail_info\030\002 \001(\01322.rankquantity.voyager.a" +
+      "pi.ChapterDetailInformationR\021chapterDeta" +
+      "ilInfo\"\205\001\n\016ChapterSummary\022\024\n\005title\030\001 \001(\t" +
+      "R\005title\022\030\n\007content\030\002 \001(\tR\007content\022C\n\ncha" +
+      "racters\030\003 \003(\0132#.rankquantity.voyager.api" +
+      ".CharacterR\ncharacters\"[\n\030ChapterDetailI" +
+      "nformation\022?\n\007details\030\001 \003(\0132%.rankquanti" +
+      "ty.voyager.api.DetailSceneR\007details\"\237\001\n\013" +
+      "DetailScene\022\016\n\002id\030\001 \001(\tR\002id\022\030\n\007content\030\002" +
+      " \001(\tR\007content\022C\n\ncharacters\030\003 \003(\0132#.rank" +
+      "quantity.voyager.api.CharacterR\ncharacte" +
+      "rs\022!\n\014image_prompt\030\004 \001(\tR\013imagePrompt\"p\n" +
+      "\tCharacter\022\016\n\002id\030\001 \001(\tR\002id\022\022\n\004name\030\002 \001(\t" +
+      "R\004name\022 \n\013description\030\003 \001(\tR\013description" +
+      "\022\035\n\navatar_url\030\004 \001(\tR\tavatarUrl\"\272\001\n\tStor" +
+      "yInfo\022`\n\024story_name_and_theme\030\001 \001(\0132+.ra" +
+      "nkquantity.voyager.api.StoryNameAndTheme" +
+      "R\025\346\225\205\344\272\213\345\220\215\347\247\260\345\222\214\344\270\273\351\242\230\022K\n\016story_chapter" +
+      "s\030\002 \003(\0132%.rankquantity.voyager.api.Chapt" +
+      "erInfoR\014\346\225\205\344\272\213\347\253\240\350\212\202\"o\n\021StoryNameAndThem" +
+      "e\022\032\n\004name\030\001 \001(\tR\014\346\225\205\344\272\213\345\220\215\347\247\260\022\033\n\005theme\030\002" +
+      " \001(\tR\014\346\225\205\344\272\213\344\270\273\351\242\230\022!\n\013description\030\003 \001(\tR" +
+      "\014\346\225\205\344\272\213\347\256\200\344\273\213\"_\n\013ChapterInfo\022\024\n\002id\030\001 \001(\t" +
+      "R\010\347\253\240\350\212\202ID\022\033\n\005title\030\002 \001(\tR\014\347\253\240\350\212\202\351\242\230\347\233\256\022" +
+      "\035\n\007content\030\003 \001(\tR\014\347\253\240\350\212\202\345\206\205\345\256\271\"\302\002\n\021Rende" +
+      "rStoryDetail\022\022\n\004text\030\001 \001(\tR\004text\022\026\n\006stat" +
+      "us\030\002 \001(\005R\006status\022\022\n\004urls\030\003 \003(\tR\004urls\022\031\n\010" +
+      "story_id\030\004 \001(\003R\007storyId\022\031\n\010board_id\030\005 \001(" +
+      "\003R\007boardId\022\027\n\007user_id\030\006 \001(\003R\006userId\022E\n\013r" +
+      "ender_type\030\007 \001(\0162$.rankquantity.voyager." +
+      "api.RenderTypeR\nrenderType\022;\n\006result\030\010 \001" +
+      "(\0132#.rankquantity.voyager.api.StoryInfoR" +
+      "\006result\022\032\n\010timecost\030\t \001(\005R\010timecost\"\204\001\n\023" +
+      "RenderStoryResponse\022\022\n\004code\030\001 \001(\005R\004code\022" +
+      "\030\n\007message\030\002 \001(\tR\007message\022?\n\004data\030\003 \001(\0132" +
+      "+.rankquantity.voyager.api.RenderStoryDe" +
+      "tailR\004data\"\324\001\n\027RenderStoryboardRequest\022\031" +
+      "\n\010board_id\030\001 \001(\003R\007boardId\022\031\n\010story_id\030\002 " +
+      "\001(\003R\007storyId\022\027\n\007user_id\030\003 \001(\003R\006userId\022#\n" +
+      "\ris_regenerate\030\004 \001(\010R\014isRegenerate\022E\n\013re" +
+      "nder_type\030\006 \001(\0162$.rankquantity.voyager.a" +
+      "pi.RenderTypeR\nrenderType\"\312\002\n\026RenderStor" +
+      "yboardDetail\022\022\n\004text\030\001 \001(\tR\004text\022\026\n\006stat" +
+      "us\030\002 \001(\005R\006status\022\022\n\004urls\030\003 \003(\tR\004urls\022\031\n\010" +
+      "story_id\030\004 \001(\003R\007storyId\022\031\n\010board_id\030\005 \001(" +
+      "\003R\007boardId\022\027\n\007user_id\030\006 \001(\003R\006userId\022E\n\013r" +
+      "ender_type\030\007 \001(\0162$.rankquantity.voyager." +
+      "api.RenderTypeR\nrenderType\022>\n\006result\030\010 \001" +
+      "(\0132&.rankquantity.voyager.api.StoryChapt" +
+      "erR\006result\022\032\n\010timecost\030\t \001(\005R\010timecost\"\216" +
+      "\001\n\030RenderStoryboardResponse\022\022\n\004code\030\001 \001(" +
       "\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022D\n\004dat" +
       "a\030\003 \001(\01320.rankquantity.voyager.api.Rende" +
-      "rStoryboardDetailR\004data\"\335\001\n\027RenderStoryR" +
-      "olesRequest\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\031" +
-      "\n\010board_id\030\002 \001(\003R\007boardId\022\027\n\007user_id\030\003 \001" +
-      "(\003R\006userId\022\026\n\006prompt\030\004 \001(\tR\006prompt\022\036\n\nba" +
-      "ckground\030\005 \001(\tR\nbackground\022;\n\006params\030\006 \001" +
-      "(\0132#.rankquantity.voyager.api.StoryRoleR" +
-      "\006params\"\201\001\n\030RenderStoryRolesResponse\022\022\n\004" +
+      "rStoryboardDetailR\004data\"\235\002\n\030GenStoryboar" +
+      "dTextRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022" +
+      "\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n\007user_id\030\003 " +
+      "\001(\003R\006userId\022E\n\013render_type\030\006 \001(\0162$.rankq" +
+      "uantity.voyager.api.RenderTypeR\nrenderTy" +
+      "pe\022\026\n\006prompt\030\t \001(\tR\006prompt\022\024\n\005title\030\n \001(" +
+      "\tR\005title\022 \n\013description\030\013 \001(\tR\013descripti" +
+      "on\022\033\n\tsence_num\030\r \001(\005R\010senceNum\"\217\001\n\031GenS" +
+      "toryboardTextResponse\022\022\n\004code\030\001 \001(\005R\004cod" +
+      "e\022\030\n\007message\030\002 \001(\tR\007message\022D\n\004data\030\003 \001(" +
+      "\01320.rankquantity.voyager.api.RenderStory" +
+      "boardDetailR\004data\"\260\002\n\032GenStoryboardImage" +
+      "sRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\031\n\010s" +
+      "tory_id\030\002 \001(\003R\007storyId\022\027\n\007user_id\030\003 \001(\003R" +
+      "\006userId\022#\n\ris_regenerate\030\004 \001(\010R\014isRegene" +
+      "rate\022E\n\013render_type\030\006 \001(\0162$.rankquantity" +
+      ".voyager.api.RenderTypeR\nrenderType\022\031\n\010s" +
+      "ence_id\030\007 \001(\005R\007senceId\022$\n\016sence_name_key" +
+      "\030\010 \001(\tR\014senceNameKey\022\026\n\006prompt\030\t \001(\tR\006pr" +
+      "ompt\"\221\001\n\033GenStoryboardImagesResponse\022\022\n\004" +
       "code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messa" +
-      "ge\0227\n\004list\030\003 \003(\0132#.rankquantity.voyager." +
-      "api.StoryRoleR\004list\"\301\001\n\034RenderStoryRoleD" +
-      "etailRequest\022\027\n\007role_id\030\001 \001(\003R\006roleId\0227\n" +
-      "\004role\030\002 \001(\0132#.rankquantity.voyager.api.S" +
-      "toryRoleR\004role\022\026\n\006prompt\030\003 \001(\tR\006prompt\022\036" +
-      "\n\nbackground\030\004 \001(\tR\nbackground\022\027\n\007user_i" +
-      "d\030\005 \001(\003R\006userId\"\206\001\n\035RenderStoryRoleDetai" +
-      "lResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message" +
-      "\030\002 \001(\tR\007message\0227\n\004role\030\003 \001(\0132#.rankquan" +
-      "tity.voyager.api.StoryRoleR\004role\"j\n\026Upda" +
-      "teStoryRoleRequest\0227\n\004role\030\001 \001(\0132#.rankq" +
-      "uantity.voyager.api.StoryRoleR\004role\022\027\n\007u" +
-      "ser_id\030\002 \001(\003R\006userId\"G\n\027UpdateStoryRoleR" +
-      "esponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002" +
-      " \001(\tR\007message\"J\n\024GetStoryRolesRequest\022\031\n" +
-      "\010story_id\030\001 \001(\003R\007storyId\022\027\n\007user_id\030\002 \001(" +
-      "\003R\006userId\"\216\002\n\025GetStoryRolesResponse\022\022\n\004c" +
-      "ode\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\022H\n\004data\030\003 \001(\01324.rankquantity.voyager.a" +
-      "pi.GetStoryRolesResponse.DataR\004data\032}\n\004D" +
-      "ata\0227\n\004list\030\001 \003(\0132#.rankquantity.voyager" +
-      ".api.StoryRoleR\004list\022<\n\007creator\030\003 \003(\0132\"." +
-      "rankquantity.voyager.api.UserInfoR\007creat" +
-      "or\"O\n\031GetStoryBoardRolesRequest\022\031\n\010board" +
-      "_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006use" +
-      "rId\"\230\002\n\032GetStoryBoardRolesResponse\022\022\n\004co" +
+      "ge\022D\n\004data\030\003 \001(\01320.rankquantity.voyager." +
+      "api.RenderStoryboardDetailR\004data\"~\n\027Fetc" +
+      "hGroupStorysRequest\022\031\n\010group_id\030\001 \001(\003R\007g" +
+      "roupId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\022\n\004page\030" +
+      "\003 \001(\005R\004page\022\033\n\tpage_size\030\004 \001(\005R\010pageSize" +
+      "\"\304\002\n\030FetchGroupStorysResponse\022\022\n\004code\030\001 " +
+      "\001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022K\n\004d" +
+      "ata\030\003 \001(\01327.rankquantity.voyager.api.Fet" +
+      "chGroupStorysResponse.DataR\004data\032\254\001\n\004Dat" +
+      "a\0223\n\004list\030\001 \003(\0132\037.rankquantity.voyager.a" +
+      "pi.StoryR\004list\022<\n\007creator\030\003 \003(\0132\".rankqu" +
+      "antity.voyager.api.UserInfoR\007creator\022\024\n\005" +
+      "total\030\004 \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010h" +
+      "aveMore\"\221\001\n\025GetStoryRenderRequest\022\031\n\010sto" +
+      "ry_id\030\001 \001(\003R\007storyId\022#\n\rrender_status\030\002 " +
+      "\001(\005R\014renderStatus\022\037\n\013render_type\030\003 \001(\005R\n" +
+      "renderType\022\027\n\007user_id\030\004 \001(\003R\006userId\"\332\001\n\026" +
+      "GetStoryRenderResponse\022\022\n\004code\030\001 \001(\005R\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022I\n\004data\030\003 \001" +
+      "(\01325.rankquantity.voyager.api.GetStoryRe" +
+      "nderResponse.DataR\004data\032G\n\004Data\022?\n\004list\030" +
+      "\001 \003(\0132+.rankquantity.voyager.api.RenderS" +
+      "toryDetailR\004list\"}\n\032GetStoryBoardRenderR" +
+      "equest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022#\n\rren" +
+      "der_status\030\002 \001(\005R\014renderStatus\022\037\n\013render" +
+      "_type\030\003 \001(\005R\nrenderType\"\351\001\n\033GetStoryBoar" +
+      "dRenderResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007m" +
+      "essage\030\002 \001(\tR\007message\022N\n\004data\030\003 \001(\0132:.ra" +
+      "nkquantity.voyager.api.GetStoryBoardRend" +
+      "erResponse.DataR\004data\032L\n\004Data\022D\n\004list\030\001 " +
+      "\003(\01320.rankquantity.voyager.api.RenderSto" +
+      "ryboardDetailR\004list\"\346\002\n\032ContinueRenderSt" +
+      "oryRequest\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\"\n" +
+      "\rprev_board_id\030\002 \001(\003R\013prevBoardId\022\027\n\007use" +
+      "r_id\030\003 \001(\003R\006userId\022E\n\013render_type\030\004 \001(\0162",
+      "$.rankquantity.voyager.api.RenderTypeR\nr" +
+      "enderType\022\026\n\006prompt\030\005 \001(\tR\006prompt\022\024\n\005tit" +
+      "le\030\006 \001(\tR\005title\022 \n\013description\030\007 \001(\tR\013de" +
+      "scription\022\036\n\nbackground\030\010 \001(\tR\nbackgroun" +
+      "d\0229\n\005roles\030\t \003(\0132#.rankquantity.voyager." +
+      "api.StoryRoleR\005roles\"\221\001\n\033ContinueRenderS" +
+      "toryResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007mess" +
+      "age\030\002 \001(\tR\007message\022D\n\004data\030\003 \001(\01320.rankq" +
+      "uantity.voyager.api.RenderStoryboardDeta" +
+      "ilR\004data\"\335\001\n\027RenderStoryRolesRequest\022\031\n\010" +
+      "story_id\030\001 \001(\003R\007storyId\022\031\n\010board_id\030\002 \001(" +
+      "\003R\007boardId\022\027\n\007user_id\030\003 \001(\003R\006userId\022\026\n\006p" +
+      "rompt\030\004 \001(\tR\006prompt\022\036\n\nbackground\030\005 \001(\tR" +
+      "\nbackground\022;\n\006params\030\006 \001(\0132#.rankquanti" +
+      "ty.voyager.api.StoryRoleR\006params\"\201\001\n\030Ren" +
+      "derStoryRolesResponse\022\022\n\004code\030\001 \001(\005R\004cod" +
+      "e\022\030\n\007message\030\002 \001(\tR\007message\0227\n\004list\030\003 \003(" +
+      "\0132#.rankquantity.voyager.api.StoryRoleR\004" +
+      "list\"\301\001\n\034RenderStoryRoleDetailRequest\022\027\n" +
+      "\007role_id\030\001 \001(\003R\006roleId\0227\n\004role\030\002 \001(\0132#.r" +
+      "ankquantity.voyager.api.StoryRoleR\004role\022" +
+      "\026\n\006prompt\030\003 \001(\tR\006prompt\022\036\n\nbackground\030\004 " +
+      "\001(\tR\nbackground\022\027\n\007user_id\030\005 \001(\003R\006userId" +
+      "\"\206\001\n\035RenderStoryRoleDetailResponse\022\022\n\004co" +
       "de\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message" +
-      "\022M\n\004data\030\003 \001(\01329.rankquantity.voyager.ap" +
-      "i.GetStoryBoardRolesResponse.DataR\004data\032" +
-      "}\n\004Data\0227\n\004list\030\001 \003(\0132#.rankquantity.voy" +
-      "ager.api.StoryRoleR\004list\022<\n\007creator\030\003 \003(" +
-      "\0132\".rankquantity.voyager.api.UserInfoR\007c" +
-      "reator\"\211\004\n\017StoryBoardSence\022\031\n\010sence_id\030\001" +
-      " \001(\003R\007senceId\022\030\n\007content\030\002 \001(\tR\007content\022" +
-      "#\n\rcharacter_ids\030\003 \003(\tR\014characterIds\022\035\n\n" +
-      "creator_id\030\004 \001(\003R\tcreatorId\022\031\n\010story_id\030" +
-      "\005 \001(\003R\007storyId\022\031\n\010board_id\030\006 \001(\003R\007boardI" +
-      "d\022#\n\rimage_prompts\030\007 \001(\tR\014imagePrompts\022#" +
-      "\n\raudio_prompts\030\010 \001(\tR\014audioPrompts\022#\n\rv" +
-      "ideo_prompts\030\t \001(\tR\014videoPrompts\022#\n\ris_g" +
-      "enerating\030\n \001(\005R\014isGenerating\022\035\n\ngen_res" +
-      "ult\030\013 \001(\tR\tgenResult\022\026\n\006images\030\014 \003(\tR\006im" +
-      "ages\022\033\n\taudio_url\030\r \001(\tR\010audioUrl\022\033\n\tvid" +
-      "eo_url\030\016 \001(\tR\010videoUrl\022\026\n\006status\030\017 \001(\005R\006" +
-      "status\022\024\n\005Ctime\030\020 \001(\003R\005Ctime\022\024\n\005Mtime\030\021 " +
-      "\001(\003R\005Mtime\"P\n\032GetStoryBoardSencesRequest" +
-      "\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002" +
-      " \001(\003R\006userId\"\342\001\n\033GetStoryBoardSencesResp" +
-      "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\022N\n\004data\030\003 \001(\0132:.rankquantity." +
-      "voyager.api.GetStoryBoardSencesResponse." +
-      "DataR\004data\032E\n\004Data\022=\n\004list\030\001 \003(\0132).rankq" +
-      "uantity.voyager.api.StoryBoardSenceR\004lis" +
-      "t\"x\n\034CreateStoryBoardSenceRequest\022?\n\005sen" +
-      "ce\030\001 \001(\0132).rankquantity.voyager.api.Stor" +
-      "yBoardSenceR\005sence\022\027\n\007user_id\030\002 \001(\003R\006use" +
-      "rId\"\302\001\n\035CreateStoryBoardSenceResponse\022\022\n" +
-      "\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\022P\n\004data\030\003 \001(\0132<.rankquantity.voyager" +
-      ".api.CreateStoryBoardSenceResponse.DataR" +
-      "\004data\032!\n\004Data\022\031\n\010sence_id\030\001 \001(\003R\007senceId" +
-      "\"x\n\034UpdateStoryBoardSenceRequest\022?\n\005senc" +
-      "e\030\001 \001(\0132).rankquantity.voyager.api.Story" +
-      "BoardSenceR\005sence\022\027\n\007user_id\030\002 \001(\003R\006user" +
-      "Id\"M\n\035UpdateStoryBoardSenceResponse\022\022\n\004c" +
-      "ode\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\"R\n\034DeleteStoryBoardSenceRequest\022\031\n\010sen" +
-      "ce_id\030\001 \001(\003R\007senceId\022\027\n\007user_id\030\002 \001(\003R\006u" +
-      "serId\"M\n\035DeleteStoryBoardSenceResponse\022\022" +
-      "\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mes" +
-      "sage\"m\n\034RenderStoryBoardSenceRequest\022\031\n\010" +
-      "sence_id\030\001 \001(\003R\007senceId\022\027\n\007user_id\030\002 \001(\003" +
-      "R\006userId\022\031\n\010board_id\030\003 \001(\005R\007boardId\"\267\001\n\035" +
-      "RenderStoryBoardSenceResponse\022\022\n\004code\030\001 " +
-      "\001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020g" +
-      "enerating_stage\030\003 \001(\005R\017generatingStage\022=" +
-      "\n\004data\030\004 \001(\0132).rankquantity.voyager.api." +
-      "StoryBoardSenceR\004data\"S\n\035RenderStoryBoar" +
-      "dSencesRequest\022\027\n\007user_id\030\001 \001(\003R\006userId\022" +
-      "\031\n\010board_id\030\002 \001(\005R\007boardId\"\270\001\n\036RenderSto" +
-      "ryBoardSencesResponse\022\022\n\004code\030\001 \001(\005R\004cod" +
-      "e\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020generatin" +
-      "g_stage\030\003 \001(\005R\017generatingStage\022=\n\004list\030\004" +
-      " \003(\0132).rankquantity.voyager.api.StoryBoa" +
-      "rdSenceR\004list\"W\n!GetStoryBoardSenceGener" +
-      "ateRequest\022\031\n\010sence_id\030\001 \001(\003R\007senceId\022\027\n" +
-      "\007user_id\030\002 \001(\003R\006userId\"\274\001\n\"GetStoryBoard" +
-      "SenceGenerateResponse\022\022\n\004code\030\001 \001(\005R\004cod" +
-      "e\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020generatin" +
-      "g_stage\030\003 \001(\005R\017generatingStage\022=\n\004data\030\004" +
-      " \001(\0132).rankquantity.voyager.api.StoryBoa" +
-      "rdSenceR\004data\"R\n\034GetStoryBoardGenerateRe" +
-      "quest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user" +
-      "_id\030\002 \001(\003R\006userId\"\267\001\n\035GetStoryBoardGener" +
-      "ateResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007messa" +
-      "ge\030\002 \001(\tR\007message\022)\n\020generating_stage\030\003 " +
-      "\001(\005R\017generatingStage\022=\n\004list\030\004 \003(\0132).ran" +
-      "kquantity.voyager.api.StoryBoardSenceR\004l" +
-      "ist\"\372\001\n\026QueryTaskStatusRequest\022\031\n\010board_" +
-      "id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006user" +
-      "Id\022\031\n\010story_id\030\003 \001(\003R\007storyId\022\031\n\010sence_i" +
-      "d\030\004 \001(\003R\007senceId\022\027\n\007role_id\030\005 \001(\003R\006roleI" +
-      "d\022E\n\013render_type\030\006 \001(\0162$.rankquantity.vo" +
-      "yager.api.RenderTypeR\nrenderType\022\026\n\006Task" +
-      "Id\030\007 \001(\tR\006TaskId\"\306\005\n\027QueryTaskStatusResp" +
-      "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\022J\n\004data\030\003 \001(\01326.rankquantity." +
-      "voyager.api.QueryTaskStatusResponse.Data" +
-      "R\004data\032\260\004\n\004Data\022?\n\005stage\030\001 \001(\0162).rankqua" +
-      "ntity.voyager.api.StoryboardStageR\005stage" +
-      "\022a\n\025dashscope_task_status\030\002 \001(\0162-.rankqu" +
-      "antity.voyager.api.DashScopeTaskStatusR\023" +
-      "dashscopeTaskStatus\022j\n\030render_storyboard" +
-      "_detail\030\003 \001(\01320.rankquantity.voyager.api" +
-      ".RenderStoryboardDetailR\026renderStoryboar" +
-      "dDetail\022[\n\023render_story_detail\030\004 \001(\0132+.r" +
-      "ankquantity.voyager.api.RenderStoryDetai" +
-      "lR\021renderStoryDetail\022j\n\034render_storyboar" +
-      "d_sence_list\030\005 \003(\0132).rankquantity.voyage" +
-      "r.api.StoryBoardSenceR\031renderStoryboardS" +
-      "enceList\022O\n\021render_story_role\030\006 \001(\0132#.ra" +
-      "nkquantity.voyager.api.StoryRoleR\017render" +
-      "StoryRole*\246\001\n\016StoryGenStatus\022 \n\034STORY_GE" +
-      "N_STATUS_UNSPECIFIED\020\000\022\031\n\025STORY_GEN_STAT" +
-      "US_INIT\020\001\022\034\n\030STORY_GEN_STATUS_RUNNING\020\002\022" +
-      "\035\n\031STORY_GEN_STATUS_FINISHED\020\003\022\032\n\026STORY_" +
-      "GEN_STATUS_ERROR\020\004*\353\002\n\017StoryboardStage\022 " +
-      "\n\034STORYBOARD_STAGE_UNSPECIFIED\020\000\022\032\n\026STOR" +
-      "YBOARD_STAGE_DRAFT\020\001\022\034\n\030STORYBOARD_STAGE" +
-      "_CREATED\020\002\022\035\n\031STORYBOARD_STAGE_RENDERED\020" +
-      "\003\022!\n\035STORYBOARD_STAGE_RENDER_SCENE\020\004\022\036\n\032" +
-      "STORYBOARD_STAGE_GEN_IMAGE\020\005\022\036\n\032STORYBOA" +
-      "RD_STAGE_GEN_VIDEO\020\006\022\036\n\032STORYBOARD_STAGE" +
-      "_GEN_AUDIO\020\007\022\035\n\031STORYBOARD_STAGE_FINISHE" +
-      "D\020\010\022\033\n\027STORYBOARD_STAGE_FAILED\020\t\022\036\n\032STOR" +
-      "YBOARD_STAGE_PUBLISHED\020\n*\250\001\n\nRenderType\022" +
-      " \n\034RENDER_TYPE_TEXT_UNSPECIFIED\020\000\022\037\n\033REN" +
-      "DER_TYPE_STORYBOARD_TEXT\020\001\022\032\n\026RENDER_TYP" +
-      "E_STORYBOARD\020\002\022\032\n\026RENDER_TYPE_STORYSENCE" +
-      "\020\003\022\037\n\033RENDER_TYPE_STORYCHARACTERS\020\004B\322\001\n\034" +
-      "com.rankquantity.voyager.apiB\nStoryProto" +
-      "P\001Z$github.com/grapery/common-protoc/gen" +
-      "\242\002\003RVA\252\002\030Rankquantity.Voyager.Api\312\002\030Rank" +
-      "quantity\\Voyager\\Api\342\002$Rankquantity\\Voya" +
-      "ger\\Api\\GPBMetadata\352\002\032Rankquantity::Voya" +
-      "ger::Apib\006proto3"
+      "\0227\n\004role\030\003 \001(\0132#.rankquantity.voyager.ap" +
+      "i.StoryRoleR\004role\"j\n\026UpdateStoryRoleRequ" +
+      "est\0227\n\004role\030\001 \001(\0132#.rankquantity.voyager" +
+      ".api.StoryRoleR\004role\022\027\n\007user_id\030\002 \001(\003R\006u" +
+      "serId\"G\n\027UpdateStoryRoleResponse\022\022\n\004code" +
+      "\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\"J" +
+      "\n\024GetStoryRolesRequest\022\031\n\010story_id\030\001 \001(\003" +
+      "R\007storyId\022\027\n\007user_id\030\002 \001(\003R\006userId\"\216\002\n\025G" +
+      "etStoryRolesResponse\022\022\n\004code\030\001 \001(\005R\004code" +
+      "\022\030\n\007message\030\002 \001(\tR\007message\022H\n\004data\030\003 \001(\013" +
+      "24.rankquantity.voyager.api.GetStoryRole" +
+      "sResponse.DataR\004data\032}\n\004Data\0227\n\004list\030\001 \003" +
+      "(\0132#.rankquantity.voyager.api.StoryRoleR" +
+      "\004list\022<\n\007creator\030\003 \003(\0132\".rankquantity.vo" +
+      "yager.api.UserInfoR\007creator\"O\n\031GetStoryB" +
+      "oardRolesRequest\022\031\n\010board_id\030\001 \001(\003R\007boar" +
+      "dId\022\027\n\007user_id\030\002 \001(\003R\006userId\"\230\002\n\032GetStor" +
+      "yBoardRolesResponse\022\022\n\004code\030\001 \001(\005R\004code\022" +
+      "\030\n\007message\030\002 \001(\tR\007message\022M\n\004data\030\003 \001(\0132" +
+      "9.rankquantity.voyager.api.GetStoryBoard" +
+      "RolesResponse.DataR\004data\032}\n\004Data\0227\n\004list" +
+      "\030\001 \003(\0132#.rankquantity.voyager.api.StoryR" +
+      "oleR\004list\022<\n\007creator\030\003 \003(\0132\".rankquantit" +
+      "y.voyager.api.UserInfoR\007creator\"\211\004\n\017Stor" +
+      "yBoardSence\022\031\n\010sence_id\030\001 \001(\003R\007senceId\022\030" +
+      "\n\007content\030\002 \001(\tR\007content\022#\n\rcharacter_id" +
+      "s\030\003 \003(\tR\014characterIds\022\035\n\ncreator_id\030\004 \001(" +
+      "\003R\tcreatorId\022\031\n\010story_id\030\005 \001(\003R\007storyId\022" +
+      "\031\n\010board_id\030\006 \001(\003R\007boardId\022#\n\rimage_prom" +
+      "pts\030\007 \001(\tR\014imagePrompts\022#\n\raudio_prompts" +
+      "\030\010 \001(\tR\014audioPrompts\022#\n\rvideo_prompts\030\t " +
+      "\001(\tR\014videoPrompts\022#\n\ris_generating\030\n \001(\005" +
+      "R\014isGenerating\022\035\n\ngen_result\030\013 \001(\tR\tgenR" +
+      "esult\022\026\n\006images\030\014 \003(\tR\006images\022\033\n\taudio_u" +
+      "rl\030\r \001(\tR\010audioUrl\022\033\n\tvideo_url\030\016 \001(\tR\010v" +
+      "ideoUrl\022\026\n\006status\030\017 \001(\005R\006status\022\024\n\005Ctime" +
+      "\030\020 \001(\003R\005Ctime\022\024\n\005Mtime\030\021 \001(\003R\005Mtime\"P\n\032G" +
+      "etStoryBoardSencesRequest\022\031\n\010board_id\030\001 " +
+      "\001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006userId\"\342\001" +
+      "\n\033GetStoryBoardSencesResponse\022\022\n\004code\030\001 " +
+      "\001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022N\n\004d" +
+      "ata\030\003 \001(\0132:.rankquantity.voyager.api.Get" +
+      "StoryBoardSencesResponse.DataR\004data\032E\n\004D" +
+      "ata\022=\n\004list\030\001 \003(\0132).rankquantity.voyager" +
+      ".api.StoryBoardSenceR\004list\"x\n\034CreateStor" +
+      "yBoardSenceRequest\022?\n\005sence\030\001 \001(\0132).rank" +
+      "quantity.voyager.api.StoryBoardSenceR\005se" +
+      "nce\022\027\n\007user_id\030\002 \001(\003R\006userId\"\302\001\n\035CreateS" +
+      "toryBoardSenceResponse\022\022\n\004code\030\001 \001(\005R\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022P\n\004data\030\003 \001" +
+      "(\0132<.rankquantity.voyager.api.CreateStor" +
+      "yBoardSenceResponse.DataR\004data\032!\n\004Data\022\031" +
+      "\n\010sence_id\030\001 \001(\003R\007senceId\"x\n\034UpdateStory" +
+      "BoardSenceRequest\022?\n\005sence\030\001 \001(\0132).rankq" +
+      "uantity.voyager.api.StoryBoardSenceR\005sen" +
+      "ce\022\027\n\007user_id\030\002 \001(\003R\006userId\"M\n\035UpdateSto" +
+      "ryBoardSenceResponse\022\022\n\004code\030\001 \001(\005R\004code" +
+      "\022\030\n\007message\030\002 \001(\tR\007message\"m\n\034DeleteStor" +
+      "yBoardSenceRequest\022\031\n\010sence_id\030\001 \001(\003R\007se" +
+      "nceId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010sroty_" +
+      "id\030\003 \001(\003R\007srotyId\"M\n\035DeleteStoryBoardSen" +
+      "ceResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007messag" +
+      "e\030\002 \001(\tR\007message\"m\n\034RenderStoryBoardSenc" +
+      "eRequest\022\031\n\010sence_id\030\001 \001(\003R\007senceId\022\027\n\007u" +
+      "ser_id\030\002 \001(\003R\006userId\022\031\n\010board_id\030\003 \001(\005R\007" +
+      "boardId\"\267\001\n\035RenderStoryBoardSenceRespons" +
+      "e\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007" +
+      "message\022)\n\020generating_stage\030\003 \001(\005R\017gener" +
+      "atingStage\022=\n\004data\030\004 \001(\0132).rankquantity." +
+      "voyager.api.StoryBoardSenceR\004data\"S\n\035Ren" +
+      "derStoryBoardSencesRequest\022\027\n\007user_id\030\001 " +
+      "\001(\003R\006userId\022\031\n\010board_id\030\002 \001(\005R\007boardId\"\270" +
+      "\001\n\036RenderStoryBoardSencesResponse\022\022\n\004cod" +
+      "e\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022" +
+      ")\n\020generating_stage\030\003 \001(\005R\017generatingSta" +
+      "ge\022=\n\004list\030\004 \003(\0132).rankquantity.voyager." +
+      "api.StoryBoardSenceR\004list\"W\n!GetStoryBoa" +
+      "rdSenceGenerateRequest\022\031\n\010sence_id\030\001 \001(\003" +
+      "R\007senceId\022\027\n\007user_id\030\002 \001(\003R\006userId\"\274\001\n\"G" +
+      "etStoryBoardSenceGenerateResponse\022\022\n\004cod" +
+      "e\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022" +
+      ")\n\020generating_stage\030\003 \001(\005R\017generatingSta" +
+      "ge\022=\n\004data\030\004 \001(\0132).rankquantity.voyager." +
+      "api.StoryBoardSenceR\004data\"R\n\034GetStoryBoa" +
+      "rdGenerateRequest\022\031\n\010board_id\030\001 \001(\003R\007boa" +
+      "rdId\022\027\n\007user_id\030\002 \001(\003R\006userId\"\267\001\n\035GetSto" +
+      "ryBoardGenerateResponse\022\022\n\004code\030\001 \001(\005R\004c" +
+      "ode\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020generat" +
+      "ing_stage\030\003 \001(\005R\017generatingStage\022=\n\004list" +
+      "\030\004 \003(\0132).rankquantity.voyager.api.StoryB" +
+      "oardSenceR\004list\"\372\001\n\026QueryTaskStatusReque" +
+      "st\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user_id" +
+      "\030\002 \001(\003R\006userId\022\031\n\010story_id\030\003 \001(\003R\007storyI" +
+      "d\022\031\n\010sence_id\030\004 \001(\003R\007senceId\022\027\n\007role_id\030" +
+      "\005 \001(\003R\006roleId\022E\n\013render_type\030\006 \001(\0162$.ran" +
+      "kquantity.voyager.api.RenderTypeR\nrender" +
+      "Type\022\026\n\006TaskId\030\007 \001(\tR\006TaskId\"\306\005\n\027QueryTa" +
+      "skStatusResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007" +
+      "message\030\002 \001(\tR\007message\022J\n\004data\030\003 \001(\01326.r" +
+      "ankquantity.voyager.api.QueryTaskStatusR" +
+      "esponse.DataR\004data\032\260\004\n\004Data\022?\n\005stage\030\001 \001" +
+      "(\0162).rankquantity.voyager.api.Storyboard" +
+      "StageR\005stage\022a\n\025dashscope_task_status\030\002 " +
+      "\001(\0162-.rankquantity.voyager.api.DashScope" +
+      "TaskStatusR\023dashscopeTaskStatus\022j\n\030rende" +
+      "r_storyboard_detail\030\003 \001(\01320.rankquantity" +
+      ".voyager.api.RenderStoryboardDetailR\026ren" +
+      "derStoryboardDetail\022[\n\023render_story_deta" +
+      "il\030\004 \001(\0132+.rankquantity.voyager.api.Rend" +
+      "erStoryDetailR\021renderStoryDetail\022j\n\034rend" +
+      "er_storyboard_sence_list\030\005 \003(\0132).rankqua" +
+      "ntity.voyager.api.StoryBoardSenceR\031rende" +
+      "rStoryboardSenceList\022O\n\021render_story_rol" +
+      "e\030\006 \001(\0132#.rankquantity.voyager.api.Story" +
+      "RoleR\017renderStoryRole*\246\001\n\016StoryGenStatus" +
+      "\022 \n\034STORY_GEN_STATUS_UNSPECIFIED\020\000\022\031\n\025ST" +
+      "ORY_GEN_STATUS_INIT\020\001\022\034\n\030STORY_GEN_STATU" +
+      "S_RUNNING\020\002\022\035\n\031STORY_GEN_STATUS_FINISHED" +
+      "\020\003\022\032\n\026STORY_GEN_STATUS_ERROR\020\004*\353\002\n\017Story" +
+      "boardStage\022 \n\034STORYBOARD_STAGE_UNSPECIFI" +
+      "ED\020\000\022\032\n\026STORYBOARD_STAGE_DRAFT\020\001\022\034\n\030STOR" +
+      "YBOARD_STAGE_CREATED\020\002\022\035\n\031STORYBOARD_STA" +
+      "GE_RENDERED\020\003\022!\n\035STORYBOARD_STAGE_RENDER" +
+      "_SCENE\020\004\022\036\n\032STORYBOARD_STAGE_GEN_IMAGE\020\005" +
+      "\022\036\n\032STORYBOARD_STAGE_GEN_VIDEO\020\006\022\036\n\032STOR" +
+      "YBOARD_STAGE_GEN_AUDIO\020\007\022\035\n\031STORYBOARD_S" +
+      "TAGE_FINISHED\020\010\022\033\n\027STORYBOARD_STAGE_FAIL" +
+      "ED\020\t\022\036\n\032STORYBOARD_STAGE_PUBLISHED\020\n*\250\001\n" +
+      "\nRenderType\022 \n\034RENDER_TYPE_TEXT_UNSPECIF" +
+      "IED\020\000\022\037\n\033RENDER_TYPE_STORYBOARD_TEXT\020\001\022\032" +
+      "\n\026RENDER_TYPE_STORYBOARD\020\002\022\032\n\026RENDER_TYP" +
+      "E_STORYSENCE\020\003\022\037\n\033RENDER_TYPE_STORYCHARA" +
+      "CTERS\020\004B\322\001\n\034com.rankquantity.voyager.api" +
+      "B\nStoryProtoP\001Z$github.com/grapery/commo" +
+      "n-protoc/gen\242\002\003RVA\252\002\030Rankquantity.Voyage" +
+      "r.Api\312\002\030Rankquantity\\Voyager\\Api\342\002$Rankq" +
+      "uantity\\Voyager\\Api\\GPBMetadata\352\002\032Rankqu" +
+      "antity::Voyager::Apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1418,14 +1432,26 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_WatchStoryResponse_Data_descriptor,
         new java.lang.String[] { "StoryId", });
-    internal_static_rankquantity_voyager_api_LikeStoryboardRequest_descriptor =
+    internal_static_rankquantity_voyager_api_UnWatchStoryRequest_descriptor =
       getDescriptor().getMessageTypes().get(32);
+    internal_static_rankquantity_voyager_api_UnWatchStoryRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rankquantity_voyager_api_UnWatchStoryRequest_descriptor,
+        new java.lang.String[] { "StoryId", "UserId", });
+    internal_static_rankquantity_voyager_api_UnWatchStoryResponse_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_rankquantity_voyager_api_UnWatchStoryResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rankquantity_voyager_api_UnWatchStoryResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_rankquantity_voyager_api_LikeStoryboardRequest_descriptor =
+      getDescriptor().getMessageTypes().get(34);
     internal_static_rankquantity_voyager_api_LikeStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryboardRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_LikeStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_rankquantity_voyager_api_LikeStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryboardResponse_descriptor,
@@ -1437,25 +1463,25 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_LikeStoryboardResponse_Data_descriptor,
         new java.lang.String[] { "StoryId", "BoardId", "UserId", "LikeNum", });
     internal_static_rankquantity_voyager_api_UnLikeStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_rankquantity_voyager_api_UnLikeStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryboardRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_UnLikeStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_rankquantity_voyager_api_UnLikeStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_ShareStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_rankquantity_voyager_api_ShareStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ShareStoryboardRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_ShareStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_rankquantity_voyager_api_ShareStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ShareStoryboardResponse_descriptor,
@@ -1467,13 +1493,13 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_ShareStoryboardResponse_Data_descriptor,
         new java.lang.String[] { "StoryId", "BoardId", "UserId", "ShareNum", });
     internal_static_rankquantity_voyager_api_RenderStoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_rankquantity_voyager_api_RenderStoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "IsRegenerate", "BoardId", "RenderType", });
     internal_static_rankquantity_voyager_api_RenderStoryStructureValue_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_rankquantity_voyager_api_RenderStoryStructureValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryStructureValue_descriptor,
@@ -1485,115 +1511,115 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_RenderStoryStructureValue_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_rankquantity_voyager_api_StoryChapter_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_rankquantity_voyager_api_StoryChapter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryChapter_descriptor,
         new java.lang.String[] { "ChapterSummary", "ChapterDetailInfo", });
     internal_static_rankquantity_voyager_api_ChapterSummary_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_rankquantity_voyager_api_ChapterSummary_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChapterSummary_descriptor,
         new java.lang.String[] { "Title", "Content", "Characters", });
     internal_static_rankquantity_voyager_api_ChapterDetailInformation_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_rankquantity_voyager_api_ChapterDetailInformation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChapterDetailInformation_descriptor,
         new java.lang.String[] { "Details", });
     internal_static_rankquantity_voyager_api_DetailScene_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_rankquantity_voyager_api_DetailScene_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DetailScene_descriptor,
         new java.lang.String[] { "Id", "Content", "Characters", "ImagePrompt", });
     internal_static_rankquantity_voyager_api_Character_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_rankquantity_voyager_api_Character_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_Character_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "AvatarUrl", });
     internal_static_rankquantity_voyager_api_StoryInfo_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_rankquantity_voyager_api_StoryInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryInfo_descriptor,
         new java.lang.String[] { "StoryNameAndTheme", "StoryChapters", });
     internal_static_rankquantity_voyager_api_StoryNameAndTheme_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_rankquantity_voyager_api_StoryNameAndTheme_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryNameAndTheme_descriptor,
         new java.lang.String[] { "Name", "Theme", "Description", });
     internal_static_rankquantity_voyager_api_ChapterInfo_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_rankquantity_voyager_api_ChapterInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChapterInfo_descriptor,
         new java.lang.String[] { "Id", "Title", "Content", });
     internal_static_rankquantity_voyager_api_RenderStoryDetail_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_rankquantity_voyager_api_RenderStoryDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryDetail_descriptor,
         new java.lang.String[] { "Text", "Status", "Urls", "StoryId", "BoardId", "UserId", "RenderType", "Result", "Timecost", });
     internal_static_rankquantity_voyager_api_RenderStoryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_rankquantity_voyager_api_RenderStoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", });
     internal_static_rankquantity_voyager_api_RenderStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_rankquantity_voyager_api_RenderStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryboardRequest_descriptor,
         new java.lang.String[] { "BoardId", "StoryId", "UserId", "IsRegenerate", "RenderType", });
     internal_static_rankquantity_voyager_api_RenderStoryboardDetail_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_rankquantity_voyager_api_RenderStoryboardDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryboardDetail_descriptor,
         new java.lang.String[] { "Text", "Status", "Urls", "StoryId", "BoardId", "UserId", "RenderType", "Result", "Timecost", });
     internal_static_rankquantity_voyager_api_RenderStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_rankquantity_voyager_api_RenderStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", });
     internal_static_rankquantity_voyager_api_GenStoryboardTextRequest_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_rankquantity_voyager_api_GenStoryboardTextRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenStoryboardTextRequest_descriptor,
         new java.lang.String[] { "BoardId", "StoryId", "UserId", "RenderType", "Prompt", "Title", "Description", "SenceNum", });
     internal_static_rankquantity_voyager_api_GenStoryboardTextResponse_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_rankquantity_voyager_api_GenStoryboardTextResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenStoryboardTextResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", });
     internal_static_rankquantity_voyager_api_GenStoryboardImagesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_rankquantity_voyager_api_GenStoryboardImagesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenStoryboardImagesRequest_descriptor,
         new java.lang.String[] { "BoardId", "StoryId", "UserId", "IsRegenerate", "RenderType", "SenceId", "SenceNameKey", "Prompt", });
     internal_static_rankquantity_voyager_api_GenStoryboardImagesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_rankquantity_voyager_api_GenStoryboardImagesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenStoryboardImagesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", });
     internal_static_rankquantity_voyager_api_FetchGroupStorysRequest_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_rankquantity_voyager_api_FetchGroupStorysRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FetchGroupStorysRequest_descriptor,
         new java.lang.String[] { "GroupId", "UserId", "Page", "PageSize", });
     internal_static_rankquantity_voyager_api_FetchGroupStorysResponse_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_rankquantity_voyager_api_FetchGroupStorysResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FetchGroupStorysResponse_descriptor,
@@ -1605,13 +1631,13 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_FetchGroupStorysResponse_Data_descriptor,
         new java.lang.String[] { "List", "Creator", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetStoryRenderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(61);
     internal_static_rankquantity_voyager_api_GetStoryRenderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRenderRequest_descriptor,
         new java.lang.String[] { "StoryId", "RenderStatus", "RenderType", "UserId", });
     internal_static_rankquantity_voyager_api_GetStoryRenderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(62);
     internal_static_rankquantity_voyager_api_GetStoryRenderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRenderResponse_descriptor,
@@ -1623,13 +1649,13 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_GetStoryRenderResponse_Data_descriptor,
         new java.lang.String[] { "List", });
     internal_static_rankquantity_voyager_api_GetStoryBoardRenderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(61);
+      getDescriptor().getMessageTypes().get(63);
     internal_static_rankquantity_voyager_api_GetStoryBoardRenderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardRenderRequest_descriptor,
         new java.lang.String[] { "BoardId", "RenderStatus", "RenderType", });
     internal_static_rankquantity_voyager_api_GetStoryBoardRenderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(62);
+      getDescriptor().getMessageTypes().get(64);
     internal_static_rankquantity_voyager_api_GetStoryBoardRenderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardRenderResponse_descriptor,
@@ -1641,61 +1667,61 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_GetStoryBoardRenderResponse_Data_descriptor,
         new java.lang.String[] { "List", });
     internal_static_rankquantity_voyager_api_ContinueRenderStoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(63);
+      getDescriptor().getMessageTypes().get(65);
     internal_static_rankquantity_voyager_api_ContinueRenderStoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ContinueRenderStoryRequest_descriptor,
         new java.lang.String[] { "StoryId", "PrevBoardId", "UserId", "RenderType", "Prompt", "Title", "Description", "Background", "Roles", });
     internal_static_rankquantity_voyager_api_ContinueRenderStoryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(64);
+      getDescriptor().getMessageTypes().get(66);
     internal_static_rankquantity_voyager_api_ContinueRenderStoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ContinueRenderStoryResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", });
     internal_static_rankquantity_voyager_api_RenderStoryRolesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(65);
+      getDescriptor().getMessageTypes().get(67);
     internal_static_rankquantity_voyager_api_RenderStoryRolesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRolesRequest_descriptor,
         new java.lang.String[] { "StoryId", "BoardId", "UserId", "Prompt", "Background", "Params", });
     internal_static_rankquantity_voyager_api_RenderStoryRolesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(66);
+      getDescriptor().getMessageTypes().get(68);
     internal_static_rankquantity_voyager_api_RenderStoryRolesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRolesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "List", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(67);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_rankquantity_voyager_api_RenderStoryRoleDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleDetailRequest_descriptor,
         new java.lang.String[] { "RoleId", "Role", "Prompt", "Background", "UserId", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_rankquantity_voyager_api_RenderStoryRoleDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleDetailResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Role", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(69);
+      getDescriptor().getMessageTypes().get(71);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleRequest_descriptor,
         new java.lang.String[] { "Role", "UserId", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(70);
+      getDescriptor().getMessageTypes().get(72);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetStoryRolesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(71);
+      getDescriptor().getMessageTypes().get(73);
     internal_static_rankquantity_voyager_api_GetStoryRolesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRolesRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", });
     internal_static_rankquantity_voyager_api_GetStoryRolesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(72);
+      getDescriptor().getMessageTypes().get(74);
     internal_static_rankquantity_voyager_api_GetStoryRolesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRolesResponse_descriptor,
@@ -1707,13 +1733,13 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_GetStoryRolesResponse_Data_descriptor,
         new java.lang.String[] { "List", "Creator", });
     internal_static_rankquantity_voyager_api_GetStoryBoardRolesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(73);
+      getDescriptor().getMessageTypes().get(75);
     internal_static_rankquantity_voyager_api_GetStoryBoardRolesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardRolesRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", });
     internal_static_rankquantity_voyager_api_GetStoryBoardRolesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(74);
+      getDescriptor().getMessageTypes().get(76);
     internal_static_rankquantity_voyager_api_GetStoryBoardRolesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardRolesResponse_descriptor,
@@ -1725,19 +1751,19 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_GetStoryBoardRolesResponse_Data_descriptor,
         new java.lang.String[] { "List", "Creator", });
     internal_static_rankquantity_voyager_api_StoryBoardSence_descriptor =
-      getDescriptor().getMessageTypes().get(75);
+      getDescriptor().getMessageTypes().get(77);
     internal_static_rankquantity_voyager_api_StoryBoardSence_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryBoardSence_descriptor,
         new java.lang.String[] { "SenceId", "Content", "CharacterIds", "CreatorId", "StoryId", "BoardId", "ImagePrompts", "AudioPrompts", "VideoPrompts", "IsGenerating", "GenResult", "Images", "AudioUrl", "VideoUrl", "Status", "Ctime", "Mtime", });
     internal_static_rankquantity_voyager_api_GetStoryBoardSencesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(76);
+      getDescriptor().getMessageTypes().get(78);
     internal_static_rankquantity_voyager_api_GetStoryBoardSencesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardSencesRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", });
     internal_static_rankquantity_voyager_api_GetStoryBoardSencesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(77);
+      getDescriptor().getMessageTypes().get(79);
     internal_static_rankquantity_voyager_api_GetStoryBoardSencesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardSencesResponse_descriptor,
@@ -1749,13 +1775,13 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_GetStoryBoardSencesResponse_Data_descriptor,
         new java.lang.String[] { "List", });
     internal_static_rankquantity_voyager_api_CreateStoryBoardSenceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(78);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_rankquantity_voyager_api_CreateStoryBoardSenceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryBoardSenceRequest_descriptor,
         new java.lang.String[] { "Sence", "UserId", });
     internal_static_rankquantity_voyager_api_CreateStoryBoardSenceResponse_descriptor =
-      getDescriptor().getMessageTypes().get(79);
+      getDescriptor().getMessageTypes().get(81);
     internal_static_rankquantity_voyager_api_CreateStoryBoardSenceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryBoardSenceResponse_descriptor,
@@ -1767,85 +1793,85 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_CreateStoryBoardSenceResponse_Data_descriptor,
         new java.lang.String[] { "SenceId", });
     internal_static_rankquantity_voyager_api_UpdateStoryBoardSenceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(80);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_rankquantity_voyager_api_UpdateStoryBoardSenceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryBoardSenceRequest_descriptor,
         new java.lang.String[] { "Sence", "UserId", });
     internal_static_rankquantity_voyager_api_UpdateStoryBoardSenceResponse_descriptor =
-      getDescriptor().getMessageTypes().get(81);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_rankquantity_voyager_api_UpdateStoryBoardSenceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryBoardSenceResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(82);
+      getDescriptor().getMessageTypes().get(84);
     internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor,
-        new java.lang.String[] { "SenceId", "UserId", });
+        new java.lang.String[] { "SenceId", "UserId", "SrotyId", });
     internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceResponse_descriptor =
-      getDescriptor().getMessageTypes().get(83);
+      getDescriptor().getMessageTypes().get(85);
     internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_RenderStoryBoardSenceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(84);
+      getDescriptor().getMessageTypes().get(86);
     internal_static_rankquantity_voyager_api_RenderStoryBoardSenceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryBoardSenceRequest_descriptor,
         new java.lang.String[] { "SenceId", "UserId", "BoardId", });
     internal_static_rankquantity_voyager_api_RenderStoryBoardSenceResponse_descriptor =
-      getDescriptor().getMessageTypes().get(85);
+      getDescriptor().getMessageTypes().get(87);
     internal_static_rankquantity_voyager_api_RenderStoryBoardSenceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryBoardSenceResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "GeneratingStage", "Data", });
     internal_static_rankquantity_voyager_api_RenderStoryBoardSencesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(86);
+      getDescriptor().getMessageTypes().get(88);
     internal_static_rankquantity_voyager_api_RenderStoryBoardSencesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryBoardSencesRequest_descriptor,
         new java.lang.String[] { "UserId", "BoardId", });
     internal_static_rankquantity_voyager_api_RenderStoryBoardSencesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(87);
+      getDescriptor().getMessageTypes().get(89);
     internal_static_rankquantity_voyager_api_RenderStoryBoardSencesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryBoardSencesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "GeneratingStage", "List", });
     internal_static_rankquantity_voyager_api_GetStoryBoardSenceGenerateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(88);
+      getDescriptor().getMessageTypes().get(90);
     internal_static_rankquantity_voyager_api_GetStoryBoardSenceGenerateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardSenceGenerateRequest_descriptor,
         new java.lang.String[] { "SenceId", "UserId", });
     internal_static_rankquantity_voyager_api_GetStoryBoardSenceGenerateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(89);
+      getDescriptor().getMessageTypes().get(91);
     internal_static_rankquantity_voyager_api_GetStoryBoardSenceGenerateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardSenceGenerateResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "GeneratingStage", "Data", });
     internal_static_rankquantity_voyager_api_GetStoryBoardGenerateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(90);
+      getDescriptor().getMessageTypes().get(92);
     internal_static_rankquantity_voyager_api_GetStoryBoardGenerateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardGenerateRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", });
     internal_static_rankquantity_voyager_api_GetStoryBoardGenerateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(91);
+      getDescriptor().getMessageTypes().get(93);
     internal_static_rankquantity_voyager_api_GetStoryBoardGenerateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardGenerateResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "GeneratingStage", "List", });
     internal_static_rankquantity_voyager_api_QueryTaskStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(92);
+      getDescriptor().getMessageTypes().get(94);
     internal_static_rankquantity_voyager_api_QueryTaskStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_QueryTaskStatusRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", "StoryId", "SenceId", "RoleId", "RenderType", "TaskId", });
     internal_static_rankquantity_voyager_api_QueryTaskStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(93);
+      getDescriptor().getMessageTypes().get(95);
     internal_static_rankquantity_voyager_api_QueryTaskStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_QueryTaskStatusResponse_descriptor,

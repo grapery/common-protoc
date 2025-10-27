@@ -1058,6 +1058,12 @@ public protocol Rankquantity_Voyager_Api_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `watchStory`(request: Rankquantity_Voyager_Api_WatchStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_WatchStoryResponse>
 
+    @discardableResult
+    func `unWatchStory`(request: Rankquantity_Voyager_Api_UnWatchStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnWatchStoryResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `unWatchStory`(request: Rankquantity_Voyager_Api_UnWatchStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnWatchStoryResponse>
+
     //// 收藏故事
     //// 将故事添加到用户的个人收藏夹，方便后续查看
     //// HTTP POST /common.TeamsAPI/ArchiveStory
@@ -5104,6 +5110,16 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
     }
 
     @discardableResult
+    public func `unWatchStory`(request: Rankquantity_Voyager_Api_UnWatchStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnWatchStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnWatchStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `unWatchStory`(request: Rankquantity_Voyager_Api_UnWatchStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnWatchStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnWatchStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `archiveStory`(request: Rankquantity_Voyager_Api_ArchiveStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -6296,6 +6312,7 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
             public static let renderStory = Connect.MethodSpec(name: "RenderStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let updateStory = Connect.MethodSpec(name: "UpdateStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let watchStory = Connect.MethodSpec(name: "WatchStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unWatchStory = Connect.MethodSpec(name: "UnWatchStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let archiveStory = Connect.MethodSpec(name: "ArchiveStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let createStoryboard = Connect.MethodSpec(name: "CreateStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let getStoryboard = Connect.MethodSpec(name: "GetStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)

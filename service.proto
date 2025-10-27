@@ -1672,6 +1672,14 @@ service TeamsAPI {
     };
   }
 
+
+  rpc UnWatchStory(UnWatchStoryRequest) returns (UnWatchStoryResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UnWatchStory"
+      body : "*"
+    };
+  }
+
   /// 收藏故事
   /// 将故事添加到用户的个人收藏夹，方便后续查看
   /// HTTP POST /common.TeamsAPI/ArchiveStory

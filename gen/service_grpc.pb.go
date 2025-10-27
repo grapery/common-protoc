@@ -50,6 +50,7 @@ const (
 	TeamsAPI_RenderStory_FullMethodName                        = "/rankquantity.voyager.api.TeamsAPI/RenderStory"
 	TeamsAPI_UpdateStory_FullMethodName                        = "/rankquantity.voyager.api.TeamsAPI/UpdateStory"
 	TeamsAPI_WatchStory_FullMethodName                         = "/rankquantity.voyager.api.TeamsAPI/WatchStory"
+	TeamsAPI_UnWatchStory_FullMethodName                       = "/rankquantity.voyager.api.TeamsAPI/UnWatchStory"
 	TeamsAPI_ArchiveStory_FullMethodName                       = "/rankquantity.voyager.api.TeamsAPI/ArchiveStory"
 	TeamsAPI_CreateStoryboard_FullMethodName                   = "/rankquantity.voyager.api.TeamsAPI/CreateStoryboard"
 	TeamsAPI_GetStoryboard_FullMethodName                      = "/rankquantity.voyager.api.TeamsAPI/GetStoryboard"
@@ -632,6 +633,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - is_watching: 关注状态（true表示已关注）
 	WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error)
+	UnWatchStory(ctx context.Context, in *UnWatchStoryRequest, opts ...grpc.CallOption) (*UnWatchStoryResponse, error)
 	// / 收藏故事
 	// / 将故事添加到用户的个人收藏夹，方便后续查看
 	// / HTTP POST /common.TeamsAPI/ArchiveStory
@@ -2552,6 +2554,15 @@ func (c *teamsAPIClient) WatchStory(ctx context.Context, in *WatchStoryRequest, 
 	return out, nil
 }
 
+func (c *teamsAPIClient) UnWatchStory(ctx context.Context, in *UnWatchStoryRequest, opts ...grpc.CallOption) (*UnWatchStoryResponse, error) {
+	out := new(UnWatchStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UnWatchStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *teamsAPIClient) ArchiveStory(ctx context.Context, in *ArchiveStoryRequest, opts ...grpc.CallOption) (*ArchiveStoryResponse, error) {
 	out := new(ArchiveStoryResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_ArchiveStory_FullMethodName, in, out, opts...)
@@ -4060,6 +4071,7 @@ type TeamsAPIServer interface {
 	// / - message: 响应消息
 	// / - is_watching: 关注状态（true表示已关注）
 	WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error)
+	UnWatchStory(context.Context, *UnWatchStoryRequest) (*UnWatchStoryResponse, error)
 	// / 收藏故事
 	// / 将故事添加到用户的个人收藏夹，方便后续查看
 	// / HTTP POST /common.TeamsAPI/ArchiveStory
@@ -5791,6 +5803,9 @@ func (UnimplementedTeamsAPIServer) UpdateStory(context.Context, *UpdateStoryRequ
 func (UnimplementedTeamsAPIServer) WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WatchStory not implemented")
 }
+func (UnimplementedTeamsAPIServer) UnWatchStory(context.Context, *UnWatchStoryRequest) (*UnWatchStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnWatchStory not implemented")
+}
 func (UnimplementedTeamsAPIServer) ArchiveStory(context.Context, *ArchiveStoryRequest) (*ArchiveStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ArchiveStory not implemented")
 }
@@ -6706,6 +6721,24 @@ func _TeamsAPI_WatchStory_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).WatchStory(ctx, req.(*WatchStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UnWatchStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnWatchStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UnWatchStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UnWatchStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UnWatchStory(ctx, req.(*UnWatchStoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8928,6 +8961,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WatchStory",
 			Handler:    _TeamsAPI_WatchStory_Handler,
+		},
+		{
+			MethodName: "UnWatchStory",
+			Handler:    _TeamsAPI_UnWatchStory_Handler,
 		},
 		{
 			MethodName: "ArchiveStory",

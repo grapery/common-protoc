@@ -4653,6 +4653,218 @@ var _ interface {
 	ErrorName() string
 } = WatchStoryResponseValidationError{}
 
+// Validate checks the field values on UnWatchStoryRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UnWatchStoryRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UnWatchStoryRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UnWatchStoryRequestMultiError, or nil if none found.
+func (m *UnWatchStoryRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UnWatchStoryRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StoryId
+
+	// no validation rules for UserId
+
+	if len(errors) > 0 {
+		return UnWatchStoryRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UnWatchStoryRequestMultiError is an error wrapping multiple validation
+// errors returned by UnWatchStoryRequest.ValidateAll() if the designated
+// constraints aren't met.
+type UnWatchStoryRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UnWatchStoryRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UnWatchStoryRequestMultiError) AllErrors() []error { return m }
+
+// UnWatchStoryRequestValidationError is the validation error returned by
+// UnWatchStoryRequest.Validate if the designated constraints aren't met.
+type UnWatchStoryRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UnWatchStoryRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UnWatchStoryRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UnWatchStoryRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UnWatchStoryRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UnWatchStoryRequestValidationError) ErrorName() string {
+	return "UnWatchStoryRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UnWatchStoryRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUnWatchStoryRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UnWatchStoryRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UnWatchStoryRequestValidationError{}
+
+// Validate checks the field values on UnWatchStoryResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UnWatchStoryResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UnWatchStoryResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UnWatchStoryResponseMultiError, or nil if none found.
+func (m *UnWatchStoryResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UnWatchStoryResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	if len(errors) > 0 {
+		return UnWatchStoryResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// UnWatchStoryResponseMultiError is an error wrapping multiple validation
+// errors returned by UnWatchStoryResponse.ValidateAll() if the designated
+// constraints aren't met.
+type UnWatchStoryResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UnWatchStoryResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UnWatchStoryResponseMultiError) AllErrors() []error { return m }
+
+// UnWatchStoryResponseValidationError is the validation error returned by
+// UnWatchStoryResponse.Validate if the designated constraints aren't met.
+type UnWatchStoryResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UnWatchStoryResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UnWatchStoryResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UnWatchStoryResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UnWatchStoryResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UnWatchStoryResponseValidationError) ErrorName() string {
+	return "UnWatchStoryResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UnWatchStoryResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUnWatchStoryResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UnWatchStoryResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UnWatchStoryResponseValidationError{}
+
 // Validate checks the field values on LikeStoryboardRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -11014,6 +11226,8 @@ func (m *DeleteStoryBoardSenceRequest) validate(all bool) error {
 	// no validation rules for SenceId
 
 	// no validation rules for UserId
+
+	// no validation rules for SrotyId
 
 	if len(errors) > 0 {
 		return DeleteStoryBoardSenceRequestMultiError(errors)

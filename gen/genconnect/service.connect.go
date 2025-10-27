@@ -5,13 +5,12 @@
 package genconnect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
-
-	connect "connectrpc.com/connect"
-	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
@@ -103,6 +102,8 @@ const (
 	TeamsAPIUpdateStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStory"
 	// TeamsAPIWatchStoryProcedure is the fully-qualified name of the TeamsAPI's WatchStory RPC.
 	TeamsAPIWatchStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/WatchStory"
+	// TeamsAPIUnWatchStoryProcedure is the fully-qualified name of the TeamsAPI's UnWatchStory RPC.
+	TeamsAPIUnWatchStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/UnWatchStory"
 	// TeamsAPIArchiveStoryProcedure is the fully-qualified name of the TeamsAPI's ArchiveStory RPC.
 	TeamsAPIArchiveStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/ArchiveStory"
 	// TeamsAPICreateStoryboardProcedure is the fully-qualified name of the TeamsAPI's CreateStoryboard
@@ -893,6 +894,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - is_watching: 关注状态（true表示已关注）
 	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
+	UnWatchStory(context.Context, *connect.Request[gen.UnWatchStoryRequest]) (*connect.Response[gen.UnWatchStoryResponse], error)
 	// / 收藏故事
 	// / 将故事添加到用户的个人收藏夹，方便后续查看
 	// / HTTP POST /common.TeamsAPI/ArchiveStory
@@ -2723,6 +2725,12 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			connect.WithSchema(teamsAPIMethods.ByName("WatchStory")),
 			connect.WithClientOptions(opts...),
 		),
+		unWatchStory: connect.NewClient[gen.UnWatchStoryRequest, gen.UnWatchStoryResponse](
+			httpClient,
+			baseURL+TeamsAPIUnWatchStoryProcedure,
+			connect.WithSchema(teamsAPIMethods.ByName("UnWatchStory")),
+			connect.WithClientOptions(opts...),
+		),
 		archiveStory: connect.NewClient[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIArchiveStoryProcedure,
@@ -3455,6 +3463,7 @@ type teamsAPIClient struct {
 	renderStory                        *connect.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
 	updateStory                        *connect.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
 	watchStory                         *connect.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
+	unWatchStory                       *connect.Client[gen.UnWatchStoryRequest, gen.UnWatchStoryResponse]
 	archiveStory                       *connect.Client[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse]
 	createStoryboard                   *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
 	getStoryboard                      *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
@@ -3726,6 +3735,11 @@ func (c *teamsAPIClient) UpdateStory(ctx context.Context, req *connect.Request[g
 // WatchStory calls rankquantity.voyager.api.TeamsAPI.WatchStory.
 func (c *teamsAPIClient) WatchStory(ctx context.Context, req *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
 	return c.watchStory.CallUnary(ctx, req)
+}
+
+// UnWatchStory calls rankquantity.voyager.api.TeamsAPI.UnWatchStory.
+func (c *teamsAPIClient) UnWatchStory(ctx context.Context, req *connect.Request[gen.UnWatchStoryRequest]) (*connect.Response[gen.UnWatchStoryResponse], error) {
+	return c.unWatchStory.CallUnary(ctx, req)
 }
 
 // ArchiveStory calls rankquantity.voyager.api.TeamsAPI.ArchiveStory.
@@ -4774,6 +4788,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - is_watching: 关注状态（true表示已关注）
 	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
+	UnWatchStory(context.Context, *connect.Request[gen.UnWatchStoryRequest]) (*connect.Response[gen.UnWatchStoryResponse], error)
 	// / 收藏故事
 	// / 将故事添加到用户的个人收藏夹，方便后续查看
 	// / HTTP POST /common.TeamsAPI/ArchiveStory
@@ -6600,6 +6615,12 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		connect.WithSchema(teamsAPIMethods.ByName("WatchStory")),
 		connect.WithHandlerOptions(opts...),
 	)
+	teamsAPIUnWatchStoryHandler := connect.NewUnaryHandler(
+		TeamsAPIUnWatchStoryProcedure,
+		svc.UnWatchStory,
+		connect.WithSchema(teamsAPIMethods.ByName("UnWatchStory")),
+		connect.WithHandlerOptions(opts...),
+	)
 	teamsAPIArchiveStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIArchiveStoryProcedure,
 		svc.ArchiveStory,
@@ -7360,6 +7381,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUpdateStoryHandler.ServeHTTP(w, r)
 		case TeamsAPIWatchStoryProcedure:
 			teamsAPIWatchStoryHandler.ServeHTTP(w, r)
+		case TeamsAPIUnWatchStoryProcedure:
+			teamsAPIUnWatchStoryHandler.ServeHTTP(w, r)
 		case TeamsAPIArchiveStoryProcedure:
 			teamsAPIArchiveStoryHandler.ServeHTTP(w, r)
 		case TeamsAPICreateStoryboardProcedure:
@@ -7723,6 +7746,10 @@ func (UnimplementedTeamsAPIHandler) UpdateStory(context.Context, *connect.Reques
 
 func (UnimplementedTeamsAPIHandler) WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.WatchStory is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UnWatchStory(context.Context, *connect.Request[gen.UnWatchStoryRequest]) (*connect.Response[gen.UnWatchStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnWatchStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error) {

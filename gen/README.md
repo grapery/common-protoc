@@ -228,6 +228,8 @@
     - [TimeLine](#rankquantity-voyager-api-TimeLine)
     - [UnLikeStoryboardRequest](#rankquantity-voyager-api-UnLikeStoryboardRequest)
     - [UnLikeStoryboardResponse](#rankquantity-voyager-api-UnLikeStoryboardResponse)
+    - [UnWatchStoryRequest](#rankquantity-voyager-api-UnWatchStoryRequest)
+    - [UnWatchStoryResponse](#rankquantity-voyager-api-UnWatchStoryResponse)
     - [UpdateStoryBoardSenceRequest](#rankquantity-voyager-api-UpdateStoryBoardSenceRequest)
     - [UpdateStoryBoardSenceResponse](#rankquantity-voyager-api-UpdateStoryBoardSenceResponse)
     - [UpdateStoryRequest](#rankquantity-voyager-api-UpdateStoryRequest)
@@ -3291,6 +3293,7 @@ CreateStoryboardResponse 创建故事板的响应结果
 | ----- | ---- | ----- | ----------- |
 | sence_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
+| sroty_id | [int64](#int64) |  |  |
 
 
 
@@ -4837,6 +4840,38 @@ TimeLine 表示时间线信息
 <a name="rankquantity-voyager-api-UnLikeStoryboardResponse"></a>
 
 ### UnLikeStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UnWatchStoryRequest"></a>
+
+### UnWatchStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UnWatchStoryResponse"></a>
+
+### UnWatchStoryResponse
 
 
 
@@ -10913,6 +10948,7 @@ TeamsAPI - 团队协作服务API
 | RenderStory | [RenderStoryRequest](#rankquantity-voyager-api-RenderStoryRequest) | [RenderStoryResponse](#rankquantity-voyager-api-RenderStoryResponse) | 渲染故事 / / 【功能说明】 / 使用AI为故事生成内容、角色、场景等 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/RenderStory / - 请求体：RenderStoryRequest (JSON) / - 响应：RenderStoryResponse (JSON) / / 【请求体字段】 / ```json / { / &#34;story_id&#34;: 123, // [必填] 故事ID / &#34;user_id&#34;: 456, // [必填] 用户ID / &#34;prompt&#34;: &#34;渲染提示词&#34;, // [可选] AI生成提示 / &#34;render_type&#34;: 1 // [可选] 渲染类型（1-完整，2-增量） / } / ``` / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - render_id: 渲染任务ID / - status: 任务状态 |
 | UpdateStory | [UpdateStoryRequest](#rankquantity-voyager-api-UpdateStoryRequest) | [UpdateStoryResponse](#rankquantity-voyager-api-UpdateStoryResponse) | 更新故事 / / 【功能说明】 / 更新故事的基本信息和配置 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/UpdateStory / - 请求体：UpdateStoryRequest (JSON) / - 响应：UpdateStoryResponse (JSON) / / 【请求体字段】 / ```json / { / &#34;story_id&#34;: 123, // [必填] 故事ID / &#34;user_id&#34;: 456, // [必填] 用户ID / &#34;title&#34;: &#34;新标题&#34;, // [可选] 故事标题 / &#34;description&#34;: &#34;新简介&#34;, // [可选] 故事描述 / &#34;cover&#34;: &#34;新封面URL&#34;, // [可选] 封面图片 / &#34;is_public&#34;: true // [可选] 公开状态 / } / ``` / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - story: 更新后的故事信息 |
 | WatchStory | [WatchStoryRequest](#rankquantity-voyager-api-WatchStoryRequest) | [WatchStoryResponse](#rankquantity-voyager-api-WatchStoryResponse) | 关注故事 / / 【功能说明】 / 关注指定故事，接收该故事的更新通知 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/WatchStory / - 请求体：WatchStoryRequest (JSON) / - 响应：WatchStoryResponse (JSON) / / 【请求体字段】 / ```json / { / &#34;story_id&#34;: 123, // [必填] 要关注的故事ID / &#34;user_id&#34;: 456 // [必填] 用户ID / } / ``` / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - is_watching: 关注状态（true表示已关注） |
+| UnWatchStory | [UnWatchStoryRequest](#rankquantity-voyager-api-UnWatchStoryRequest) | [UnWatchStoryResponse](#rankquantity-voyager-api-UnWatchStoryResponse) |  |
 | ArchiveStory | [ArchiveStoryRequest](#rankquantity-voyager-api-ArchiveStoryRequest) | [ArchiveStoryResponse](#rankquantity-voyager-api-ArchiveStoryResponse) | 收藏故事 / 将故事添加到用户的个人收藏夹，方便后续查看 / HTTP POST /common.TeamsAPI/ArchiveStory / 请求体：ArchiveStoryRequest (JSON，包含故事ID和用户ID) / 响应：ArchiveStoryResponse (JSON) |
 | CreateStoryboard | [CreateStoryboardRequest](#rankquantity-voyager-api-CreateStoryboardRequest) | [CreateStoryboardResponse](#rankquantity-voyager-api-CreateStoryboardResponse) | 创建故事板 / / 【功能说明】 / 在故事中创建新的故事板（分支剧情） / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/CreateStoryboard / - 请求体：CreateStoryboardRequest (JSON) / - 响应：CreateStoryboardResponse (JSON) / / 【请求体字段】 / ```json / { / &#34;story_id&#34;: 123, // [必填] 所属故事ID / &#34;user_id&#34;: 456, // [必填] 创建者用户ID / &#34;parent_board_id&#34;: 789, // [可选] 父故事板ID（分支时提供） / &#34;title&#34;: &#34;故事板标题&#34;, // [必填] 故事板名称 / &#34;content&#34;: &#34;剧情内容&#34; // [可选] 故事板内容 / } / ``` / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - storyboard: 创建的故事板对象 / - storyboard_id: 故事板ID |
 | GetStoryboard | [GetStoryboardRequest](#rankquantity-voyager-api-GetStoryboardRequest) | [GetStoryboardResponse](#rankquantity-voyager-api-GetStoryboardResponse) | 获取故事板 / / 【功能说明】 / 获取指定故事板的详细信息和内容 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/GetStoryboard / - 请求体：GetStoryboardRequest (JSON) / - 响应：GetStoryboardResponse (JSON) / / 【请求体字段】 / ```json / { / &#34;storyboard_id&#34;: 123, // [必填] 故事板ID / &#34;user_id&#34;: 456, // [必填] 请求用户ID / &#34;include_scenes&#34;: true // [可选] 是否包含场景信息，默认false / } / ``` / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - storyboard: 故事板详细信息 / - scenes: 场景列表（如果 include_scenes=true） |

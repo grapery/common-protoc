@@ -6,13 +6,13 @@
 package com.rankquantity.voyager.api;
 
 /**
- * Protobuf type {@code rankquantity.voyager.api.DeleteStoryBoardSenceRequest}
+ * Protobuf type {@code rankquantity.voyager.api.UnWatchStoryResponse}
  */
 @com.google.protobuf.Generated
-public final class DeleteStoryBoardSenceRequest extends
+public final class UnWatchStoryResponse extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
-    DeleteStoryBoardSenceRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:rankquantity.voyager.api.UnWatchStoryResponse)
+    UnWatchStoryResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -21,59 +21,77 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      DeleteStoryBoardSenceRequest.class.getName());
+      UnWatchStoryResponse.class.getName());
   }
-  // Use DeleteStoryBoardSenceRequest.newBuilder() to construct.
-  private DeleteStoryBoardSenceRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use UnWatchStoryResponse.newBuilder() to construct.
+  private UnWatchStoryResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private DeleteStoryBoardSenceRequest() {
+  private UnWatchStoryResponse() {
+    message_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor;
+    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_fieldAccessorTable
+    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.class, com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.Builder.class);
+            com.rankquantity.voyager.api.UnWatchStoryResponse.class, com.rankquantity.voyager.api.UnWatchStoryResponse.Builder.class);
   }
 
-  public static final int SENCE_ID_FIELD_NUMBER = 1;
-  private long senceId_ = 0L;
+  public static final int CODE_FIELD_NUMBER = 1;
+  private int code_ = 0;
   /**
-   * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
-   * @return The senceId.
+   * <code>int32 code = 1 [json_name = "code"];</code>
+   * @return The code.
    */
   @java.lang.Override
-  public long getSenceId() {
-    return senceId_;
+  public int getCode() {
+    return code_;
   }
 
-  public static final int USER_ID_FIELD_NUMBER = 2;
-  private long userId_ = 0L;
+  public static final int MESSAGE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object message_ = "";
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
-   * @return The userId.
+   * <code>string message = 2 [json_name = "message"];</code>
+   * @return The message.
    */
   @java.lang.Override
-  public long getUserId() {
-    return userId_;
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      message_ = s;
+      return s;
+    }
   }
-
-  public static final int SROTY_ID_FIELD_NUMBER = 3;
-  private long srotyId_ = 0L;
   /**
-   * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-   * @return The srotyId.
+   * <code>string message = 2 [json_name = "message"];</code>
+   * @return The bytes for message.
    */
   @java.lang.Override
-  public long getSrotyId() {
-    return srotyId_;
+  public com.google.protobuf.ByteString
+      getMessageBytes() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      message_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -90,14 +108,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (senceId_ != 0L) {
-      output.writeInt64(1, senceId_);
+    if (code_ != 0) {
+      output.writeInt32(1, code_);
     }
-    if (userId_ != 0L) {
-      output.writeInt64(2, userId_);
-    }
-    if (srotyId_ != 0L) {
-      output.writeInt64(3, srotyId_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(message_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, message_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -108,17 +123,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (senceId_ != 0L) {
+    if (code_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, senceId_);
+        .computeInt32Size(1, code_);
     }
-    if (userId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, userId_);
-    }
-    if (srotyId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, srotyId_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(message_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, message_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -130,17 +140,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest)) {
+    if (!(obj instanceof com.rankquantity.voyager.api.UnWatchStoryResponse)) {
       return super.equals(obj);
     }
-    com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest other = (com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest) obj;
+    com.rankquantity.voyager.api.UnWatchStoryResponse other = (com.rankquantity.voyager.api.UnWatchStoryResponse) obj;
 
-    if (getSenceId()
-        != other.getSenceId()) return false;
-    if (getUserId()
-        != other.getUserId()) return false;
-    if (getSrotyId()
-        != other.getSrotyId()) return false;
+    if (getCode()
+        != other.getCode()) return false;
+    if (!getMessage()
+        .equals(other.getMessage())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -152,58 +160,53 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SENCE_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSenceId());
-    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
-    hash = (37 * hash) + SROTY_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSrotyId());
+    hash = (37 * hash) + CODE_FIELD_NUMBER;
+    hash = (53 * hash) + getCode();
+    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(byte[] data)
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(java.io.InputStream input)
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -211,26 +214,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseDelimitedFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -243,7 +246,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest prototype) {
+  public static Builder newBuilder(com.rankquantity.voyager.api.UnWatchStoryResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -259,26 +262,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code rankquantity.voyager.api.DeleteStoryBoardSenceRequest}
+   * Protobuf type {@code rankquantity.voyager.api.UnWatchStoryResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:rankquantity.voyager.api.UnWatchStoryResponse)
+      com.rankquantity.voyager.api.UnWatchStoryResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor;
+      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_fieldAccessorTable
+      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.class, com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.Builder.class);
+              com.rankquantity.voyager.api.UnWatchStoryResponse.class, com.rankquantity.voyager.api.UnWatchStoryResponse.Builder.class);
     }
 
-    // Construct using com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.newBuilder()
+    // Construct using com.rankquantity.voyager.api.UnWatchStoryResponse.newBuilder()
     private Builder() {
 
     }
@@ -292,26 +295,25 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      senceId_ = 0L;
-      userId_ = 0L;
-      srotyId_ = 0L;
+      code_ = 0;
+      message_ = "";
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor;
+      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest getDefaultInstanceForType() {
-      return com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.getDefaultInstance();
+    public com.rankquantity.voyager.api.UnWatchStoryResponse getDefaultInstanceForType() {
+      return com.rankquantity.voyager.api.UnWatchStoryResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest build() {
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest result = buildPartial();
+    public com.rankquantity.voyager.api.UnWatchStoryResponse build() {
+      com.rankquantity.voyager.api.UnWatchStoryResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -319,46 +321,42 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest buildPartial() {
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest result = new com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest(this);
+    public com.rankquantity.voyager.api.UnWatchStoryResponse buildPartial() {
+      com.rankquantity.voyager.api.UnWatchStoryResponse result = new com.rankquantity.voyager.api.UnWatchStoryResponse(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest result) {
+    private void buildPartial0(com.rankquantity.voyager.api.UnWatchStoryResponse result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.senceId_ = senceId_;
+        result.code_ = code_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.userId_ = userId_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.srotyId_ = srotyId_;
+        result.message_ = message_;
       }
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest) {
-        return mergeFrom((com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest)other);
+      if (other instanceof com.rankquantity.voyager.api.UnWatchStoryResponse) {
+        return mergeFrom((com.rankquantity.voyager.api.UnWatchStoryResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest other) {
-      if (other == com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.getDefaultInstance()) return this;
-      if (other.getSenceId() != 0L) {
-        setSenceId(other.getSenceId());
+    public Builder mergeFrom(com.rankquantity.voyager.api.UnWatchStoryResponse other) {
+      if (other == com.rankquantity.voyager.api.UnWatchStoryResponse.getDefaultInstance()) return this;
+      if (other.getCode() != 0) {
+        setCode(other.getCode());
       }
-      if (other.getUserId() != 0L) {
-        setUserId(other.getUserId());
-      }
-      if (other.getSrotyId() != 0L) {
-        setSrotyId(other.getSrotyId());
+      if (!other.getMessage().isEmpty()) {
+        message_ = other.message_;
+        bitField0_ |= 0x00000002;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -387,20 +385,15 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 8: {
-              senceId_ = input.readInt64();
+              code_ = input.readInt32();
               bitField0_ |= 0x00000001;
               break;
             } // case 8
-            case 16: {
-              userId_ = input.readInt64();
+            case 18: {
+              message_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
-            } // case 16
-            case 24: {
-              srotyId_ = input.readInt64();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 24
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -418,119 +411,127 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long senceId_ ;
+    private int code_ ;
     /**
-     * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
-     * @return The senceId.
+     * <code>int32 code = 1 [json_name = "code"];</code>
+     * @return The code.
      */
     @java.lang.Override
-    public long getSenceId() {
-      return senceId_;
+    public int getCode() {
+      return code_;
     }
     /**
-     * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
-     * @param value The senceId to set.
+     * <code>int32 code = 1 [json_name = "code"];</code>
+     * @param value The code to set.
      * @return This builder for chaining.
      */
-    public Builder setSenceId(long value) {
+    public Builder setCode(int value) {
 
-      senceId_ = value;
+      code_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
+     * <code>int32 code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearSenceId() {
+    public Builder clearCode() {
       bitField0_ = (bitField0_ & ~0x00000001);
-      senceId_ = 0L;
+      code_ = 0;
       onChanged();
       return this;
     }
 
-    private long userId_ ;
+    private java.lang.Object message_ = "";
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
-     * @return The userId.
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The message.
      */
-    @java.lang.Override
-    public long getUserId() {
-      return userId_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
-     * @param value The userId to set.
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @param value The message to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
-
-      userId_ = value;
+    public Builder setMessage(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      message_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder clearMessage() {
+      message_ = getDefaultInstance().getMessage();
       bitField0_ = (bitField0_ & ~0x00000002);
-      userId_ = 0L;
       onChanged();
       return this;
     }
-
-    private long srotyId_ ;
     /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @return The srotyId.
-     */
-    @java.lang.Override
-    public long getSrotyId() {
-      return srotyId_;
-    }
-    /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @param value The srotyId to set.
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @param value The bytes for message to set.
      * @return This builder for chaining.
      */
-    public Builder setSrotyId(long value) {
-
-      srotyId_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSrotyId() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      srotyId_ = 0L;
+    public Builder setMessageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      message_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
+    // @@protoc_insertion_point(builder_scope:rankquantity.voyager.api.UnWatchStoryResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
-  private static final com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:rankquantity.voyager.api.UnWatchStoryResponse)
+  private static final com.rankquantity.voyager.api.UnWatchStoryResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest();
+    DEFAULT_INSTANCE = new com.rankquantity.voyager.api.UnWatchStoryResponse();
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest getDefaultInstance() {
+  public static com.rankquantity.voyager.api.UnWatchStoryResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<DeleteStoryBoardSenceRequest>
-      PARSER = new com.google.protobuf.AbstractParser<DeleteStoryBoardSenceRequest>() {
+  private static final com.google.protobuf.Parser<UnWatchStoryResponse>
+      PARSER = new com.google.protobuf.AbstractParser<UnWatchStoryResponse>() {
     @java.lang.Override
-    public DeleteStoryBoardSenceRequest parsePartialFrom(
+    public UnWatchStoryResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -549,17 +550,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<DeleteStoryBoardSenceRequest> parser() {
+  public static com.google.protobuf.Parser<UnWatchStoryResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<DeleteStoryBoardSenceRequest> getParserForType() {
+  public com.google.protobuf.Parser<UnWatchStoryResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest getDefaultInstanceForType() {
+  public com.rankquantity.voyager.api.UnWatchStoryResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -6,13 +6,13 @@
 package com.rankquantity.voyager.api;
 
 /**
- * Protobuf type {@code rankquantity.voyager.api.DeleteStoryBoardSenceRequest}
+ * Protobuf type {@code rankquantity.voyager.api.UnWatchStoryRequest}
  */
 @com.google.protobuf.Generated
-public final class DeleteStoryBoardSenceRequest extends
+public final class UnWatchStoryRequest extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
-    DeleteStoryBoardSenceRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:rankquantity.voyager.api.UnWatchStoryRequest)
+    UnWatchStoryRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -21,37 +21,37 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      DeleteStoryBoardSenceRequest.class.getName());
+      UnWatchStoryRequest.class.getName());
   }
-  // Use DeleteStoryBoardSenceRequest.newBuilder() to construct.
-  private DeleteStoryBoardSenceRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use UnWatchStoryRequest.newBuilder() to construct.
+  private UnWatchStoryRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private DeleteStoryBoardSenceRequest() {
+  private UnWatchStoryRequest() {
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor;
+    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_fieldAccessorTable
+    return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.class, com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.Builder.class);
+            com.rankquantity.voyager.api.UnWatchStoryRequest.class, com.rankquantity.voyager.api.UnWatchStoryRequest.Builder.class);
   }
 
-  public static final int SENCE_ID_FIELD_NUMBER = 1;
-  private long senceId_ = 0L;
+  public static final int STORY_ID_FIELD_NUMBER = 1;
+  private long storyId_ = 0L;
   /**
-   * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
-   * @return The senceId.
+   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * @return The storyId.
    */
   @java.lang.Override
-  public long getSenceId() {
-    return senceId_;
+  public long getStoryId() {
+    return storyId_;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
@@ -63,17 +63,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public long getUserId() {
     return userId_;
-  }
-
-  public static final int SROTY_ID_FIELD_NUMBER = 3;
-  private long srotyId_ = 0L;
-  /**
-   * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-   * @return The srotyId.
-   */
-  @java.lang.Override
-  public long getSrotyId() {
-    return srotyId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -90,14 +79,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (senceId_ != 0L) {
-      output.writeInt64(1, senceId_);
+    if (storyId_ != 0L) {
+      output.writeInt64(1, storyId_);
     }
     if (userId_ != 0L) {
       output.writeInt64(2, userId_);
-    }
-    if (srotyId_ != 0L) {
-      output.writeInt64(3, srotyId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -108,17 +94,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (senceId_ != 0L) {
+    if (storyId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, senceId_);
+        .computeInt64Size(1, storyId_);
     }
     if (userId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, userId_);
-    }
-    if (srotyId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, srotyId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -130,17 +112,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest)) {
+    if (!(obj instanceof com.rankquantity.voyager.api.UnWatchStoryRequest)) {
       return super.equals(obj);
     }
-    com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest other = (com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest) obj;
+    com.rankquantity.voyager.api.UnWatchStoryRequest other = (com.rankquantity.voyager.api.UnWatchStoryRequest) obj;
 
-    if (getSenceId()
-        != other.getSenceId()) return false;
+    if (getStoryId()
+        != other.getStoryId()) return false;
     if (getUserId()
         != other.getUserId()) return false;
-    if (getSrotyId()
-        != other.getSrotyId()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -152,58 +132,55 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SENCE_ID_FIELD_NUMBER;
+    hash = (37 * hash) + STORY_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSenceId());
+        getStoryId());
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    hash = (37 * hash) + SROTY_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSrotyId());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(byte[] data)
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(java.io.InputStream input)
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -211,26 +188,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseDelimitedFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest parseFrom(
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -243,7 +220,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest prototype) {
+  public static Builder newBuilder(com.rankquantity.voyager.api.UnWatchStoryRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -259,26 +236,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code rankquantity.voyager.api.DeleteStoryBoardSenceRequest}
+   * Protobuf type {@code rankquantity.voyager.api.UnWatchStoryRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:rankquantity.voyager.api.UnWatchStoryRequest)
+      com.rankquantity.voyager.api.UnWatchStoryRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor;
+      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_fieldAccessorTable
+      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.class, com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.Builder.class);
+              com.rankquantity.voyager.api.UnWatchStoryRequest.class, com.rankquantity.voyager.api.UnWatchStoryRequest.Builder.class);
     }
 
-    // Construct using com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.newBuilder()
+    // Construct using com.rankquantity.voyager.api.UnWatchStoryRequest.newBuilder()
     private Builder() {
 
     }
@@ -292,26 +269,25 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      senceId_ = 0L;
+      storyId_ = 0L;
       userId_ = 0L;
-      srotyId_ = 0L;
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_DeleteStoryBoardSenceRequest_descriptor;
+      return com.rankquantity.voyager.api.StoryProto.internal_static_rankquantity_voyager_api_UnWatchStoryRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest getDefaultInstanceForType() {
-      return com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.getDefaultInstance();
+    public com.rankquantity.voyager.api.UnWatchStoryRequest getDefaultInstanceForType() {
+      return com.rankquantity.voyager.api.UnWatchStoryRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest build() {
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest result = buildPartial();
+    public com.rankquantity.voyager.api.UnWatchStoryRequest build() {
+      com.rankquantity.voyager.api.UnWatchStoryRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -319,46 +295,40 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest buildPartial() {
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest result = new com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest(this);
+    public com.rankquantity.voyager.api.UnWatchStoryRequest buildPartial() {
+      com.rankquantity.voyager.api.UnWatchStoryRequest result = new com.rankquantity.voyager.api.UnWatchStoryRequest(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest result) {
+    private void buildPartial0(com.rankquantity.voyager.api.UnWatchStoryRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.senceId_ = senceId_;
+        result.storyId_ = storyId_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.userId_ = userId_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.srotyId_ = srotyId_;
       }
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest) {
-        return mergeFrom((com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest)other);
+      if (other instanceof com.rankquantity.voyager.api.UnWatchStoryRequest) {
+        return mergeFrom((com.rankquantity.voyager.api.UnWatchStoryRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest other) {
-      if (other == com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest.getDefaultInstance()) return this;
-      if (other.getSenceId() != 0L) {
-        setSenceId(other.getSenceId());
+    public Builder mergeFrom(com.rankquantity.voyager.api.UnWatchStoryRequest other) {
+      if (other == com.rankquantity.voyager.api.UnWatchStoryRequest.getDefaultInstance()) return this;
+      if (other.getStoryId() != 0L) {
+        setStoryId(other.getStoryId());
       }
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
-      }
-      if (other.getSrotyId() != 0L) {
-        setSrotyId(other.getSrotyId());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -387,7 +357,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 8: {
-              senceId_ = input.readInt64();
+              storyId_ = input.readInt64();
               bitField0_ |= 0x00000001;
               break;
             } // case 8
@@ -396,11 +366,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
-            case 24: {
-              srotyId_ = input.readInt64();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -418,34 +383,34 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long senceId_ ;
+    private long storyId_ ;
     /**
-     * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
-     * @return The senceId.
+     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * @return The storyId.
      */
     @java.lang.Override
-    public long getSenceId() {
-      return senceId_;
+    public long getStoryId() {
+      return storyId_;
     }
     /**
-     * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
-     * @param value The senceId to set.
+     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * @param value The storyId to set.
      * @return This builder for chaining.
      */
-    public Builder setSenceId(long value) {
+    public Builder setStoryId(long value) {
 
-      senceId_ = value;
+      storyId_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 sence_id = 1 [json_name = "senceId"];</code>
+     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearSenceId() {
+    public Builder clearStoryId() {
       bitField0_ = (bitField0_ & ~0x00000001);
-      senceId_ = 0L;
+      storyId_ = 0L;
       onChanged();
       return this;
     }
@@ -482,55 +447,23 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long srotyId_ ;
-    /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @return The srotyId.
-     */
-    @java.lang.Override
-    public long getSrotyId() {
-      return srotyId_;
-    }
-    /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @param value The srotyId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSrotyId(long value) {
-
-      srotyId_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSrotyId() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      srotyId_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    // @@protoc_insertion_point(builder_scope:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
+    // @@protoc_insertion_point(builder_scope:rankquantity.voyager.api.UnWatchStoryRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:rankquantity.voyager.api.DeleteStoryBoardSenceRequest)
-  private static final com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:rankquantity.voyager.api.UnWatchStoryRequest)
+  private static final com.rankquantity.voyager.api.UnWatchStoryRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest();
+    DEFAULT_INSTANCE = new com.rankquantity.voyager.api.UnWatchStoryRequest();
   }
 
-  public static com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest getDefaultInstance() {
+  public static com.rankquantity.voyager.api.UnWatchStoryRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<DeleteStoryBoardSenceRequest>
-      PARSER = new com.google.protobuf.AbstractParser<DeleteStoryBoardSenceRequest>() {
+  private static final com.google.protobuf.Parser<UnWatchStoryRequest>
+      PARSER = new com.google.protobuf.AbstractParser<UnWatchStoryRequest>() {
     @java.lang.Override
-    public DeleteStoryBoardSenceRequest parsePartialFrom(
+    public UnWatchStoryRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -549,17 +482,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<DeleteStoryBoardSenceRequest> parser() {
+  public static com.google.protobuf.Parser<UnWatchStoryRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<DeleteStoryBoardSenceRequest> getParserForType() {
+  public com.google.protobuf.Parser<UnWatchStoryRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest getDefaultInstanceForType() {
+  public com.rankquantity.voyager.api.UnWatchStoryRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

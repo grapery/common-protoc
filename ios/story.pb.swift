@@ -1903,6 +1903,34 @@ public struct Rankquantity_Voyager_Api_WatchStoryResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_WatchStoryResponse.DataMessage? = nil
 }
 
+public struct Rankquantity_Voyager_Api_UnWatchStoryRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyID: Int64 = 0
+
+  public var userID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Rankquantity_Voyager_Api_UnWatchStoryResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct Rankquantity_Voyager_Api_LikeStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3226,6 +3254,8 @@ public struct Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: Sendable {
   public var senceID: Int64 = 0
 
   public var userID: Int64 = 0
+
+  public var srotyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6336,6 +6366,76 @@ extension Rankquantity_Voyager_Api_WatchStoryResponse.DataMessage: SwiftProtobuf
   }
 }
 
+extension Rankquantity_Voyager_Api_UnWatchStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UnWatchStoryRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnWatchStoryRequest, rhs: Rankquantity_Voyager_Api_UnWatchStoryRequest) -> Bool {
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Rankquantity_Voyager_Api_UnWatchStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UnWatchStoryResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnWatchStoryResponse, rhs: Rankquantity_Voyager_Api_UnWatchStoryResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Rankquantity_Voyager_Api_LikeStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryboardRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}user_id\0\u{3}story_id\0")
@@ -9047,7 +9147,7 @@ extension Rankquantity_Voyager_Api_UpdateStoryBoardSenceResponse: SwiftProtobuf.
 
 extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardSenceRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sence_id\0\u{3}user_id\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sence_id\0\u{3}user_id\0\u{3}sroty_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9057,6 +9157,7 @@ extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.M
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.srotyID) }()
       default: break
       }
     }
@@ -9069,12 +9170,16 @@ extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.M
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
     }
+    if self.srotyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.srotyID, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest, rhs: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest) -> Bool {
     if lhs.senceID != rhs.senceID {return false}
     if lhs.userID != rhs.userID {return false}
+    if lhs.srotyID != rhs.srotyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

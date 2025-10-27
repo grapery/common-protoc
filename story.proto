@@ -454,6 +454,16 @@ message WatchStoryResponse{
   }Data data = 3;
 }
 
+message UnWatchStoryRequest{
+  int64 story_id = 1;
+  int64 user_id = 2;
+}
+
+message UnWatchStoryResponse{
+  int32 code = 1;
+  string message = 2;
+}
+
 message LikeStoryboardRequest{
   int64 board_id = 1;
   int64 user_id = 2;
@@ -855,6 +865,7 @@ message UpdateStoryBoardSenceResponse{
 message DeleteStoryBoardSenceRequest{
   int64 sence_id = 1;
   int64 user_id = 2;
+  int64 sroty_id = 3;
 }
 
 message DeleteStoryBoardSenceResponse{

@@ -881,6 +881,18 @@ public class TeamsAPIClient(
   )
 
 
+  override suspend fun unWatchStory(request: UnWatchStoryRequest, headers: Headers): ResponseMessage<UnWatchStoryResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/UnWatchStory",
+      com.rankquantity.voyager.api.UnWatchStoryRequest::class,
+      com.rankquantity.voyager.api.UnWatchStoryResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
   /**
    * / 收藏故事
    * / 将故事添加到用户的个人收藏夹，方便后续查看

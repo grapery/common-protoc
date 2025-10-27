@@ -3101,6 +3101,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UnWatchStory:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UnWatchStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnWatchStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnWatchStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UnfollowUser:
         post:
             tags:
@@ -4800,6 +4824,8 @@ components:
                 senceId:
                     type: string
                 userId:
+                    type: string
+                srotyId:
                     type: string
         DeleteStoryBoardSenceResponse:
             type: object
@@ -9357,6 +9383,21 @@ components:
                 storyId:
                     type: string
         UnLikeStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        UnWatchStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+        UnWatchStoryResponse:
             type: object
             properties:
                 code:
