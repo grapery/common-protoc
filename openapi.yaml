@@ -4825,7 +4825,9 @@ components:
                     type: string
                 userId:
                     type: string
-                srotyId:
+                storyId:
+                    type: string
+                boardId:
                     type: string
         DeleteStoryBoardSenceResponse:
             type: object

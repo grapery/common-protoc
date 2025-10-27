@@ -3255,7 +3255,9 @@ public struct Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var srotyID: Int64 = 0
+  public var storyID: Int64 = 0
+
+  public var boardID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9147,7 +9149,7 @@ extension Rankquantity_Voyager_Api_UpdateStoryBoardSenceResponse: SwiftProtobuf.
 
 extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardSenceRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sence_id\0\u{3}user_id\0\u{3}sroty_id\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sence_id\0\u{3}user_id\0\u{3}story_id\0\u{3}board_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9157,7 +9159,8 @@ extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.M
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.srotyID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
       default: break
       }
     }
@@ -9170,8 +9173,11 @@ extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.M
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
     }
-    if self.srotyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.srotyID, fieldNumber: 3)
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 3)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -9179,7 +9185,8 @@ extension Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest: SwiftProtobuf.M
   public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest, rhs: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest) -> Bool {
     if lhs.senceID != rhs.senceID {return false}
     if lhs.userID != rhs.userID {return false}
-    if lhs.srotyID != rhs.srotyID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.boardID != rhs.boardID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

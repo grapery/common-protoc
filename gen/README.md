@@ -3293,7 +3293,8 @@ CreateStoryboardResponse 创建故事板的响应结果
 | ----- | ---- | ----- | ----------- |
 | sence_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| sroty_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
 
 
 

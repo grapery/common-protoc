@@ -11227,7 +11227,9 @@ func (m *DeleteStoryBoardSenceRequest) validate(all bool) error {
 
 	// no validation rules for UserId
 
-	// no validation rules for SrotyId
+	// no validation rules for StoryId
+
+	// no validation rules for BoardId
 
 	if len(errors) > 0 {
 		return DeleteStoryBoardSenceRequestMultiError(errors)

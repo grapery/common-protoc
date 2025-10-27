@@ -65,15 +65,26 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int SROTY_ID_FIELD_NUMBER = 3;
-  private long srotyId_ = 0L;
+  public static final int STORY_ID_FIELD_NUMBER = 3;
+  private long storyId_ = 0L;
   /**
-   * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-   * @return The srotyId.
+   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * @return The storyId.
    */
   @java.lang.Override
-  public long getSrotyId() {
-    return srotyId_;
+  public long getStoryId() {
+    return storyId_;
+  }
+
+  public static final int BOARD_ID_FIELD_NUMBER = 4;
+  private long boardId_ = 0L;
+  /**
+   * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+   * @return The boardId.
+   */
+  @java.lang.Override
+  public long getBoardId() {
+    return boardId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -96,8 +107,11 @@ private static final long serialVersionUID = 0L;
     if (userId_ != 0L) {
       output.writeInt64(2, userId_);
     }
-    if (srotyId_ != 0L) {
-      output.writeInt64(3, srotyId_);
+    if (storyId_ != 0L) {
+      output.writeInt64(3, storyId_);
+    }
+    if (boardId_ != 0L) {
+      output.writeInt64(4, boardId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -116,9 +130,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, userId_);
     }
-    if (srotyId_ != 0L) {
+    if (storyId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, srotyId_);
+        .computeInt64Size(3, storyId_);
+    }
+    if (boardId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(4, boardId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -139,8 +157,10 @@ private static final long serialVersionUID = 0L;
         != other.getSenceId()) return false;
     if (getUserId()
         != other.getUserId()) return false;
-    if (getSrotyId()
-        != other.getSrotyId()) return false;
+    if (getStoryId()
+        != other.getStoryId()) return false;
+    if (getBoardId()
+        != other.getBoardId()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -158,9 +178,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    hash = (37 * hash) + SROTY_ID_FIELD_NUMBER;
+    hash = (37 * hash) + STORY_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSrotyId());
+        getStoryId());
+    hash = (37 * hash) + BOARD_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getBoardId());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -294,7 +317,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       senceId_ = 0L;
       userId_ = 0L;
-      srotyId_ = 0L;
+      storyId_ = 0L;
+      boardId_ = 0L;
       return this;
     }
 
@@ -335,7 +359,10 @@ private static final long serialVersionUID = 0L;
         result.userId_ = userId_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.srotyId_ = srotyId_;
+        result.storyId_ = storyId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.boardId_ = boardId_;
       }
     }
 
@@ -357,8 +384,11 @@ private static final long serialVersionUID = 0L;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
       }
-      if (other.getSrotyId() != 0L) {
-        setSrotyId(other.getSrotyId());
+      if (other.getStoryId() != 0L) {
+        setStoryId(other.getStoryId());
+      }
+      if (other.getBoardId() != 0L) {
+        setBoardId(other.getBoardId());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -397,10 +427,15 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 16
             case 24: {
-              srotyId_ = input.readInt64();
+              storyId_ = input.readInt64();
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 32: {
+              boardId_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -482,34 +517,66 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long srotyId_ ;
+    private long storyId_ ;
     /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @return The srotyId.
+     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * @return The storyId.
      */
     @java.lang.Override
-    public long getSrotyId() {
-      return srotyId_;
+    public long getStoryId() {
+      return storyId_;
     }
     /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-     * @param value The srotyId to set.
+     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * @param value The storyId to set.
      * @return This builder for chaining.
      */
-    public Builder setSrotyId(long value) {
+    public Builder setStoryId(long value) {
 
-      srotyId_ = value;
+      storyId_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
+     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearSrotyId() {
+    public Builder clearStoryId() {
       bitField0_ = (bitField0_ & ~0x00000004);
-      srotyId_ = 0L;
+      storyId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long boardId_ ;
+    /**
+     * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+     * @return The boardId.
+     */
+    @java.lang.Override
+    public long getBoardId() {
+      return boardId_;
+    }
+    /**
+     * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+     * @param value The boardId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBoardId(long value) {
+
+      boardId_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBoardId() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      boardId_ = 0L;
       onChanged();
       return this;
     }

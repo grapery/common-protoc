@@ -865,7 +865,8 @@ message UpdateStoryBoardSenceResponse{
 message DeleteStoryBoardSenceRequest{
   int64 sence_id = 1;
   int64 user_id = 2;
-  int64 sroty_id = 3;
+  int64 story_id = 3;
+  int64 board_id = 4;
 }
 
 message DeleteStoryBoardSenceResponse{

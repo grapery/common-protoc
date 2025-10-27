@@ -23,8 +23,14 @@ public interface DeleteStoryBoardSenceRequestOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 sroty_id = 3 [json_name = "srotyId"];</code>
-   * @return The srotyId.
+   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * @return The storyId.
    */
-  long getSrotyId();
+  long getStoryId();
+
+  /**
+   * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+   * @return The boardId.
+   */
+  long getBoardId();
 }
