@@ -427,6 +427,9 @@ const (
 	// TeamsAPIGroupActiveHeatmapProcedure is the fully-qualified name of the TeamsAPI's
 	// GroupActiveHeatmap RPC.
 	TeamsAPIGroupActiveHeatmapProcedure = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
+	// TeamsAPIGetActiveHeatmapDetailsProcedure is the fully-qualified name of the TeamsAPI's
+	// GetActiveHeatmapDetails RPC.
+	TeamsAPIGetActiveHeatmapDetailsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetActiveHeatmapDetails"
 	// TeamsAPIGetStoryboardGenerationRoadmapProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryboardGenerationRoadmap RPC.
 	TeamsAPIGetStoryboardGenerationRoadmapProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap"
@@ -2525,6 +2528,8 @@ type TeamsAPIClient interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error)
+	// / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+	GetActiveHeatmapDetails(context.Context, *connect.Request[gen.GetActiveHeatmapDetailsRequest]) (*connect.Response[gen.GetActiveHeatmapDetailsResponse], error)
 	GetStoryboardGenerationRoadmap(context.Context, *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error)
 }
 
@@ -3421,6 +3426,12 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			connect.WithSchema(teamsAPIMethods.ByName("GroupActiveHeatmap")),
 			connect.WithClientOptions(opts...),
 		),
+		getActiveHeatmapDetails: connect.NewClient[gen.GetActiveHeatmapDetailsRequest, gen.GetActiveHeatmapDetailsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetActiveHeatmapDetailsProcedure,
+			connect.WithSchema(teamsAPIMethods.ByName("GetActiveHeatmapDetails")),
+			connect.WithClientOptions(opts...),
+		),
 		getStoryboardGenerationRoadmap: connect.NewClient[gen.GetStoryboardGenerationRoadmapRequest, gen.GetStoryboardGenerationRoadmapResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryboardGenerationRoadmapProcedure,
@@ -3579,6 +3590,7 @@ type teamsAPIClient struct {
 	deleteUserStoryboardDraft          *connect.Client[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse]
 	userActiveHeatmap                  *connect.Client[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse]
 	groupActiveHeatmap                 *connect.Client[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse]
+	getActiveHeatmapDetails            *connect.Client[gen.GetActiveHeatmapDetailsRequest, gen.GetActiveHeatmapDetailsResponse]
 	getStoryboardGenerationRoadmap     *connect.Client[gen.GetStoryboardGenerationRoadmapRequest, gen.GetStoryboardGenerationRoadmapResponse]
 }
 
@@ -4318,6 +4330,11 @@ func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, req *connect.Req
 // GroupActiveHeatmap calls rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap.
 func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, req *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error) {
 	return c.groupActiveHeatmap.CallUnary(ctx, req)
+}
+
+// GetActiveHeatmapDetails calls rankquantity.voyager.api.TeamsAPI.GetActiveHeatmapDetails.
+func (c *teamsAPIClient) GetActiveHeatmapDetails(ctx context.Context, req *connect.Request[gen.GetActiveHeatmapDetailsRequest]) (*connect.Response[gen.GetActiveHeatmapDetailsResponse], error) {
+	return c.getActiveHeatmapDetails.CallUnary(ctx, req)
 }
 
 // GetStoryboardGenerationRoadmap calls
@@ -6419,6 +6436,8 @@ type TeamsAPIHandler interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error)
+	// / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+	GetActiveHeatmapDetails(context.Context, *connect.Request[gen.GetActiveHeatmapDetailsRequest]) (*connect.Response[gen.GetActiveHeatmapDetailsResponse], error)
 	GetStoryboardGenerationRoadmap(context.Context, *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error)
 }
 
@@ -7311,6 +7330,12 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		connect.WithSchema(teamsAPIMethods.ByName("GroupActiveHeatmap")),
 		connect.WithHandlerOptions(opts...),
 	)
+	teamsAPIGetActiveHeatmapDetailsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetActiveHeatmapDetailsProcedure,
+		svc.GetActiveHeatmapDetails,
+		connect.WithSchema(teamsAPIMethods.ByName("GetActiveHeatmapDetails")),
+		connect.WithHandlerOptions(opts...),
+	)
 	teamsAPIGetStoryboardGenerationRoadmapHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryboardGenerationRoadmapProcedure,
 		svc.GetStoryboardGenerationRoadmap,
@@ -7613,6 +7638,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUserActiveHeatmapHandler.ServeHTTP(w, r)
 		case TeamsAPIGroupActiveHeatmapProcedure:
 			teamsAPIGroupActiveHeatmapHandler.ServeHTTP(w, r)
+		case TeamsAPIGetActiveHeatmapDetailsProcedure:
+			teamsAPIGetActiveHeatmapDetailsHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryboardGenerationRoadmapProcedure:
 			teamsAPIGetStoryboardGenerationRoadmapHandler.ServeHTTP(w, r)
 		default:
@@ -8210,6 +8237,10 @@ func (UnimplementedTeamsAPIHandler) UserActiveHeatmap(context.Context, *connect.
 
 func (UnimplementedTeamsAPIHandler) GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetActiveHeatmapDetails(context.Context, *connect.Request[gen.GetActiveHeatmapDetailsRequest]) (*connect.Response[gen.GetActiveHeatmapDetailsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetActiveHeatmapDetails is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryboardGenerationRoadmap(context.Context, *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error) {

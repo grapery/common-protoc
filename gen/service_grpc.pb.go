@@ -166,6 +166,7 @@ const (
 	TeamsAPI_DeleteUserStoryboardDraft_FullMethodName          = "/rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft"
 	TeamsAPI_UserActiveHeatmap_FullMethodName                  = "/rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap"
 	TeamsAPI_GroupActiveHeatmap_FullMethodName                 = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
+	TeamsAPI_GetActiveHeatmapDetails_FullMethodName            = "/rankquantity.voyager.api.TeamsAPI/GetActiveHeatmapDetails"
 	TeamsAPI_GetStoryboardGenerationRoadmap_FullMethodName     = "/rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap"
 )
 
@@ -2264,6 +2265,8 @@ type TeamsAPIClient interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(ctx context.Context, in *GroupActiveHeamapRequest, opts ...grpc.CallOption) (*GroupActiveHeamapResponse, error)
+	// / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+	GetActiveHeatmapDetails(ctx context.Context, in *GetActiveHeatmapDetailsRequest, opts ...grpc.CallOption) (*GetActiveHeatmapDetailsResponse, error)
 	GetStoryboardGenerationRoadmap(ctx context.Context, in *GetStoryboardGenerationRoadmapRequest, opts ...grpc.CallOption) (*GetStoryboardGenerationRoadmapResponse, error)
 }
 
@@ -3592,6 +3595,15 @@ func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, in *UserActiveHe
 func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, in *GroupActiveHeamapRequest, opts ...grpc.CallOption) (*GroupActiveHeamapResponse, error) {
 	out := new(GroupActiveHeamapResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GroupActiveHeatmap_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetActiveHeatmapDetails(ctx context.Context, in *GetActiveHeatmapDetailsRequest, opts ...grpc.CallOption) (*GetActiveHeatmapDetailsResponse, error) {
+	out := new(GetActiveHeatmapDetailsResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetActiveHeatmapDetails_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5702,6 +5714,8 @@ type TeamsAPIServer interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *GroupActiveHeamapRequest) (*GroupActiveHeamapResponse, error)
+	// / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+	GetActiveHeatmapDetails(context.Context, *GetActiveHeatmapDetailsRequest) (*GetActiveHeatmapDetailsResponse, error)
 	GetStoryboardGenerationRoadmap(context.Context, *GetStoryboardGenerationRoadmapRequest) (*GetStoryboardGenerationRoadmapResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
@@ -6150,6 +6164,9 @@ func (UnimplementedTeamsAPIServer) UserActiveHeatmap(context.Context, *UserActiv
 }
 func (UnimplementedTeamsAPIServer) GroupActiveHeatmap(context.Context, *GroupActiveHeamapRequest) (*GroupActiveHeamapResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GroupActiveHeatmap not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetActiveHeatmapDetails(context.Context, *GetActiveHeatmapDetailsRequest) (*GetActiveHeatmapDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetActiveHeatmapDetails not implemented")
 }
 func (UnimplementedTeamsAPIServer) GetStoryboardGenerationRoadmap(context.Context, *GetStoryboardGenerationRoadmapRequest) (*GetStoryboardGenerationRoadmapResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryboardGenerationRoadmap not implemented")
@@ -8813,6 +8830,24 @@ func _TeamsAPI_GroupActiveHeatmap_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetActiveHeatmapDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActiveHeatmapDetailsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetActiveHeatmapDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetActiveHeatmapDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetActiveHeatmapDetails(ctx, req.(*GetActiveHeatmapDetailsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TeamsAPI_GetStoryboardGenerationRoadmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStoryboardGenerationRoadmapRequest)
 	if err := dec(in); err != nil {
@@ -9425,6 +9460,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GroupActiveHeatmap",
 			Handler:    _TeamsAPI_GroupActiveHeatmap_Handler,
+		},
+		{
+			MethodName: "GetActiveHeatmapDetails",
+			Handler:    _TeamsAPI_GetActiveHeatmapDetails_Handler,
 		},
 		{
 			MethodName: "GetStoryboardGenerationRoadmap",

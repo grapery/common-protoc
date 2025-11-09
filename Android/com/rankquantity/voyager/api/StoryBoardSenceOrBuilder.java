@@ -114,41 +114,41 @@ public interface StoryBoardSenceOrBuilder extends
   int getIsGenerating();
 
   /**
-   * <code>string gen_result = 11 [json_name = "genResult"];</code>
-   * @return The genResult.
-   */
-  java.lang.String getGenResult();
-  /**
-   * <code>string gen_result = 11 [json_name = "genResult"];</code>
-   * @return The bytes for genResult.
-   */
-  com.google.protobuf.ByteString
-      getGenResultBytes();
-
-  /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @return A list containing the images.
    */
   java.util.List<java.lang.String>
       getImagesList();
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @return The count of images.
    */
   int getImagesCount();
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @param index The index of the element to return.
    * @return The images at the given index.
    */
   java.lang.String getImages(int index);
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @param index The index of the value to return.
    * @return The bytes of the images at the given index.
    */
   com.google.protobuf.ByteString
       getImagesBytes(int index);
+
+  /**
+   * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+   * @return The imageUrl.
+   */
+  java.lang.String getImageUrl();
+  /**
+   * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+   * @return The bytes for imageUrl.
+   */
+  com.google.protobuf.ByteString
+      getImageUrlBytes();
 
   /**
    * <code>string audio_url = 13 [json_name = "audioUrl"];</code>

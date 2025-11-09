@@ -2543,5 +2543,10 @@ public interface TeamsAPIClientInterface {
    */
   public suspend fun groupActiveHeatmap(request: GroupActiveHeamapRequest, headers: Headers = emptyMap()): ResponseMessage<GroupActiveHeamapResponse>
 
+  /**
+   * / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+   */
+  public suspend fun getActiveHeatmapDetails(request: GetActiveHeatmapDetailsRequest, headers: Headers = emptyMap()): ResponseMessage<GetActiveHeatmapDetailsResponse>
+
   public suspend fun getStoryboardGenerationRoadmap(request: GetStoryboardGenerationRoadmapRequest, headers: Headers = emptyMap()): ResponseMessage<GetStoryboardGenerationRoadmapResponse>
 }

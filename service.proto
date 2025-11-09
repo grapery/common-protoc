@@ -4023,12 +4023,51 @@ service TeamsAPI {
     };
   }
 
+  /// 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+  rpc GetActiveHeatmapDetails(GetActiveHeatmapDetailsRequest) returns (GetActiveHeatmapDetailsResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetActiveHeatmapDetails"
+      body : "*"
+    };
+  }
+
   rpc GetStoryboardGenerationRoadmap(GetStoryboardGenerationRoadmapRequest) returns (GetStoryboardGenerationRoadmapResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryboardGenerationRoadmapRequest"
       body : "*"
     };
   }
+}
+
+message GetActiveHeatmapDetailsRequest{
+  /// 群组ID，必须大于0
+  int64 group_id = 1 [(validate.rules).int64 = {gt: 0}];
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  /// 热力图时间戳，必须大于0
+  int64 timestamp = 3 [(validate.rules).int64 = {gt: 0}];
+}
+
+
+message ActiveHeatmapDetail{ 
+  int64 group_id = 1 [(validate.rules).int64 = {gt: 0}];
+  /// 热力图数据列表，包含每日的群组活跃度信息
+  HeatmapDataItem data = 2;
+  ActiveInfo info = 3;
+}
+
+message GetActiveHeatmapDetailsResponse{
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+
+  /// 热力图数据数组
+  repeated ActiveHeatmapDetail data = 3;
+  
+  /// 时间范围内的总活跃次数
+  int64 total_count = 4;
 }
 
 /// 获取故事角色海报列表请求
@@ -7029,6 +7068,9 @@ message StoryboardDraftDetail {
   
   /// 草稿所有者用户ID
   int64 user_id = 13;
+
+  // 前一个故事板id
+  int64 prev_storyboard_id = 14;
 }
 
 /// 用户故事板草稿详情请求

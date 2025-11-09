@@ -4784,6 +4784,14 @@ public protocol Rankquantity_Voyager_Api_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `groupActiveHeatmap`(request: Rankquantity_Voyager_Api_GroupActiveHeamapRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GroupActiveHeamapResponse>
 
+    //// 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+    @discardableResult
+    func `getActiveHeatmapDetails`(request: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse>) -> Void) -> Connect.Cancelable
+
+    //// 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+    @available(iOS 13, *)
+    func `getActiveHeatmapDetails`(request: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse>
+
     @discardableResult
     func `getStoryboardGenerationRoadmap`(request: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse>) -> Void) -> Connect.Cancelable
 
@@ -6270,6 +6278,16 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
     }
 
     @discardableResult
+    public func `getActiveHeatmapDetails`(request: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetActiveHeatmapDetails", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getActiveHeatmapDetails`(request: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetActiveHeatmapDetails", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `getStoryboardGenerationRoadmap`(request: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -6428,6 +6446,7 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
             public static let deleteUserStoryboardDraft = Connect.MethodSpec(name: "DeleteUserStoryboardDraft", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let userActiveHeatmap = Connect.MethodSpec(name: "UserActiveHeatmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let groupActiveHeatmap = Connect.MethodSpec(name: "GroupActiveHeatmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getActiveHeatmapDetails = Connect.MethodSpec(name: "GetActiveHeatmapDetails", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let getStoryboardGenerationRoadmap = Connect.MethodSpec(name: "GetStoryboardGenerationRoadmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
         }
     }

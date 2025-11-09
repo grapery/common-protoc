@@ -3056,14 +3056,14 @@ public struct Rankquantity_Voyager_Api_StoryBoardSence: @unchecked Sendable {
     set {_uniqueStorage()._isGenerating = newValue}
   }
 
-  public var genResult: String {
-    get {return _storage._genResult}
-    set {_uniqueStorage()._genResult = newValue}
-  }
-
   public var images: [String] {
     get {return _storage._images}
     set {_uniqueStorage()._images = newValue}
+  }
+
+  public var imageURL: String {
+    get {return _storage._imageURL}
+    set {_uniqueStorage()._imageURL = newValue}
   }
 
   public var audioURL: String {
@@ -8675,7 +8675,7 @@ extension Rankquantity_Voyager_Api_GetStoryBoardRolesResponse.DataMessage: Swift
 
 extension Rankquantity_Voyager_Api_StoryBoardSence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryBoardSence"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sence_id\0\u{1}content\0\u{3}character_ids\0\u{3}creator_id\0\u{3}story_id\0\u{3}board_id\0\u{3}image_prompts\0\u{3}audio_prompts\0\u{3}video_prompts\0\u{3}is_generating\0\u{3}gen_result\0\u{1}images\0\u{3}audio_url\0\u{3}video_url\0\u{1}status\0\u{1}Ctime\0\u{1}Mtime\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sence_id\0\u{1}content\0\u{3}character_ids\0\u{3}creator_id\0\u{3}story_id\0\u{3}board_id\0\u{3}image_prompts\0\u{3}audio_prompts\0\u{3}video_prompts\0\u{3}is_generating\0\u{1}images\0\u{3}image_url\0\u{3}audio_url\0\u{3}video_url\0\u{1}status\0\u{1}Ctime\0\u{1}Mtime\0")
 
   fileprivate class _StorageClass {
     var _senceID: Int64 = 0
@@ -8688,8 +8688,8 @@ extension Rankquantity_Voyager_Api_StoryBoardSence: SwiftProtobuf.Message, Swift
     var _audioPrompts: String = String()
     var _videoPrompts: String = String()
     var _isGenerating: Int32 = 0
-    var _genResult: String = String()
     var _images: [String] = []
+    var _imageURL: String = String()
     var _audioURL: String = String()
     var _videoURL: String = String()
     var _status: Int32 = 0
@@ -8715,8 +8715,8 @@ extension Rankquantity_Voyager_Api_StoryBoardSence: SwiftProtobuf.Message, Swift
       _audioPrompts = source._audioPrompts
       _videoPrompts = source._videoPrompts
       _isGenerating = source._isGenerating
-      _genResult = source._genResult
       _images = source._images
+      _imageURL = source._imageURL
       _audioURL = source._audioURL
       _videoURL = source._videoURL
       _status = source._status
@@ -8750,8 +8750,8 @@ extension Rankquantity_Voyager_Api_StoryBoardSence: SwiftProtobuf.Message, Swift
         case 8: try { try decoder.decodeSingularStringField(value: &_storage._audioPrompts) }()
         case 9: try { try decoder.decodeSingularStringField(value: &_storage._videoPrompts) }()
         case 10: try { try decoder.decodeSingularInt32Field(value: &_storage._isGenerating) }()
-        case 11: try { try decoder.decodeSingularStringField(value: &_storage._genResult) }()
-        case 12: try { try decoder.decodeRepeatedStringField(value: &_storage._images) }()
+        case 11: try { try decoder.decodeRepeatedStringField(value: &_storage._images) }()
+        case 12: try { try decoder.decodeSingularStringField(value: &_storage._imageURL) }()
         case 13: try { try decoder.decodeSingularStringField(value: &_storage._audioURL) }()
         case 14: try { try decoder.decodeSingularStringField(value: &_storage._videoURL) }()
         case 15: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
@@ -8795,11 +8795,11 @@ extension Rankquantity_Voyager_Api_StoryBoardSence: SwiftProtobuf.Message, Swift
       if _storage._isGenerating != 0 {
         try visitor.visitSingularInt32Field(value: _storage._isGenerating, fieldNumber: 10)
       }
-      if !_storage._genResult.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._genResult, fieldNumber: 11)
-      }
       if !_storage._images.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._images, fieldNumber: 12)
+        try visitor.visitRepeatedStringField(value: _storage._images, fieldNumber: 11)
+      }
+      if !_storage._imageURL.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._imageURL, fieldNumber: 12)
       }
       if !_storage._audioURL.isEmpty {
         try visitor.visitSingularStringField(value: _storage._audioURL, fieldNumber: 13)
@@ -8835,8 +8835,8 @@ extension Rankquantity_Voyager_Api_StoryBoardSence: SwiftProtobuf.Message, Swift
         if _storage._audioPrompts != rhs_storage._audioPrompts {return false}
         if _storage._videoPrompts != rhs_storage._videoPrompts {return false}
         if _storage._isGenerating != rhs_storage._isGenerating {return false}
-        if _storage._genResult != rhs_storage._genResult {return false}
         if _storage._images != rhs_storage._images {return false}
+        if _storage._imageURL != rhs_storage._imageURL {return false}
         if _storage._audioURL != rhs_storage._audioURL {return false}
         if _storage._videoURL != rhs_storage._videoURL {return false}
         if _storage._status != rhs_storage._status {return false}

@@ -449,6 +449,21 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
+  public static final int PREV_STORYBOARD_ID_FIELD_NUMBER = 14;
+  private long prevStoryboardId_ = 0L;
+  /**
+   * <pre>
+   * 前一个故事板id
+   * </pre>
+   *
+   * <code>int64 prev_storyboard_id = 14 [json_name = "prevStoryboardId"];</code>
+   * @return The prevStoryboardId.
+   */
+  @java.lang.Override
+  public long getPrevStoryboardId() {
+    return prevStoryboardId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -501,6 +516,9 @@ private static final long serialVersionUID = 0L;
     }
     if (userId_ != 0L) {
       output.writeInt64(13, userId_);
+    }
+    if (prevStoryboardId_ != 0L) {
+      output.writeInt64(14, prevStoryboardId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -560,6 +578,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(13, userId_);
     }
+    if (prevStoryboardId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(14, prevStoryboardId_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -606,6 +628,8 @@ private static final long serialVersionUID = 0L;
     if (stage_ != other.stage_) return false;
     if (getUserId()
         != other.getUserId()) return false;
+    if (getPrevStoryboardId()
+        != other.getPrevStoryboardId()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -655,6 +679,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
+    hash = (37 * hash) + PREV_STORYBOARD_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPrevStoryboardId());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -827,6 +854,7 @@ private static final long serialVersionUID = 0L;
       updatedAt_ = 0L;
       stage_ = 0;
       userId_ = 0L;
+      prevStoryboardId_ = 0L;
       return this;
     }
 
@@ -916,6 +944,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00001000) != 0)) {
         result.userId_ = userId_;
       }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.prevStoryboardId_ = prevStoryboardId_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -998,6 +1029,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
+      }
+      if (other.getPrevStoryboardId() != 0L) {
+        setPrevStoryboardId(other.getPrevStoryboardId());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1102,6 +1136,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00001000;
               break;
             } // case 104
+            case 112: {
+              prevStoryboardId_ = input.readInt64();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2352,6 +2391,50 @@ private static final long serialVersionUID = 0L;
     public Builder clearUserId() {
       bitField0_ = (bitField0_ & ~0x00001000);
       userId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long prevStoryboardId_ ;
+    /**
+     * <pre>
+     * 前一个故事板id
+     * </pre>
+     *
+     * <code>int64 prev_storyboard_id = 14 [json_name = "prevStoryboardId"];</code>
+     * @return The prevStoryboardId.
+     */
+    @java.lang.Override
+    public long getPrevStoryboardId() {
+      return prevStoryboardId_;
+    }
+    /**
+     * <pre>
+     * 前一个故事板id
+     * </pre>
+     *
+     * <code>int64 prev_storyboard_id = 14 [json_name = "prevStoryboardId"];</code>
+     * @param value The prevStoryboardId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrevStoryboardId(long value) {
+
+      prevStoryboardId_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 前一个故事板id
+     * </pre>
+     *
+     * <code>int64 prev_storyboard_id = 14 [json_name = "prevStoryboardId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrevStoryboardId() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      prevStoryboardId_ = 0L;
       onChanged();
       return this;
     }

@@ -2719,6 +2719,81 @@ public struct Rankquantity_Voyager_Api_UpdateGroupProfileResponse: Sendable {
   public init() {}
 }
 
+public struct Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  //// 群组ID，必须大于0
+  public var groupID: Int64 = 0
+
+  //// 用户ID，必须大于0
+  public var userID: Int64 = 0
+
+  //// 热力图时间戳，必须大于0
+  public var timestamp: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Rankquantity_Voyager_Api_ActiveHeatmapDetail: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var groupID: Int64 = 0
+
+  //// 热力图数据列表，包含每日的群组活跃度信息
+  public var data: Rankquantity_Voyager_Api_HeatmapDataItem {
+    get {return _data ?? Rankquantity_Voyager_Api_HeatmapDataItem()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
+
+  public var info: Rankquantity_Voyager_Api_ActiveInfo {
+    get {return _info ?? Rankquantity_Voyager_Api_ActiveInfo()}
+    set {_info = newValue}
+  }
+  /// Returns true if `info` has been explicitly set.
+  public var hasInfo: Bool {return self._info != nil}
+  /// Clears the value of `info`. Subsequent reads from it will return its default value.
+  public mutating func clearInfo() {self._info = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _data: Rankquantity_Voyager_Api_HeatmapDataItem? = nil
+  fileprivate var _info: Rankquantity_Voyager_Api_ActiveInfo? = nil
+}
+
+public struct Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  //// 响应状态码
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
+
+  //// 响应消息
+  public var message: String = String()
+
+  //// 热力图数据数组
+  public var data: [Rankquantity_Voyager_Api_ActiveHeatmapDetail] = []
+
+  //// 时间范围内的总活跃次数
+  public var totalCount: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 //// 获取故事角色海报列表请求
 //// 获取指定角色的所有海报图片列表
 public struct Rankquantity_Voyager_Api_GetStoryRolePosterListRequest: Sendable {
@@ -7453,6 +7528,12 @@ public struct Rankquantity_Voyager_Api_StoryboardDraftDetail: @unchecked Sendabl
   public var userID: Int64 {
     get {return _storage._userID}
     set {_uniqueStorage()._userID = newValue}
+  }
+
+  /// 前一个故事板id
+  public var prevStoryboardID: Int64 {
+    get {return _storage._prevStoryboardID}
+    set {_uniqueStorage()._prevStoryboardID = newValue}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12705,6 +12786,135 @@ extension Rankquantity_Voyager_Api_UpdateGroupProfileResponse: SwiftProtobuf.Mes
   public static func ==(lhs: Rankquantity_Voyager_Api_UpdateGroupProfileResponse, rhs: Rankquantity_Voyager_Api_UpdateGroupProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetActiveHeatmapDetailsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0\u{1}timestamp\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest, rhs: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsRequest) -> Bool {
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Rankquantity_Voyager_Api_ActiveHeatmapDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ActiveHeatmapDetail"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}data\0\u{1}info\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._data) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
+    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._info {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Rankquantity_Voyager_Api_ActiveHeatmapDetail, rhs: Rankquantity_Voyager_Api_ActiveHeatmapDetail) -> Bool {
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs._info != rhs._info {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetActiveHeatmapDetailsResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0\u{3}total_count\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.data) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.totalCount) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if !self.data.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.data, fieldNumber: 3)
+    }
+    if self.totalCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalCount, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse, rhs: Rankquantity_Voyager_Api_GetActiveHeatmapDetailsResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.data != rhs.data {return false}
+    if lhs.totalCount != rhs.totalCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -20976,7 +21186,7 @@ extension Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse: SwiftProtobu
 
 extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryboardDraftDetail"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}draft_id\0\u{3}story_id\0\u{3}storyboard_id\0\u{1}title\0\u{1}content\0\u{1}background\0\u{1}roles\0\u{1}sences\0\u{1}params\0\u{3}created_at\0\u{3}updated_at\0\u{1}stage\0\u{3}user_id\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}draft_id\0\u{3}story_id\0\u{3}storyboard_id\0\u{1}title\0\u{1}content\0\u{1}background\0\u{1}roles\0\u{1}sences\0\u{1}params\0\u{3}created_at\0\u{3}updated_at\0\u{1}stage\0\u{3}user_id\0\u{3}prev_storyboard_id\0")
 
   fileprivate class _StorageClass {
     var _draftID: Int64 = 0
@@ -20992,6 +21202,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
     var _updatedAt: Int64 = 0
     var _stage: Rankquantity_Voyager_Api_StoryboardStage = .unspecified
     var _userID: Int64 = 0
+    var _prevStoryboardID: Int64 = 0
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -21015,6 +21226,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
       _updatedAt = source._updatedAt
       _stage = source._stage
       _userID = source._userID
+      _prevStoryboardID = source._prevStoryboardID
     }
   }
 
@@ -21046,6 +21258,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
         case 11: try { try decoder.decodeSingularInt64Field(value: &_storage._updatedAt) }()
         case 12: try { try decoder.decodeSingularEnumField(value: &_storage._stage) }()
         case 13: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        case 14: try { try decoder.decodeSingularInt64Field(value: &_storage._prevStoryboardID) }()
         default: break
         }
       }
@@ -21097,6 +21310,9 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
       if _storage._userID != 0 {
         try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 13)
       }
+      if _storage._prevStoryboardID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._prevStoryboardID, fieldNumber: 14)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -21119,6 +21335,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
         if _storage._updatedAt != rhs_storage._updatedAt {return false}
         if _storage._stage != rhs_storage._stage {return false}
         if _storage._userID != rhs_storage._userID {return false}
+        if _storage._prevStoryboardID != rhs_storage._prevStoryboardID {return false}
         return true
       }
       if !storagesAreEqual {return false}

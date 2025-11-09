@@ -10954,6 +10954,456 @@ var _ interface {
 	ErrorName() string
 } = UpdateGroupProfileResponseValidationError{}
 
+// Validate checks the field values on GetActiveHeatmapDetailsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetActiveHeatmapDetailsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetActiveHeatmapDetailsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetActiveHeatmapDetailsRequestMultiError, or nil if none found.
+func (m *GetActiveHeatmapDetailsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetActiveHeatmapDetailsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.GetGroupId() <= 0 {
+		err := GetActiveHeatmapDetailsRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetUserId() <= 0 {
+		err := GetActiveHeatmapDetailsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetTimestamp() <= 0 {
+		err := GetActiveHeatmapDetailsRequestValidationError{
+			field:  "Timestamp",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetActiveHeatmapDetailsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetActiveHeatmapDetailsRequestMultiError is an error wrapping multiple
+// validation errors returned by GetActiveHeatmapDetailsRequest.ValidateAll()
+// if the designated constraints aren't met.
+type GetActiveHeatmapDetailsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetActiveHeatmapDetailsRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetActiveHeatmapDetailsRequestMultiError) AllErrors() []error { return m }
+
+// GetActiveHeatmapDetailsRequestValidationError is the validation error
+// returned by GetActiveHeatmapDetailsRequest.Validate if the designated
+// constraints aren't met.
+type GetActiveHeatmapDetailsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetActiveHeatmapDetailsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetActiveHeatmapDetailsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetActiveHeatmapDetailsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetActiveHeatmapDetailsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetActiveHeatmapDetailsRequestValidationError) ErrorName() string {
+	return "GetActiveHeatmapDetailsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetActiveHeatmapDetailsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetActiveHeatmapDetailsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetActiveHeatmapDetailsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetActiveHeatmapDetailsRequestValidationError{}
+
+// Validate checks the field values on ActiveHeatmapDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ActiveHeatmapDetail) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ActiveHeatmapDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ActiveHeatmapDetailMultiError, or nil if none found.
+func (m *ActiveHeatmapDetail) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ActiveHeatmapDetail) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.GetGroupId() <= 0 {
+		err := ActiveHeatmapDetailValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ActiveHeatmapDetailValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ActiveHeatmapDetailValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ActiveHeatmapDetailValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ActiveHeatmapDetailValidationError{
+					field:  "Info",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ActiveHeatmapDetailValidationError{
+					field:  "Info",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ActiveHeatmapDetailValidationError{
+				field:  "Info",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ActiveHeatmapDetailMultiError(errors)
+	}
+
+	return nil
+}
+
+// ActiveHeatmapDetailMultiError is an error wrapping multiple validation
+// errors returned by ActiveHeatmapDetail.ValidateAll() if the designated
+// constraints aren't met.
+type ActiveHeatmapDetailMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ActiveHeatmapDetailMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ActiveHeatmapDetailMultiError) AllErrors() []error { return m }
+
+// ActiveHeatmapDetailValidationError is the validation error returned by
+// ActiveHeatmapDetail.Validate if the designated constraints aren't met.
+type ActiveHeatmapDetailValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ActiveHeatmapDetailValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ActiveHeatmapDetailValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ActiveHeatmapDetailValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ActiveHeatmapDetailValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ActiveHeatmapDetailValidationError) ErrorName() string {
+	return "ActiveHeatmapDetailValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ActiveHeatmapDetailValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sActiveHeatmapDetail.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ActiveHeatmapDetailValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ActiveHeatmapDetailValidationError{}
+
+// Validate checks the field values on GetActiveHeatmapDetailsResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetActiveHeatmapDetailsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetActiveHeatmapDetailsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetActiveHeatmapDetailsResponseMultiError, or nil if none found.
+func (m *GetActiveHeatmapDetailsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetActiveHeatmapDetailsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetActiveHeatmapDetailsResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetActiveHeatmapDetailsResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetActiveHeatmapDetailsResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for TotalCount
+
+	if len(errors) > 0 {
+		return GetActiveHeatmapDetailsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetActiveHeatmapDetailsResponseMultiError is an error wrapping multiple
+// validation errors returned by GetActiveHeatmapDetailsResponse.ValidateAll()
+// if the designated constraints aren't met.
+type GetActiveHeatmapDetailsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetActiveHeatmapDetailsResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetActiveHeatmapDetailsResponseMultiError) AllErrors() []error { return m }
+
+// GetActiveHeatmapDetailsResponseValidationError is the validation error
+// returned by GetActiveHeatmapDetailsResponse.Validate if the designated
+// constraints aren't met.
+type GetActiveHeatmapDetailsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetActiveHeatmapDetailsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetActiveHeatmapDetailsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetActiveHeatmapDetailsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetActiveHeatmapDetailsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetActiveHeatmapDetailsResponseValidationError) ErrorName() string {
+	return "GetActiveHeatmapDetailsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetActiveHeatmapDetailsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetActiveHeatmapDetailsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetActiveHeatmapDetailsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetActiveHeatmapDetailsResponseValidationError{}
+
 // Validate checks the field values on GetStoryRolePosterListRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -34345,6 +34795,8 @@ func (m *StoryboardDraftDetail) validate(all bool) error {
 	// no validation rules for Stage
 
 	// no validation rules for UserId
+
+	// no validation rules for PrevStoryboardId
 
 	if len(errors) > 0 {
 		return StoryboardDraftDetailMultiError(errors)

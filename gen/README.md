@@ -262,6 +262,7 @@
     - [AIPolishRecord](#rankquantity-voyager-api-AIPolishRecord)
     - [AboutRequest](#rankquantity-voyager-api-AboutRequest)
     - [AboutResponse](#rankquantity-voyager-api-AboutResponse)
+    - [ActiveHeatmapDetail](#rankquantity-voyager-api-ActiveHeatmapDetail)
     - [ActiveInfo](#rankquantity-voyager-api-ActiveInfo)
     - [ArchiveStoryRequest](#rankquantity-voyager-api-ArchiveStoryRequest)
     - [ArchiveStoryResponse](#rankquantity-voyager-api-ArchiveStoryResponse)
@@ -340,6 +341,8 @@
     - [GenerateStorySceneVideoResponse](#rankquantity-voyager-api-GenerateStorySceneVideoResponse)
     - [GenerateStorySceneVideoTaskDetail](#rankquantity-voyager-api-GenerateStorySceneVideoTaskDetail)
     - [GenerationPromptRecord](#rankquantity-voyager-api-GenerationPromptRecord)
+    - [GetActiveHeatmapDetailsRequest](#rankquantity-voyager-api-GetActiveHeatmapDetailsRequest)
+    - [GetActiveHeatmapDetailsResponse](#rankquantity-voyager-api-GetActiveHeatmapDetailsResponse)
     - [GetDisscusReq](#rankquantity-voyager-api-GetDisscusReq)
     - [GetDisscusResp](#rankquantity-voyager-api-GetDisscusResp)
     - [GetDisscusResp.Data](#rankquantity-voyager-api-GetDisscusResp-Data)
@@ -4631,8 +4634,8 @@ StoryBoardParams 包含故事板渲染的相关参数
 | audio_prompts | [string](#string) |  |  |
 | video_prompts | [string](#string) |  |  |
 | is_generating | [int32](#int32) |  |  |
-| gen_result | [string](#string) |  |  |
 | images | [string](#string) | repeated |  |
+| image_url | [string](#string) |  |  |
 | audio_url | [string](#string) |  |  |
 | video_url | [string](#string) |  |  |
 | status | [int32](#int32) |  |  |
@@ -5329,6 +5332,23 @@ AI润色内容记录
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | content | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ActiveHeatmapDetail"></a>
+
+### ActiveHeatmapDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| data | [HeatmapDataItem](#rankquantity-voyager-api-HeatmapDataItem) |  | 热力图数据列表，包含每日的群组活跃度信息 |
+| info | [ActiveInfo](#rankquantity-voyager-api-ActiveInfo) |  |  |
 
 
 
@@ -6712,6 +6732,41 @@ AI润色内容记录
 | generated_video | [string](#string) |  | 生成的视频URL |
 | generated_at | [int64](#int64) |  | 生成时间戳 |
 | token_consumption | [TokenConsumption](#rankquantity-voyager-api-TokenConsumption) |  | Token消耗 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetActiveHeatmapDetailsRequest"></a>
+
+### GetActiveHeatmapDetailsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  | 群组ID，必须大于0 |
+| user_id | [int64](#int64) |  | 用户ID，必须大于0 |
+| timestamp | [int64](#int64) |  | 热力图时间戳，必须大于0 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetActiveHeatmapDetailsResponse"></a>
+
+### GetActiveHeatmapDetailsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应状态码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [ActiveHeatmapDetail](#rankquantity-voyager-api-ActiveHeatmapDetail) | repeated | 热力图数据数组 |
+| total_count | [int64](#int64) |  | 时间范围内的总活跃次数 |
 
 
 
@@ -9309,6 +9364,7 @@ AI润色内容记录
 | updated_at | [int64](#int64) |  | 最后更新时间戳（秒） |
 | stage | [StoryboardStage](#rankquantity-voyager-api-StoryboardStage) |  | 生成阶段状态 |
 | user_id | [int64](#int64) |  | 草稿所有者用户ID |
+| prev_storyboard_id | [int64](#int64) |  | 前一个故事板id |
 
 
 
@@ -11065,6 +11121,7 @@ TeamsAPI - 团队协作服务API
 | DeleteUserStoryboardDraft | [DeleteUserStoryboardDraftRequest](#rankquantity-voyager-api-DeleteUserStoryboardDraftRequest) | [DeleteUserStoryboardDraftResponse](#rankquantity-voyager-api-DeleteUserStoryboardDraftResponse) | 删除用户故事板草稿 / / 【功能说明】 / 删除指定用户的故事板草稿，释放存储空间 / / 【权限要求】 / - 仅草稿所有者可以删除自己的草稿 / - 删除后不可恢复，请谨慎操作 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/DeleteStoryboardUserDraft / - 请求体：DeleteUserStoryboardDraftRequest (JSON) / - 响应：DeleteUserStoryboardDraftResponse (JSON) / / 【请求参数】 / - user_id: [必填] 用户ID（所有者ID） / - draft_id: [必填] 草稿ID（要删除的草稿） / - story_id: [可选] 故事ID（用于权限验证） / / 【响应字段】 / - code: 响应状态码（0表示成功） / - message: 响应消息描述 / / 【使用示例】 / ```json / { / &#34;user_id&#34;: 123, / &#34;draft_id&#34;: 456, / &#34;story_id&#34;: 789 / } / ``` |
 | UserActiveHeatmap | [UserActiveHeamapRequest](#rankquantity-voyager-api-UserActiveHeamapRequest) | [UserActiveHeamapResponse](#rankquantity-voyager-api-UserActiveHeamapResponse) | 获取用户活跃热力图 / / 【功能说明】 / 获取指定时间范围内用户的活跃度数据，以GitHub风格的热力图展示 / / 【数据统计】 / - 统计用户的创建、更新、评论等所有活跃操作 / - 按天聚合活跃度数据 / - 自动计算热力等级（0-4级） / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/UserActiveHeatmap / - 请求体：UserActiveHeamapRequest (JSON) / - 响应：UserActiveHeamapResponse (JSON) / / 【请求参数】 / - user_id: [必填] 用户ID / - start_time: [必填] 开始时间戳（秒） / - end_time: [必填] 结束时间戳（秒） / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - data: 热力图数据数组（每天一条记录） / - total_count: 时间范围内的总活跃次数 / / 【使用场景】 / - 用户个人主页展示活跃度 / - 统计用户贡献度 / - 活跃度排行榜 |
 | GroupActiveHeatmap | [GroupActiveHeamapRequest](#rankquantity-voyager-api-GroupActiveHeamapRequest) | [GroupActiveHeamapResponse](#rankquantity-voyager-api-GroupActiveHeamapResponse) | 获取群组活跃热力图 / / 【功能说明】 / 获取指定群组在指定时间范围内的活跃度数据，展示群组整体活跃情况 / / 【数据统计】 / - 统计群组内所有成员的活跃操作 / - 包括故事创建、故事板发布、评论互动等 / - 返回活跃成员数量统计 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/GroupActiveHeatmap / - 请求体：GroupActiveHeamapRequest (JSON) / - 响应：GroupActiveHeamapResponse (JSON) / / 【请求参数】 / - group_id: [必填] 群组ID / - user_id: [必填] 请求用户ID（用于权限验证） / - start_time: [必填] 开始时间戳（秒） / - end_time: [必填] 结束时间戳（秒） / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - data: 热力图数据数组 / - total_count: 群组总活跃次数 / - member_count: 参与活跃的成员数量 / / 【权限要求】 / - 用户必须是群组成员才能查看 / / 【使用场景】 / - 群组主页展示活跃度 / - 分析群组健康度 / - 活跃群组排行 |
+| GetActiveHeatmapDetails | [GetActiveHeatmapDetailsRequest](#rankquantity-voyager-api-GetActiveHeatmapDetailsRequest) | [GetActiveHeatmapDetailsResponse](#rankquantity-voyager-api-GetActiveHeatmapDetailsResponse) | 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人 |
 | GetStoryboardGenerationRoadmap | [GetStoryboardGenerationRoadmapRequest](#rankquantity-voyager-api-GetStoryboardGenerationRoadmapRequest) | [GetStoryboardGenerationRoadmapResponse](#rankquantity-voyager-api-GetStoryboardGenerationRoadmapResponse) |  |
 
  

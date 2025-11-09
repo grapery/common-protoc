@@ -246,4 +246,14 @@ public interface StoryboardDraftDetailOrBuilder extends
    * @return The userId.
    */
   long getUserId();
+
+  /**
+   * <pre>
+   * 前一个故事板id
+   * </pre>
+   *
+   * <code>int64 prev_storyboard_id = 14 [json_name = "prevStoryboardId"];</code>
+   * @return The prevStoryboardId.
+   */
+  long getPrevStoryboardId();
 }

@@ -10358,7 +10358,7 @@ func (m *StoryBoardSence) validate(all bool) error {
 
 	// no validation rules for IsGenerating
 
-	// no validation rules for GenResult
+	// no validation rules for ImageUrl
 
 	// no validation rules for AudioUrl
 

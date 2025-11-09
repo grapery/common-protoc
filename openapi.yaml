@@ -1012,6 +1012,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetActiveHeatmapDetails:
+        post:
+            tags:
+                - TeamsAPI
+            description: / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+            operationId: TeamsAPI_GetActiveHeatmapDetails
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetActiveHeatmapDetailsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetActiveHeatmapDetailsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetFollowList:
         post:
             tags:
@@ -4096,6 +4121,17 @@ components:
             properties:
                 content:
                     type: string
+        ActiveHeatmapDetail:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/HeatmapDataItem'
+                    description: / 热力图数据列表，包含每日的群组活跃度信息
+                info:
+                    $ref: '#/components/schemas/ActiveInfo'
         ActiveInfo:
             type: object
             properties:
@@ -5680,6 +5716,36 @@ components:
             description: |-
                 / 生成提示词记录
                 / 记录故事图片和视频生成使用的提示词
+        GetActiveHeatmapDetailsRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                    description: / 群组ID，必须大于0
+                userId:
+                    type: string
+                    description: / 用户ID，必须大于0
+                timestamp:
+                    type: string
+                    description: / 热力图时间戳，必须大于0
+        GetActiveHeatmapDetailsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: / 响应状态码
+                    format: enum
+                message:
+                    type: string
+                    description: / 响应消息
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ActiveHeatmapDetail'
+                    description: / 热力图数据数组
+                totalCount:
+                    type: string
+                    description: / 时间范围内的总活跃次数
         GetFollowListRequest:
             type: object
             properties:
@@ -8630,12 +8696,12 @@ components:
                 isGenerating:
                     type: integer
                     format: int32
-                genResult:
-                    type: string
                 images:
                     type: array
                     items:
                         type: string
+                imageUrl:
+                    type: string
                 audioUrl:
                     type: string
                 videoUrl:
@@ -9035,6 +9101,9 @@ components:
                 userId:
                     type: string
                     description: / 草稿所有者用户ID
+                prevStoryboardId:
+                    type: string
+                    description: 前一个故事板id
             description: |-
                 ==================== 用户故事板草稿详情 ====================
                 / 故事板草稿详细信息

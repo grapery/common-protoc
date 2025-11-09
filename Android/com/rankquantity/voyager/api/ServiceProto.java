@@ -652,6 +652,21 @@ public final class ServiceProto extends com.google.protobuf.GeneratedFile {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rankquantity_voyager_api_UpdateGroupProfileResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rankquantity_voyager_api_ActiveHeatmapDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rankquantity_voyager_api_ActiveHeatmapDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_rankquantity_voyager_api_GetStoryRolePosterListRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1989,1556 +2004,1576 @@ public final class ServiceProto extends com.google.protobuf.GeneratedFile {
       "InfoR\004info\022\027\n\007user_id\030\003 \001(\003R\006userId\"r\n\032U" +
       "pdateGroupProfileResponse\022:\n\004code\030\001 \001(\0162" +
       "&.rankquantity.voyager.api.ResponseCodeR" +
-      "\004code\022\030\n\007message\030\002 \001(\tR\007message\"\320\001\n\035GetS" +
-      "toryRolePosterListRequest\022\"\n\010story_id\030\001 " +
-      "\001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007role_id\030\002 \001(\003B\007" +
-      "\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 " +
-      "\000R\006userId\022\037\n\006offset\030\004 \001(\003B\007\372B\004\"\002(\000R\006offs" +
-      "et\022&\n\tpage_size\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSi" +
-      "ze\"\321\002\n\020RolePosterDetail\022\016\n\002id\030\001 \001(\003R\002id\022" +
-      "\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n\007role_id\030\003 " +
-      "\001(\003R\006roleId\022\035\n\nposter_url\030\004 \001(\tR\tposterU" +
-      "rl\022\026\n\006prompt\030\005 \001(\tR\006prompt\022\035\n\nlike_count" +
-      "\030\006 \001(\003R\tlikeCount\022\'\n\020is_liked_by_user\030\007 " +
-      "\001(\010R\risLikedByUser\022<\n\007creator\030\010 \001(\0132\".ra" +
-      "nkquantity.voyager.api.UserInfoR\007creator" +
-      "\022\035\n\ncreated_at\030\t \001(\003R\tcreatedAt\022\035\n\nupdat" +
-      "ed_at\030\n \001(\003R\tupdatedAt\"\357\001\n\036GetStoryRoleP" +
-      "osterListResponse\022:\n\004code\030\001 \001(\0162&.rankqu" +
-      "antity.voyager.api.ResponseCodeR\004code\022\030\n" +
-      "\007message\030\002 \001(\tR\007message\022D\n\007posters\030\003 \003(\013" +
-      "2*.rankquantity.voyager.api.RolePosterDe" +
-      "tailR\007posters\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\th" +
-      "ave_more\030\005 \001(\010R\010haveMore\"\252\001\n\032LikeStoryRo" +
-      "lePosterRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002" +
-      " \000R\007storyId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006r" +
-      "oleId\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022" +
-      "$\n\tposter_id\030\004 \001(\003B\007\372B\004\"\002 \000R\010posterId\"\241\001" +
-      "\n\033LikeStoryRolePosterResponse\022:\n\004code\030\001 " +
-      "\001(\0162&.rankquantity.voyager.api.ResponseC" +
-      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022,\n\022c" +
-      "urrent_like_count\030\003 \001(\003R\020currentLikeCoun" +
-      "t\"\254\001\n\034UnLikeStoryRolePosterRequest\022\"\n\010st" +
-      "ory_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007role_i" +
-      "d\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\003 \001(" +
-      "\003B\007\372B\004\"\002 \000R\006userId\022$\n\tposter_id\030\004 \001(\003B\007\372" +
-      "B\004\"\002 \000R\010posterId\"\243\001\n\035UnLikeStoryRolePost" +
-      "erResponse\022:\n\004code\030\001 \001(\0162&.rankquantity." +
-      "voyager.api.ResponseCodeR\004code\022\030\n\007messag" +
-      "e\030\002 \001(\tR\007message\022,\n\022current_like_count\030\003" +
-      " \001(\003R\020currentLikeCount\"\315\001\n\035FetchUserGenT" +
-      "askStatusRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002" +
-      " \000R\006userId\022\027\n\007task_id\030\002 \001(\tR\006taskId\022%\n\tt" +
-      "imestamp\030\003 \001(\003B\007\372B\004\"\002(\000R\ttimestamp\022\"\n\010pa" +
-      "ge_num\030\004 \001(\003B\007\372B\004\"\002(\001R\007pageNum\022&\n\tpage_s" +
-      "ize\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\244\003\n\022Story" +
-      "GentaskDetail\022\031\n\010story_id\030\001 \001(\003R\007storyId" +
-      "\022\031\n\010board_id\030\002 \001(\003R\007boardId\022\'\n\017storyboar" +
-      "d_desc\030\003 \001(\tR\016storyboardDesc\022\031\n\010sence_id" +
-      "\030\004 \001(\003R\007senceId\022\035\n\nsence_desc\030\005 \001(\tR\tsen" +
-      "ceDesc\022\026\n\006prompt\030\006 \001(\tR\006prompt\022\033\n\ttask_t" +
-      "ype\030\007 \001(\003R\010taskType\022\035\n\ntask_stage\030\010 \001(\003R" +
-      "\ttaskStage\022&\n\017start_image_url\030\t \001(\tR\rsta" +
-      "rtImageUrl\022\"\n\rend_image_url\030\n \001(\tR\013endIm" +
-      "ageUrl\022\033\n\tvideo_url\030\013 \001(\tR\010videoUrl\022\"\n\rr" +
-      "eg_image_url\030\014 \001(\tR\013regImageUrl\022\024\n\005style" +
-      "\030\r \001(\tR\005style\"\345\001\n\021UserGenTaskStatus\022\027\n\007t" +
-      "ask_id\030\001 \001(\tR\006taskId\022\027\n\007user_id\030\002 \001(\003R\006u" +
-      "serId\022\026\n\006status\030\003 \001(\tR\006status\022D\n\006detail\030" +
-      "\004 \001(\0132,.rankquantity.voyager.api.StoryGe" +
-      "ntaskDetailR\006detail\022\037\n\013create_time\030\005 \001(\003" +
-      "R\ncreateTime\022\037\n\013update_time\030\006 \001(\003R\nupdat" +
-      "eTime\"\354\001\n\036FetchUserGenTaskStatusResponse" +
-      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
-      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
-      "essage\022A\n\005tasks\030\003 \003(\0132+.rankquantity.voy" +
-      "ager.api.UserGenTaskStatusR\005tasks\022\024\n\005tot" +
-      "al\030\004 \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010have" +
-      "More\"\221\002\n\031GenerateRoleAvatarRequest\022 \n\007ro" +
-      "le_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030" +
-      "\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\016ref_avatar_url" +
-      "\030\003 \001(\tR\014refAvatarUrl\022*\n\013description\030\004 \001(" +
-      "\tB\010\372B\005r\003\030\350\007R\013description\022\024\n\005style\030\005 \001(\tR" +
-      "\005style\022H\n\014image_ratios\030\006 \001(\0162%.rankquant" +
-      "ity.voyager.api.ImageRatiosR\013imageRatios" +
-      "\"\221\001\n\032GenerateRoleAvatarResponse\022:\n\004code\030" +
-      "\001 \001(\0162&.rankquantity.voyager.api.Respons" +
-      "eCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022\035\n" +
-      "\navatar_url\030\003 \001(\tR\tavatarUrl\"\344\002\n\036Generat" +
-      "eStorySceneVideoRequest\022%\n\010story_id\030\001 \001(" +
-      "\003B\n\340A\002\372B\004\"\002 \000R\007storyId\022%\n\010board_id\030\002 \001(\003" +
-      "B\n\340A\002\372B\004\"\002 \000R\007boardId\022%\n\010sence_id\030\003 \001(\003B" +
-      "\n\340A\002\372B\004\"\002 \000R\007senceId\022#\n\007user_id\030\004 \001(\003B\n\340" +
-      "A\002\372B\004\"\002 \000R\006userId\022M\n\014token_source\030\005 \001(\0162" +
-      "%.rankquantity.voyager.api.TokenSourceB\003" +
-      "\340A\002R\013tokenSource\022#\n\006prompt\030\006 \001(\tB\013\340A\001\372B\005" +
-      "r\003\030\320\017R\006prompt\0224\n\017negative_prompt\030\007 \001(\tB\013" +
-      "\340A\001\372B\005r\003\030\350\007R\016negativePrompt\"\263\002\n!Generate" +
-      "StorySceneVideoTaskDetail\022\027\n\007task_id\030\001 \001" +
-      "(\tR\006taskId\022I\n\013task_status\030\002 \001(\0162(.rankqu" +
-      "antity.voyager.api.StoryGenStatusR\ntaskS" +
-      "tatus\022\033\n\tvideo_url\030\003 \001(\tR\010videoUrl\022.\n\023vi" +
-      "deo_thumbnail_url\030\004 \001(\tR\021videoThumbnailU" +
-      "rl\022\032\n\010duration\030\005 \001(\003R\010duration\022\036\n\nresolu" +
-      "tion\030\006 \001(\tR\nresolution\022!\n\014video_format\030\007" +
-      " \001(\tR\013videoFormat\"\314\001\n\037GenerateStoryScene" +
-      "VideoResponse\022:\n\004code\030\001 \001(\0162&.rankquanti" +
-      "ty.voyager.api.ResponseCodeR\004code\022\030\n\007mes" +
-      "sage\030\002 \001(\tR\007message\022S\n\006detail\030\003 \001(\0132;.ra" +
-      "nkquantity.voyager.api.GenerateStoryScen" +
-      "eVideoTaskDetailR\006detail\"\214\003\n\035GenerateSto" +
-      "ryRoleVideoRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B" +
-      "\004\"\002 \000R\007storyId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000" +
-      "R\006roleId\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006user" +
-      "Id\022$\n\tposter_id\030\004 \001(\003B\007\372B\004\"\002 \000R\010posterId" +
-      "\022,\n\022ref_background_url\030\005 \001(\tR\020refBackgro" +
-      "undUrl\022$\n\016ref_avatar_url\030\006 \001(\tR\014refAvata" +
-      "rUrl\022)\n\013text_prompt\030\007 \001(\tB\010\372B\005r\003\030\320\017R\ntex" +
-      "tPrompt\022H\n\014image_ratios\030\010 \001(\0162%.rankquan" +
-      "tity.voyager.api.ImageRatiosR\013imageRatio" +
-      "s\022\024\n\005style\030\t \001(\tR\005style\"\262\002\n GenerateStor" +
-      "yRoleVideoTaskDetail\022\027\n\007task_id\030\001 \001(\tR\006t" +
-      "askId\022I\n\013task_status\030\002 \001(\0162(.rankquantit" +
-      "y.voyager.api.StoryGenStatusR\ntaskStatus" +
-      "\022\033\n\tvideo_url\030\003 \001(\tR\010videoUrl\022.\n\023video_t" +
-      "humbnail_url\030\004 \001(\tR\021videoThumbnailUrl\022\032\n" +
-      "\010duration\030\005 \001(\003R\010duration\022\036\n\nresolution\030" +
-      "\006 \001(\tR\nresolution\022!\n\014video_format\030\007 \001(\tR" +
-      "\013videoFormat\"\312\001\n\036GenerateStoryRoleVideoR" +
-      "esponse\022:\n\004code\030\001 \001(\0162&.rankquantity.voy" +
-      "ager.api.ResponseCodeR\004code\022\030\n\007message\030\002" +
-      " \001(\tR\007message\022R\n\006detail\030\003 \001(\0132:.rankquan" +
-      "tity.voyager.api.GenerateStoryRoleVideoT" +
-      "askDetailR\006detail\"\212\001\n\033GetStoryParticipan" +
-      "tsRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007st" +
-      "oryId\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(\000R\006offset\022&" +
-      "\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\357" +
-      "\001\n\034GetStoryParticipantsResponse\022:\n\004code\030" +
-      "\001 \001(\0162&.rankquantity.voyager.api.Respons" +
-      "eCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022F\n" +
-      "\014participants\030\003 \003(\0132\".rankquantity.voyag" +
-      "er.api.UserInfoR\014participants\022\024\n\005total\030\004" +
-      " \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010haveMore" +
-      "\"\210\001\n\030UpdateStoryAvatarRequest\022\"\n\010story_i" +
-      "d\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001" +
-      "(\003B\007\372B\004\"\002 \000R\006userId\022&\n\navatar_url\030\003 \001(\tB" +
-      "\007\372B\004r\002\020\001R\tavatarUrl\"q\n\031UpdateStoryAvatar" +
-      "Response\022:\n\004code\030\001 \001(\0162&.rankquantity.vo" +
-      "yager.api.ResponseCodeR\004code\022\030\n\007message\030" +
-      "\002 \001(\tR\007message\"\236\001\n\027UpdateStoryCoverReque" +
+      "\004code\022\030\n\007message\030\002 \001(\tR\007message\"\215\001\n\036GetA" +
+      "ctiveHeatmapDetailsRequest\022\"\n\010group_id\030\001" +
+      " \001(\003B\007\372B\004\"\002 \000R\007groupId\022 \n\007user_id\030\002 \001(\003B" +
+      "\007\372B\004\"\002 \000R\006userId\022%\n\ttimestamp\030\003 \001(\003B\007\372B\004" +
+      "\"\002 \000R\ttimestamp\"\262\001\n\023ActiveHeatmapDetail\022" +
+      "\"\n\010group_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007groupId\022=\n\004d" +
+      "ata\030\002 \001(\0132).rankquantity.voyager.api.Hea" +
+      "tmapDataItemR\004data\0228\n\004info\030\003 \001(\0132$.rankq" +
+      "uantity.voyager.api.ActiveInfoR\004info\"\333\001\n" +
+      "\037GetActiveHeatmapDetailsResponse\022:\n\004code" +
+      "\030\001 \001(\0162&.rankquantity.voyager.api.Respon" +
+      "seCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022A" +
+      "\n\004data\030\003 \003(\0132-.rankquantity.voyager.api." +
+      "ActiveHeatmapDetailR\004data\022\037\n\013total_count" +
+      "\030\004 \001(\003R\ntotalCount\"\320\001\n\035GetStoryRolePoste" +
+      "rListRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R" +
+      "\007storyId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006role" +
+      "Id\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006" +
+      "offset\030\004 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_si" +
+      "ze\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\321\002\n\020RolePo" +
+      "sterDetail\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010story_id\030\002" +
+      " \001(\003R\007storyId\022\027\n\007role_id\030\003 \001(\003R\006roleId\022\035" +
+      "\n\nposter_url\030\004 \001(\tR\tposterUrl\022\026\n\006prompt\030" +
+      "\005 \001(\tR\006prompt\022\035\n\nlike_count\030\006 \001(\003R\tlikeC" +
+      "ount\022\'\n\020is_liked_by_user\030\007 \001(\010R\risLikedB" +
+      "yUser\022<\n\007creator\030\010 \001(\0132\".rankquantity.vo" +
+      "yager.api.UserInfoR\007creator\022\035\n\ncreated_a" +
+      "t\030\t \001(\003R\tcreatedAt\022\035\n\nupdated_at\030\n \001(\003R\t" +
+      "updatedAt\"\357\001\n\036GetStoryRolePosterListResp" +
+      "onse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyage" +
+      "r.api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(" +
+      "\tR\007message\022D\n\007posters\030\003 \003(\0132*.rankquanti" +
+      "ty.voyager.api.RolePosterDetailR\007posters" +
+      "\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thave_more\030\005 \001(" +
+      "\010R\010haveMore\"\252\001\n\032LikeStoryRolePosterReque" +
       "st\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 " +
-      "\n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\033\n\tcove" +
-      "r_url\030\003 \001(\tR\010coverUrl\022 \n\014use_ai_cover\030\004 " +
-      "\001(\010R\nuseAiCover\"p\n\030UpdateStoryCoverRespo" +
-      "nse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager" +
-      ".api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\t" +
-      "R\007message\"?\n\031GetStoryImageStyleRequest\022\"" +
-      "\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\"X\n\016St" +
-      "oryStyleDesc\022\016\n\002id\030\001 \001(\003R\002id\022\024\n\005style\030\002 " +
-      "\001(\tR\005style\022 \n\013description\030\003 \001(\tR\013descrip" +
-      "tion\"\262\001\n\032GetStoryImageStyleResponse\022:\n\004c" +
-      "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
-      "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\022>\n\005style\030\003 \003(\0132(.rankquantity.voyager." +
-      "api.StoryStyleDescR\005style\"\236\001\n\034UpdateStor" +
-      "yImageStyleRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B" +
-      "\004\"\002 \000R\007storyId\022\"\n\010style_id\030\002 \001(\003B\007\372B\004\"\002 " +
-      "\000R\007styleId\022\024\n\005style\030\003 \001(\tR\005style\022 \n\007user" +
-      "_id\030\004 \001(\003B\007\372B\004\"\002 \000R\006userId\"u\n\035UpdateStor" +
-      "yImageStyleResponse\022:\n\004code\030\001 \001(\0162&.rank" +
-      "quantity.voyager.api.ResponseCodeR\004code\022" +
-      "\030\n\007message\030\002 \001(\tR\007message\"\223\001\n UpdateStor" +
-      "ySenceMaxNumberRequest\022\"\n\010story_id\030\001 \001(\003" +
-      "B\007\372B\004\"\002 \000R\007storyId\022)\n\nmax_number\030\002 \001(\003B\n" +
-      "\372B\007\"\005\030\350\007(\001R\tmaxNumber\022 \n\007user_id\030\003 \001(\003B\007" +
-      "\372B\004\"\002 \000R\006userId\"y\n!UpdateStorySenceMaxNu" +
-      "mberResponse\022:\n\004code\030\001 \001(\0162&.rankquantit" +
-      "y.voyager.api.ResponseCodeR\004code\022\030\n\007mess" +
-      "age\030\002 \001(\tR\007message\"\250\001\n\034UpdateStoryRolePr" +
-      "omptRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007" +
-      "storyId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleI" +
-      "d\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\006p" +
-      "rompt\030\004 \001(\tB\010\372B\005r\003\030\320\017R\006prompt\"u\n\035UpdateS" +
-      "toryRolePromptResponse\022:\n\004code\030\001 \001(\0162&.r" +
-      "ankquantity.voyager.api.ResponseCodeR\004co" +
-      "de\022\030\n\007message\030\002 \001(\tR\007message\"\361\001\n\'UpdateS" +
-      "toryRoleDescriptionDetailRequest\022\"\n\010stor" +
-      "y_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007role_id\030" +
-      "\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\003 \001(\003B" +
-      "\007\372B\004\"\002 \000R\006userId\022^\n\020character_detail\030\004 \001" +
-      "(\0132).rankquantity.voyager.api.CharacterD" +
-      "etailB\010\372B\005\212\001\002\020\001R\017characterDetail\"\200\001\n(Upd" +
-      "ateStoryRoleDescriptionDetailResponse\022:\n" +
+      "\n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user" +
+      "_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\tposter_id\030" +
+      "\004 \001(\003B\007\372B\004\"\002 \000R\010posterId\"\241\001\n\033LikeStoryRo" +
+      "lePosterResponse\022:\n\004code\030\001 \001(\0162&.rankqua" +
+      "ntity.voyager.api.ResponseCodeR\004code\022\030\n\007" +
+      "message\030\002 \001(\tR\007message\022,\n\022current_like_c" +
+      "ount\030\003 \001(\003R\020currentLikeCount\"\254\001\n\034UnLikeS" +
+      "toryRolePosterRequest\022\"\n\010story_id\030\001 \001(\003B" +
+      "\007\372B\004\"\002 \000R\007storyId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"" +
+      "\002 \000R\006roleId\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006u" +
+      "serId\022$\n\tposter_id\030\004 \001(\003B\007\372B\004\"\002 \000R\010poste" +
+      "rId\"\243\001\n\035UnLikeStoryRolePosterResponse\022:\n" +
       "\004code\030\001 \001(\0162&.rankquantity.voyager.api.R" +
       "esponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\"\365\001\n\027GenerateStoryRoleParams\022(\n\020origi" +
-      "n_image_url\030\001 \001(\tR\016originImageUrl\022<\n\025add" +
-      "itional_image_urls\030\002 \003(\tB\010\372B\005\222\001\002\020\005R\023addi" +
-      "tionalImageUrls\022)\n\013text_prompt\030\003 \001(\tB\010\372B" +
-      "\005r\003\030\320\017R\ntextPrompt\0221\n\017negative_prompt\030\004 " +
-      "\001(\tB\010\372B\005r\003\030\350\007R\016negativePrompt\022\024\n\005style\030\005" +
-      " \001(\tR\005style\"\335\001\n\036GenerateStoryRolePosterR" +
-      "equest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007story" +
-      "Id\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007" +
-      "user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022S\n\006params" +
-      "\030\004 \001(\01321.rankquantity.voyager.api.Genera" +
-      "teStoryRoleParamsB\010\372B\005\212\001\002\020\001R\006params\"\261\001\n\037" +
-      "GenerateStoryRolePosterResponse\022:\n\004code\030" +
-      "\001 \001(\0162&.rankquantity.voyager.api.Respons" +
-      "eCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022\033\n" +
-      "\timage_url\030\003 \001(\tR\010imageUrl\022\033\n\tposter_id\030" +
-      "\004 \001(\003R\010posterId\"\346\001\n\034UpdateStoryRolePoste" +
-      "rRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007sto" +
-      "ryId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 " +
-      "\n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\tpost" +
-      "er_id\030\004 \001(\003B\007\372B\004\"\002 \000R\010posterId\022\033\n\timage_" +
-      "url\030\005 \001(\tR\010imageUrl\022\033\n\tis_public\030\006 \001(\010R\010" +
-      "isPublic\"\222\001\n\035UpdateStoryRolePosterRespon" +
-      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
-      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
-      "\007message\022\033\n\tposter_id\030\003 \001(\003R\010posterId\"\201\001" +
-      "\n\024GetFollowListRequest\022 \n\007user_id\030\001 \001(\003B" +
-      "\007\372B\004\"\002 \000R\006userId\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(" +
-      "\000R\006offset\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R" +
-      "\010pageSize\"\342\001\n\025GetFollowListResponse\022:\n\004c" +
-      "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
-      "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\022@\n\tfollowers\030\003 \003(\0132\".rankquantity.voya" +
-      "ger.api.UserInfoR\tfollowers\022\024\n\005total\030\004 \001" +
-      "(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"\203" +
-      "\001\n\026GetFollowerListRequest\022 \n\007user_id\030\001 \001" +
-      "(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006offset\030\002 \001(\003B\007\372B\004" +
-      "\"\002(\000R\006offset\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d" +
-      "(\001R\010pageSize\"\344\001\n\027GetFollowerListResponse" +
+      "age\022,\n\022current_like_count\030\003 \001(\003R\020current" +
+      "LikeCount\"\315\001\n\035FetchUserGenTaskStatusRequ" +
+      "est\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\027\n" +
+      "\007task_id\030\002 \001(\tR\006taskId\022%\n\ttimestamp\030\003 \001(" +
+      "\003B\007\372B\004\"\002(\000R\ttimestamp\022\"\n\010page_num\030\004 \001(\003B" +
+      "\007\372B\004\"\002(\001R\007pageNum\022&\n\tpage_size\030\005 \001(\003B\t\372B" +
+      "\006\"\004\030d(\001R\010pageSize\"\244\003\n\022StoryGentaskDetail" +
+      "\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\031\n\010board_id\030" +
+      "\002 \001(\003R\007boardId\022\'\n\017storyboard_desc\030\003 \001(\tR" +
+      "\016storyboardDesc\022\031\n\010sence_id\030\004 \001(\003R\007sence" +
+      "Id\022\035\n\nsence_desc\030\005 \001(\tR\tsenceDesc\022\026\n\006pro" +
+      "mpt\030\006 \001(\tR\006prompt\022\033\n\ttask_type\030\007 \001(\003R\010ta" +
+      "skType\022\035\n\ntask_stage\030\010 \001(\003R\ttaskStage\022&\n" +
+      "\017start_image_url\030\t \001(\tR\rstartImageUrl\022\"\n" +
+      "\rend_image_url\030\n \001(\tR\013endImageUrl\022\033\n\tvid" +
+      "eo_url\030\013 \001(\tR\010videoUrl\022\"\n\rreg_image_url\030" +
+      "\014 \001(\tR\013regImageUrl\022\024\n\005style\030\r \001(\tR\005style" +
+      "\"\345\001\n\021UserGenTaskStatus\022\027\n\007task_id\030\001 \001(\tR" +
+      "\006taskId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\026\n\006stat" +
+      "us\030\003 \001(\tR\006status\022D\n\006detail\030\004 \001(\0132,.rankq" +
+      "uantity.voyager.api.StoryGentaskDetailR\006" +
+      "detail\022\037\n\013create_time\030\005 \001(\003R\ncreateTime\022" +
+      "\037\n\013update_time\030\006 \001(\003R\nupdateTime\"\354\001\n\036Fet" +
+      "chUserGenTaskStatusResponse\022:\n\004code\030\001 \001(" +
+      "\0162&.rankquantity.voyager.api.ResponseCod" +
+      "eR\004code\022\030\n\007message\030\002 \001(\tR\007message\022A\n\005tas" +
+      "ks\030\003 \003(\0132+.rankquantity.voyager.api.User" +
+      "GenTaskStatusR\005tasks\022\024\n\005total\030\004 \001(\003R\005tot" +
+      "al\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"\221\002\n\031Gene" +
+      "rateRoleAvatarRequest\022 \n\007role_id\030\001 \001(\003B\007" +
+      "\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 " +
+      "\000R\006userId\022$\n\016ref_avatar_url\030\003 \001(\tR\014refAv" +
+      "atarUrl\022*\n\013description\030\004 \001(\tB\010\372B\005r\003\030\350\007R\013" +
+      "description\022\024\n\005style\030\005 \001(\tR\005style\022H\n\014ima" +
+      "ge_ratios\030\006 \001(\0162%.rankquantity.voyager.a" +
+      "pi.ImageRatiosR\013imageRatios\"\221\001\n\032Generate" +
+      "RoleAvatarResponse\022:\n\004code\030\001 \001(\0162&.rankq" +
+      "uantity.voyager.api.ResponseCodeR\004code\022\030" +
+      "\n\007message\030\002 \001(\tR\007message\022\035\n\navatar_url\030\003" +
+      " \001(\tR\tavatarUrl\"\344\002\n\036GenerateStorySceneVi" +
+      "deoRequest\022%\n\010story_id\030\001 \001(\003B\n\340A\002\372B\004\"\002 \000" +
+      "R\007storyId\022%\n\010board_id\030\002 \001(\003B\n\340A\002\372B\004\"\002 \000R" +
+      "\007boardId\022%\n\010sence_id\030\003 \001(\003B\n\340A\002\372B\004\"\002 \000R\007" +
+      "senceId\022#\n\007user_id\030\004 \001(\003B\n\340A\002\372B\004\"\002 \000R\006us" +
+      "erId\022M\n\014token_source\030\005 \001(\0162%.rankquantit" +
+      "y.voyager.api.TokenSourceB\003\340A\002R\013tokenSou" +
+      "rce\022#\n\006prompt\030\006 \001(\tB\013\340A\001\372B\005r\003\030\320\017R\006prompt" +
+      "\0224\n\017negative_prompt\030\007 \001(\tB\013\340A\001\372B\005r\003\030\350\007R\016" +
+      "negativePrompt\"\263\002\n!GenerateStorySceneVid" +
+      "eoTaskDetail\022\027\n\007task_id\030\001 \001(\tR\006taskId\022I\n" +
+      "\013task_status\030\002 \001(\0162(.rankquantity.voyage" +
+      "r.api.StoryGenStatusR\ntaskStatus\022\033\n\tvide" +
+      "o_url\030\003 \001(\tR\010videoUrl\022.\n\023video_thumbnail" +
+      "_url\030\004 \001(\tR\021videoThumbnailUrl\022\032\n\010duratio" +
+      "n\030\005 \001(\003R\010duration\022\036\n\nresolution\030\006 \001(\tR\nr" +
+      "esolution\022!\n\014video_format\030\007 \001(\tR\013videoFo" +
+      "rmat\"\314\001\n\037GenerateStorySceneVideoResponse" +
       "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
       "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
-      "essage\022@\n\tfollowers\030\003 \003(\0132\".rankquantity" +
-      ".voyager.api.UserInfoR\tfollowers\022\024\n\005tota" +
-      "l\030\004 \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010haveM" +
-      "ore\"_\n\021FollowUserRequest\022 \n\007user_id\030\001 \001(" +
-      "\003B\007\372B\004\"\002 \000R\006userId\022(\n\013follower_id\030\002 \001(\003B" +
-      "\007\372B\004\"\002 \000R\nfollowerId\"j\n\022FollowUserRespon" +
-      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
-      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
-      "\007message\"a\n\023UnfollowUserRequest\022 \n\007user_" +
-      "id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022(\n\013follower_id" +
-      "\030\002 \001(\003B\007\372B\004\"\002 \000R\nfollowerId\"l\n\024UnfollowU" +
-      "serResponse\022:\n\004code\030\001 \001(\0162&.rankquantity" +
-      ".voyager.api.ResponseCodeR\004code\022\030\n\007messa" +
-      "ge\030\002 \001(\tR\007message\"\246\001\n\030TrendingStoryRoleR" +
-      "equest\022\035\n\005start\030\001 \001(\003B\007\372B\004\"\002 \000R\005start\022\031\n" +
-      "\003end\030\002 \001(\003B\007\372B\004\"\002 \000R\003end\022&\n\tpage_size\030\003 " +
-      "\001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\022(\n\013page_number\030" +
-      "\004 \001(\003B\007\372B\004\"\002(\001R\npageNumber\"\362\002\n\031TrendingS" +
-      "toryRoleResponse\022:\n\004code\030\001 \001(\0162&.rankqua" +
-      "ntity.voyager.api.ResponseCodeR\004code\022\030\n\007" +
-      "message\030\002 \001(\tR\007message\022L\n\004data\030\003 \001(\01328.r" +
-      "ankquantity.voyager.api.TrendingStoryRol" +
-      "eResponse.DataR\004data\032\260\001\n\004Data\0227\n\004list\030\001 " +
-      "\003(\0132#.rankquantity.voyager.api.StoryRole" +
-      "R\004list\022\033\n\tpage_size\030\002 \001(\003R\010pageSize\022\037\n\013p" +
-      "age_number\030\003 \001(\003R\npageNumber\022\024\n\005total\030\004 " +
-      "\001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"" +
-      "\242\001\n\024TrendingStoryRequest\022\035\n\005start\030\001 \001(\003B" +
-      "\007\372B\004\"\002 \000R\005start\022\031\n\003end\030\002 \001(\003B\007\372B\004\"\002 \000R\003e" +
-      "nd\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSi" +
-      "ze\022(\n\013page_number\030\004 \001(\003B\007\372B\004\"\002(\001R\npageNu" +
-      "mber\"\346\002\n\025TrendingStoryResponse\022:\n\004code\030\001" +
-      " \001(\0162&.rankquantity.voyager.api.Response" +
-      "CodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022H\n\004" +
-      "data\030\003 \001(\01324.rankquantity.voyager.api.Tr" +
-      "endingStoryResponse.DataR\004data\032\254\001\n\004Data\022" +
-      "3\n\004list\030\001 \003(\0132\037.rankquantity.voyager.api" +
-      ".StoryR\004list\022\033\n\tpage_size\030\002 \001(\003R\010pageSiz" +
-      "e\022\037\n\013page_number\030\003 \001(\003R\npageNumber\022\024\n\005to" +
-      "tal\030\004 \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010hav" +
-      "eMore\"\364\001\n\027GetStoryRoleListRequest\022\"\n\010sto" +
-      "ry_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id" +
-      "\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010board_id\030\003 \001(" +
-      "\003B\007\372B\004\"\002(\000R\007boardId\022&\n\nsearch_key\030\004 \001(\tB" +
-      "\007\372B\004r\002\030dR\tsearchKey\022\037\n\006offset\030\005 \001(\003B\007\372B\004" +
-      "\"\002(\000R\006offset\022&\n\tpage_size\030\006 \001(\003B\t\372B\006\"\004\030d" +
-      "(\001R\010pageSize\"\336\001\n\030GetStoryRoleListRespons" +
-      "e\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.a" +
-      "pi.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007" +
-      "message\0229\n\005roles\030\003 \003(\0132#.rankquantity.vo" +
-      "yager.api.StoryRoleR\005roles\022\024\n\005total\030\004 \001(" +
-      "\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"[\n" +
-      "\023ArchiveStoryRequest\022\"\n\010story_id\030\001 \001(\003B\007" +
-      "\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002" +
-      " \000R\006userId\"l\n\024ArchiveStoryResponse\022:\n\004co" +
+      "essage\022S\n\006detail\030\003 \001(\0132;.rankquantity.vo" +
+      "yager.api.GenerateStorySceneVideoTaskDet" +
+      "ailR\006detail\"\214\003\n\035GenerateStoryRoleVideoRe" +
+      "quest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyI" +
+      "d\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007u" +
+      "ser_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\tposter_" +
+      "id\030\004 \001(\003B\007\372B\004\"\002 \000R\010posterId\022,\n\022ref_backg" +
+      "round_url\030\005 \001(\tR\020refBackgroundUrl\022$\n\016ref" +
+      "_avatar_url\030\006 \001(\tR\014refAvatarUrl\022)\n\013text_" +
+      "prompt\030\007 \001(\tB\010\372B\005r\003\030\320\017R\ntextPrompt\022H\n\014im" +
+      "age_ratios\030\010 \001(\0162%.rankquantity.voyager." +
+      "api.ImageRatiosR\013imageRatios\022\024\n\005style\030\t " +
+      "\001(\tR\005style\"\262\002\n GenerateStoryRoleVideoTas" +
+      "kDetail\022\027\n\007task_id\030\001 \001(\tR\006taskId\022I\n\013task" +
+      "_status\030\002 \001(\0162(.rankquantity.voyager.api" +
+      ".StoryGenStatusR\ntaskStatus\022\033\n\tvideo_url" +
+      "\030\003 \001(\tR\010videoUrl\022.\n\023video_thumbnail_url\030" +
+      "\004 \001(\tR\021videoThumbnailUrl\022\032\n\010duration\030\005 \001" +
+      "(\003R\010duration\022\036\n\nresolution\030\006 \001(\tR\nresolu" +
+      "tion\022!\n\014video_format\030\007 \001(\tR\013videoFormat\"" +
+      "\312\001\n\036GenerateStoryRoleVideoResponse\022:\n\004co" +
       "de\030\001 \001(\0162&.rankquantity.voyager.api.Resp" +
       "onseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message" +
-      "\"\220\001\n\031CreateStoryCommentRequest\022%\n\010story_" +
-      "id\030\001 \001(\003B\n\340A\002\372B\004\"\002 \000R\007storyId\022#\n\007user_id" +
-      "\030\002 \001(\003B\n\340A\002\372B\004\"\002 \000R\006userId\022\'\n\007content\030\003 " +
-      "\001(\tB\r\340A\002\372B\007r\005\020\001\030\320\017R\007content\"\263\001\n\032CreateSt" +
-      "oryCommentResponse\022:\n\004code\030\001 \001(\0162&.rankq" +
+      "\022R\n\006detail\030\003 \001(\0132:.rankquantity.voyager." +
+      "api.GenerateStoryRoleVideoTaskDetailR\006de" +
+      "tail\"\212\001\n\033GetStoryParticipantsRequest\022\"\n\010" +
+      "story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022\037\n\006offs" +
+      "et\030\002 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\003" +
+      " \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\357\001\n\034GetStoryPa" +
+      "rticipantsResponse\022:\n\004code\030\001 \001(\0162&.rankq" +
       "uantity.voyager.api.ResponseCodeR\004code\022\030" +
-      "\n\007message\030\002 \001(\tR\007message\022?\n\007comment\030\003 \001(" +
-      "\0132%.rankquantity.voyager.api.CommentInfo" +
-      "R\007comment\"\250\001\n\027GetStoryCommentsRequest\022\"\n" +
-      "\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007use" +
-      "r_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006offset\030\003 " +
-      "\001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 \001(\003B" +
-      "\t\372B\006\"\004\030d(\001R\010pageSize\"\371\003\n\014StoryComment\022\035\n" +
-      "\ncomment_id\030\001 \001(\003R\tcommentId\022\031\n\010story_id" +
-      "\030\002 \001(\003R\007storyId\022\031\n\010board_id\030\003 \001(\003R\007board" +
-      "Id\022\027\n\007role_id\030\004 \001(\003R\006roleId\022\027\n\007prev_id\030\005" +
-      " \001(\003R\006prevId\022&\n\017root_comment_id\030\006 \001(\003R\rr" +
-      "ootCommentId\022\027\n\007user_id\030\007 \001(\003R\006userId\022\030\n" +
-      "\007content\030\010 \001(\tR\007content\022\035\n\ncreated_at\030\t " +
-      "\001(\003R\tcreatedAt\022\035\n\nupdated_at\030\n \001(\003R\tupda" +
-      "tedAt\022\035\n\nlike_count\030\013 \001(\003R\tlikeCount\022\037\n\013" +
-      "reply_count\030\014 \001(\003R\nreplyCount\022\031\n\010is_like" +
-      "d\030\r \001(\003R\007isLiked\022<\n\007creator\030\016 \001(\0132\".rank" +
-      "quantity.voyager.api.UserInfoR\007creator\0220" +
-      "\n\024created_at_timestamp\030\017 \001(\003R\022createdAtT" +
-      "imestamp\"\234\002\n\030GetStoryCommentsResponse\022:\n" +
-      "\004code\030\001 \001(\0162&.rankquantity.voyager.api.R" +
-      "esponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\022B\n\010comments\030\003 \003(\0132&.rankquantity.voy" +
-      "ager.api.StoryCommentR\010comments\022\024\n\005total" +
-      "\030\004 \001(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n" +
-      "\tpage_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030" +
-      "\007 \001(\010R\010haveMore\"e\n\031DeleteStoryCommentReq" +
-      "uest\022&\n\ncomment_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcomme" +
-      "ntId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"r" +
-      "\n\032DeleteStoryCommentResponse\022:\n\004code\030\001 \001" +
-      "(\0162&.rankquantity.voyager.api.ResponseCo" +
-      "deR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\262\001\n\035G" +
-      "etStoryCommentRepliesRequest\022&\n\ncomment_" +
-      "id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcommentId\022 \n\007user_id\030" +
-      "\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006offset\030\003 \001(\003B\007" +
-      "\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 \001(\003B\t\372B\006\"" +
-      "\004\030d(\001R\010pageSize\"\240\002\n\036GetStoryCommentRepli" +
-      "esResponse\022:\n\004code\030\001 \001(\0162&.rankquantity." +
-      "voyager.api.ResponseCodeR\004code\022\030\n\007messag" +
-      "e\030\002 \001(\tR\007message\022@\n\007replies\030\003 \003(\0132&.rank" +
-      "quantity.voyager.api.StoryCommentR\007repli" +
-      "es\022\024\n\005total\030\004 \001(\003R\005total\022\026\n\006offset\030\005 \001(\003" +
-      "R\006offset\022\033\n\tpage_size\030\006 \001(\003R\010pageSize\022\033\n" +
-      "\thave_more\030\007 \001(\010R\010haveMore\"\220\001\n\036CreateSto" +
-      "ryCommentReplyRequest\022&\n\ncomment_id\030\001 \001(" +
-      "\003B\007\372B\004\"\002 \000R\tcommentId\022 \n\007user_id\030\002 \001(\003B\007" +
-      "\372B\004\"\002 \000R\006userId\022$\n\007content\030\003 \001(\tB\n\372B\007r\005\020" +
-      "\001\030\320\017R\007content\"\270\001\n\037CreateStoryCommentRepl" +
-      "yResponse\022:\n\004code\030\001 \001(\0162&.rankquantity.v" +
-      "oyager.api.ResponseCodeR\004code\022\030\n\007message" +
-      "\030\002 \001(\tR\007message\022?\n\007comment\030\003 \001(\0132%.rankq" +
-      "uantity.voyager.api.CommentInfoR\007comment" +
-      "\"f\n\036DeleteStoryCommentReplyRequest\022\"\n\010re" +
-      "ply_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007replyId\022 \n\007user_i" +
-      "d\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"w\n\037DeleteStoryC" +
-      "ommentReplyResponse\022:\n\004code\030\001 \001(\0162&.rank" +
-      "quantity.voyager.api.ResponseCodeR\004code\022" +
-      "\030\n\007message\030\002 \001(\tR\007message\"\255\001\n\034GetStoryBo" +
-      "ardCommentsRequest\022\"\n\010board_id\030\001 \001(\003B\007\372B" +
-      "\004\"\002 \000R\007boardId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000" +
-      "R\006userId\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offse" +
-      "t\022&\n\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSiz" +
-      "e\"\241\002\n\035GetStoryBoardCommentsResponse\022:\n\004c" +
+      "\n\007message\030\002 \001(\tR\007message\022F\n\014participants" +
+      "\030\003 \003(\0132\".rankquantity.voyager.api.UserIn" +
+      "foR\014participants\022\024\n\005total\030\004 \001(\003R\005total\022\033" +
+      "\n\thave_more\030\005 \001(\010R\010haveMore\"\210\001\n\030UpdateSt" +
+      "oryAvatarRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"" +
+      "\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006" +
+      "userId\022&\n\navatar_url\030\003 \001(\tB\007\372B\004r\002\020\001R\tava" +
+      "tarUrl\"q\n\031UpdateStoryAvatarResponse\022:\n\004c" +
       "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
       "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\022B\n\010comments\030\003 \003(\0132&.rankquantity.voyag" +
-      "er.api.StoryCommentR\010comments\022\024\n\005total\030\004" +
-      " \001(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tp" +
-      "age_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 " +
-      "\001(\010R\010haveMore\"\214\001\n\036CreateStoryBoardCommen" +
-      "tRequest\022\"\n\010board_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007boa" +
-      "rdId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022$" +
-      "\n\007content\030\003 \001(\tB\n\372B\007r\005\020\001\030\320\017R\007content\"\270\001\n" +
-      "\037CreateStoryBoardCommentResponse\022:\n\004code" +
-      "\030\001 \001(\0162&.rankquantity.voyager.api.Respon" +
-      "seCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022?" +
-      "\n\007comment\030\003 \001(\0132%.rankquantity.voyager.a" +
-      "pi.CommentInfoR\007comment\"\216\001\n\036DeleteStoryB" +
-      "oardCommentRequest\022\"\n\010board_id\030\001 \001(\003B\007\372B" +
-      "\004\"\002 \000R\007boardId\022&\n\ncomment_id\030\002 \001(\003B\007\372B\004\"" +
-      "\002 \000R\tcommentId\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000" +
-      "R\006userId\"w\n\037DeleteStoryBoardCommentRespo" +
-      "nse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager" +
-      ".api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\t" +
-      "R\007message\"\267\001\n\"GetStoryBoardCommentReplie" +
-      "sRequest\022&\n\ncomment_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tc" +
-      "ommentId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006user" +
-      "Id\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tp" +
-      "age_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\245\002\n#" +
-      "GetStoryBoardCommentRepliesResponse\022:\n\004c" +
-      "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
-      "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\022@\n\007replies\030\003 \003(\0132&.rankquantity.voyage" +
-      "r.api.StoryCommentR\007replies\022\024\n\005total\030\004 \001" +
-      "(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpag" +
-      "e_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(" +
-      "\010R\010haveMore\"^\n\022LikeCommentRequest\022&\n\ncom" +
-      "ment_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcommentId\022 \n\007use" +
-      "r_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"k\n\023LikeComme" +
-      "ntResponse\022:\n\004code\030\001 \001(\0162&.rankquantity." +
-      "voyager.api.ResponseCodeR\004code\022\030\n\007messag" +
-      "e\030\002 \001(\tR\007message\"a\n\025DislikeCommentReques" +
-      "t\022&\n\ncomment_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcommentI" +
-      "d\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"n\n\026D" +
-      "islikeCommentResponse\022:\n\004code\030\001 \001(\0162&.ra",
-      "nkquantity.voyager.api.ResponseCodeR\004cod" +
-      "e\022\030\n\007message\030\002 \001(\tR\007message\"\177\n\027UpdateRol" +
-      "ePromptRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000" +
-      "R\006userId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006role" +
-      "Id\022 \n\006prompt\030\003 \001(\tB\010\372B\005r\003\030\320\017R\006prompt\"p\n\030" +
-      "UpdateRolePromptResponse\022:\n\004code\030\001 \001(\0162&" +
-      ".rankquantity.voyager.api.ResponseCodeR\004" +
-      "code\022\030\n\007message\030\002 \001(\tR\007message\"\245\001\n\031Gener" +
-      "ateRolePromptRequest\022\"\n\010story_id\030\001 \001(\003B\007" +
-      "\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002" +
-      " \000R\006userId\022 \n\007role_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006ro" +
-      "leId\022 \n\006prompt\030\004 \001(\tB\010\372B\005r\003\030\320\017R\006prompt\"\212" +
-      "\001\n\032GenerateRolePromptResponse\022:\n\004code\030\001 " +
-      "\001(\0162&.rankquantity.voyager.api.ResponseC" +
-      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022\026\n\006p" +
-      "rompt\030\003 \001(\tR\006prompt\"\216\001\n\034UpdateRoleDescri" +
-      "ptionRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006" +
-      "userId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId" +
-      "\022*\n\013description\030\003 \001(\tB\010\372B\005r\003\030\320\017R\013descrip" +
-      "tion\"u\n\035UpdateRoleDescriptionResponse\022:\n" +
-      "\004code\030\001 \001(\0162&.rankquantity.voyager.api.R" +
-      "esponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\"\264\001\n\036GenerateRoleDescriptionRequest\022\"" +
-      "\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007us" +
-      "er_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\007role_id\030" +
-      "\003 \001(\003B\007\372B\004\"\002 \000R\006roleId\022*\n\013description\030\004 " +
-      "\001(\tB\010\372B\005r\003\030\320\017R\013description\"\315\001\n\037GenerateR" +
-      "oleDescriptionResponse\022:\n\004code\030\001 \001(\0162&.r" +
-      "ankquantity.voyager.api.ResponseCodeR\004co" +
-      "de\022\030\n\007message\030\002 \001(\tR\007message\022T\n\020characte" +
-      "r_detail\030\003 \001(\0132).rankquantity.voyager.ap" +
-      "i.CharacterDetailR\017characterDetail\"\212\001\n\035G" +
-      "etUnPublishStoryboardRequest\022 \n\007user_id\030" +
-      "\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006offset\030\002 \001(\003B\007" +
-      "\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"" +
-      "\004\030d(\001R\010pageSize\"\270\002\n\036GetUnPublishStoryboa" +
-      "rdResponse\022:\n\004code\030\001 \001(\0162&.rankquantity." +
-      "voyager.api.ResponseCodeR\004code\022\030\n\007messag" +
-      "e\030\002 \001(\tR\007message\022X\n\021storyboardactives\030\003 " +
-      "\003(\0132*.rankquantity.voyager.api.StoryBoar" +
-      "dActiveR\021storyboardactives\022\024\n\005total\030\004 \001(" +
-      "\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage" +
-      "_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010" +
-      "R\010haveMore\"\330\001\n(GetUserWatchRoleActiveSto" +
-      "ryBoardsRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 " +
-      "\000R\006userId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006rol" +
-      "eId\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\t" +
-      "page_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\022\037\n\006" +
-      "filter\030\005 \001(\tB\007\372B\004r\002\0302R\006filter\"\267\002\n)GetUse" +
-      "rWatchRoleActiveStoryBoardsResponse\022:\n\004c" +
-      "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
-      "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
-      "e\022L\n\013storyboards\030\003 \003(\0132*.rankquantity.vo" +
-      "yager.api.StoryBoardActiveR\013storyboards\022" +
-      "\024\n\005total\030\004 \001(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006o" +
-      "ffset\022\033\n\tpage_size\030\006 \001(\003R\010pageSize\022\033\n\tha" +
-      "ve_more\030\007 \001(\010R\010haveMore\"\333\001\n)GetUserWatch" +
-      "StoryActiveStoryBoardsRequest\022 \n\007user_id" +
-      "\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\002 \001(" +
-      "\003B\007\372B\004\"\002 \000R\007storyId\022\037\n\006offset\030\003 \001(\003B\007\372B\004" +
-      "\"\002(\000R\006offset\022&\n\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d" +
-      "(\001R\010pageSize\022\037\n\006filter\030\005 \001(\tB\007\372B\004r\002\0302R\006f" +
-      "ilter\"\270\002\n*GetUserWatchStoryActiveStoryBo" +
-      "ardsResponse\022:\n\004code\030\001 \001(\0162&.rankquantit" +
-      "y.voyager.api.ResponseCodeR\004code\022\030\n\007mess" +
-      "age\030\002 \001(\tR\007message\022L\n\013storyboards\030\003 \003(\0132" +
-      "*.rankquantity.voyager.api.StoryBoardAct" +
-      "iveR\013storyboards\022\024\n\005total\030\004 \001(\003R\005total\022\026" +
-      "\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 \001(" +
-      "\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010haveMore" +
-      "\"l\n\032SaveStoryboardCraftRequest\022,\n\rstoryb" +
-      "oard_id\030\001 \001(\003B\007\372B\004\"\002 \000R\014storyboardId\022 \n\007" +
-      "user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"s\n\033SaveSt" +
-      "oryboardCraftResponse\022:\n\004code\030\001 \001(\0162&.ra" +
-      "nkquantity.voyager.api.ResponseCodeR\004cod" +
-      "e\022\030\n\007message\030\002 \001(\tR\007message\"j\n\030PublishSt" +
-      "oryboardRequest\022,\n\rstoryboard_id\030\001 \001(\003B\007" +
-      "\372B\004\"\002 \000R\014storyboardId\022 \n\007user_id\030\002 \001(\003B\007" +
-      "\372B\004\"\002 \000R\006userId\"q\n\031PublishStoryboardResp" +
-      "onse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyage" +
-      "r.api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\"i\n\027CancelStoryboardRequest\022,\n" +
-      "\rstoryboard_id\030\001 \001(\003B\007\372B\004\"\002 \000R\014storyboar" +
-      "dId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"p\n" +
-      "\030CancelStoryboardResponse\022:\n\004code\030\001 \001(\0162" +
-      "&.rankquantity.voyager.api.ResponseCodeR" +
-      "\004code\022\030\n\007message\030\002 \001(\tR\007message\"\327\001\n\"Rend" +
-      "erStoryRoleContinuouslyRequest\022 \n\007role_i" +
-      "d\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(" +
-      "\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372B" +
-      "\004\"\002 \000R\007storyId\022 \n\006prompt\030\004 \001(\tB\010\372B\005r\003\030\320\017" +
-      "R\006prompt\022\'\n\017reference_image\030\005 \001(\tR\016refer" +
-      "enceImage\"\341\001\n#RenderStoryRoleContinuousl" +
-      "yResponse\022:\n\004code\030\001 \001(\0162&.rankquantity.v" +
-      "oyager.api.ResponseCodeR\004code\022\030\n\007message" +
-      "\030\002 \001(\tR\007message\022G\n\006detail\030\003 \001(\0132/.rankqu" +
-      "antity.voyager.api.RenderStoryRoleDetail" +
-      "R\006detail\022\033\n\thave_more\030\004 \001(\010R\010haveMore\"\336\002" +
-      "\n\030GetNextStoryboardRequest\022,\n\rstoryboard" +
-      "_id\030\001 \001(\003B\007\372B\004\"\002 \000R\014storyboardId\022 \n\007user" +
-      "_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003" +
-      " \001(\003B\007\372B\004\"\002 \000R\007storyId\022&\n\017is_multi_branc" +
-      "h\030\004 \001(\010R\risMultiBranch\022\037\n\006offset\030\005 \001(\003B\007" +
-      "\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\006 \001(\003B\t\372B\006\"" +
-      "\004\030d(\001R\010pageSize\022\024\n\005total\030\007 \001(\003R\005total\022G\n" +
-      "\010order_by\030\010 \001(\0162,.rankquantity.voyager.a" +
-      "pi.MultiBranchOrderByR\007orderBy\"\317\002\n\031GetNe" +
-      "xtStoryboardResponse\022:\n\004code\030\001 \001(\0162&.ran" +
-      "kquantity.voyager.api.ResponseCodeR\004code" +
-      "\022\030\n\007message\030\002 \001(\tR\007message\022L\n\013storyboard" +
-      "s\030\003 \003(\0132*.rankquantity.voyager.api.Story" +
-      "BoardActiveR\013storyboards\022&\n\017is_multi_bra" +
-      "nch\030\004 \001(\010R\risMultiBranch\022\024\n\005total\030\005 \001(\003R" +
-      "\005total\022\026\n\006offset\030\006 \001(\003R\006offset\022\033\n\tpage_s" +
-      "ize\030\007 \001(\003R\010pageSize\022\033\n\thave_more\030\010 \001(\010R\010" +
-      "haveMore\"\251\001\n\032GetUserChatMessagesRequest\022" +
-      " \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\007cha" +
-      "t_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006chatId\022 \n\007role_id\030\003" +
-      " \001(\003B\007\372B\004\"\002 \000R\006roleId\022%\n\ttimestamp\030\004 \001(\003" +
-      "B\007\372B\004\"\002(\000R\ttimestamp\"\207\002\n\033GetUserChatMess" +
-      "agesResponse\022:\n\004code\030\001 \001(\0162&.rankquantit" +
-      "y.voyager.api.ResponseCodeR\004code\022\030\n\007mess" +
-      "age\030\002 \001(\tR\007message\022A\n\010messages\030\003 \003(\0132%.r" +
-      "ankquantity.voyager.api.ChatMessageR\010mes" +
-      "sages\022\034\n\ttimestamp\030\004 \001(\003R\ttimestamp\022\024\n\005t" +
-      "otal\030\005 \001(\003R\005total\022\033\n\thave_more\030\006 \001(\010R\010ha" +
-      "veMore\"`\n\032GetUserChatWithRoleRequest\022 \n\007" +
-      "role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_i" +
-      "d\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"\263\002\n\033GetUserChat" +
-      "WithRoleResponse\022:\n\004code\030\001 \001(\0162&.rankqua" +
-      "ntity.voyager.api.ResponseCodeR\004code\022\030\n\007" +
-      "message\030\002 \001(\tR\007message\022A\n\010messages\030\003 \003(\013" +
-      "2%.rankquantity.voyager.api.ChatMessageR" +
-      "\010messages\022H\n\014chat_context\030\004 \001(\0132%.rankqu" +
-      "antity.voyager.api.ChatContextR\013chatCont" +
-      "ext\022\024\n\005total\030\005 \001(\003R\005total\022\033\n\thave_more\030\006" +
-      " \001(\010R\010haveMore\"\362\001\n\036GetStoryRoleStoryboar" +
-      "dsRequest\022 \n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006rol" +
-      "eId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n" +
-      "\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000R\007storyId\022\037\n\006fil" +
-      "ter\030\004 \001(\tB\007\372B\004r\002\0302R\006filter\022\037\n\006offset\030\005 \001" +
-      "(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\006 \001(\003B\t" +
-      "\372B\006\"\004\030d(\001R\010pageSize\"\271\002\n\037GetStoryRoleStor" +
-      "yboardsResponse\022:\n\004code\030\001 \001(\0162&.rankquan" +
-      "tity.voyager.api.ResponseCodeR\004code\022\030\n\007m" +
-      "essage\030\002 \001(\tR\007message\022X\n\021storyboardactiv" +
-      "es\030\003 \003(\0132*.rankquantity.voyager.api.Stor" +
-      "yBoardActiveR\021storyboardactives\022\024\n\005total" +
-      "\030\004 \001(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n" +
-      "\tpage_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030" +
-      "\007 \001(\010R\010haveMore\"\312\001\n\032GetStoryRoleStoriesR" +
-      "equest\022 \n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId" +
-      "\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006fi" +
-      "lter\030\003 \001(\tB\007\372B\004r\002\0302R\006filter\022\037\n\006offset\030\004 " +
-      "\001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\005 \001(\003B" +
-      "\t\372B\006\"\004\030d(\001R\010pageSize\"\226\002\n\033GetStoryRoleSto" +
-      "riesResponse\022:\n\004code\030\001 \001(\0162&.rankquantit" +
-      "y.voyager.api.ResponseCodeR\004code\022\030\n\007mess" +
-      "age\030\002 \001(\tR\007message\0229\n\007stories\030\003 \003(\0132\037.ra" +
-      "nkquantity.voyager.api.StoryR\007stories\022\024\n" +
-      "\005total\030\004 \001(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006off" +
-      "set\022\033\n\tpage_size\030\006 \001(\003R\010pageSize\022\033\n\thave" +
-      "_more\030\007 \001(\010R\010haveMore\"`\n\032CreateStoryRole" +
-      "ChatRequest\022 \n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006r" +
-      "oleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"" +
-      "\245\003\n\013ChatContext\022\027\n\007chat_id\030\001 \001(\003R\006chatId" +
-      "\022\027\n\007role_id\030\002 \001(\003R\006roleId\022\027\n\007user_id\030\003 \001" +
-      "(\003R\006userId\022\034\n\ttimestamp\030\004 \001(\003R\ttimestamp" +
-      "\022(\n\020last_update_time\030\005 \001(\003R\016lastUpdateTi" +
-      "me\022!\n\014total_tokens\030\006 \001(\003R\013totalTokens\022%\n" +
-      "\016total_messages\030\007 \001(\003R\rtotalMessages\022H\n\014" +
-      "last_message\030\010 \001(\0132%.rankquantity.voyage" +
-      "r.api.ChatMessageR\013lastMessage\0226\n\004user\030\t" +
-      " \001(\0132\".rankquantity.voyager.api.UserInfo" +
-      "R\004user\0227\n\004role\030\n \001(\0132#.rankquantity.voya" +
-      "ger.api.StoryRoleR\004role\"\275\001\n\033CreateStoryR" +
-      "oleChatResponse\022:\n\004code\030\001 \001(\0162&.rankquan" +
-      "tity.voyager.api.ResponseCodeR\004code\022\030\n\007m" +
-      "essage\030\002 \001(\tR\007message\022H\n\014chat_context\030\003 " +
-      "\001(\0132%.rankquantity.voyager.api.ChatConte" +
-      "xtR\013chatContext\"\336\001\n\030ChatWithStoryRoleReq" +
-      "uest\022 \n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 " +
-      "\n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022K\n\010mess" +
-      "ages\030\003 \003(\0132%.rankquantity.voyager.api.Ch" +
-      "atMessageB\010\372B\005\222\001\002\0202R\010messages\022\024\n\005total\030\004" +
-      " \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010haveMore" +
-      "\"\362\001\n\031ChatWithStoryRoleResponse\022:\n\004code\030\001" +
+      "e\"\236\001\n\027UpdateStoryCoverRequest\022\"\n\010story_i" +
+      "d\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001" +
+      "(\003B\007\372B\004\"\002 \000R\006userId\022\033\n\tcover_url\030\003 \001(\tR\010" +
+      "coverUrl\022 \n\014use_ai_cover\030\004 \001(\010R\nuseAiCov" +
+      "er\"p\n\030UpdateStoryCoverResponse\022:\n\004code\030\001" +
       " \001(\0162&.rankquantity.voyager.api.Response" +
-      "CodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022L\n\016" +
-      "reply_messages\030\003 \003(\0132%.rankquantity.voya" +
-      "ger.api.ChatMessageR\rreplyMessages\022\024\n\005to" +
-      "tal\030\004 \001(\003R\005total\022\033\n\thave_more\030\005 \001(\010R\010hav" +
-      "eMore\"\357\001\n\034UpdateStoryRoleDetailRequest\022 " +
-      "\n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022A\n\004role" +
-      "\030\002 \001(\0132#.rankquantity.voyager.api.StoryR" +
-      "oleB\010\372B\005\212\001\002\020\001R\004role\022 \n\007user_id\030\003 \001(\003B\007\372B" +
-      "\004\"\002 \000R\006userId\022\035\n\nneed_regen\030\004 \001(\010R\tneedR" +
-      "egen\022)\n\020background_image\030\005 \001(\tR\017backgrou" +
-      "ndImage\"u\n\035UpdateStoryRoleDetailResponse" +
-      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
-      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
-      "essage\"\203\001\n\034UpdateStoryRoleAvatorRequest\022" +
-      " \n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022\037\n\006ava" +
-      "tor\030\002 \001(\tB\007\372B\004r\002\020\001R\006avator\022 \n\007user_id\030\003 " +
-      "\001(\003B\007\372B\004\"\002 \000R\006userId\"u\n\035UpdateStoryRoleA" +
-      "vatorResponse\022:\n\004code\030\001 \001(\0162&.rankquanti" +
-      "ty.voyager.api.ResponseCodeR\004code\022\030\n\007mes" +
-      "sage\030\002 \001(\tR\007message\"\257\001\n\036GetUserWithRoleC" +
-      "hatListRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000" +
-      "R\006userId\022\"\n\010story_id\030\002 \001(\003B\007\372B\004\"\002(\000R\007sto" +
-      "ryId\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n" +
-      "\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\234\002" +
-      "\n\037GetUserWithRoleChatListResponse\022:\n\004cod" +
-      "e\030\001 \001(\0162&.rankquantity.voyager.api.Respo" +
-      "nseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022" +
-      ";\n\005chats\030\003 \003(\0132%.rankquantity.voyager.ap" +
-      "i.ChatContextR\005chats\022\024\n\005total\030\004 \001(\003R\005tot" +
-      "al\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030" +
-      "\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010have" +
-      "More\"\320\001\n GetUserCreatedStoryboardsReques" +
-      "t\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010s" +
-      "tory_id\030\002 \001(\005B\007\372B\004\032\002(\000R\007storyId\022\035\n\005stage" +
-      "\030\003 \001(\005B\007\372B\004\032\002(\000R\005stage\022\037\n\006offset\030\004 \001(\003B\007" +
-      "\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\005 \001(\003B\t\372B\006\"" +
-      "\004\030d(\001R\010pageSize\"\257\002\n!GetUserCreatedStoryb" +
-      "oardsResponse\022:\n\004code\030\001 \001(\0162&.rankquanti" +
-      "ty.voyager.api.ResponseCodeR\004code\022\030\n\007mes" +
-      "sage\030\002 \001(\tR\007message\022L\n\013storyboards\030\003 \003(\013" +
-      "2*.rankquantity.voyager.api.StoryBoardAc" +
-      "tiveR\013storyboards\022\024\n\005total\030\004 \001(\003R\005total\022" +
-      "\033\n\thave_more\030\005 \001(\010R\010haveMore\022\026\n\006offset\030\006" +
-      " \001(\003R\006offset\022\033\n\tpage_size\030\010 \001(\003R\010pageSiz" +
-      "e\"\312\001\n\032GetUserCreatedRolesRequest\022 \n\007user" +
-      "_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\002" +
-      " \001(\005B\007\372B\004\032\002(\000R\007storyId\022\035\n\005stage\030\003 \001(\005B\007\372" +
-      "B\004\032\002(\000R\005stage\022\037\n\006offset\030\004 \001(\003B\007\372B\004\"\002(\000R\006" +
-      "offset\022&\n\tpage_size\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010pa" +
-      "geSize\"\226\002\n\033GetUserCreatedRolesResponse\022:" +
-      "\n\004code\030\001 \001(\0162&.rankquantity.voyager.api." +
-      "ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mes" +
-      "sage\0229\n\005roles\030\003 \003(\0132#.rankquantity.voyag" +
-      "er.api.StoryRoleR\005roles\022\024\n\005total\030\004 \001(\003R\005" +
-      "total\022\033\n\thave_more\030\005 \001(\010R\010haveMore\022\026\n\006of" +
-      "fset\030\006 \001(\003R\006offset\022\033\n\tpage_size\030\010 \001(\003R\010p" +
-      "ageSize\"~\n\024LikeStoryRoleRequest\022 \n\007role_" +
-      "id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001" +
-      "(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372" +
-      "B\004\"\002 \000R\007storyId\"m\n\025LikeStoryRoleResponse" +
-      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
-      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
-      "essage\"\200\001\n\026UnLikeStoryRoleRequest\022 \n\007rol" +
-      "e_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002" +
-      " \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B" +
-      "\007\372B\004\"\002 \000R\007storyId\"o\n\027UnLikeStoryRoleResp" +
-      "onse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyage" +
-      "r.api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\"\200\001\n\026FollowStoryRoleRequest\022 \n" +
-      "\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_" +
-      "id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 " +
-      "\001(\003B\007\372B\004\"\002 \000R\007storyId\"o\n\027FollowStoryRole" +
-      "Response\022:\n\004code\030\001 \001(\0162&.rankquantity.vo" +
-      "yager.api.ResponseCodeR\004code\022\030\n\007message\030" +
-      "\002 \001(\tR\007message\"\202\001\n\030UnFollowStoryRoleRequ" +
-      "est\022 \n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n" +
-      "\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story" +
-      "_id\030\003 \001(\003B\007\372B\004\"\002 \000R\007storyId\"q\n\031UnFollowS" +
-      "toryRoleResponse\022:\n\004code\030\001 \001(\0162&.rankqua" +
-      "ntity.voyager.api.ResponseCodeR\004code\022\030\n\007" +
-      "message\030\002 \001(\tR\007message\"\206\002\n\024SearchStories" +
-      "Request\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userI" +
-      "d\022$\n\007keyword\030\002 \001(\tB\n\372B\007r\005\020\001\030\310\001R\007keyword\022" +
-      "\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage" +
-      "_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\0229\n\005scop" +
-      "e\030\005 \001(\0162#.rankquantity.voyager.api.Scope" +
-      "TypeR\005scope\022\"\n\010group_id\030\007 \001(\003B\007\372B\004\"\002(\000R\007" +
-      "groupId\"\333\001\n\025SearchStoriesResponse\022:\n\004cod" +
-      "e\030\001 \001(\0162&.rankquantity.voyager.api.Respo" +
-      "nseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022" +
-      "9\n\007stories\030\003 \003(\0132\037.rankquantity.voyager." +
-      "api.StoryR\007stories\022\024\n\005total\030\004 \001(\003R\005total" +
-      "\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"\250\002\n\022Search" +
-      "RolesRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006" +
-      "userId\022$\n\007keyword\030\002 \001(\tB\n\372B\007r\005\020\001\030\310\001R\007key" +
-      "word\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n" +
-      "\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\0229\n" +
-      "\005scope\030\005 \001(\0162#.rankquantity.voyager.api." +
-      "ScopeTypeR\005scope\022\"\n\010story_id\030\006 \001(\003B\007\372B\004\"" +
-      "\002(\000R\007storyId\022\"\n\010group_id\030\007 \001(\003B\007\372B\004\"\002(\000R" +
-      "\007groupId\"\331\001\n\023SearchRolesResponse\022:\n\004code" +
-      "\030\001 \001(\0162&.rankquantity.voyager.api.Respon" +
-      "seCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\0229" +
-      "\n\005roles\030\003 \003(\0132#.rankquantity.voyager.api" +
-      ".StoryRoleR\005roles\022\024\n\005total\030\004 \001(\003R\005total\022" +
-      "\033\n\thave_more\030\005 \001(\010R\010haveMore\"\216\001\n\030Restore" +
-      "StoryboardRequest\022,\n\rstoryboard_id\030\001 \001(\003" +
-      "B\007\372B\004\"\002 \000R\014storyboardId\022 \n\007user_id\030\002 \001(\003" +
-      "B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004" +
-      "\"\002 \000R\007storyId\"\267\001\n\031RestoreStoryboardRespo" +
-      "nse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager" +
-      ".api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\t" +
-      "R\007message\022D\n\005store\030\003 \001(\0132..rankquantity." +
-      "voyager.api.StoryboardStageStoreR\005store\"" +
-      "\276\002\n\024StoryboardStageStore\022D\n\nstoryboard\030\001" +
-      " \001(\0132$.rankquantity.voyager.api.StoryBoa" +
-      "rdR\nstoryboard\022B\n\006sences\030\002 \001(\0132*.rankqua" +
-      "ntity.voyager.api.StoryBoardSencesR\006senc" +
-      "es\022?\n\005stage\030\003 \001(\0162).rankquantity.voyager" +
-      ".api.StoryboardStageR\005stage\022(\n\020last_upda" +
-      "te_time\030\004 \001(\003R\016lastUpdateTime\022\030\n\007version" +
-      "\030\005 \001(\003R\007version\022\027\n\007user_id\030\006 \001(\003R\006userId" +
-      "\"9\n\025GetUserProfileRequest\022 \n\007user_id\030\001 \001" +
-      "(\003B\007\372B\004\"\002 \000R\006userId\"\255\001\n\026GetUserProfileRe" +
+      "CodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"?\n\031" +
+      "GetStoryImageStyleRequest\022\"\n\010story_id\030\001 " +
+      "\001(\003B\007\372B\004\"\002 \000R\007storyId\"X\n\016StoryStyleDesc\022" +
+      "\016\n\002id\030\001 \001(\003R\002id\022\024\n\005style\030\002 \001(\tR\005style\022 \n" +
+      "\013description\030\003 \001(\tR\013description\"\262\001\n\032GetS" +
+      "toryImageStyleResponse\022:\n\004code\030\001 \001(\0162&.r" +
+      "ankquantity.voyager.api.ResponseCodeR\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022>\n\005style\030\003 " +
+      "\003(\0132(.rankquantity.voyager.api.StoryStyl" +
+      "eDescR\005style\"\236\001\n\034UpdateStoryImageStyleRe" +
+      "quest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyI" +
+      "d\022\"\n\010style_id\030\002 \001(\003B\007\372B\004\"\002 \000R\007styleId\022\024\n" +
+      "\005style\030\003 \001(\tR\005style\022 \n\007user_id\030\004 \001(\003B\007\372B" +
+      "\004\"\002 \000R\006userId\"u\n\035UpdateStoryImageStyleRe" +
       "sponse\022:\n\004code\030\001 \001(\0162&.rankquantity.voya" +
       "ger.api.ResponseCodeR\004code\022\030\n\007message\030\002 " +
-      "\001(\tR\007message\022=\n\004info\030\003 \001(\0132).rankquantit" +
-      "y.voyager.api.UserProfileInfoR\004info\"\214\002\n\030" +
-      "UpdateUserProfileRequest\022 \n\007user_id\030\001 \001(" +
-      "\003B\007\372B\004\"\002 \000R\006userId\022)\n\020background_image\030\002" +
-      " \001(\tR\017backgroundImage\022\026\n\006avatar\030\003 \001(\tR\006a" +
-      "vatar\022\033\n\004name\030\004 \001(\tB\007\372B\004r\002\0302R\004name\022*\n\013de" +
-      "scription\030\005 \001(\tB\010\372B\005r\003\030\364\003R\013description\022#" +
-      "\n\010location\030\006 \001(\tB\007\372B\004r\002\030dR\010location\022\035\n\005e" +
-      "mail\030\007 \001(\tB\007\372B\004r\002`\001R\005email\"q\n\031UpdateUser" +
-      "ProfileResponse\022:\n\004code\030\001 \001(\0162&.rankquan" +
-      "tity.voyager.api.ResponseCodeR\004code\022\030\n\007m" +
-      "essage\030\002 \001(\tR\007message\"f\n UpdateUserBackg" +
-      "roundImageRequest\022\027\n\007user_id\030\001 \001(\003R\006user" +
-      "Id\022)\n\020background_image\030\002 \001(\tR\017background" +
-      "Image\"y\n!UpdateUserBackgroundImageRespon" +
-      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
-      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
-      "\007message\"}\n\026CreateStoryRoleRequest\022 \n\007us" +
-      "er_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022A\n\004role\030\002 \001" +
-      "(\0132#.rankquantity.voyager.api.StoryRoleB" +
-      "\010\372B\005\212\001\002\020\001R\004role\"o\n\027CreateStoryRoleRespon" +
-      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
-      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
-      "\007message\"=\n\031GetStoryRoleDetailRequest\022 \n" +
-      "\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\"\253\001\n\032GetS" +
-      "toryRoleDetailResponse\022:\n\004code\030\001 \001(\0162&.r" +
+      "\001(\tR\007message\"\223\001\n UpdateStorySenceMaxNumb" +
+      "erRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007st" +
+      "oryId\022)\n\nmax_number\030\002 \001(\003B\n\372B\007\"\005\030\350\007(\001R\tm" +
+      "axNumber\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006user" +
+      "Id\"y\n!UpdateStorySenceMaxNumberResponse\022" +
+      ":\n\004code\030\001 \001(\0162&.rankquantity.voyager.api" +
+      ".ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007me" +
+      "ssage\"\250\001\n\034UpdateStoryRolePromptRequest\022\"" +
+      "\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007ro" +
+      "le_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030" +
+      "\003 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\006prompt\030\004 \001(\tB\010" +
+      "\372B\005r\003\030\320\017R\006prompt\"u\n\035UpdateStoryRolePromp" +
+      "tResponse\022:\n\004code\030\001 \001(\0162&.rankquantity.v" +
+      "oyager.api.ResponseCodeR\004code\022\030\n\007message" +
+      "\030\002 \001(\tR\007message\"\361\001\n\'UpdateStoryRoleDescr" +
+      "iptionDetailRequest\022\"\n\010story_id\030\001 \001(\003B\007\372" +
+      "B\004\"\002 \000R\007storyId\022 \n\007role_id\030\002 \001(\003B\007\372B\004\"\002 " +
+      "\000R\006roleId\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006use" +
+      "rId\022^\n\020character_detail\030\004 \001(\0132).rankquan" +
+      "tity.voyager.api.CharacterDetailB\010\372B\005\212\001\002" +
+      "\020\001R\017characterDetail\"\200\001\n(UpdateStoryRoleD" +
+      "escriptionDetailResponse\022:\n\004code\030\001 \001(\0162&" +
+      ".rankquantity.voyager.api.ResponseCodeR\004" +
+      "code\022\030\n\007message\030\002 \001(\tR\007message\"\365\001\n\027Gener" +
+      "ateStoryRoleParams\022(\n\020origin_image_url\030\001" +
+      " \001(\tR\016originImageUrl\022<\n\025additional_image" +
+      "_urls\030\002 \003(\tB\010\372B\005\222\001\002\020\005R\023additionalImageUr" +
+      "ls\022)\n\013text_prompt\030\003 \001(\tB\010\372B\005r\003\030\320\017R\ntextP" +
+      "rompt\0221\n\017negative_prompt\030\004 \001(\tB\010\372B\005r\003\030\350\007" +
+      "R\016negativePrompt\022\024\n\005style\030\005 \001(\tR\005style\"\335" +
+      "\001\n\036GenerateStoryRolePosterRequest\022\"\n\010sto" +
+      "ry_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007role_id" +
+      "\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\003 \001(\003" +
+      "B\007\372B\004\"\002 \000R\006userId\022S\n\006params\030\004 \001(\01321.rank" +
+      "quantity.voyager.api.GenerateStoryRolePa" +
+      "ramsB\010\372B\005\212\001\002\020\001R\006params\"\261\001\n\037GenerateStory" +
+      "RolePosterResponse\022:\n\004code\030\001 \001(\0162&.rankq" +
+      "uantity.voyager.api.ResponseCodeR\004code\022\030" +
+      "\n\007message\030\002 \001(\tR\007message\022\033\n\timage_url\030\003 " +
+      "\001(\tR\010imageUrl\022\033\n\tposter_id\030\004 \001(\003R\010poster" +
+      "Id\"\346\001\n\034UpdateStoryRolePosterRequest\022\"\n\010s" +
+      "tory_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007role_" +
+      "id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\003 \001" +
+      "(\003B\007\372B\004\"\002 \000R\006userId\022$\n\tposter_id\030\004 \001(\003B\007" +
+      "\372B\004\"\002 \000R\010posterId\022\033\n\timage_url\030\005 \001(\tR\010im" +
+      "ageUrl\022\033\n\tis_public\030\006 \001(\010R\010isPublic\"\222\001\n\035" +
+      "UpdateStoryRolePosterResponse\022:\n\004code\030\001 " +
+      "\001(\0162&.rankquantity.voyager.api.ResponseC" +
+      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022\033\n\tp" +
+      "oster_id\030\003 \001(\003R\010posterId\"\201\001\n\024GetFollowLi" +
+      "stRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006use" +
+      "rId\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\t" +
+      "page_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\342\001\n" +
+      "\025GetFollowListResponse\022:\n\004code\030\001 \001(\0162&.r" +
       "ankquantity.voyager.api.ResponseCodeR\004co" +
-      "de\022\030\n\007message\030\002 \001(\tR\007message\0227\n\004info\030\003 \001" +
-      "(\0132#.rankquantity.voyager.api.StoryRoleR" +
-      "\004info\"\247\001\n\026RenderStoryRoleRequest\022 \n\007role" +
-      "_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\006prompt\030\002 \001" +
-      "(\tB\010\372B\005r\003\030\320\017R\006prompt\022\'\n\nref_images\030\003 \003(\t" +
-      "B\010\372B\005\222\001\002\020\nR\trefImages\022 \n\007user_id\030\004 \001(\003B\007" +
-      "\372B\004\"\002 \000R\006userId\"\327\003\n\025RenderStoryRoleDetai" +
-      "l\022\027\n\007role_id\030\001 \001(\003R\006roleId\022\025\n\006gen_id\030\002 \001" +
-      "(\003R\005genId\022\037\n\013is_finished\030\003 \001(\010R\nisFinish" +
-      "ed\022)\n\020role_description\030\004 \001(\tR\017roleDescri" +
-      "ption\022%\n\016role_character\030\005 \001(\tR\rroleChara" +
-      "cter\022#\n\rrole_behavior\030\006 \001(\tR\014roleBehavio" +
-      "r\022\033\n\trole_goal\030\007 \001(\tR\010roleGoal\022)\n\020backgr" +
-      "ound_image\030\010 \001(\tR\017backgroundImage\022!\n\014ava" +
-      "tar_image\030\t \001(\tR\013avatarImage\022\036\n\nbackgrou" +
-      "nd\030\n \001(\tR\nbackground\022\036\n\nappearance\030\013 \001(\t" +
-      "R\nappearance\022 \n\013personality\030\014 \001(\tR\013perso" +
-      "nality\022)\n\020ability_features\030\r \001(\tR\017abilit" +
-      "yFeatures\"\270\001\n\027RenderStoryRoleResponse\022:\n" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022@\n\tfollower" +
+      "s\030\003 \003(\0132\".rankquantity.voyager.api.UserI" +
+      "nfoR\tfollowers\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\t" +
+      "have_more\030\005 \001(\010R\010haveMore\"\203\001\n\026GetFollowe" +
+      "rListRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006" +
+      "userId\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(\000R\006offset\022" +
+      "&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"" +
+      "\344\001\n\027GetFollowerListResponse\022:\n\004code\030\001 \001(" +
+      "\0162&.rankquantity.voyager.api.ResponseCod" +
+      "eR\004code\022\030\n\007message\030\002 \001(\tR\007message\022@\n\tfol" +
+      "lowers\030\003 \003(\0132\".rankquantity.voyager.api." +
+      "UserInfoR\tfollowers\022\024\n\005total\030\004 \001(\003R\005tota" +
+      "l\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"_\n\021Follow" +
+      "UserRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006u" +
+      "serId\022(\n\013follower_id\030\002 \001(\003B\007\372B\004\"\002 \000R\nfol" +
+      "lowerId\"j\n\022FollowUserResponse\022:\n\004code\030\001 " +
+      "\001(\0162&.rankquantity.voyager.api.ResponseC" +
+      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"a\n\023U" +
+      "nfollowUserRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004" +
+      "\"\002 \000R\006userId\022(\n\013follower_id\030\002 \001(\003B\007\372B\004\"\002" +
+      " \000R\nfollowerId\"l\n\024UnfollowUserResponse\022:" +
+      "\n\004code\030\001 \001(\0162&.rankquantity.voyager.api." +
+      "ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mes" +
+      "sage\"\246\001\n\030TrendingStoryRoleRequest\022\035\n\005sta" +
+      "rt\030\001 \001(\003B\007\372B\004\"\002 \000R\005start\022\031\n\003end\030\002 \001(\003B\007\372" +
+      "B\004\"\002 \000R\003end\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(" +
+      "\001R\010pageSize\022(\n\013page_number\030\004 \001(\003B\007\372B\004\"\002(" +
+      "\001R\npageNumber\"\362\002\n\031TrendingStoryRoleRespo" +
+      "nse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager" +
+      ".api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\t" +
+      "R\007message\022L\n\004data\030\003 \001(\01328.rankquantity.v" +
+      "oyager.api.TrendingStoryRoleResponse.Dat" +
+      "aR\004data\032\260\001\n\004Data\0227\n\004list\030\001 \003(\0132#.rankqua" +
+      "ntity.voyager.api.StoryRoleR\004list\022\033\n\tpag" +
+      "e_size\030\002 \001(\003R\010pageSize\022\037\n\013page_number\030\003 " +
+      "\001(\003R\npageNumber\022\024\n\005total\030\004 \001(\003R\005total\022\033\n" +
+      "\thave_more\030\005 \001(\010R\010haveMore\"\242\001\n\024TrendingS" +
+      "toryRequest\022\035\n\005start\030\001 \001(\003B\007\372B\004\"\002 \000R\005sta" +
+      "rt\022\031\n\003end\030\002 \001(\003B\007\372B\004\"\002 \000R\003end\022&\n\tpage_si" +
+      "ze\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\022(\n\013page_nu" +
+      "mber\030\004 \001(\003B\007\372B\004\"\002(\001R\npageNumber\"\346\002\n\025Tren" +
+      "dingStoryResponse\022:\n\004code\030\001 \001(\0162&.rankqu" +
+      "antity.voyager.api.ResponseCodeR\004code\022\030\n" +
+      "\007message\030\002 \001(\tR\007message\022H\n\004data\030\003 \001(\01324." +
+      "rankquantity.voyager.api.TrendingStoryRe" +
+      "sponse.DataR\004data\032\254\001\n\004Data\0223\n\004list\030\001 \003(\013" +
+      "2\037.rankquantity.voyager.api.StoryR\004list\022" +
+      "\033\n\tpage_size\030\002 \001(\003R\010pageSize\022\037\n\013page_num" +
+      "ber\030\003 \001(\003R\npageNumber\022\024\n\005total\030\004 \001(\003R\005to" +
+      "tal\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"\364\001\n\027Get" +
+      "StoryRoleListRequest\022\"\n\010story_id\030\001 \001(\003B\007" +
+      "\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002" +
+      " \000R\006userId\022\"\n\010board_id\030\003 \001(\003B\007\372B\004\"\002(\000R\007b" +
+      "oardId\022&\n\nsearch_key\030\004 \001(\tB\007\372B\004r\002\030dR\tsea" +
+      "rchKey\022\037\n\006offset\030\005 \001(\003B\007\372B\004\"\002(\000R\006offset\022" +
+      "&\n\tpage_size\030\006 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"" +
+      "\336\001\n\030GetStoryRoleListResponse\022:\n\004code\030\001 \001" +
+      "(\0162&.rankquantity.voyager.api.ResponseCo" +
+      "deR\004code\022\030\n\007message\030\002 \001(\tR\007message\0229\n\005ro" +
+      "les\030\003 \003(\0132#.rankquantity.voyager.api.Sto" +
+      "ryRoleR\005roles\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\th" +
+      "ave_more\030\005 \001(\010R\010haveMore\"[\n\023ArchiveStory" +
+      "Request\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007stor" +
+      "yId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"l\n" +
+      "\024ArchiveStoryResponse\022:\n\004code\030\001 \001(\0162&.ra" +
+      "nkquantity.voyager.api.ResponseCodeR\004cod" +
+      "e\022\030\n\007message\030\002 \001(\tR\007message\"\220\001\n\031CreateSt" +
+      "oryCommentRequest\022%\n\010story_id\030\001 \001(\003B\n\340A\002" +
+      "\372B\004\"\002 \000R\007storyId\022#\n\007user_id\030\002 \001(\003B\n\340A\002\372B" +
+      "\004\"\002 \000R\006userId\022\'\n\007content\030\003 \001(\tB\r\340A\002\372B\007r\005" +
+      "\020\001\030\320\017R\007content\"\263\001\n\032CreateStoryCommentRes" +
+      "ponse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyag" +
+      "er.api.ResponseCodeR\004code\022\030\n\007message\030\002 \001" +
+      "(\tR\007message\022?\n\007comment\030\003 \001(\0132%.rankquant" +
+      "ity.voyager.api.CommentInfoR\007comment\"\250\001\n" +
+      "\027GetStoryCommentsRequest\022\"\n\010story_id\030\001 \001" +
+      "(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372" +
+      "B\004\"\002 \000R\006userId\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R" +
+      "\006offset\022&\n\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010p" +
+      "ageSize\"\371\003\n\014StoryComment\022\035\n\ncomment_id\030\001" +
+      " \001(\003R\tcommentId\022\031\n\010story_id\030\002 \001(\003R\007story" +
+      "Id\022\031\n\010board_id\030\003 \001(\003R\007boardId\022\027\n\007role_id" +
+      "\030\004 \001(\003R\006roleId\022\027\n\007prev_id\030\005 \001(\003R\006prevId\022" +
+      "&\n\017root_comment_id\030\006 \001(\003R\rrootCommentId\022" +
+      "\027\n\007user_id\030\007 \001(\003R\006userId\022\030\n\007content\030\010 \001(" +
+      "\tR\007content\022\035\n\ncreated_at\030\t \001(\003R\tcreatedA" +
+      "t\022\035\n\nupdated_at\030\n \001(\003R\tupdatedAt\022\035\n\nlike" +
+      "_count\030\013 \001(\003R\tlikeCount\022\037\n\013reply_count\030\014" +
+      " \001(\003R\nreplyCount\022\031\n\010is_liked\030\r \001(\003R\007isLi" +
+      "ked\022<\n\007creator\030\016 \001(\0132\".rankquantity.voya" +
+      "ger.api.UserInfoR\007creator\0220\n\024created_at_" +
+      "timestamp\030\017 \001(\003R\022createdAtTimestamp\"\234\002\n\030" +
+      "GetStoryCommentsResponse\022:\n\004code\030\001 \001(\0162&" +
+      ".rankquantity.voyager.api.ResponseCodeR\004" +
+      "code\022\030\n\007message\030\002 \001(\tR\007message\022B\n\010commen" +
+      "ts\030\003 \003(\0132&.rankquantity.voyager.api.Stor" +
+      "yCommentR\010comments\022\024\n\005total\030\004 \001(\003R\005total" +
+      "\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 " +
+      "\001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010haveMo" +
+      "re\"e\n\031DeleteStoryCommentRequest\022&\n\ncomme" +
+      "nt_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcommentId\022 \n\007user_" +
+      "id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"r\n\032DeleteStory" +
+      "CommentResponse\022:\n\004code\030\001 \001(\0162&.rankquan" +
+      "tity.voyager.api.ResponseCodeR\004code\022\030\n\007m" +
+      "essage\030\002 \001(\tR\007message\"\262\001\n\035GetStoryCommen" +
+      "tRepliesRequest\022&\n\ncomment_id\030\001 \001(\003B\007\372B\004" +
+      "\"\002 \000R\tcommentId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 " +
+      "\000R\006userId\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offs" +
+      "et\022&\n\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSi" +
+      "ze\"\240\002\n\036GetStoryCommentRepliesResponse\022:\n" +
       "\004code\030\001 \001(\0162&.rankquantity.voyager.api.R" +
       "esponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
-      "age\022G\n\006detail\030\003 \001(\0132/.rankquantity.voyag" +
-      "er.api.RenderStoryRoleDetailR\006detail\"X\n\020" +
-      "LikeStoryRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"" +
-      "\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006" +
-      "userId\"i\n\021LikeStoryResponse\022:\n\004code\030\001 \001(" +
-      "\0162&.rankquantity.voyager.api.ResponseCod" +
-      "eR\004code\022\030\n\007message\030\002 \001(\tR\007message\"Z\n\022UnL" +
-      "ikeStoryRequest\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002" +
-      " \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006u" +
-      "serId\"k\n\023UnLikeStoryResponse\022:\n\004code\030\001 \001" +
-      "(\0162&.rankquantity.voyager.api.ResponseCo" +
-      "deR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\225\001\n D" +
-      "eleteUserStoryboardDraftRequest\022#\n\007user_" +
-      "id\030\001 \001(\003B\n\340A\002\372B\004\"\002 \000R\006userId\022%\n\010draft_id" +
-      "\030\002 \001(\003B\n\340A\002\372B\004\"\002 \000R\007draftId\022%\n\010story_id\030" +
-      "\003 \001(\003B\n\340A\001\372B\004\"\002(\000R\007storyId\"y\n!DeleteUser" +
-      "StoryboardDraftResponse\022:\n\004code\030\001 \001(\0162&." +
-      "rankquantity.voyager.api.ResponseCodeR\004c" +
-      "ode\022\030\n\007message\030\002 \001(\tR\007message\"\201\001\n\017Heatma" +
-      "pDataItem\022.\n\004date\030\001 \001(\tB\032\372B\027r\0252\023^\\d{4}-\\" +
-      "d{2}-\\d{2}$R\004date\022\035\n\005count\030\002 \001(\003B\007\372B\004\"\002(" +
-      "\000R\005count\022\037\n\005level\030\003 \001(\003B\t\372B\006\"\004\030\004(\000R\005leve" +
-      "l\"\207\001\n\027UserActiveHeamapRequest\022 \n\007user_id" +
-      "\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022&\n\nstart_time\030\002 " +
-      "\001(\003B\007\372B\004\"\002 \000R\tstartTime\022\"\n\010end_time\030\003 \001(" +
-      "\003B\007\372B\004\"\002 \000R\007endTime\"\331\001\n\030UserActiveHeamap" +
+      "age\022@\n\007replies\030\003 \003(\0132&.rankquantity.voya" +
+      "ger.api.StoryCommentR\007replies\022\024\n\005total\030\004" +
+      " \001(\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tp" +
+      "age_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 " +
+      "\001(\010R\010haveMore\"\220\001\n\036CreateStoryCommentRepl" +
+      "yRequest\022&\n\ncomment_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tc" +
+      "ommentId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006user" +
+      "Id\022$\n\007content\030\003 \001(\tB\n\372B\007r\005\020\001\030\320\017R\007content" +
+      "\"\270\001\n\037CreateStoryCommentReplyResponse\022:\n\004" +
+      "code\030\001 \001(\0162&.rankquantity.voyager.api.Re" +
+      "sponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messa" +
+      "ge\022?\n\007comment\030\003 \001(\0132%.rankquantity.voyag" +
+      "er.api.CommentInfoR\007comment\"f\n\036DeleteSto" +
+      "ryCommentReplyRequest\022\"\n\010reply_id\030\001 \001(\003B" +
+      "\007\372B\004\"\002 \000R\007replyId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"" +
+      "\002 \000R\006userId\"w\n\037DeleteStoryCommentReplyRe" +
+      "sponse\022:\n\004code\030\001 \001(\0162&.rankquantity.voya" +
+      "ger.api.ResponseCodeR\004code\022\030\n\007message\030\002 " +
+      "\001(\tR\007message\"\255\001\n\034GetStoryBoardCommentsRe" +
+      "quest\022\"\n\010board_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007boardI" +
+      "d\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006o" +
+      "ffset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_siz" +
+      "e\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\241\002\n\035GetStor" +
+      "yBoardCommentsResponse\022:\n\004code\030\001 \001(\0162&.r" +
+      "ankquantity.voyager.api.ResponseCodeR\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022B\n\010comments" +
+      "\030\003 \003(\0132&.rankquantity.voyager.api.StoryC" +
+      "ommentR\010comments\022\024\n\005total\030\004 \001(\003R\005total\022\026" +
+      "\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 \001(" +
+      "\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010haveMore" +
+      "\"\214\001\n\036CreateStoryBoardCommentRequest\022\"\n\010b" +
+      "oard_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007boardId\022 \n\007user_" +
+      "id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\007content\030\003 \001" +
+      "(\tB\n\372B\007r\005\020\001\030\320\017R\007content\"\270\001\n\037CreateStoryB" +
+      "oardCommentResponse\022:\n\004code\030\001 \001(\0162&.rank" +
+      "quantity.voyager.api.ResponseCodeR\004code\022" +
+      "\030\n\007message\030\002 \001(\tR\007message\022?\n\007comment\030\003 \001" +
+      "(\0132%.rankquantity.voyager.api.CommentInf" +
+      "oR\007comment\"\216\001\n\036DeleteStoryBoardCommentRe" +
+      "quest\022\"\n\010board_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007boardI" +
+      "d\022&\n\ncomment_id\030\002 \001(\003B\007\372B\004\"\002 \000R\tcommentI" +
+      "d\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId\"w\n\037D" +
+      "eleteStoryBoardCommentResponse\022:\n\004code\030\001" +
+      " \001(\0162&.rankquantity.voyager.api.Response" +
+      "CodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\267\001\n" +
+      "\"GetStoryBoardCommentRepliesRequest\022&\n\nc" +
+      "omment_id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcommentId\022 \n\007u" +
+      "ser_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006offset\030" +
+      "\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 \001(" +
+      "\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\245\002\n#GetStoryBoard" +
+      "CommentRepliesResponse\022:\n\004code\030\001 \001(\0162&.r" +
+      "ankquantity.voyager.api.ResponseCodeR\004co",
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022@\n\007replies\030" +
+      "\003 \003(\0132&.rankquantity.voyager.api.StoryCo" +
+      "mmentR\007replies\022\024\n\005total\030\004 \001(\003R\005total\022\026\n\006" +
+      "offset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 \001(\003R" +
+      "\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010haveMore\"^" +
+      "\n\022LikeCommentRequest\022&\n\ncomment_id\030\001 \001(\003" +
+      "B\007\372B\004\"\002 \000R\tcommentId\022 \n\007user_id\030\002 \001(\003B\007\372" +
+      "B\004\"\002 \000R\006userId\"k\n\023LikeCommentResponse\022:\n" +
+      "\004code\030\001 \001(\0162&.rankquantity.voyager.api.R" +
+      "esponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
+      "age\"a\n\025DislikeCommentRequest\022&\n\ncomment_" +
+      "id\030\001 \001(\003B\007\372B\004\"\002 \000R\tcommentId\022 \n\007user_id\030" +
+      "\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"n\n\026DislikeComment" +
       "Response\022:\n\004code\030\001 \001(\0162&.rankquantity.vo" +
       "yager.api.ResponseCodeR\004code\022\030\n\007message\030" +
-      "\002 \001(\tR\007message\022=\n\004data\030\003 \003(\0132).rankquant" +
-      "ity.voyager.api.HeatmapDataItemR\004data\022(\n" +
-      "\013total_count\030\004 \001(\003B\007\372B\004\"\002(\000R\ntotalCount\"" +
-      "\254\001\n\030GroupActiveHeamapRequest\022\"\n\010group_id" +
-      "\030\001 \001(\003B\007\372B\004\"\002 \000R\007groupId\022 \n\007user_id\030\002 \001(" +
-      "\003B\007\372B\004\"\002 \000R\006userId\022&\n\nstart_time\030\003 \001(\003B\007" +
-      "\372B\004\"\002 \000R\tstartTime\022\"\n\010end_time\030\004 \001(\003B\007\372B" +
-      "\004\"\002 \000R\007endTime\"\206\002\n\031GroupActiveHeamapResp" +
-      "onse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyage" +
-      "r.api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(",
-      "\tR\007message\022=\n\004data\030\003 \003(\0132).rankquantity." +
-      "voyager.api.HeatmapDataItemR\004data\022(\n\013tot" +
-      "al_count\030\004 \001(\003B\007\372B\004\"\002(\000R\ntotalCount\022*\n\014m" +
-      "ember_count\030\005 \001(\003B\007\372B\004\"\002(\000R\013memberCount\"" +
-      "\216\001\n\037UpdateStoryboardForkAbleRequest\022 \n\007u" +
-      "ser_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022,\n\rstorybo" +
-      "ard_id\030\002 \001(\003B\007\372B\004\"\002 \000R\014storyboardId\022\033\n\tf" +
-      "ork_able\030\003 \001(\010R\010forkAble\"x\n UpdateStoryb" +
-      "oardForkAbleResponse\022:\n\004code\030\001 \001(\0162&.ran" +
-      "kquantity.voyager.api.ResponseCodeR\004code" +
-      "\022\030\n\007message\030\002 \001(\tR\007message\"\257\001\n\036UserStory" +
-      "boardDraftlistRequest\022 \n\007user_id\030\001 \001(\003B\007" +
-      "\372B\004\"\002 \000R\006userId\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(\000" +
-      "R\006offset\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010" +
-      "pageSize\022\"\n\010story_id\030\004 \001(\003B\007\372B\004\"\002(\000R\007sto" +
-      "ryId\"\374\001\n\037UserStoryboardDraftlistResponse" +
-      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
-      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
-      "essage\022G\n\006drafts\030\003 \003(\0132/.rankquantity.vo" +
-      "yager.api.StoryboardDraftDetailR\006drafts\022" +
-      "\035\n\005total\030\004 \001(\003B\007\372B\004\"\002(\000R\005total\022\033\n\thave_m" +
-      "ore\030\005 \001(\010R\010haveMore\"\261\004\n\025StoryboardDraftD" +
-      "etail\022\031\n\010draft_id\030\001 \001(\003R\007draftId\022\031\n\010stor" +
-      "y_id\030\002 \001(\003R\007storyId\022#\n\rstoryboard_id\030\003 \001" +
-      "(\003R\014storyboardId\022\036\n\005title\030\004 \001(\tB\010\372B\005r\003\030\310" +
-      "\001R\005title\022\"\n\007content\030\005 \001(\tB\010\372B\005r\003\030\220NR\007con" +
-      "tent\022\036\n\nbackground\030\006 \001(\tR\nbackground\0229\n\005" +
-      "roles\030\007 \003(\0132#.rankquantity.voyager.api.S" +
-      "toryRoleR\005roles\022B\n\006sences\030\010 \001(\0132*.rankqu" +
-      "antity.voyager.api.StoryBoardSencesR\006sen" +
-      "ces\022B\n\006params\030\t \001(\0132*.rankquantity.voyag" +
-      "er.api.StoryBoardParamsR\006params\022\035\n\ncreat" +
-      "ed_at\030\n \001(\003R\tcreatedAt\022\035\n\nupdated_at\030\013 \001" +
-      "(\003R\tupdatedAt\022?\n\005stage\030\014 \001(\0162).rankquant" +
-      "ity.voyager.api.StoryboardStageR\005stage\022\027" +
-      "\n\007user_id\030\r \001(\003R\006userId\"h\n UserDraftStor" +
-      "yboardDetailRequest\022 \n\007user_id\030\001 \001(\003B\007\372B" +
-      "\004\"\002 \000R\006userId\022\"\n\010draft_id\030\002 \001(\003B\007\372B\004\"\002 \000" +
-      "R\007draftId\"\302\001\n!UserDraftStoryboardDetailR" +
+      "\002 \001(\tR\007message\"\177\n\027UpdateRolePromptReques" +
+      "t\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\007r" +
+      "ole_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\006prompt\030" +
+      "\003 \001(\tB\010\372B\005r\003\030\320\017R\006prompt\"p\n\030UpdateRolePro" +
+      "mptResponse\022:\n\004code\030\001 \001(\0162&.rankquantity" +
+      ".voyager.api.ResponseCodeR\004code\022\030\n\007messa" +
+      "ge\030\002 \001(\tR\007message\"\245\001\n\031GenerateRolePrompt" +
+      "Request\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007stor" +
+      "yId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n" +
+      "\007role_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\006promp" +
+      "t\030\004 \001(\tB\010\372B\005r\003\030\320\017R\006prompt\"\212\001\n\032GenerateRo" +
+      "lePromptResponse\022:\n\004code\030\001 \001(\0162&.rankqua" +
+      "ntity.voyager.api.ResponseCodeR\004code\022\030\n\007" +
+      "message\030\002 \001(\tR\007message\022\026\n\006prompt\030\003 \001(\tR\006" +
+      "prompt\"\216\001\n\034UpdateRoleDescriptionRequest\022" +
+      " \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\007rol" +
+      "e_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022*\n\013descripti" +
+      "on\030\003 \001(\tB\010\372B\005r\003\030\320\017R\013description\"u\n\035Updat" +
+      "eRoleDescriptionResponse\022:\n\004code\030\001 \001(\0162&" +
+      ".rankquantity.voyager.api.ResponseCodeR\004" +
+      "code\022\030\n\007message\030\002 \001(\tR\007message\"\264\001\n\036Gener" +
+      "ateRoleDescriptionRequest\022\"\n\010story_id\030\001 " +
+      "\001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007" +
+      "\372B\004\"\002 \000R\006userId\022 \n\007role_id\030\003 \001(\003B\007\372B\004\"\002 " +
+      "\000R\006roleId\022*\n\013description\030\004 \001(\tB\010\372B\005r\003\030\320\017" +
+      "R\013description\"\315\001\n\037GenerateRoleDescriptio" +
+      "nResponse\022:\n\004code\030\001 \001(\0162&.rankquantity.v" +
+      "oyager.api.ResponseCodeR\004code\022\030\n\007message" +
+      "\030\002 \001(\tR\007message\022T\n\020character_detail\030\003 \001(" +
+      "\0132).rankquantity.voyager.api.CharacterDe" +
+      "tailR\017characterDetail\"\212\001\n\035GetUnPublishSt" +
+      "oryboardRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 " +
+      "\000R\006userId\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(\000R\006offs" +
+      "et\022&\n\tpage_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSi" +
+      "ze\"\270\002\n\036GetUnPublishStoryboardResponse\022:\n" +
+      "\004code\030\001 \001(\0162&.rankquantity.voyager.api.R" +
+      "esponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
+      "age\022X\n\021storyboardactives\030\003 \003(\0132*.rankqua" +
+      "ntity.voyager.api.StoryBoardActiveR\021stor" +
+      "yboardactives\022\024\n\005total\030\004 \001(\003R\005total\022\026\n\006o" +
+      "ffset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 \001(\003R\010" +
+      "pageSize\022\033\n\thave_more\030\007 \001(\010R\010haveMore\"\330\001" +
+      "\n(GetUserWatchRoleActiveStoryBoardsReque" +
+      "st\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\007" +
+      "role_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006roleId\022\037\n\006offset" +
+      "\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 \001" +
+      "(\003B\t\372B\006\"\004\030d(\001R\010pageSize\022\037\n\006filter\030\005 \001(\tB" +
+      "\007\372B\004r\002\0302R\006filter\"\267\002\n)GetUserWatchRoleAct" +
+      "iveStoryBoardsResponse\022:\n\004code\030\001 \001(\0162&.r" +
+      "ankquantity.voyager.api.ResponseCodeR\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022L\n\013storyboa" +
+      "rds\030\003 \003(\0132*.rankquantity.voyager.api.Sto" +
+      "ryBoardActiveR\013storyboards\022\024\n\005total\030\004 \001(" +
+      "\003R\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage" +
+      "_size\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010" +
+      "R\010haveMore\"\333\001\n)GetUserWatchStoryActiveSt" +
+      "oryBoardsRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002" +
+      " \000R\006userId\022\"\n\010story_id\030\002 \001(\003B\007\372B\004\"\002 \000R\007s" +
+      "toryId\022\037\n\006offset\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022" +
+      "&\n\tpage_size\030\004 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\022" +
+      "\037\n\006filter\030\005 \001(\tB\007\372B\004r\002\0302R\006filter\"\270\002\n*Get" +
+      "UserWatchStoryActiveStoryBoardsResponse\022" +
+      ":\n\004code\030\001 \001(\0162&.rankquantity.voyager.api" +
+      ".ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007me" +
+      "ssage\022L\n\013storyboards\030\003 \003(\0132*.rankquantit" +
+      "y.voyager.api.StoryBoardActiveR\013storyboa" +
+      "rds\022\024\n\005total\030\004 \001(\003R\005total\022\026\n\006offset\030\005 \001(" +
+      "\003R\006offset\022\033\n\tpage_size\030\006 \001(\003R\010pageSize\022\033" +
+      "\n\thave_more\030\007 \001(\010R\010haveMore\"l\n\032SaveStory" +
+      "boardCraftRequest\022,\n\rstoryboard_id\030\001 \001(\003" +
+      "B\007\372B\004\"\002 \000R\014storyboardId\022 \n\007user_id\030\002 \001(\003" +
+      "B\007\372B\004\"\002 \000R\006userId\"s\n\033SaveStoryboardCraft" +
+      "Response\022:\n\004code\030\001 \001(\0162&.rankquantity.vo" +
+      "yager.api.ResponseCodeR\004code\022\030\n\007message\030" +
+      "\002 \001(\tR\007message\"j\n\030PublishStoryboardReque" +
+      "st\022,\n\rstoryboard_id\030\001 \001(\003B\007\372B\004\"\002 \000R\014stor" +
+      "yboardId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006user" +
+      "Id\"q\n\031PublishStoryboardResponse\022:\n\004code\030" +
+      "\001 \001(\0162&.rankquantity.voyager.api.Respons" +
+      "eCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"i\n" +
+      "\027CancelStoryboardRequest\022,\n\rstoryboard_i" +
+      "d\030\001 \001(\003B\007\372B\004\"\002 \000R\014storyboardId\022 \n\007user_i" +
+      "d\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"p\n\030CancelStoryb" +
+      "oardResponse\022:\n\004code\030\001 \001(\0162&.rankquantit" +
+      "y.voyager.api.ResponseCodeR\004code\022\030\n\007mess" +
+      "age\030\002 \001(\tR\007message\"\327\001\n\"RenderStoryRoleCo" +
+      "ntinuouslyRequest\022 \n\007role_id\030\001 \001(\003B\007\372B\004\"" +
+      "\002 \000R\006roleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006u" +
+      "serId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000R\007storyI" +
+      "d\022 \n\006prompt\030\004 \001(\tB\010\372B\005r\003\030\320\017R\006prompt\022\'\n\017r" +
+      "eference_image\030\005 \001(\tR\016referenceImage\"\341\001\n" +
+      "#RenderStoryRoleContinuouslyResponse\022:\n\004" +
+      "code\030\001 \001(\0162&.rankquantity.voyager.api.Re" +
+      "sponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messa" +
+      "ge\022G\n\006detail\030\003 \001(\0132/.rankquantity.voyage" +
+      "r.api.RenderStoryRoleDetailR\006detail\022\033\n\th" +
+      "ave_more\030\004 \001(\010R\010haveMore\"\336\002\n\030GetNextStor" +
+      "yboardRequest\022,\n\rstoryboard_id\030\001 \001(\003B\007\372B" +
+      "\004\"\002 \000R\014storyboardId\022 \n\007user_id\030\002 \001(\003B\007\372B" +
+      "\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000" +
+      "R\007storyId\022&\n\017is_multi_branch\030\004 \001(\010R\risMu" +
+      "ltiBranch\022\037\n\006offset\030\005 \001(\003B\007\372B\004\"\002(\000R\006offs" +
+      "et\022&\n\tpage_size\030\006 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSi" +
+      "ze\022\024\n\005total\030\007 \001(\003R\005total\022G\n\010order_by\030\010 \001" +
+      "(\0162,.rankquantity.voyager.api.MultiBranc" +
+      "hOrderByR\007orderBy\"\317\002\n\031GetNextStoryboardR" +
       "esponse\022:\n\004code\030\001 \001(\0162&.rankquantity.voy" +
       "ager.api.ResponseCodeR\004code\022\030\n\007message\030\002" +
-      " \001(\tR\007message\022G\n\006detail\030\003 \001(\0132/.rankquan" +
-      "tity.voyager.api.StoryboardDraftDetailR\006" +
-      "detail\"\327\001\n\020TokenConsumption\022\037\n\013token_cou" +
-      "nt\030\001 \001(\003R\ntokenCount\022J\n\013source_type\030\002 \001(" +
-      "\0162).rankquantity.voyager.api.TokenSource" +
-      "TypeR\nsourceType\022\033\n\tsource_id\030\003 \001(\003R\010sou" +
-      "rceId\022\037\n\013consumed_at\030\004 \001(\003R\nconsumedAt\022\030" +
-      "\n\007purpose\030\005 \001(\tR\007purpose\"\201\002\n\016AIPolishRec" +
-      "ord\022)\n\020original_content\030\001 \001(\tR\017originalC" +
-      "ontent\022)\n\020polished_content\030\002 \001(\tR\017polish" +
-      "edContent\022\037\n\013polished_at\030\003 \001(\003R\npolished" +
-      "At\022\037\n\013polish_type\030\004 \001(\tR\npolishType\022W\n\021t" +
-      "oken_consumption\030\005 \001(\0132*.rankquantity.vo" +
-      "yager.api.TokenConsumptionR\020tokenConsump" +
-      "tion\"\222\003\n\030ChapterTranslationRecord\022\035\n\ncha" +
-      "pter_id\030\001 \001(\tR\tchapterId\022#\n\rchapter_titl" +
-      "e\030\002 \001(\tR\014chapterTitle\022%\n\016original_scene\030" +
-      "\003 \001(\tR\roriginalScene\022)\n\020translated_scene" +
-      "\030\004 \001(\tR\017translatedScene\022.\n\023original_imag" +
-      "e_desc\030\005 \001(\tR\021originalImageDesc\0222\n\025trans" +
-      "lated_image_desc\030\006 \001(\tR\023translatedImageD" +
-      "esc\022#\n\rtranslated_at\030\007 \001(\003R\014translatedAt" +
-      "\022W\n\021token_consumption\030\010 \001(\0132*.rankquanti" +
-      "ty.voyager.api.TokenConsumptionR\020tokenCo" +
-      "nsumption\"\360\002\n\026GenerationPromptRecord\022!\n\014" +
-      "content_type\030\001 \001(\tR\013contentType\022\035\n\nconte" +
-      "nt_id\030\002 \001(\003R\tcontentId\022!\n\014image_prompt\030\003" +
-      " \001(\tR\013imagePrompt\022!\n\014video_prompt\030\004 \001(\tR" +
-      "\013videoPrompt\022)\n\020generated_images\030\005 \003(\tR\017" +
-      "generatedImages\022\'\n\017generated_video\030\006 \001(\t" +
-      "R\016generatedVideo\022!\n\014generated_at\030\007 \001(\003R\013" +
-      "generatedAt\022W\n\021token_consumption\030\010 \001(\0132*" +
-      ".rankquantity.voyager.api.TokenConsumpti" +
-      "onR\020tokenConsumption\"\315\006\n\026StoryGeneration" +
-      "History\022>\n\nstory_info\030\001 \001(\0132\037.rankquanti" +
-      "ty.voyager.api.StoryR\tstoryInfo\0229\n\005roles" +
-      "\030\002 \003(\0132#.rankquantity.voyager.api.StoryR" +
-      "oleR\005roles\022O\n\016polish_records\030\003 \003(\0132(.ran" +
-      "kquantity.voyager.api.AIPolishRecordR\rpo" +
-      "lishRecords\022F\n\014chapter_info\030\004 \001(\0132#.rank" +
-      "quantity.voyager.api.StoryInfoR\013chapterI" +
-      "nfo\022c\n\023translation_records\030\005 \003(\01322.rankq" +
-      "uantity.voyager.api.ChapterTranslationRe" +
-      "cordR\022translationRecords\022W\n\016prompt_recor" +
-      "ds\030\006 \003(\01320.rankquantity.voyager.api.Gene" +
-      "rationPromptRecordR\rpromptRecords\022I\n\rfin" +
-      "al_content\030\007 \003(\0132$.rankquantity.voyager." +
-      "api.StoryBoardR\014finalContent\022<\n\007creator\030" +
-      "\010 \001(\0132\".rankquantity.voyager.api.UserInf" +
-      "oR\007creator\022d\n\030total_token_consumptions\030\t" +
-      " \003(\0132*.rankquantity.voyager.api.TokenCon" +
-      "sumptionR\026totalTokenConsumptions\0224\n\026chil" +
-      "d_storyboard_count\030\n \001(\003R\024childStoryboar" +
-      "dCount\022\035\n\ncreated_at\030\013 \001(\003R\tcreatedAt\022\035\n" +
-      "\nupdated_at\030\014 \001(\003R\tupdatedAt\"\233\001\n%GetStor" +
-      "yboardGenerationRoadmapRequest\022\"\n\010story_" +
-      "id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 " +
-      "\001(\003B\007\372B\004\"\002 \000R\006userId\022,\n\rstoryboard_id\030\003 " +
-      "\001(\003B\007\372B\004\"\002 \000R\014storyboardId\"\304\001\n&GetStoryb" +
-      "oardGenerationRoadmapResponse\022:\n\004code\030\001 " +
+      " \001(\tR\007message\022L\n\013storyboards\030\003 \003(\0132*.ran" +
+      "kquantity.voyager.api.StoryBoardActiveR\013" +
+      "storyboards\022&\n\017is_multi_branch\030\004 \001(\010R\ris" +
+      "MultiBranch\022\024\n\005total\030\005 \001(\003R\005total\022\026\n\006off" +
+      "set\030\006 \001(\003R\006offset\022\033\n\tpage_size\030\007 \001(\003R\010pa" +
+      "geSize\022\033\n\thave_more\030\010 \001(\010R\010haveMore\"\251\001\n\032" +
+      "GetUserChatMessagesRequest\022 \n\007user_id\030\001 " +
+      "\001(\003B\007\372B\004\"\002 \000R\006userId\022 \n\007chat_id\030\002 \001(\003B\007\372" +
+      "B\004\"\002 \000R\006chatId\022 \n\007role_id\030\003 \001(\003B\007\372B\004\"\002 \000" +
+      "R\006roleId\022%\n\ttimestamp\030\004 \001(\003B\007\372B\004\"\002(\000R\tti" +
+      "mestamp\"\207\002\n\033GetUserChatMessagesResponse\022" +
+      ":\n\004code\030\001 \001(\0162&.rankquantity.voyager.api" +
+      ".ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007me" +
+      "ssage\022A\n\010messages\030\003 \003(\0132%.rankquantity.v" +
+      "oyager.api.ChatMessageR\010messages\022\034\n\ttime" +
+      "stamp\030\004 \001(\003R\ttimestamp\022\024\n\005total\030\005 \001(\003R\005t" +
+      "otal\022\033\n\thave_more\030\006 \001(\010R\010haveMore\"`\n\032Get" +
+      "UserChatWithRoleRequest\022 \n\007role_id\030\001 \001(\003" +
+      "B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"" +
+      "\002 \000R\006userId\"\263\002\n\033GetUserChatWithRoleRespo" +
+      "nse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager" +
+      ".api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\t" +
+      "R\007message\022A\n\010messages\030\003 \003(\0132%.rankquanti" +
+      "ty.voyager.api.ChatMessageR\010messages\022H\n\014" +
+      "chat_context\030\004 \001(\0132%.rankquantity.voyage" +
+      "r.api.ChatContextR\013chatContext\022\024\n\005total\030" +
+      "\005 \001(\003R\005total\022\033\n\thave_more\030\006 \001(\010R\010haveMor" +
+      "e\"\362\001\n\036GetStoryRoleStoryboardsRequest\022 \n\007" +
+      "role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_i" +
+      "d\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001" +
+      "(\003B\007\372B\004\"\002 \000R\007storyId\022\037\n\006filter\030\004 \001(\tB\007\372B" +
+      "\004r\002\0302R\006filter\022\037\n\006offset\030\005 \001(\003B\007\372B\004\"\002(\000R\006" +
+      "offset\022&\n\tpage_size\030\006 \001(\003B\t\372B\006\"\004\030d(\001R\010pa" +
+      "geSize\"\271\002\n\037GetStoryRoleStoryboardsRespon" +
+      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
+      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
+      "\007message\022X\n\021storyboardactives\030\003 \003(\0132*.ra" +
+      "nkquantity.voyager.api.StoryBoardActiveR" +
+      "\021storyboardactives\022\024\n\005total\030\004 \001(\003R\005total" +
+      "\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 " +
+      "\001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010haveMo" +
+      "re\"\312\001\n\032GetStoryRoleStoriesRequest\022 \n\007rol" +
+      "e_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002" +
+      " \001(\003B\007\372B\004\"\002 \000R\006userId\022\037\n\006filter\030\003 \001(\tB\007\372" +
+      "B\004r\002\0302R\006filter\022\037\n\006offset\030\004 \001(\003B\007\372B\004\"\002(\000R" +
+      "\006offset\022&\n\tpage_size\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010p" +
+      "ageSize\"\226\002\n\033GetStoryRoleStoriesResponse\022" +
+      ":\n\004code\030\001 \001(\0162&.rankquantity.voyager.api" +
+      ".ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007me" +
+      "ssage\0229\n\007stories\030\003 \003(\0132\037.rankquantity.vo" +
+      "yager.api.StoryR\007stories\022\024\n\005total\030\004 \001(\003R" +
+      "\005total\022\026\n\006offset\030\005 \001(\003R\006offset\022\033\n\tpage_s" +
+      "ize\030\006 \001(\003R\010pageSize\022\033\n\thave_more\030\007 \001(\010R\010" +
+      "haveMore\"`\n\032CreateStoryRoleChatRequest\022 " +
+      "\n\007role_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user" +
+      "_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"\245\003\n\013ChatConte" +
+      "xt\022\027\n\007chat_id\030\001 \001(\003R\006chatId\022\027\n\007role_id\030\002" +
+      " \001(\003R\006roleId\022\027\n\007user_id\030\003 \001(\003R\006userId\022\034\n" +
+      "\ttimestamp\030\004 \001(\003R\ttimestamp\022(\n\020last_upda" +
+      "te_time\030\005 \001(\003R\016lastUpdateTime\022!\n\014total_t" +
+      "okens\030\006 \001(\003R\013totalTokens\022%\n\016total_messag" +
+      "es\030\007 \001(\003R\rtotalMessages\022H\n\014last_message\030" +
+      "\010 \001(\0132%.rankquantity.voyager.api.ChatMes" +
+      "sageR\013lastMessage\0226\n\004user\030\t \001(\0132\".rankqu" +
+      "antity.voyager.api.UserInfoR\004user\0227\n\004rol" +
+      "e\030\n \001(\0132#.rankquantity.voyager.api.Story" +
+      "RoleR\004role\"\275\001\n\033CreateStoryRoleChatRespon" +
+      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
+      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
+      "\007message\022H\n\014chat_context\030\003 \001(\0132%.rankqua" +
+      "ntity.voyager.api.ChatContextR\013chatConte" +
+      "xt\"\336\001\n\030ChatWithStoryRoleRequest\022 \n\007role_" +
+      "id\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001" +
+      "(\003B\007\372B\004\"\002 \000R\006userId\022K\n\010messages\030\003 \003(\0132%." +
+      "rankquantity.voyager.api.ChatMessageB\010\372B" +
+      "\005\222\001\002\0202R\010messages\022\024\n\005total\030\004 \001(\003R\005total\022\033" +
+      "\n\thave_more\030\005 \001(\010R\010haveMore\"\362\001\n\031ChatWith" +
+      "StoryRoleResponse\022:\n\004code\030\001 \001(\0162&.rankqu" +
+      "antity.voyager.api.ResponseCodeR\004code\022\030\n" +
+      "\007message\030\002 \001(\tR\007message\022L\n\016reply_message" +
+      "s\030\003 \003(\0132%.rankquantity.voyager.api.ChatM" +
+      "essageR\rreplyMessages\022\024\n\005total\030\004 \001(\003R\005to" +
+      "tal\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"\357\001\n\034Upd" +
+      "ateStoryRoleDetailRequest\022 \n\007role_id\030\001 \001" +
+      "(\003B\007\372B\004\"\002 \000R\006roleId\022A\n\004role\030\002 \001(\0132#.rank" +
+      "quantity.voyager.api.StoryRoleB\010\372B\005\212\001\002\020\001" +
+      "R\004role\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R\006userId" +
+      "\022\035\n\nneed_regen\030\004 \001(\010R\tneedRegen\022)\n\020backg" +
+      "round_image\030\005 \001(\tR\017backgroundImage\"u\n\035Up" +
+      "dateStoryRoleDetailResponse\022:\n\004code\030\001 \001(" +
+      "\0162&.rankquantity.voyager.api.ResponseCod" +
+      "eR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\203\001\n\034Up" +
+      "dateStoryRoleAvatorRequest\022 \n\007role_id\030\001 " +
+      "\001(\003B\007\372B\004\"\002 \000R\006roleId\022\037\n\006avator\030\002 \001(\tB\007\372B" +
+      "\004r\002\020\001R\006avator\022 \n\007user_id\030\003 \001(\003B\007\372B\004\"\002 \000R" +
+      "\006userId\"u\n\035UpdateStoryRoleAvatorResponse" +
+      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
+      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
+      "essage\"\257\001\n\036GetUserWithRoleChatListReques" +
+      "t\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010s" +
+      "tory_id\030\002 \001(\003B\007\372B\004\"\002(\000R\007storyId\022\037\n\006offse" +
+      "t\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 " +
+      "\001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\234\002\n\037GetUserWith" +
+      "RoleChatListResponse\022:\n\004code\030\001 \001(\0162&.ran" +
+      "kquantity.voyager.api.ResponseCodeR\004code" +
+      "\022\030\n\007message\030\002 \001(\tR\007message\022;\n\005chats\030\003 \003(" +
+      "\0132%.rankquantity.voyager.api.ChatContext" +
+      "R\005chats\022\024\n\005total\030\004 \001(\003R\005total\022\026\n\006offset\030" +
+      "\005 \001(\003R\006offset\022\033\n\tpage_size\030\006 \001(\003R\010pageSi" +
+      "ze\022\033\n\thave_more\030\007 \001(\010R\010haveMore\"\320\001\n GetU" +
+      "serCreatedStoryboardsRequest\022 \n\007user_id\030" +
+      "\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\002 \001(\005" +
+      "B\007\372B\004\032\002(\000R\007storyId\022\035\n\005stage\030\003 \001(\005B\007\372B\004\032\002" +
+      "(\000R\005stage\022\037\n\006offset\030\004 \001(\003B\007\372B\004\"\002(\000R\006offs" +
+      "et\022&\n\tpage_size\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSi" +
+      "ze\"\257\002\n!GetUserCreatedStoryboardsResponse" +
+      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
+      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
+      "essage\022L\n\013storyboards\030\003 \003(\0132*.rankquanti" +
+      "ty.voyager.api.StoryBoardActiveR\013storybo" +
+      "ards\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thave_more\030" +
+      "\005 \001(\010R\010haveMore\022\026\n\006offset\030\006 \001(\003R\006offset\022" +
+      "\033\n\tpage_size\030\010 \001(\003R\010pageSize\"\312\001\n\032GetUser" +
+      "CreatedRolesRequest\022 \n\007user_id\030\001 \001(\003B\007\372B" +
+      "\004\"\002 \000R\006userId\022\"\n\010story_id\030\002 \001(\005B\007\372B\004\032\002(\000" +
+      "R\007storyId\022\035\n\005stage\030\003 \001(\005B\007\372B\004\032\002(\000R\005stage" +
+      "\022\037\n\006offset\030\004 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpag" +
+      "e_size\030\005 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\"\226\002\n\033Ge" +
+      "tUserCreatedRolesResponse\022:\n\004code\030\001 \001(\0162" +
+      "&.rankquantity.voyager.api.ResponseCodeR" +
+      "\004code\022\030\n\007message\030\002 \001(\tR\007message\0229\n\005roles" +
+      "\030\003 \003(\0132#.rankquantity.voyager.api.StoryR" +
+      "oleR\005roles\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thave" +
+      "_more\030\005 \001(\010R\010haveMore\022\026\n\006offset\030\006 \001(\003R\006o" +
+      "ffset\022\033\n\tpage_size\030\010 \001(\003R\010pageSize\"~\n\024Li" +
+      "keStoryRoleRequest\022 \n\007role_id\030\001 \001(\003B\007\372B\004" +
+      "\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006" +
+      "userId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000R\007story" +
+      "Id\"m\n\025LikeStoryRoleResponse\022:\n\004code\030\001 \001(" +
+      "\0162&.rankquantity.voyager.api.ResponseCod" +
+      "eR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\200\001\n\026Un" +
+      "LikeStoryRoleRequest\022 \n\007role_id\030\001 \001(\003B\007\372" +
+      "B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000" +
+      "R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000R\007sto" +
+      "ryId\"o\n\027UnLikeStoryRoleResponse\022:\n\004code\030" +
+      "\001 \001(\0162&.rankquantity.voyager.api.Respons" +
+      "eCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\200\001" +
+      "\n\026FollowStoryRoleRequest\022 \n\007role_id\030\001 \001(" +
+      "\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(\003B\007\372B\004" +
+      "\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000R" +
+      "\007storyId\"o\n\027FollowStoryRoleResponse\022:\n\004c" +
+      "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
+      "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
+      "e\"\202\001\n\030UnFollowStoryRoleRequest\022 \n\007role_i" +
+      "d\030\001 \001(\003B\007\372B\004\"\002 \000R\006roleId\022 \n\007user_id\030\002 \001(" +
+      "\003B\007\372B\004\"\002 \000R\006userId\022\"\n\010story_id\030\003 \001(\003B\007\372B" +
+      "\004\"\002 \000R\007storyId\"q\n\031UnFollowStoryRoleRespo" +
+      "nse\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager" +
+      ".api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\t" +
+      "R\007message\"\206\002\n\024SearchStoriesRequest\022 \n\007us" +
+      "er_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\007keyword\030" +
+      "\002 \001(\tB\n\372B\007r\005\020\001\030\310\001R\007keyword\022\037\n\006offset\030\003 \001" +
+      "(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 \001(\003B\t" +
+      "\372B\006\"\004\030d(\001R\010pageSize\0229\n\005scope\030\005 \001(\0162#.ran" +
+      "kquantity.voyager.api.ScopeTypeR\005scope\022\"" +
+      "\n\010group_id\030\007 \001(\003B\007\372B\004\"\002(\000R\007groupId\"\333\001\n\025S" +
+      "earchStoriesResponse\022:\n\004code\030\001 \001(\0162&.ran" +
+      "kquantity.voyager.api.ResponseCodeR\004code" +
+      "\022\030\n\007message\030\002 \001(\tR\007message\0229\n\007stories\030\003 " +
+      "\003(\0132\037.rankquantity.voyager.api.StoryR\007st" +
+      "ories\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thave_more" +
+      "\030\005 \001(\010R\010haveMore\"\250\002\n\022SearchRolesRequest\022" +
+      " \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006userId\022$\n\007key" +
+      "word\030\002 \001(\tB\n\372B\007r\005\020\001\030\310\001R\007keyword\022\037\n\006offse" +
+      "t\030\003 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tpage_size\030\004 " +
+      "\001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\0229\n\005scope\030\005 \001(\0162" +
+      "#.rankquantity.voyager.api.ScopeTypeR\005sc" +
+      "ope\022\"\n\010story_id\030\006 \001(\003B\007\372B\004\"\002(\000R\007storyId\022" +
+      "\"\n\010group_id\030\007 \001(\003B\007\372B\004\"\002(\000R\007groupId\"\331\001\n\023" +
+      "SearchRolesResponse\022:\n\004code\030\001 \001(\0162&.rank" +
+      "quantity.voyager.api.ResponseCodeR\004code\022" +
+      "\030\n\007message\030\002 \001(\tR\007message\0229\n\005roles\030\003 \003(\013" +
+      "2#.rankquantity.voyager.api.StoryRoleR\005r" +
+      "oles\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thave_more\030" +
+      "\005 \001(\010R\010haveMore\"\216\001\n\030RestoreStoryboardReq" +
+      "uest\022,\n\rstoryboard_id\030\001 \001(\003B\007\372B\004\"\002 \000R\014st" +
+      "oryboardId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006us" +
+      "erId\022\"\n\010story_id\030\003 \001(\003B\007\372B\004\"\002 \000R\007storyId" +
+      "\"\267\001\n\031RestoreStoryboardResponse\022:\n\004code\030\001" +
+      " \001(\0162&.rankquantity.voyager.api.Response" +
+      "CodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022D\n\005" +
+      "store\030\003 \001(\0132..rankquantity.voyager.api.S" +
+      "toryboardStageStoreR\005store\"\276\002\n\024Storyboar" +
+      "dStageStore\022D\n\nstoryboard\030\001 \001(\0132$.rankqu" +
+      "antity.voyager.api.StoryBoardR\nstoryboar" +
+      "d\022B\n\006sences\030\002 \001(\0132*.rankquantity.voyager" +
+      ".api.StoryBoardSencesR\006sences\022?\n\005stage\030\003" +
+      " \001(\0162).rankquantity.voyager.api.Storyboa" +
+      "rdStageR\005stage\022(\n\020last_update_time\030\004 \001(\003" +
+      "R\016lastUpdateTime\022\030\n\007version\030\005 \001(\003R\007versi" +
+      "on\022\027\n\007user_id\030\006 \001(\003R\006userId\"9\n\025GetUserPr" +
+      "ofileRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006" +
+      "userId\"\255\001\n\026GetUserProfileResponse\022:\n\004cod" +
+      "e\030\001 \001(\0162&.rankquantity.voyager.api.Respo" +
+      "nseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022" +
+      "=\n\004info\030\003 \001(\0132).rankquantity.voyager.api" +
+      ".UserProfileInfoR\004info\"\214\002\n\030UpdateUserPro" +
+      "fileRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006u" +
+      "serId\022)\n\020background_image\030\002 \001(\tR\017backgro" +
+      "undImage\022\026\n\006avatar\030\003 \001(\tR\006avatar\022\033\n\004name" +
+      "\030\004 \001(\tB\007\372B\004r\002\0302R\004name\022*\n\013description\030\005 \001" +
+      "(\tB\010\372B\005r\003\030\364\003R\013description\022#\n\010location\030\006 " +
+      "\001(\tB\007\372B\004r\002\030dR\010location\022\035\n\005email\030\007 \001(\tB\007\372" +
+      "B\004r\002`\001R\005email\"q\n\031UpdateUserProfileRespon" +
+      "se\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager." +
+      "api.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR" +
+      "\007message\"f\n UpdateUserBackgroundImageReq" +
+      "uest\022\027\n\007user_id\030\001 \001(\003R\006userId\022)\n\020backgro" +
+      "und_image\030\002 \001(\tR\017backgroundImage\"y\n!Upda" +
+      "teUserBackgroundImageResponse\022:\n\004code\030\001 " +
       "\001(\0162&.rankquantity.voyager.api.ResponseC" +
-      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022D\n\004d" +
-      "ata\030\003 \001(\01320.rankquantity.voyager.api.Sto" +
-      "ryGenerationHistoryR\004data*e\n\013TokenSource" +
-      "\022\032\n\026TOKEN_SOURCE_USER_SELF\020\000\022\034\n\030TOKEN_SO" +
-      "URCE_STORY_STORE\020\001\022\034\n\030TOKEN_SOURCE_THIRD" +
-      "_PARTY\020\002*i\n\017TokenSourceType\022\034\n\030TOKEN_SOU" +
-      "RCE_UNSPECIFIED\020\000\022\031\n\025TOKEN_SOURCE_PERSON" +
-      "AL\020\001\022\035\n\031TOKEN_SOURCE_ORGANIZATION\020\0022\370\310\001\n" +
-      "\010TeamsAPI\022\200\001\n\007Explore\022(.rankquantity.voy" +
-      "ager.api.ExploreRequest\032).rankquantity.v" +
-      "oyager.api.ExploreResponse\" \202\323\344\223\002\032\022\030/com" +
-      "mon.TeamsAPI/Explore\022\200\001\n\007Version\022(.rankq" +
-      "uantity.voyager.api.VersionRequest\032).ran" +
-      "kquantity.voyager.api.VersionResponse\" \202" +
-      "\323\344\223\002\032\022\030/common.TeamsAPI/Version\022x\n\005About" +
-      "\022&.rankquantity.voyager.api.AboutRequest" +
-      "\032\'.rankquantity.voyager.api.AboutRespons" +
-      "e\"\036\202\323\344\223\002\030\022\026/common.TeamsAPI/About\022{\n\005Log" +
-      "in\022&.rankquantity.voyager.api.LoginReque" +
-      "st\032\'.rankquantity.voyager.api.LoginRespo" +
-      "nse\"!\202\323\344\223\002\033\"\026/common.TeamsAPI/Login:\001*\022\177" +
-      "\n\006Logout\022\'.rankquantity.voyager.api.Logo" +
-      "utRequest\032(.rankquantity.voyager.api.Log" +
-      "outResponse\"\"\202\323\344\223\002\034\"\027/common.TeamsAPI/Lo" +
-      "gout:\001*\022\227\001\n\014RefreshToken\022-.rankquantity." +
-      "voyager.api.RefreshTokenRequest\032..rankqu" +
-      "antity.voyager.api.RefreshTokenResponse\"" +
-      "(\202\323\344\223\002\"\"\035/common.TeamsAPI/RefreshToken:\001" +
-      "*\022\207\001\n\010Register\022).rankquantity.voyager.ap" +
-      "i.RegisterRequest\032*.rankquantity.voyager" +
-      ".api.RegisterResponse\"$\202\323\344\223\002\036\"\031/common.T" +
-      "eamsAPI/Register:\001*\022\221\001\n\010ResetPwd\022..rankq" +
-      "uantity.voyager.api.ResetPasswordRequest" +
-      "\032/.rankquantity.voyager.api.ResetPasswor" +
-      "dResponse\"$\202\323\344\223\002\036\"\031/common.TeamsAPI/Rese" +
-      "tPwd:\001*\022\207\001\n\010UserInit\022).rankquantity.voya" +
-      "ger.api.UserInitRequest\032*.rankquantity.v" +
-      "oyager.api.UserInitResponse\"$\202\323\344\223\002\036\"\031/co" +
-      "mmon.TeamsAPI/UserInit:\001*\022\207\001\n\010UserInfo\022)" +
-      ".rankquantity.voyager.api.UserInfoReques" +
-      "t\032*.rankquantity.voyager.api.UserInfoRes" +
-      "ponse\"$\202\323\344\223\002\036\"\031/common.TeamsAPI/UserInfo" +
-      ":\001*\022\247\001\n\020UpdateUserAvator\0221.rankquantity." +
-      "voyager.api.UpdateUserAvatorRequest\0322.ra" +
-      "nkquantity.voyager.api.UpdateUserAvatorR" +
-      "esponse\",\202\323\344\223\002&\"!/common.TeamsAPI/Update" +
-      "UserAvator:\001*\022\227\001\n\014UserWatching\022-.rankqua" +
-      "ntity.voyager.api.UserWatchingRequest\032.." +
-      "rankquantity.voyager.api.UserWatchingRes" +
-      "ponse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/UserWatc" +
-      "hing:\001*\022\213\001\n\tUserGroup\022*.rankquantity.voy" +
-      "ager.api.UserGroupRequest\032+.rankquantity" +
-      ".voyager.api.UserGroupResponse\"%\202\323\344\223\002\037\"\032" +
-      "/common.TeamsAPI/UserGroup:\001*\022\257\001\n\022UserFo" +
-      "llowingGroup\0223.rankquantity.voyager.api." +
-      "UserFollowingGroupRequest\0324.rankquantity" +
-      ".voyager.api.UserFollowingGroupResponse\"" +
-      ".\202\323\344\223\002(\"#/common.TeamsAPI/UserFollowingG" +
-      "roup:\001*\022\217\001\n\nUserUpdate\022+.rankquantity.vo" +
-      "yager.api.UserUpdateRequest\032,.rankquanti" +
-      "ty.voyager.api.UserUpdateResponse\"&\202\323\344\223\002" +
-      " \"\033/common.TeamsAPI/UserUpdate:\001*\022\217\001\n\nSe" +
-      "archUser\022+.rankquantity.voyager.api.Sear" +
-      "chUserRequest\032,.rankquantity.voyager.api" +
-      ".SearchUserResponse\"&\202\323\344\223\002 \"\033/common.Tea" +
-      "msAPI/SearchUser:\001*\022\223\001\n\013CreateGroup\022,.ra" +
-      "nkquantity.voyager.api.CreateGroupReques" +
-      "t\032-.rankquantity.voyager.api.CreateGroup" +
-      "Response\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/Creat" +
-      "eGroup:\001*\022\207\001\n\010GetGroup\022).rankquantity.vo" +
-      "yager.api.GetGroupRequest\032*.rankquantity" +
-      ".voyager.api.GetGroupResponse\"$\202\323\344\223\002\036\"\031/" +
-      "common.TeamsAPI/GetGroup:\001*\022\243\001\n\017GetGroup" +
-      "Actives\0220.rankquantity.voyager.api.GetGr" +
-      "oupActivesRequest\0321.rankquantity.voyager" +
-      ".api.GetGroupActivesResponse\"+\202\323\344\223\002%\" /c" +
-      "ommon.TeamsAPI/GetGroupActives:\001*\022\243\001\n\017Up" +
-      "dateGroupInfo\0220.rankquantity.voyager.api" +
-      ".UpdateGroupInfoRequest\0321.rankquantity.v" +
-      "oyager.api.UpdateGroupInfoResponse\"+\202\323\344\223" +
-      "\002%\" /common.TeamsAPI/UpdateGroupInfo:\001*\022" +
-      "\243\001\n\017GetGroupProfile\0220.rankquantity.voyag" +
-      "er.api.GetGroupProfileRequest\0321.rankquan" +
-      "tity.voyager.api.GetGroupProfileResponse" +
-      "\"+\202\323\344\223\002%\" /common.TeamsAPI/GetGroupProfi" +
-      "le:\001*\022\257\001\n\022UpdateGroupProfile\0223.rankquant" +
-      "ity.voyager.api.UpdateGroupProfileReques" +
-      "t\0324.rankquantity.voyager.api.UpdateGroup" +
-      "ProfileResponse\".\202\323\344\223\002(\"#/common.TeamsAP" +
-      "I/UpdateGroupProfile:\001*\022\223\001\n\013DeleteGroup\022" +
-      ",.rankquantity.voyager.api.DeleteGroupRe" +
-      "quest\032-.rankquantity.voyager.api.DeleteG" +
-      "roupResponse\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/D" +
-      "eleteGroup:\001*\022\253\001\n\021FetchGroupMembers\0222.ra" +
-      "nkquantity.voyager.api.FetchGroupMembers" +
-      "Request\0323.rankquantity.voyager.api.Fetch" +
-      "GroupMembersResponse\"-\202\323\344\223\002\'\"\"/common.Te" +
-      "amsAPI/FetchGroupMembers:\001*\022\213\001\n\tJoinGrou" +
-      "p\022*.rankquantity.voyager.api.JoinGroupRe" +
-      "quest\032+.rankquantity.voyager.api.JoinGro" +
-      "upResponse\"%\202\323\344\223\002\037\"\032/common.TeamsAPI/Joi" +
-      "nGroup:\001*\022\217\001\n\nLeaveGroup\022+.rankquantity." +
-      "voyager.api.LeaveGroupRequest\032,.rankquan" +
-      "tity.voyager.api.LeaveGroupResponse\"&\202\323\344" +
-      "\223\002 \"\033/common.TeamsAPI/LeaveGroup:\001*\022\223\001\n\013" +
-      "CreateStory\022,.rankquantity.voyager.api.C" +
-      "reateStoryRequest\032-.rankquantity.voyager" +
-      ".api.CreateStoryResponse\"\'\202\323\344\223\002!\"\034/commo" +
-      "n.TeamsAPI/CreateStory:\001*\022\227\001\n\014GetStoryIn" +
-      "fo\022-.rankquantity.voyager.api.GetStoryIn" +
-      "foRequest\032..rankquantity.voyager.api.Get" +
-      "StoryInfoResponse\"(\202\323\344\223\002\"\"\035/common.Teams" +
-      "API/GetStoryInfo:\001*\022\223\001\n\013RenderStory\022,.ra" +
-      "nkquantity.voyager.api.RenderStoryReques" +
-      "t\032-.rankquantity.voyager.api.RenderStory" +
-      "Response\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/Rende" +
-      "rStory:\001*\022\223\001\n\013UpdateStory\022,.rankquantity" +
-      ".voyager.api.UpdateStoryRequest\032-.rankqu" +
-      "antity.voyager.api.UpdateStoryResponse\"\'" +
-      "\202\323\344\223\002!\"\034/common.TeamsAPI/UpdateStory:\001*\022" +
-      "\217\001\n\nWatchStory\022+.rankquantity.voyager.ap" +
-      "i.WatchStoryRequest\032,.rankquantity.voyag" +
-      "er.api.WatchStoryResponse\"&\202\323\344\223\002 \"\033/comm" +
-      "on.TeamsAPI/WatchStory:\001*\022\227\001\n\014UnWatchSto" +
-      "ry\022-.rankquantity.voyager.api.UnWatchSto" +
-      "ryRequest\032..rankquantity.voyager.api.UnW" +
-      "atchStoryResponse\"(\202\323\344\223\002\"\"\035/common.Teams" +
-      "API/UnWatchStory:\001*\022\227\001\n\014ArchiveStory\022-.r" +
-      "ankquantity.voyager.api.ArchiveStoryRequ" +
-      "est\032..rankquantity.voyager.api.ArchiveSt" +
-      "oryResponse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/Ar" +
-      "chiveStory:\001*\022\247\001\n\020CreateStoryboard\0221.ran" +
-      "kquantity.voyager.api.CreateStoryboardRe" +
-      "quest\0322.rankquantity.voyager.api.CreateS" +
-      "toryboardResponse\",\202\323\344\223\002&\"!/common.Teams" +
-      "API/CreateStoryboard:\001*\022\233\001\n\rGetStoryboar" +
-      "d\022..rankquantity.voyager.api.GetStoryboa" +
-      "rdRequest\032/.rankquantity.voyager.api.Get" +
-      "StoryboardResponse\")\202\323\344\223\002#\"\036/common.Team" +
-      "sAPI/GetStoryboard:\001*\022\247\001\n\020RenderStoryboa" +
-      "rd\0221.rankquantity.voyager.api.RenderStor" +
-      "yboardRequest\0322.rankquantity.voyager.api" +
-      ".RenderStoryboardResponse\",\202\323\344\223\002&\"!/comm" +
-      "on.TeamsAPI/RenderStoryboard:\001*\022\253\001\n\021GenS" +
-      "toryboardText\0222.rankquantity.voyager.api" +
-      ".GenStoryboardTextRequest\0323.rankquantity" +
-      ".voyager.api.GenStoryboardTextResponse\"-" +
-      "\202\323\344\223\002\'\"\"/common.TeamsAPI/GenStoryboardTe" +
-      "xt:\001*\022\263\001\n\023GenStoryboardImages\0224.rankquan" +
-      "tity.voyager.api.GenStoryboardImagesRequ" +
-      "est\0325.rankquantity.voyager.api.GenStoryb" +
-      "oardImagesResponse\"/\202\323\344\223\002)\"$/common.Team" +
-      "sAPI/GenStoryboardImages:\001*\022\237\001\n\016GetStory" +
-      "boards\022/.rankquantity.voyager.api.GetSto" +
-      "ryboardsRequest\0320.rankquantity.voyager.a" +
-      "pi.GetStoryboardsResponse\"*\202\323\344\223\002$\"\037/comm" +
-      "on.TeamsAPI/GetStoryboards:\001*\022\233\001\n\rDelSto" +
-      "ryboard\022..rankquantity.voyager.api.DelSt" +
-      "oryboardRequest\032/.rankquantity.voyager.a" +
-      "pi.DelStoryboardResponse\")\202\323\344\223\002#\"\036/commo" +
-      "n.TeamsAPI/DelStoryboard:\001*\022\237\001\n\016ForkStor" +
-      "yboard\022/.rankquantity.voyager.api.ForkSt" +
-      "oryboardRequest\0320.rankquantity.voyager.a" +
-      "pi.ForkStoryboardResponse\"*\202\323\344\223\002$\"\037/comm" +
-      "on.TeamsAPI/ForkStoryboard:\001*\022\247\001\n\020Update" +
-      "Storyboard\0221.rankquantity.voyager.api.Up" +
-      "dateStoryboardRequest\0322.rankquantity.voy" +
-      "ager.api.UpdateStoryboardResponse\",\202\323\344\223\002" +
-      "&\"!/common.TeamsAPI/UpdateStoryboard:\001*\022" +
-      "\237\001\n\016LikeStoryboard\022/.rankquantity.voyage" +
-      "r.api.LikeStoryboardRequest\0320.rankquanti" +
-      "ty.voyager.api.LikeStoryboardResponse\"*\202" +
-      "\323\344\223\002$\"\037/common.TeamsAPI/LikeStoryboard:\001" +
-      "*\022\247\001\n\020UnLikeStoryboard\0221.rankquantity.vo" +
-      "yager.api.UnLikeStoryboardRequest\0322.rank" +
-      "quantity.voyager.api.UnLikeStoryboardRes" +
-      "ponse\",\202\323\344\223\002&\"!/common.TeamsAPI/UnLikeSt" +
-      "oryboard:\001*\022\243\001\n\017ShareStoryboard\0220.rankqu" +
-      "antity.voyager.api.ShareStoryboardReques" +
-      "t\0321.rankquantity.voyager.api.ShareStoryb" +
-      "oardResponse\"+\202\323\344\223\002%\" /common.TeamsAPI/S" +
-      "hareStoryboard:\001*\022\247\001\n\020FetchGroupStorys\0221" +
-      ".rankquantity.voyager.api.FetchGroupStor" +
-      "ysRequest\0322.rankquantity.voyager.api.Fet" +
-      "chGroupStorysResponse\",\202\323\344\223\002&\"!/common.T" +
-      "eamsAPI/FetchGroupStorys:\001*\022\233\001\n\017UploadIm" +
-      "ageFile\022,.rankquantity.voyager.api.Uploa" +
-      "dImageRequest\032-.rankquantity.voyager.api" +
-      ".UploadImageResponse\"+\202\323\344\223\002%\" /common.Te" +
-      "amsAPI/UploadImageFile:\001*\022\241\001\n\016GetStoryRe" +
-      "nder\022/.rankquantity.voyager.api.GetStory" +
-      "RenderRequest\0320.rankquantity.voyager.api" +
-      ".GetStoryRenderResponse\",\202\323\344\223\002&\"!/common" +
-      ".TeamsAPI/StoryRender/list:\001*\022\265\001\n\023GetSto" +
-      "ryBoardRender\0224.rankquantity.voyager.api" +
-      ".GetStoryBoardRenderRequest\0325.rankquanti" +
-      "ty.voyager.api.GetStoryBoardRenderRespon" +
-      "se\"1\202\323\344\223\002+\"&/common.TeamsAPI/StoryBoardR" +
-      "ender/list:\001*\022\267\001\n\024GetStoryContributors\0225" +
-      ".rankquantity.voyager.api.GetStoryContri" +
-      "butorsRequest\0326.rankquantity.voyager.api" +
-      ".GetStoryContributorsResponse\"0\202\323\344\223\002*\"%/" +
-      "common.TeamsAPI/GetStoryContributors:\001*\022" +
-      "\263\001\n\023ContinueRenderStory\0224.rankquantity.v" +
-      "oyager.api.ContinueRenderStoryRequest\0325." +
-      "rankquantity.voyager.api.ContinueRenderS" +
-      "toryResponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/C" +
-      "ontinueRenderStory:\001*\022\247\001\n\020RenderStoryRol" +
-      "es\0221.rankquantity.voyager.api.RenderStor" +
-      "yRolesRequest\0322.rankquantity.voyager.api" +
-      ".RenderStoryRolesResponse\",\202\323\344\223\002&\"!/comm" +
-      "on.TeamsAPI/RenderStoryRoles:\001*\022\243\001\n\017Upda" +
-      "teStoryRole\0220.rankquantity.voyager.api.U" +
-      "pdateStoryRoleRequest\0321.rankquantity.voy" +
-      "ager.api.UpdateStoryRoleResponse\"+\202\323\344\223\002%" +
-      "\" /common.TeamsAPI/UpdateStoryRole:\001*\022\273\001" +
-      "\n\025RenderStoryRoleDetail\0226.rankquantity.v" +
-      "oyager.api.RenderStoryRoleDetailRequest\032" +
-      "7.rankquantity.voyager.api.RenderStoryRo" +
-      "leDetailResponse\"1\202\323\344\223\002+\"&/common.TeamsA" +
-      "PI/RenderStoryRoleDetail:\001*\022\233\001\n\rGetStory" +
-      "Roles\022..rankquantity.voyager.api.GetStor" +
-      "yRolesRequest\032/.rankquantity.voyager.api" +
-      ".GetStoryRolesResponse\")\202\323\344\223\002#\"\036/common." +
-      "TeamsAPI/GetStoryRoles:\001*\022\257\001\n\022GetStoryBo" +
-      "ardRoles\0223.rankquantity.voyager.api.GetS" +
-      "toryBoardRolesRequest\0324.rankquantity.voy" +
-      "ager.api.GetStoryBoardRolesResponse\".\202\323\344" +
-      "\223\002(\"#/common.TeamsAPI/GetStoryBoardRoles" +
-      ":\001*\022\237\001\n\016GetUserProfile\022/.rankquantity.vo" +
-      "yager.api.GetUserProfileRequest\0320.rankqu" +
-      "antity.voyager.api.GetUserProfileRespons" +
-      "e\"*\202\323\344\223\002$\"\037/common.TeamsAPI/GetUserProfi" +
-      "le:\001*\022\253\001\n\021UpdateUserProfile\0222.rankquanti" +
-      "ty.voyager.api.UpdateUserProfileRequest\032" +
-      "3.rankquantity.voyager.api.UpdateUserPro" +
-      "fileResponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/U" +
-      "pdateUserProfile:\001*\022\313\001\n\031UpdateUserBackgr" +
-      "oundImage\022:.rankquantity.voyager.api.Upd" +
-      "ateUserBackgroundImageRequest\032;.rankquan" +
-      "tity.voyager.api.UpdateUserBackgroundIma" +
-      "geResponse\"5\202\323\344\223\002/\"*/common.TeamsAPI/Upd" +
-      "ateUserBackgroundImage:\001*\022\243\001\n\017CreateStor" +
-      "yRole\0220.rankquantity.voyager.api.CreateS" +
-      "toryRoleRequest\0321.rankquantity.voyager.a" +
-      "pi.CreateStoryRoleResponse\"+\202\323\344\223\002%\" /com" +
-      "mon.TeamsAPI/CreateStoryRole:\001*\022\257\001\n\022GetS" +
-      "toryRoleDetail\0223.rankquantity.voyager.ap" +
-      "i.GetStoryRoleDetailRequest\0324.rankquanti" +
-      "ty.voyager.api.GetStoryRoleDetailRespons" +
-      "e\".\202\323\344\223\002(\"#/common.TeamsAPI/GetStoryRole" +
-      "Detail:\001*\022\243\001\n\017RenderStoryRole\0220.rankquan" +
-      "tity.voyager.api.RenderStoryRoleRequest\032" +
-      "1.rankquantity.voyager.api.RenderStoryRo" +
-      "leResponse\"+\202\323\344\223\002%\" /common.TeamsAPI/Ren" +
-      "derStoryRole:\001*\022\213\001\n\tLikeStory\022*.rankquan" +
-      "tity.voyager.api.LikeStoryRequest\032+.rank" +
-      "quantity.voyager.api.LikeStoryResponse\"%" +
-      "\202\323\344\223\002\037\"\032/common.TeamsAPI/LikeStory:\001*\022\223\001" +
-      "\n\013UnLikeStory\022,.rankquantity.voyager.api" +
-      ".UnLikeStoryRequest\032-.rankquantity.voyag" +
-      "er.api.UnLikeStoryResponse\"\'\202\323\344\223\002!\"\034/com" +
-      "mon.TeamsAPI/UnLikeStory:\001*\022\263\001\n\023GetStory" +
-      "BoardSences\0224.rankquantity.voyager.api.G" +
-      "etStoryBoardSencesRequest\0325.rankquantity" +
-      ".voyager.api.GetStoryBoardSencesResponse" +
-      "\"/\202\323\344\223\002)\"$/common.TeamsAPI/GetStoryBoard" +
-      "Sences:\001*\022\273\001\n\025CreateStoryBoardSence\0226.ra" +
-      "nkquantity.voyager.api.CreateStoryBoardS" +
-      "enceRequest\0327.rankquantity.voyager.api.C" +
-      "reateStoryBoardSenceResponse\"1\202\323\344\223\002+\"&/c" +
-      "ommon.TeamsAPI/CreateStoryBoardSence:\001*\022" +
-      "\273\001\n\025UpdateStoryBoardSence\0226.rankquantity" +
-      ".voyager.api.UpdateStoryBoardSenceReques" +
-      "t\0327.rankquantity.voyager.api.UpdateStory" +
-      "BoardSenceResponse\"1\202\323\344\223\002+\"&/common.Team" +
-      "sAPI/UpdateStoryBoardSence:\001*\022\273\001\n\025Delete" +
-      "StoryBoardSence\0226.rankquantity.voyager.a" +
-      "pi.DeleteStoryBoardSenceRequest\0327.rankqu" +
-      "antity.voyager.api.DeleteStoryBoardSence" +
-      "Response\"1\202\323\344\223\002+\"&/common.TeamsAPI/Delet" +
-      "eStoryBoardSence:\001*\022\273\001\n\025RenderStoryBoard" +
-      "Sence\0226.rankquantity.voyager.api.RenderS" +
-      "toryBoardSenceRequest\0327.rankquantity.voy" +
-      "ager.api.RenderStoryBoardSenceResponse\"1" +
-      "\202\323\344\223\002+\"&/common.TeamsAPI/RenderStoryBoar" +
-      "dSence:\001*\022\277\001\n\026RenderStoryBoardSences\0227.r" +
-      "ankquantity.voyager.api.RenderStoryBoard" +
-      "SencesRequest\0328.rankquantity.voyager.api" +
-      ".RenderStoryBoardSencesResponse\"2\202\323\344\223\002,\"" +
-      "\'/common.TeamsAPI/RenderStoryBoardSences" +
-      ":\001*\022\317\001\n\032GetStoryBoardSenceGenerate\022;.ran" +
-      "kquantity.voyager.api.GetStoryBoardSence" +
-      "GenerateRequest\032<.rankquantity.voyager.a" +
-      "pi.GetStoryBoardSenceGenerateResponse\"6\202" +
-      "\323\344\223\0020\"+/common.TeamsAPI/GetStoryBoardSen" +
-      "ceGenerate:\001*\022\273\001\n\025GetStoryBoardGenerate\022" +
-      "6.rankquantity.voyager.api.GetStoryBoard",
-      "GenerateRequest\0327.rankquantity.voyager.a" +
-      "pi.GetStoryBoardGenerateResponse\"1\202\323\344\223\002+" +
-      "\"&/common.TeamsAPI/GetStoryBoardGenerate" +
-      ":\001*\022\233\001\n\rLikeStoryRole\022..rankquantity.voy" +
-      "ager.api.LikeStoryRoleRequest\032/.rankquan" +
-      "tity.voyager.api.LikeStoryRoleResponse\")" +
-      "\202\323\344\223\002#\"\036/common.TeamsAPI/LikeStoryRole:\001" +
-      "*\022\243\001\n\017UnLikeStoryRole\0220.rankquantity.voy" +
-      "ager.api.UnLikeStoryRoleRequest\0321.rankqu" +
-      "antity.voyager.api.UnLikeStoryRoleRespon" +
-      "se\"+\202\323\344\223\002%\" /common.TeamsAPI/UnLikeStory" +
-      "Role:\001*\022\243\001\n\017FollowStoryRole\0220.rankquanti" +
-      "ty.voyager.api.FollowStoryRoleRequest\0321." +
-      "rankquantity.voyager.api.FollowStoryRole" +
-      "Response\"+\202\323\344\223\002%\" /common.TeamsAPI/Follo" +
-      "wStoryRole:\001*\022\253\001\n\021UnFollowStoryRole\0222.ra" +
-      "nkquantity.voyager.api.UnFollowStoryRole" +
-      "Request\0323.rankquantity.voyager.api.UnFol" +
-      "lowStoryRoleResponse\"-\202\323\344\223\002\'\"\"/common.Te" +
-      "amsAPI/UnFollowStoryRole:\001*\022\233\001\n\rSearchSt" +
-      "ories\022..rankquantity.voyager.api.SearchS" +
-      "toriesRequest\032/.rankquantity.voyager.api" +
-      ".SearchStoriesResponse\")\202\323\344\223\002#\"\036/common." +
-      "TeamsAPI/SearchStories:\001*\022\223\001\n\013SearchGrou" +
-      "p\022,.rankquantity.voyager.api.SearchGroup" +
-      "Request\032-.rankquantity.voyager.api.Searc" +
-      "hGroupResponse\"\'\202\323\344\223\002!\"\034/common.TeamsAPI" +
-      "/SearchGroup:\001*\022\223\001\n\013SearchRoles\022,.rankqu" +
-      "antity.voyager.api.SearchRolesRequest\032-." +
-      "rankquantity.voyager.api.SearchRolesResp" +
-      "onse\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/SearchRol" +
-      "es:\001*\022\253\001\n\021RestoreStoryboard\0222.rankquanti" +
-      "ty.voyager.api.RestoreStoryboardRequest\032" +
-      "3.rankquantity.voyager.api.RestoreStoryb" +
-      "oardResponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/R" +
-      "estoreStoryboard:\001*\022\313\001\n\031GetUserCreatedSt" +
-      "oryboards\022:.rankquantity.voyager.api.Get" +
-      "UserCreatedStoryboardsRequest\032;.rankquan" +
-      "tity.voyager.api.GetUserCreatedStoryboar" +
-      "dsResponse\"5\202\323\344\223\002/\"*/common.TeamsAPI/Get" +
-      "UserCreatedStoryboards:\001*\022\263\001\n\023GetUserCre" +
-      "atedRoles\0224.rankquantity.voyager.api.Get" +
-      "UserCreatedRolesRequest\0325.rankquantity.v" +
-      "oyager.api.GetUserCreatedRolesResponse\"/" +
-      "\202\323\344\223\002)\"$/common.TeamsAPI/GetUserCreatedR" +
-      "oles:\001*\022\303\001\n\027GetStoryRoleStoryboards\0228.ra" +
-      "nkquantity.voyager.api.GetStoryRoleStory" +
-      "boardsRequest\0329.rankquantity.voyager.api" +
-      ".GetStoryRoleStoryboardsResponse\"3\202\323\344\223\002-" +
-      "\"(/common.TeamsAPI/GetStoryRoleStoryboar" +
-      "ds:\001*\022\263\001\n\023GetStoryRoleStories\0224.rankquan" +
-      "tity.voyager.api.GetStoryRoleStoriesRequ" +
-      "est\0325.rankquantity.voyager.api.GetStoryR" +
-      "oleStoriesResponse\"/\202\323\344\223\002)\"$/common.Team" +
-      "sAPI/GetStoryRoleStories:\001*\022\263\001\n\023CreateSt" +
-      "oryRoleChat\0224.rankquantity.voyager.api.C" +
-      "reateStoryRoleChatRequest\0325.rankquantity" +
-      ".voyager.api.CreateStoryRoleChatResponse" +
-      "\"/\202\323\344\223\002)\"$/common.TeamsAPI/CreateStoryRo" +
-      "leChat:\001*\022\253\001\n\021ChatWithStoryRole\0222.rankqu" +
-      "antity.voyager.api.ChatWithStoryRoleRequ" +
-      "est\0323.rankquantity.voyager.api.ChatWithS" +
-      "toryRoleResponse\"-\202\323\344\223\002\'\"\"/common.TeamsA" +
-      "PI/ChatWithStoryRole:\001*\022\273\001\n\025UpdateStoryR" +
-      "oleAvator\0226.rankquantity.voyager.api.Upd" +
-      "ateStoryRoleAvatorRequest\0327.rankquantity" +
-      ".voyager.api.UpdateStoryRoleAvatorRespon" +
-      "se\"1\202\323\344\223\002+\"&/common.TeamsAPI/UpdateStory" +
-      "RoleAvator:\001*\022\273\001\n\025UpdateStoryRoleDetail\022" +
-      "6.rankquantity.voyager.api.UpdateStoryRo" +
-      "leDetailRequest\0327.rankquantity.voyager.a" +
-      "pi.UpdateStoryRoleDetailResponse\"1\202\323\344\223\002+" +
-      "\"&/common.TeamsAPI/UpdateStoryRoleDetail" +
-      ":\001*\022\303\001\n\027GetUserWithRoleChatList\0228.rankqu" +
-      "antity.voyager.api.GetUserWithRoleChatLi" +
-      "stRequest\0329.rankquantity.voyager.api.Get" +
-      "UserWithRoleChatListResponse\"3\202\323\344\223\002-\"(/c" +
-      "ommon.TeamsAPI/GetUserWithRoleChatList:\001" +
-      "*\022\263\001\n\023GetUserChatWithRole\0224.rankquantity" +
-      ".voyager.api.GetUserChatWithRoleRequest\032" +
-      "5.rankquantity.voyager.api.GetUserChatWi" +
-      "thRoleResponse\"/\202\323\344\223\002)\"$/common.TeamsAPI" +
-      "/GetUserChatWithRole:\001*\022\263\001\n\023GetUserChatM" +
-      "essages\0224.rankquantity.voyager.api.GetUs" +
-      "erChatMessagesRequest\0325.rankquantity.voy" +
-      "ager.api.GetUserChatMessagesResponse\"/\202\323" +
-      "\344\223\002)\"$/common.TeamsAPI/GetUserChatMessag" +
-      "es:\001*\022\227\001\n\014FetchActives\022-.rankquantity.vo" +
-      "yager.api.FetchActivesRequest\032..rankquan" +
-      "tity.voyager.api.FetchActivesResponse\"(\202" +
-      "\323\344\223\002\"\"\035/common.TeamsAPI/FetchActives:\001*\022" +
-      "\254\001\n\021GetNextStoryboard\0222.rankquantity.voy" +
-      "ager.api.GetNextStoryboardRequest\0323.rank" +
-      "quantity.voyager.api.GetNextStoryboardRe" +
-      "sponse\".\202\323\344\223\002(\"#/common.TeamsAPI/GetNext" +
-      "Storyboards:\001*\022\323\001\n\033RenderStoryRoleContin" +
-      "uously\022<.rankquantity.voyager.api.Render" +
-      "StoryRoleContinuouslyRequest\032=.rankquant" +
-      "ity.voyager.api.RenderStoryRoleContinuou" +
-      "slyResponse\"7\202\323\344\223\0021\",/common.TeamsAPI/Re" +
-      "nderStoryRoleContinuously:\001*\022\253\001\n\021Publish" +
-      "Storyboard\0222.rankquantity.voyager.api.Pu" +
-      "blishStoryboardRequest\0323.rankquantity.vo" +
-      "yager.api.PublishStoryboardResponse\"-\202\323\344" +
-      "\223\002\'\"\"/common.TeamsAPI/PublishStoryboard:" +
-      "\001*\022\247\001\n\020CancelStoryboard\0221.rankquantity.v" +
-      "oyager.api.CancelStoryboardRequest\0322.ran" +
-      "kquantity.voyager.api.CancelStoryboardRe" +
-      "sponse\",\202\323\344\223\002&\"!/common.TeamsAPI/CancelS" +
-      "toryboard:\001*\022\357\001\n\"GetUserWatchStoryActive" +
-      "StoryBoards\022C.rankquantity.voyager.api.G" +
-      "etUserWatchStoryActiveStoryBoardsRequest" +
-      "\032D.rankquantity.voyager.api.GetUserWatch" +
-      "StoryActiveStoryBoardsResponse\">\202\323\344\223\0028\"3" +
-      "/common.TeamsAPI/GetUserWatchStoryActive" +
-      "StoryBoards:\001*\022\353\001\n!GetUserWatchRoleActiv" +
-      "eStoryBoards\022B.rankquantity.voyager.api." +
-      "GetUserWatchRoleActiveStoryBoardsRequest" +
-      "\032C.rankquantity.voyager.api.GetUserWatch" +
-      "RoleActiveStoryBoardsResponse\"=\202\323\344\223\0027\"2/" +
-      "common.TeamsAPI/GetUserWatchRoleActiveSt" +
-      "oryBoards:\001*\022\277\001\n\026GetUnPublishStoryboard\022" +
-      "7.rankquantity.voyager.api.GetUnPublishS" +
-      "toryboardRequest\0328.rankquantity.voyager." +
-      "api.GetUnPublishStoryboardResponse\"2\202\323\344\223" +
-      "\002,\"\'/common.TeamsAPI/GetUnPublishStorybo" +
-      "ard:\001*\022\303\001\n\027GenerateRoleDescription\0228.ran" +
-      "kquantity.voyager.api.GenerateRoleDescri" +
-      "ptionRequest\0329.rankquantity.voyager.api." +
-      "GenerateRoleDescriptionResponse\"3\202\323\344\223\002-\"" +
-      "(/common.TeamsAPI/GenerateRoleDescriptio" +
-      "n:\001*\022\273\001\n\025UpdateRoleDescription\0226.rankqua" +
-      "ntity.voyager.api.UpdateRoleDescriptionR" +
-      "equest\0327.rankquantity.voyager.api.Update" +
-      "RoleDescriptionResponse\"1\202\323\344\223\002+\"&/common" +
-      ".TeamsAPI/UpdateRoleDescription:\001*\022\257\001\n\022G" +
-      "enerateRolePrompt\0223.rankquantity.voyager" +
-      ".api.GenerateRolePromptRequest\0324.rankqua" +
-      "ntity.voyager.api.GenerateRolePromptResp" +
-      "onse\".\202\323\344\223\002(\"#/common.TeamsAPI/GenerateR" +
-      "olePrompt:\001*\022\247\001\n\020UpdateRolePrompt\0221.rank" +
-      "quantity.voyager.api.UpdateRolePromptReq" +
-      "uest\0322.rankquantity.voyager.api.UpdateRo" +
-      "lePromptResponse\",\202\323\344\223\002&\"!/common.TeamsA" +
-      "PI/UpdateRolePrompt:\001*\022\257\001\n\022CreateStoryCo" +
-      "mment\0223.rankquantity.voyager.api.CreateS" +
-      "toryCommentRequest\0324.rankquantity.voyage" +
-      "r.api.CreateStoryCommentResponse\".\202\323\344\223\002(" +
-      "\"#/common.TeamsAPI/CreateStoryComment:\001*" +
-      "\022\247\001\n\020GetStoryComments\0221.rankquantity.voy" +
-      "ager.api.GetStoryCommentsRequest\0322.rankq" +
-      "uantity.voyager.api.GetStoryCommentsResp" +
-      "onse\",\202\323\344\223\002&\"!/common.TeamsAPI/GetStoryC" +
-      "omments:\001*\022\257\001\n\022DeleteStoryComment\0223.rank" +
-      "quantity.voyager.api.DeleteStoryCommentR" +
-      "equest\0324.rankquantity.voyager.api.Delete" +
-      "StoryCommentResponse\".\202\323\344\223\002(\"#/common.Te" +
-      "amsAPI/DeleteStoryComment:\001*\022\277\001\n\026GetStor" +
-      "yCommentReplies\0227.rankquantity.voyager.a" +
-      "pi.GetStoryCommentRepliesRequest\0328.rankq" +
-      "uantity.voyager.api.GetStoryCommentRepli" +
-      "esResponse\"2\202\323\344\223\002,\"\'/common.TeamsAPI/Get" +
-      "StoryCommentReplies:\001*\022\303\001\n\027CreateStoryCo" +
-      "mmentReply\0228.rankquantity.voyager.api.Cr" +
-      "eateStoryCommentReplyRequest\0329.rankquant" +
-      "ity.voyager.api.CreateStoryCommentReplyR" +
-      "esponse\"3\202\323\344\223\002-\"(/common.TeamsAPI/Create" +
-      "StoryCommentReply:\001*\022\303\001\n\027DeleteStoryComm" +
-      "entReply\0228.rankquantity.voyager.api.Dele" +
-      "teStoryCommentReplyRequest\0329.rankquantit" +
-      "y.voyager.api.DeleteStoryCommentReplyRes" +
-      "ponse\"3\202\323\344\223\002-\"(/common.TeamsAPI/DeleteSt" +
-      "oryCommentReply:\001*\022\273\001\n\025GetStoryBoardComm" +
-      "ents\0226.rankquantity.voyager.api.GetStory" +
-      "BoardCommentsRequest\0327.rankquantity.voya" +
-      "ger.api.GetStoryBoardCommentsResponse\"1\202" +
-      "\323\344\223\002+\"&/common.TeamsAPI/GetStoryBoardCom" +
-      "ments:\001*\022\303\001\n\027CreateStoryBoardComment\0228.r" +
-      "ankquantity.voyager.api.CreateStoryBoard" +
-      "CommentRequest\0329.rankquantity.voyager.ap" +
-      "i.CreateStoryBoardCommentResponse\"3\202\323\344\223\002" +
-      "-\"(/common.TeamsAPI/CreateStoryBoardComm" +
-      "ent:\001*\022\303\001\n\027DeleteStoryBoardComment\0228.ran" +
-      "kquantity.voyager.api.DeleteStoryBoardCo" +
-      "mmentRequest\0329.rankquantity.voyager.api." +
-      "DeleteStoryBoardCommentResponse\"3\202\323\344\223\002-\"" +
-      "(/common.TeamsAPI/DeleteStoryBoardCommen" +
-      "t:\001*\022\323\001\n\033GetStoryBoardCommentReplies\022<.r" +
-      "ankquantity.voyager.api.GetStoryBoardCom" +
-      "mentRepliesRequest\032=.rankquantity.voyage" +
-      "r.api.GetStoryBoardCommentRepliesRespons" +
-      "e\"7\202\323\344\223\0021\",/common.TeamsAPI/GetStoryBoar" +
-      "dCommentReplies:\001*\022\223\001\n\013LikeComment\022,.ran" +
-      "kquantity.voyager.api.LikeCommentRequest" +
-      "\032-.rankquantity.voyager.api.LikeCommentR" +
-      "esponse\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/LikeCo" +
-      "mment:\001*\022\237\001\n\016DislikeComment\022/.rankquanti" +
-      "ty.voyager.api.DislikeCommentRequest\0320.r" +
-      "ankquantity.voyager.api.DislikeCommentRe" +
-      "sponse\"*\202\323\344\223\002$\"\037/common.TeamsAPI/Dislike" +
-      "Comment:\001*\022\247\001\n\020GetStoryRoleList\0221.rankqu" +
-      "antity.voyager.api.GetStoryRoleListReque" +
-      "st\0322.rankquantity.voyager.api.GetStoryRo" +
-      "leListResponse\",\202\323\344\223\002&\"!/common.TeamsAPI" +
-      "/GetStoryRoleList:\001*\022\233\001\n\rTrendingStory\022." +
-      ".rankquantity.voyager.api.TrendingStoryR" +
-      "equest\032/.rankquantity.voyager.api.Trendi" +
-      "ngStoryResponse\")\202\323\344\223\002#\"\036/common.TeamsAP" +
-      "I/TrendingStory:\001*\022\253\001\n\021TrendingStoryRole" +
-      "\0222.rankquantity.voyager.api.TrendingStor" +
-      "yRoleRequest\0323.rankquantity.voyager.api." +
-      "TrendingStoryRoleResponse\"-\202\323\344\223\002\'\"\"/comm" +
-      "on.TeamsAPI/TrendingStoryRole:\001*\022\217\001\n\nFol" +
-      "lowUser\022+.rankquantity.voyager.api.Follo" +
-      "wUserRequest\032,.rankquantity.voyager.api." +
-      "FollowUserResponse\"&\202\323\344\223\002 \"\033/common.Team" +
-      "sAPI/FollowUser:\001*\022\227\001\n\014UnfollowUser\022-.ra" +
-      "nkquantity.voyager.api.UnfollowUserReque" +
-      "st\032..rankquantity.voyager.api.UnfollowUs" +
-      "erResponse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/Unf" +
-      "ollowUser:\001*\022\233\001\n\rGetFollowList\022..rankqua" +
-      "ntity.voyager.api.GetFollowListRequest\032/" +
-      ".rankquantity.voyager.api.GetFollowListR" +
-      "esponse\")\202\323\344\223\002#\"\036/common.TeamsAPI/GetFol" +
-      "lowList:\001*\022\243\001\n\017GetFollowerList\0220.rankqua" +
-      "ntity.voyager.api.GetFollowerListRequest" +
-      "\0321.rankquantity.voyager.api.GetFollowerL" +
-      "istResponse\"+\202\323\344\223\002%\" /common.TeamsAPI/Ge" +
-      "tFollowerList:\001*\022\273\001\n\025UpdateStoryRoleProm" +
-      "pt\0226.rankquantity.voyager.api.UpdateStor" +
-      "yRolePromptRequest\0327.rankquantity.voyage" +
-      "r.api.UpdateStoryRolePromptResponse\"1\202\323\344" +
-      "\223\002+\"&/common.TeamsAPI/UpdateStoryRolePro" +
-      "mpt:\001*\022\347\001\n UpdateStoryRoleDescriptionDet" +
-      "ail\022A.rankquantity.voyager.api.UpdateSto" +
-      "ryRoleDescriptionDetailRequest\032B.rankqua" +
-      "ntity.voyager.api.UpdateStoryRoleDescrip" +
-      "tionDetailResponse\"<\202\323\344\223\0026\"1/common.Team" +
-      "sAPI/UpdateStoryRoleDescriptionDetail:\001*" +
-      "\022\243\001\n\017QueryTaskStatus\0220.rankquantity.voya" +
-      "ger.api.QueryTaskStatusRequest\0321.rankqua" +
-      "ntity.voyager.api.QueryTaskStatusRespons" +
-      "e\"+\202\323\344\223\002%\" /common.TeamsAPI/QueryTaskSta" +
-      "tus:\001*\022\257\001\n\022GetStoryImageStyle\0223.rankquan" +
-      "tity.voyager.api.GetStoryImageStyleReque" +
-      "st\0324.rankquantity.voyager.api.GetStoryIm" +
-      "ageStyleResponse\".\202\323\344\223\002(\"#/common.TeamsA" +
-      "PI/GetStoryImageStyle:\001*\022\273\001\n\025UpdateStory" +
-      "ImageStyle\0226.rankquantity.voyager.api.Up" +
-      "dateStoryImageStyleRequest\0327.rankquantit" +
-      "y.voyager.api.UpdateStoryImageStyleRespo" +
-      "nse\"1\202\323\344\223\002+\"&/common.TeamsAPI/UpdateStor" +
-      "yImageStyle:\001*\022\313\001\n\031UpdateStorySenceMaxNu" +
-      "mber\022:.rankquantity.voyager.api.UpdateSt" +
-      "orySenceMaxNumberRequest\032;.rankquantity." +
-      "voyager.api.UpdateStorySenceMaxNumberRes" +
-      "ponse\"5\202\323\344\223\002/\"*/common.TeamsAPI/UpdateSt" +
-      "orySenceMaxNumber:\001*\022\253\001\n\021UpdateStoryAvat" +
-      "ar\0222.rankquantity.voyager.api.UpdateStor" +
-      "yAvatarRequest\0323.rankquantity.voyager.ap" +
-      "i.UpdateStoryAvatarResponse\"-\202\323\344\223\002\'\"\"/co" +
-      "mmon.TeamsAPI/UpdateStoryAvatar:\001*\022\247\001\n\020U" +
-      "pdateStoryCover\0221.rankquantity.voyager.a" +
-      "pi.UpdateStoryCoverRequest\0322.rankquantit" +
-      "y.voyager.api.UpdateStoryCoverResponse\"," +
-      "\202\323\344\223\002&\"!/common.TeamsAPI/UpdateStoryCove" +
-      "r:\001*\022\263\001\n\023SaveStoryboardCraft\0224.rankquant" +
-      "ity.voyager.api.SaveStoryboardCraftReque" +
-      "st\0325.rankquantity.voyager.api.SaveStoryb" +
-      "oardCraftResponse\"/\202\323\344\223\002)\"$/common.Teams" +
-      "API/SaveStoryboardCraft:\001*\022\267\001\n\024GetStoryP" +
-      "articipants\0225.rankquantity.voyager.api.G" +
-      "etStoryParticipantsRequest\0326.rankquantit" +
-      "y.voyager.api.GetStoryParticipantsRespon" +
-      "se\"0\202\323\344\223\002*\"%/common.TeamsAPI/GetStoryPar" +
-      "ticipants:\001*\022\303\001\n\027GenerateStorySceneVideo" +
-      "\0228.rankquantity.voyager.api.GenerateStor" +
-      "ySceneVideoRequest\0329.rankquantity.voyage" +
-      "r.api.GenerateStorySceneVideoResponse\"3\202" +
-      "\323\344\223\002-\"(/common.TeamsAPI/GenerateStorySce" +
-      "neVideo:\001*\022\257\001\n\022GenerateRoleAvatar\0223.rank" +
-      "quantity.voyager.api.GenerateRoleAvatarR" +
-      "equest\0324.rankquantity.voyager.api.Genera" +
-      "teRoleAvatarResponse\".\202\323\344\223\002(\"#/common.Te" +
-      "amsAPI/GenerateRoleAvatar:\001*\022\273\001\n\026FetchUs" +
-      "erGenTaskStatus\0227.rankquantity.voyager.a" +
-      "pi.FetchUserGenTaskStatusRequest\0328.rankq" +
-      "uantity.voyager.api.FetchUserGenTaskStat" +
-      "usResponse\".\202\323\344\223\002(\"#/common.TeamsAPI/Que" +
-      "ryGenTaskStatus:\001*\022\303\001\n\027GenerateStoryRole" +
-      "Poster\0228.rankquantity.voyager.api.Genera" +
-      "teStoryRolePosterRequest\0329.rankquantity." +
-      "voyager.api.GenerateStoryRolePosterRespo" +
-      "nse\"3\202\323\344\223\002-\"(/common.TeamsAPI/GenerateSt" +
-      "oryRolePoster:\001*\022\273\001\n\025UpdateStoryRolePost" +
-      "er\0226.rankquantity.voyager.api.UpdateStor" +
-      "yRolePosterRequest\0327.rankquantity.voyage" +
-      "r.api.UpdateStoryRolePosterResponse\"1\202\323\344" +
-      "\223\002+\"&/common.TeamsAPI/UpdateStoryRolePos" +
-      "ter:\001*\022\263\001\n\023LikeStoryRolePoster\0224.rankqua" +
-      "ntity.voyager.api.LikeStoryRolePosterReq" +
-      "uest\0325.rankquantity.voyager.api.LikeStor" +
-      "yRolePosterResponse\"/\202\323\344\223\002)\"$/common.Tea" +
-      "msAPI/LikeStoryRolePoster:\001*\022\273\001\n\025UnLikeS" +
-      "toryRolePoster\0226.rankquantity.voyager.ap" +
-      "i.UnLikeStoryRolePosterRequest\0327.rankqua" +
-      "ntity.voyager.api.UnLikeStoryRolePosterR" +
-      "esponse\"1\202\323\344\223\002+\"&/common.TeamsAPI/UnLike" +
-      "StoryRolePoster:\001*\022\277\001\n\026GetStoryRolePoste" +
-      "rList\0227.rankquantity.voyager.api.GetStor" +
-      "yRolePosterListRequest\0328.rankquantity.vo" +
-      "yager.api.GetStoryRolePosterListResponse" +
-      "\"2\202\323\344\223\002,\"\'/common.TeamsAPI/GetStoryRoleP" +
-      "osterList:\001*\022\277\001\n\026GenerateStoryRoleVideo\022" +
-      "7.rankquantity.voyager.api.GenerateStory" +
-      "RoleVideoRequest\0328.rankquantity.voyager." +
-      "api.GenerateStoryRoleVideoResponse\"2\202\323\344\223" +
-      "\002,\"\'/common.TeamsAPI/GenerateStoryRoleVi" +
-      "deo:\001*\022\307\001\n\030UpdateStoryboardForkAble\0229.ra" +
-      "nkquantity.voyager.api.UpdateStoryboardF" +
-      "orkAbleRequest\032:.rankquantity.voyager.ap" +
-      "i.UpdateStoryboardForkAbleResponse\"4\202\323\344\223" +
-      "\002.\")/common.TeamsAPI/UpdateStoryboardFor" +
-      "kAble:\001*\022\303\001\n\027UserStoryboardDraftlist\0228.r" +
-      "ankquantity.voyager.api.UserStoryboardDr" +
-      "aftlistRequest\0329.rankquantity.voyager.ap" +
-      "i.UserStoryboardDraftlistResponse\"3\202\323\344\223\002" +
-      "-\"(/common.TeamsAPI/UserStoryboardDraftl" +
-      "ist:\001*\022\313\001\n\031UserStoryboardDraftDetail\022:.r" +
-      "ankquantity.voyager.api.UserDraftStorybo" +
-      "ardDetailRequest\032;.rankquantity.voyager." +
-      "api.UserDraftStoryboardDetailResponse\"5\202" +
-      "\323\344\223\002/\"*/common.TeamsAPI/UserStoryboardDr" +
-      "aftDetail:\001*\022\313\001\n\031DeleteUserStoryboardDra" +
-      "ft\022:.rankquantity.voyager.api.DeleteUser" +
-      "StoryboardDraftRequest\032;.rankquantity.vo" +
-      "yager.api.DeleteUserStoryboardDraftRespo" +
-      "nse\"5\202\323\344\223\002/\"*/common.TeamsAPI/DeleteStor" +
-      "yboardUserDraft:\001*\022\251\001\n\021UserActiveHeatmap" +
-      "\0221.rankquantity.voyager.api.UserActiveHe" +
-      "amapRequest\0322.rankquantity.voyager.api.U" +
-      "serActiveHeamapResponse\"-\202\323\344\223\002\'\"\"/common" +
-      ".TeamsAPI/UserActiveHeatmap:\001*\022\255\001\n\022Group" +
-      "ActiveHeatmap\0222.rankquantity.voyager.api" +
-      ".GroupActiveHeamapRequest\0323.rankquantity" +
-      ".voyager.api.GroupActiveHeamapResponse\"." +
-      "\202\323\344\223\002(\"#/common.TeamsAPI/GroupActiveHeat" +
-      "map:\001*\022\346\001\n\036GetStoryboardGenerationRoadma" +
-      "p\022?.rankquantity.voyager.api.GetStoryboa" +
-      "rdGenerationRoadmapRequest\032@.rankquantit" +
-      "y.voyager.api.GetStoryboardGenerationRoa" +
-      "dmapResponse\"A\202\323\344\223\002;\"6/common.TeamsAPI/G" +
-      "etStoryboardGenerationRoadmapRequest:\001*B" +
-      "\324\001\n\034com.rankquantity.voyager.apiB\014Servic" +
-      "eProtoP\001Z$github.com/grapery/common-prot" +
-      "oc/gen\242\002\003RVA\252\002\030Rankquantity.Voyager.Api\312" +
-      "\002\030Rankquantity\\Voyager\\Api\342\002$Rankquantit" +
-      "y\\Voyager\\Api\\GPBMetadata\352\002\032Rankquantity" +
-      "::Voyager::Apib\006proto3"
+      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"}\n\026C" +
+      "reateStoryRoleRequest\022 \n\007user_id\030\001 \001(\003B\007" +
+      "\372B\004\"\002 \000R\006userId\022A\n\004role\030\002 \001(\0132#.rankquan" +
+      "tity.voyager.api.StoryRoleB\010\372B\005\212\001\002\020\001R\004ro" +
+      "le\"o\n\027CreateStoryRoleResponse\022:\n\004code\030\001 " +
+      "\001(\0162&.rankquantity.voyager.api.ResponseC" +
+      "odeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"=\n\031G" +
+      "etStoryRoleDetailRequest\022 \n\007role_id\030\001 \001(" +
+      "\003B\007\372B\004\"\002 \000R\006roleId\"\253\001\n\032GetStoryRoleDetai" +
+      "lResponse\022:\n\004code\030\001 \001(\0162&.rankquantity.v" +
+      "oyager.api.ResponseCodeR\004code\022\030\n\007message" +
+      "\030\002 \001(\tR\007message\0227\n\004info\030\003 \001(\0132#.rankquan" +
+      "tity.voyager.api.StoryRoleR\004info\"\247\001\n\026Ren" +
+      "derStoryRoleRequest\022 \n\007role_id\030\001 \001(\003B\007\372B" +
+      "\004\"\002 \000R\006roleId\022 \n\006prompt\030\002 \001(\tB\010\372B\005r\003\030\320\017R" +
+      "\006prompt\022\'\n\nref_images\030\003 \003(\tB\010\372B\005\222\001\002\020\nR\tr" +
+      "efImages\022 \n\007user_id\030\004 \001(\003B\007\372B\004\"\002 \000R\006user" +
+      "Id\"\327\003\n\025RenderStoryRoleDetail\022\027\n\007role_id\030" +
+      "\001 \001(\003R\006roleId\022\025\n\006gen_id\030\002 \001(\003R\005genId\022\037\n\013" +
+      "is_finished\030\003 \001(\010R\nisFinished\022)\n\020role_de" +
+      "scription\030\004 \001(\tR\017roleDescription\022%\n\016role" +
+      "_character\030\005 \001(\tR\rroleCharacter\022#\n\rrole_" +
+      "behavior\030\006 \001(\tR\014roleBehavior\022\033\n\trole_goa" +
+      "l\030\007 \001(\tR\010roleGoal\022)\n\020background_image\030\010 " +
+      "\001(\tR\017backgroundImage\022!\n\014avatar_image\030\t \001" +
+      "(\tR\013avatarImage\022\036\n\nbackground\030\n \001(\tR\nbac" +
+      "kground\022\036\n\nappearance\030\013 \001(\tR\nappearance\022" +
+      " \n\013personality\030\014 \001(\tR\013personality\022)\n\020abi" +
+      "lity_features\030\r \001(\tR\017abilityFeatures\"\270\001\n" +
+      "\027RenderStoryRoleResponse\022:\n\004code\030\001 \001(\0162&" +
+      ".rankquantity.voyager.api.ResponseCodeR\004" +
+      "code\022\030\n\007message\030\002 \001(\tR\007message\022G\n\006detail" +
+      "\030\003 \001(\0132/.rankquantity.voyager.api.Render" +
+      "StoryRoleDetailR\006detail\"X\n\020LikeStoryRequ" +
+      "est\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022" +
+      " \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"i\n\021Lik" +
+      "eStoryResponse\022:\n\004code\030\001 \001(\0162&.rankquant" +
+      "ity.voyager.api.ResponseCodeR\004code\022\030\n\007me" +
+      "ssage\030\002 \001(\tR\007message\"Z\n\022UnLikeStoryReque" +
+      "st\022\"\n\010story_id\030\001 \001(\003B\007\372B\004\"\002 \000R\007storyId\022 " +
+      "\n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006userId\"k\n\023UnLi" +
+      "keStoryResponse\022:\n\004code\030\001 \001(\0162&.rankquan" +
+      "tity.voyager.api.ResponseCodeR\004code\022\030\n\007m" +
+      "essage\030\002 \001(\tR\007message\"\225\001\n DeleteUserStor" +
+      "yboardDraftRequest\022#\n\007user_id\030\001 \001(\003B\n\340A\002" +
+      "\372B\004\"\002 \000R\006userId\022%\n\010draft_id\030\002 \001(\003B\n\340A\002\372B" +
+      "\004\"\002 \000R\007draftId\022%\n\010story_id\030\003 \001(\003B\n\340A\001\372B\004" +
+      "\"\002(\000R\007storyId\"y\n!DeleteUserStoryboardDra" +
+      "ftResponse\022:\n\004code\030\001 \001(\0162&.rankquantity." +
+      "voyager.api.ResponseCodeR\004code\022\030\n\007messag" +
+      "e\030\002 \001(\tR\007message\"\201\001\n\017HeatmapDataItem\022.\n\004" +
+      "date\030\001 \001(\tB\032\372B\027r\0252\023^\\d{4}-\\d{2}-\\d{2}$R\004" +
+      "date\022\035\n\005count\030\002 \001(\003B\007\372B\004\"\002(\000R\005count\022\037\n\005l" +
+      "evel\030\003 \001(\003B\t\372B\006\"\004\030\004(\000R\005level\"\207\001\n\027UserAct" +
+      "iveHeamapRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002" +
+      " \000R\006userId\022&\n\nstart_time\030\002 \001(\003B\007\372B\004\"\002 \000R",
+      "\tstartTime\022\"\n\010end_time\030\003 \001(\003B\007\372B\004\"\002 \000R\007e" +
+      "ndTime\"\331\001\n\030UserActiveHeamapResponse\022:\n\004c" +
+      "ode\030\001 \001(\0162&.rankquantity.voyager.api.Res" +
+      "ponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
+      "e\022=\n\004data\030\003 \003(\0132).rankquantity.voyager.a" +
+      "pi.HeatmapDataItemR\004data\022(\n\013total_count\030" +
+      "\004 \001(\003B\007\372B\004\"\002(\000R\ntotalCount\"\254\001\n\030GroupActi" +
+      "veHeamapRequest\022\"\n\010group_id\030\001 \001(\003B\007\372B\004\"\002" +
+      " \000R\007groupId\022 \n\007user_id\030\002 \001(\003B\007\372B\004\"\002 \000R\006u" +
+      "serId\022&\n\nstart_time\030\003 \001(\003B\007\372B\004\"\002 \000R\tstar" +
+      "tTime\022\"\n\010end_time\030\004 \001(\003B\007\372B\004\"\002 \000R\007endTim" +
+      "e\"\206\002\n\031GroupActiveHeamapResponse\022:\n\004code\030" +
+      "\001 \001(\0162&.rankquantity.voyager.api.Respons" +
+      "eCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\022=\n" +
+      "\004data\030\003 \003(\0132).rankquantity.voyager.api.H" +
+      "eatmapDataItemR\004data\022(\n\013total_count\030\004 \001(" +
+      "\003B\007\372B\004\"\002(\000R\ntotalCount\022*\n\014member_count\030\005" +
+      " \001(\003B\007\372B\004\"\002(\000R\013memberCount\"\216\001\n\037UpdateSto" +
+      "ryboardForkAbleRequest\022 \n\007user_id\030\001 \001(\003B" +
+      "\007\372B\004\"\002 \000R\006userId\022,\n\rstoryboard_id\030\002 \001(\003B" +
+      "\007\372B\004\"\002 \000R\014storyboardId\022\033\n\tfork_able\030\003 \001(" +
+      "\010R\010forkAble\"x\n UpdateStoryboardForkAbleR" +
+      "esponse\022:\n\004code\030\001 \001(\0162&.rankquantity.voy" +
+      "ager.api.ResponseCodeR\004code\022\030\n\007message\030\002" +
+      " \001(\tR\007message\"\257\001\n\036UserStoryboardDraftlis" +
+      "tRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006user" +
+      "Id\022\037\n\006offset\030\002 \001(\003B\007\372B\004\"\002(\000R\006offset\022&\n\tp" +
+      "age_size\030\003 \001(\003B\t\372B\006\"\004\030d(\001R\010pageSize\022\"\n\010s" +
+      "tory_id\030\004 \001(\003B\007\372B\004\"\002(\000R\007storyId\"\374\001\n\037User" +
+      "StoryboardDraftlistResponse\022:\n\004code\030\001 \001(" +
+      "\0162&.rankquantity.voyager.api.ResponseCod" +
+      "eR\004code\022\030\n\007message\030\002 \001(\tR\007message\022G\n\006dra" +
+      "fts\030\003 \003(\0132/.rankquantity.voyager.api.Sto" +
+      "ryboardDraftDetailR\006drafts\022\035\n\005total\030\004 \001(" +
+      "\003B\007\372B\004\"\002(\000R\005total\022\033\n\thave_more\030\005 \001(\010R\010ha" +
+      "veMore\"\337\004\n\025StoryboardDraftDetail\022\031\n\010draf" +
+      "t_id\030\001 \001(\003R\007draftId\022\031\n\010story_id\030\002 \001(\003R\007s" +
+      "toryId\022#\n\rstoryboard_id\030\003 \001(\003R\014storyboar" +
+      "dId\022\036\n\005title\030\004 \001(\tB\010\372B\005r\003\030\310\001R\005title\022\"\n\007c" +
+      "ontent\030\005 \001(\tB\010\372B\005r\003\030\220NR\007content\022\036\n\nbackg" +
+      "round\030\006 \001(\tR\nbackground\0229\n\005roles\030\007 \003(\0132#" +
+      ".rankquantity.voyager.api.StoryRoleR\005rol" +
+      "es\022B\n\006sences\030\010 \001(\0132*.rankquantity.voyage" +
+      "r.api.StoryBoardSencesR\006sences\022B\n\006params" +
+      "\030\t \001(\0132*.rankquantity.voyager.api.StoryB" +
+      "oardParamsR\006params\022\035\n\ncreated_at\030\n \001(\003R\t" +
+      "createdAt\022\035\n\nupdated_at\030\013 \001(\003R\tupdatedAt" +
+      "\022?\n\005stage\030\014 \001(\0162).rankquantity.voyager.a" +
+      "pi.StoryboardStageR\005stage\022\027\n\007user_id\030\r \001" +
+      "(\003R\006userId\022,\n\022prev_storyboard_id\030\016 \001(\003R\020" +
+      "prevStoryboardId\"h\n UserDraftStoryboardD" +
+      "etailRequest\022 \n\007user_id\030\001 \001(\003B\007\372B\004\"\002 \000R\006" +
+      "userId\022\"\n\010draft_id\030\002 \001(\003B\007\372B\004\"\002 \000R\007draft" +
+      "Id\"\302\001\n!UserDraftStoryboardDetailResponse" +
+      "\022:\n\004code\030\001 \001(\0162&.rankquantity.voyager.ap" +
+      "i.ResponseCodeR\004code\022\030\n\007message\030\002 \001(\tR\007m" +
+      "essage\022G\n\006detail\030\003 \001(\0132/.rankquantity.vo" +
+      "yager.api.StoryboardDraftDetailR\006detail\"" +
+      "\327\001\n\020TokenConsumption\022\037\n\013token_count\030\001 \001(" +
+      "\003R\ntokenCount\022J\n\013source_type\030\002 \001(\0162).ran" +
+      "kquantity.voyager.api.TokenSourceTypeR\ns" +
+      "ourceType\022\033\n\tsource_id\030\003 \001(\003R\010sourceId\022\037" +
+      "\n\013consumed_at\030\004 \001(\003R\nconsumedAt\022\030\n\007purpo" +
+      "se\030\005 \001(\tR\007purpose\"\201\002\n\016AIPolishRecord\022)\n\020" +
+      "original_content\030\001 \001(\tR\017originalContent\022" +
+      ")\n\020polished_content\030\002 \001(\tR\017polishedConte" +
+      "nt\022\037\n\013polished_at\030\003 \001(\003R\npolishedAt\022\037\n\013p" +
+      "olish_type\030\004 \001(\tR\npolishType\022W\n\021token_co" +
+      "nsumption\030\005 \001(\0132*.rankquantity.voyager.a" +
+      "pi.TokenConsumptionR\020tokenConsumption\"\222\003" +
+      "\n\030ChapterTranslationRecord\022\035\n\nchapter_id" +
+      "\030\001 \001(\tR\tchapterId\022#\n\rchapter_title\030\002 \001(\t" +
+      "R\014chapterTitle\022%\n\016original_scene\030\003 \001(\tR\r" +
+      "originalScene\022)\n\020translated_scene\030\004 \001(\tR" +
+      "\017translatedScene\022.\n\023original_image_desc\030" +
+      "\005 \001(\tR\021originalImageDesc\0222\n\025translated_i" +
+      "mage_desc\030\006 \001(\tR\023translatedImageDesc\022#\n\r" +
+      "translated_at\030\007 \001(\003R\014translatedAt\022W\n\021tok" +
+      "en_consumption\030\010 \001(\0132*.rankquantity.voya" +
+      "ger.api.TokenConsumptionR\020tokenConsumpti" +
+      "on\"\360\002\n\026GenerationPromptRecord\022!\n\014content" +
+      "_type\030\001 \001(\tR\013contentType\022\035\n\ncontent_id\030\002" +
+      " \001(\003R\tcontentId\022!\n\014image_prompt\030\003 \001(\tR\013i" +
+      "magePrompt\022!\n\014video_prompt\030\004 \001(\tR\013videoP" +
+      "rompt\022)\n\020generated_images\030\005 \003(\tR\017generat" +
+      "edImages\022\'\n\017generated_video\030\006 \001(\tR\016gener" +
+      "atedVideo\022!\n\014generated_at\030\007 \001(\003R\013generat" +
+      "edAt\022W\n\021token_consumption\030\010 \001(\0132*.rankqu" +
+      "antity.voyager.api.TokenConsumptionR\020tok" +
+      "enConsumption\"\315\006\n\026StoryGenerationHistory" +
+      "\022>\n\nstory_info\030\001 \001(\0132\037.rankquantity.voya" +
+      "ger.api.StoryR\tstoryInfo\0229\n\005roles\030\002 \003(\0132" +
+      "#.rankquantity.voyager.api.StoryRoleR\005ro" +
+      "les\022O\n\016polish_records\030\003 \003(\0132(.rankquanti" +
+      "ty.voyager.api.AIPolishRecordR\rpolishRec" +
+      "ords\022F\n\014chapter_info\030\004 \001(\0132#.rankquantit" +
+      "y.voyager.api.StoryInfoR\013chapterInfo\022c\n\023" +
+      "translation_records\030\005 \003(\01322.rankquantity" +
+      ".voyager.api.ChapterTranslationRecordR\022t" +
+      "ranslationRecords\022W\n\016prompt_records\030\006 \003(" +
+      "\01320.rankquantity.voyager.api.GenerationP" +
+      "romptRecordR\rpromptRecords\022I\n\rfinal_cont" +
+      "ent\030\007 \003(\0132$.rankquantity.voyager.api.Sto" +
+      "ryBoardR\014finalContent\022<\n\007creator\030\010 \001(\0132\"" +
+      ".rankquantity.voyager.api.UserInfoR\007crea" +
+      "tor\022d\n\030total_token_consumptions\030\t \003(\0132*." +
+      "rankquantity.voyager.api.TokenConsumptio" +
+      "nR\026totalTokenConsumptions\0224\n\026child_story" +
+      "board_count\030\n \001(\003R\024childStoryboardCount\022" +
+      "\035\n\ncreated_at\030\013 \001(\003R\tcreatedAt\022\035\n\nupdate" +
+      "d_at\030\014 \001(\003R\tupdatedAt\"\233\001\n%GetStoryboardG" +
+      "enerationRoadmapRequest\022\"\n\010story_id\030\001 \001(" +
+      "\003B\007\372B\004\"\002 \000R\007storyId\022 \n\007user_id\030\002 \001(\003B\007\372B" +
+      "\004\"\002 \000R\006userId\022,\n\rstoryboard_id\030\003 \001(\003B\007\372B" +
+      "\004\"\002 \000R\014storyboardId\"\304\001\n&GetStoryboardGen" +
+      "erationRoadmapResponse\022:\n\004code\030\001 \001(\0162&.r" +
+      "ankquantity.voyager.api.ResponseCodeR\004co" +
+      "de\022\030\n\007message\030\002 \001(\tR\007message\022D\n\004data\030\003 \001" +
+      "(\01320.rankquantity.voyager.api.StoryGener" +
+      "ationHistoryR\004data*e\n\013TokenSource\022\032\n\026TOK" +
+      "EN_SOURCE_USER_SELF\020\000\022\034\n\030TOKEN_SOURCE_ST" +
+      "ORY_STORE\020\001\022\034\n\030TOKEN_SOURCE_THIRD_PARTY\020" +
+      "\002*i\n\017TokenSourceType\022\034\n\030TOKEN_SOURCE_UNS" +
+      "PECIFIED\020\000\022\031\n\025TOKEN_SOURCE_PERSONAL\020\001\022\035\n" +
+      "\031TOKEN_SOURCE_ORGANIZATION\020\0022\276\312\001\n\010TeamsA" +
+      "PI\022\200\001\n\007Explore\022(.rankquantity.voyager.ap" +
+      "i.ExploreRequest\032).rankquantity.voyager." +
+      "api.ExploreResponse\" \202\323\344\223\002\032\022\030/common.Tea" +
+      "msAPI/Explore\022\200\001\n\007Version\022(.rankquantity" +
+      ".voyager.api.VersionRequest\032).rankquanti" +
+      "ty.voyager.api.VersionResponse\" \202\323\344\223\002\032\022\030" +
+      "/common.TeamsAPI/Version\022x\n\005About\022&.rank" +
+      "quantity.voyager.api.AboutRequest\032\'.rank" +
+      "quantity.voyager.api.AboutResponse\"\036\202\323\344\223" +
+      "\002\030\022\026/common.TeamsAPI/About\022{\n\005Login\022&.ra" +
+      "nkquantity.voyager.api.LoginRequest\032\'.ra" +
+      "nkquantity.voyager.api.LoginResponse\"!\202\323" +
+      "\344\223\002\033\"\026/common.TeamsAPI/Login:\001*\022\177\n\006Logou" +
+      "t\022\'.rankquantity.voyager.api.LogoutReque" +
+      "st\032(.rankquantity.voyager.api.LogoutResp" +
+      "onse\"\"\202\323\344\223\002\034\"\027/common.TeamsAPI/Logout:\001*" +
+      "\022\227\001\n\014RefreshToken\022-.rankquantity.voyager" +
+      ".api.RefreshTokenRequest\032..rankquantity." +
+      "voyager.api.RefreshTokenResponse\"(\202\323\344\223\002\"" +
+      "\"\035/common.TeamsAPI/RefreshToken:\001*\022\207\001\n\010R" +
+      "egister\022).rankquantity.voyager.api.Regis" +
+      "terRequest\032*.rankquantity.voyager.api.Re" +
+      "gisterResponse\"$\202\323\344\223\002\036\"\031/common.TeamsAPI" +
+      "/Register:\001*\022\221\001\n\010ResetPwd\022..rankquantity" +
+      ".voyager.api.ResetPasswordRequest\032/.rank" +
+      "quantity.voyager.api.ResetPasswordRespon" +
+      "se\"$\202\323\344\223\002\036\"\031/common.TeamsAPI/ResetPwd:\001*" +
+      "\022\207\001\n\010UserInit\022).rankquantity.voyager.api" +
+      ".UserInitRequest\032*.rankquantity.voyager." +
+      "api.UserInitResponse\"$\202\323\344\223\002\036\"\031/common.Te" +
+      "amsAPI/UserInit:\001*\022\207\001\n\010UserInfo\022).rankqu" +
+      "antity.voyager.api.UserInfoRequest\032*.ran" +
+      "kquantity.voyager.api.UserInfoResponse\"$" +
+      "\202\323\344\223\002\036\"\031/common.TeamsAPI/UserInfo:\001*\022\247\001\n" +
+      "\020UpdateUserAvator\0221.rankquantity.voyager" +
+      ".api.UpdateUserAvatorRequest\0322.rankquant" +
+      "ity.voyager.api.UpdateUserAvatorResponse" +
+      "\",\202\323\344\223\002&\"!/common.TeamsAPI/UpdateUserAva" +
+      "tor:\001*\022\227\001\n\014UserWatching\022-.rankquantity.v" +
+      "oyager.api.UserWatchingRequest\032..rankqua" +
+      "ntity.voyager.api.UserWatchingResponse\"(" +
+      "\202\323\344\223\002\"\"\035/common.TeamsAPI/UserWatching:\001*" +
+      "\022\213\001\n\tUserGroup\022*.rankquantity.voyager.ap" +
+      "i.UserGroupRequest\032+.rankquantity.voyage" +
+      "r.api.UserGroupResponse\"%\202\323\344\223\002\037\"\032/common" +
+      ".TeamsAPI/UserGroup:\001*\022\257\001\n\022UserFollowing" +
+      "Group\0223.rankquantity.voyager.api.UserFol" +
+      "lowingGroupRequest\0324.rankquantity.voyage" +
+      "r.api.UserFollowingGroupResponse\".\202\323\344\223\002(" +
+      "\"#/common.TeamsAPI/UserFollowingGroup:\001*" +
+      "\022\217\001\n\nUserUpdate\022+.rankquantity.voyager.a" +
+      "pi.UserUpdateRequest\032,.rankquantity.voya" +
+      "ger.api.UserUpdateResponse\"&\202\323\344\223\002 \"\033/com" +
+      "mon.TeamsAPI/UserUpdate:\001*\022\217\001\n\nSearchUse" +
+      "r\022+.rankquantity.voyager.api.SearchUserR" +
+      "equest\032,.rankquantity.voyager.api.Search" +
+      "UserResponse\"&\202\323\344\223\002 \"\033/common.TeamsAPI/S" +
+      "earchUser:\001*\022\223\001\n\013CreateGroup\022,.rankquant" +
+      "ity.voyager.api.CreateGroupRequest\032-.ran" +
+      "kquantity.voyager.api.CreateGroupRespons" +
+      "e\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/CreateGroup:" +
+      "\001*\022\207\001\n\010GetGroup\022).rankquantity.voyager.a" +
+      "pi.GetGroupRequest\032*.rankquantity.voyage" +
+      "r.api.GetGroupResponse\"$\202\323\344\223\002\036\"\031/common." +
+      "TeamsAPI/GetGroup:\001*\022\243\001\n\017GetGroupActives" +
+      "\0220.rankquantity.voyager.api.GetGroupActi" +
+      "vesRequest\0321.rankquantity.voyager.api.Ge" +
+      "tGroupActivesResponse\"+\202\323\344\223\002%\" /common.T" +
+      "eamsAPI/GetGroupActives:\001*\022\243\001\n\017UpdateGro" +
+      "upInfo\0220.rankquantity.voyager.api.Update" +
+      "GroupInfoRequest\0321.rankquantity.voyager." +
+      "api.UpdateGroupInfoResponse\"+\202\323\344\223\002%\" /co" +
+      "mmon.TeamsAPI/UpdateGroupInfo:\001*\022\243\001\n\017Get" +
+      "GroupProfile\0220.rankquantity.voyager.api." +
+      "GetGroupProfileRequest\0321.rankquantity.vo" +
+      "yager.api.GetGroupProfileResponse\"+\202\323\344\223\002" +
+      "%\" /common.TeamsAPI/GetGroupProfile:\001*\022\257" +
+      "\001\n\022UpdateGroupProfile\0223.rankquantity.voy" +
+      "ager.api.UpdateGroupProfileRequest\0324.ran" +
+      "kquantity.voyager.api.UpdateGroupProfile" +
+      "Response\".\202\323\344\223\002(\"#/common.TeamsAPI/Updat" +
+      "eGroupProfile:\001*\022\223\001\n\013DeleteGroup\022,.rankq" +
+      "uantity.voyager.api.DeleteGroupRequest\032-" +
+      ".rankquantity.voyager.api.DeleteGroupRes" +
+      "ponse\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/DeleteGr" +
+      "oup:\001*\022\253\001\n\021FetchGroupMembers\0222.rankquant" +
+      "ity.voyager.api.FetchGroupMembersRequest" +
+      "\0323.rankquantity.voyager.api.FetchGroupMe" +
+      "mbersResponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/" +
+      "FetchGroupMembers:\001*\022\213\001\n\tJoinGroup\022*.ran" +
+      "kquantity.voyager.api.JoinGroupRequest\032+" +
+      ".rankquantity.voyager.api.JoinGroupRespo" +
+      "nse\"%\202\323\344\223\002\037\"\032/common.TeamsAPI/JoinGroup:" +
+      "\001*\022\217\001\n\nLeaveGroup\022+.rankquantity.voyager" +
+      ".api.LeaveGroupRequest\032,.rankquantity.vo" +
+      "yager.api.LeaveGroupResponse\"&\202\323\344\223\002 \"\033/c" +
+      "ommon.TeamsAPI/LeaveGroup:\001*\022\223\001\n\013CreateS" +
+      "tory\022,.rankquantity.voyager.api.CreateSt" +
+      "oryRequest\032-.rankquantity.voyager.api.Cr" +
+      "eateStoryResponse\"\'\202\323\344\223\002!\"\034/common.Teams" +
+      "API/CreateStory:\001*\022\227\001\n\014GetStoryInfo\022-.ra" +
+      "nkquantity.voyager.api.GetStoryInfoReque" +
+      "st\032..rankquantity.voyager.api.GetStoryIn" +
+      "foResponse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/Get" +
+      "StoryInfo:\001*\022\223\001\n\013RenderStory\022,.rankquant" +
+      "ity.voyager.api.RenderStoryRequest\032-.ran" +
+      "kquantity.voyager.api.RenderStoryRespons" +
+      "e\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/RenderStory:" +
+      "\001*\022\223\001\n\013UpdateStory\022,.rankquantity.voyage" +
+      "r.api.UpdateStoryRequest\032-.rankquantity." +
+      "voyager.api.UpdateStoryResponse\"\'\202\323\344\223\002!\"" +
+      "\034/common.TeamsAPI/UpdateStory:\001*\022\217\001\n\nWat" +
+      "chStory\022+.rankquantity.voyager.api.Watch" +
+      "StoryRequest\032,.rankquantity.voyager.api." +
+      "WatchStoryResponse\"&\202\323\344\223\002 \"\033/common.Team" +
+      "sAPI/WatchStory:\001*\022\227\001\n\014UnWatchStory\022-.ra" +
+      "nkquantity.voyager.api.UnWatchStoryReque" +
+      "st\032..rankquantity.voyager.api.UnWatchSto" +
+      "ryResponse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/UnW" +
+      "atchStory:\001*\022\227\001\n\014ArchiveStory\022-.rankquan" +
+      "tity.voyager.api.ArchiveStoryRequest\032..r" +
+      "ankquantity.voyager.api.ArchiveStoryResp" +
+      "onse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/ArchiveSt" +
+      "ory:\001*\022\247\001\n\020CreateStoryboard\0221.rankquanti" +
+      "ty.voyager.api.CreateStoryboardRequest\0322" +
+      ".rankquantity.voyager.api.CreateStoryboa" +
+      "rdResponse\",\202\323\344\223\002&\"!/common.TeamsAPI/Cre" +
+      "ateStoryboard:\001*\022\233\001\n\rGetStoryboard\022..ran" +
+      "kquantity.voyager.api.GetStoryboardReque" +
+      "st\032/.rankquantity.voyager.api.GetStorybo" +
+      "ardResponse\")\202\323\344\223\002#\"\036/common.TeamsAPI/Ge" +
+      "tStoryboard:\001*\022\247\001\n\020RenderStoryboard\0221.ra" +
+      "nkquantity.voyager.api.RenderStoryboardR" +
+      "equest\0322.rankquantity.voyager.api.Render" +
+      "StoryboardResponse\",\202\323\344\223\002&\"!/common.Team" +
+      "sAPI/RenderStoryboard:\001*\022\253\001\n\021GenStoryboa" +
+      "rdText\0222.rankquantity.voyager.api.GenSto" +
+      "ryboardTextRequest\0323.rankquantity.voyage" +
+      "r.api.GenStoryboardTextResponse\"-\202\323\344\223\002\'\"" +
+      "\"/common.TeamsAPI/GenStoryboardText:\001*\022\263" +
+      "\001\n\023GenStoryboardImages\0224.rankquantity.vo" +
+      "yager.api.GenStoryboardImagesRequest\0325.r" +
+      "ankquantity.voyager.api.GenStoryboardIma" +
+      "gesResponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/Ge" +
+      "nStoryboardImages:\001*\022\237\001\n\016GetStoryboards\022" +
+      "/.rankquantity.voyager.api.GetStoryboard" +
+      "sRequest\0320.rankquantity.voyager.api.GetS" +
+      "toryboardsResponse\"*\202\323\344\223\002$\"\037/common.Team" +
+      "sAPI/GetStoryboards:\001*\022\233\001\n\rDelStoryboard" +
+      "\022..rankquantity.voyager.api.DelStoryboar" +
+      "dRequest\032/.rankquantity.voyager.api.DelS" +
+      "toryboardResponse\")\202\323\344\223\002#\"\036/common.Teams" +
+      "API/DelStoryboard:\001*\022\237\001\n\016ForkStoryboard\022" +
+      "/.rankquantity.voyager.api.ForkStoryboar" +
+      "dRequest\0320.rankquantity.voyager.api.Fork" +
+      "StoryboardResponse\"*\202\323\344\223\002$\"\037/common.Team" +
+      "sAPI/ForkStoryboard:\001*\022\247\001\n\020UpdateStorybo" +
+      "ard\0221.rankquantity.voyager.api.UpdateSto" +
+      "ryboardRequest\0322.rankquantity.voyager.ap" +
+      "i.UpdateStoryboardResponse\",\202\323\344\223\002&\"!/com" +
+      "mon.TeamsAPI/UpdateStoryboard:\001*\022\237\001\n\016Lik" +
+      "eStoryboard\022/.rankquantity.voyager.api.L" +
+      "ikeStoryboardRequest\0320.rankquantity.voya" +
+      "ger.api.LikeStoryboardResponse\"*\202\323\344\223\002$\"\037" +
+      "/common.TeamsAPI/LikeStoryboard:\001*\022\247\001\n\020U" +
+      "nLikeStoryboard\0221.rankquantity.voyager.a" +
+      "pi.UnLikeStoryboardRequest\0322.rankquantit" +
+      "y.voyager.api.UnLikeStoryboardResponse\"," +
+      "\202\323\344\223\002&\"!/common.TeamsAPI/UnLikeStoryboar" +
+      "d:\001*\022\243\001\n\017ShareStoryboard\0220.rankquantity." +
+      "voyager.api.ShareStoryboardRequest\0321.ran" +
+      "kquantity.voyager.api.ShareStoryboardRes" +
+      "ponse\"+\202\323\344\223\002%\" /common.TeamsAPI/ShareSto" +
+      "ryboard:\001*\022\247\001\n\020FetchGroupStorys\0221.rankqu" +
+      "antity.voyager.api.FetchGroupStorysReque" +
+      "st\0322.rankquantity.voyager.api.FetchGroup" +
+      "StorysResponse\",\202\323\344\223\002&\"!/common.TeamsAPI" +
+      "/FetchGroupStorys:\001*\022\233\001\n\017UploadImageFile" +
+      "\022,.rankquantity.voyager.api.UploadImageR" +
+      "equest\032-.rankquantity.voyager.api.Upload" +
+      "ImageResponse\"+\202\323\344\223\002%\" /common.TeamsAPI/" +
+      "UploadImageFile:\001*\022\241\001\n\016GetStoryRender\022/." +
+      "rankquantity.voyager.api.GetStoryRenderR" +
+      "equest\0320.rankquantity.voyager.api.GetSto" +
+      "ryRenderResponse\",\202\323\344\223\002&\"!/common.TeamsA" +
+      "PI/StoryRender/list:\001*\022\265\001\n\023GetStoryBoard" +
+      "Render\0224.rankquantity.voyager.api.GetSto" +
+      "ryBoardRenderRequest\0325.rankquantity.voya" +
+      "ger.api.GetStoryBoardRenderResponse\"1\202\323\344" +
+      "\223\002+\"&/common.TeamsAPI/StoryBoardRender/l" +
+      "ist:\001*\022\267\001\n\024GetStoryContributors\0225.rankqu" +
+      "antity.voyager.api.GetStoryContributorsR" +
+      "equest\0326.rankquantity.voyager.api.GetSto" +
+      "ryContributorsResponse\"0\202\323\344\223\002*\"%/common." +
+      "TeamsAPI/GetStoryContributors:\001*\022\263\001\n\023Con" +
+      "tinueRenderStory\0224.rankquantity.voyager." +
+      "api.ContinueRenderStoryRequest\0325.rankqua" +
+      "ntity.voyager.api.ContinueRenderStoryRes" +
+      "ponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/Continue" +
+      "RenderStory:\001*\022\247\001\n\020RenderStoryRoles\0221.ra" +
+      "nkquantity.voyager.api.RenderStoryRolesR" +
+      "equest\0322.rankquantity.voyager.api.Render" +
+      "StoryRolesResponse\",\202\323\344\223\002&\"!/common.Team" +
+      "sAPI/RenderStoryRoles:\001*\022\243\001\n\017UpdateStory" +
+      "Role\0220.rankquantity.voyager.api.UpdateSt" +
+      "oryRoleRequest\0321.rankquantity.voyager.ap" +
+      "i.UpdateStoryRoleResponse\"+\202\323\344\223\002%\" /comm" +
+      "on.TeamsAPI/UpdateStoryRole:\001*\022\273\001\n\025Rende" +
+      "rStoryRoleDetail\0226.rankquantity.voyager." +
+      "api.RenderStoryRoleDetailRequest\0327.rankq" +
+      "uantity.voyager.api.RenderStoryRoleDetai" +
+      "lResponse\"1\202\323\344\223\002+\"&/common.TeamsAPI/Rend" +
+      "erStoryRoleDetail:\001*\022\233\001\n\rGetStoryRoles\022." +
+      ".rankquantity.voyager.api.GetStoryRolesR" +
+      "equest\032/.rankquantity.voyager.api.GetSto" +
+      "ryRolesResponse\")\202\323\344\223\002#\"\036/common.TeamsAP" +
+      "I/GetStoryRoles:\001*\022\257\001\n\022GetStoryBoardRole" +
+      "s\0223.rankquantity.voyager.api.GetStoryBoa" +
+      "rdRolesRequest\0324.rankquantity.voyager.ap" +
+      "i.GetStoryBoardRolesResponse\".\202\323\344\223\002(\"#/c" +
+      "ommon.TeamsAPI/GetStoryBoardRoles:\001*\022\237\001\n" +
+      "\016GetUserProfile\022/.rankquantity.voyager.a" +
+      "pi.GetUserProfileRequest\0320.rankquantity." +
+      "voyager.api.GetUserProfileResponse\"*\202\323\344\223" +
+      "\002$\"\037/common.TeamsAPI/GetUserProfile:\001*\022\253" +
+      "\001\n\021UpdateUserProfile\0222.rankquantity.voya" +
+      "ger.api.UpdateUserProfileRequest\0323.rankq" +
+      "uantity.voyager.api.UpdateUserProfileRes" +
+      "ponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/UpdateUs" +
+      "erProfile:\001*\022\313\001\n\031UpdateUserBackgroundIma" +
+      "ge\022:.rankquantity.voyager.api.UpdateUser" +
+      "BackgroundImageRequest\032;.rankquantity.vo" +
+      "yager.api.UpdateUserBackgroundImageRespo" +
+      "nse\"5\202\323\344\223\002/\"*/common.TeamsAPI/UpdateUser" +
+      "BackgroundImage:\001*\022\243\001\n\017CreateStoryRole\0220" +
+      ".rankquantity.voyager.api.CreateStoryRol" +
+      "eRequest\0321.rankquantity.voyager.api.Crea" +
+      "teStoryRoleResponse\"+\202\323\344\223\002%\" /common.Tea" +
+      "msAPI/CreateStoryRole:\001*\022\257\001\n\022GetStoryRol" +
+      "eDetail\0223.rankquantity.voyager.api.GetSt" +
+      "oryRoleDetailRequest\0324.rankquantity.voya" +
+      "ger.api.GetStoryRoleDetailResponse\".\202\323\344\223" +
+      "\002(\"#/common.TeamsAPI/GetStoryRoleDetail:" +
+      "\001*\022\243\001\n\017RenderStoryRole\0220.rankquantity.vo" +
+      "yager.api.RenderStoryRoleRequest\0321.rankq" +
+      "uantity.voyager.api.RenderStoryRoleRespo" +
+      "nse\"+\202\323\344\223\002%\" /common.TeamsAPI/RenderStor" +
+      "yRole:\001*\022\213\001\n\tLikeStory\022*.rankquantity.vo" +
+      "yager.api.LikeStoryRequest\032+.rankquantit" +
+      "y.voyager.api.LikeStoryResponse\"%\202\323\344\223\002\037\"" +
+      "\032/common.TeamsAPI/LikeStory:\001*\022\223\001\n\013UnLik" +
+      "eStory\022,.rankquantity.voyager.api.UnLike" +
+      "StoryRequest\032-.rankquantity.voyager.api." +
+      "UnLikeStoryResponse\"\'\202\323\344\223\002!\"\034/common.Tea" +
+      "msAPI/UnLikeStory:\001*\022\263\001\n\023GetStoryBoardSe" +
+      "nces\0224.rankquantity.voyager.api.GetStory" +
+      "BoardSencesRequest\0325.rankquantity.voyage" +
+      "r.api.GetStoryBoardSencesResponse\"/\202\323\344\223\002" +
+      ")\"$/common.TeamsAPI/GetStoryBoardSences:" +
+      "\001*\022\273\001\n\025CreateStoryBoardSence\0226.rankquant" +
+      "ity.voyager.api.CreateStoryBoardSenceReq" +
+      "uest\0327.rankquantity.voyager.api.CreateSt" +
+      "oryBoardSenceResponse\"1\202\323\344\223\002+\"&/common.T" +
+      "eamsAPI/CreateStoryBoardSence:\001*\022\273\001\n\025Upd" +
+      "ateStoryBoardSence\0226.rankquantity.voyage" +
+      "r.api.UpdateStoryBoardSenceRequest\0327.ran" +
+      "kquantity.voyager.api.UpdateStoryBoardSe" +
+      "nceResponse\"1\202\323\344\223\002+\"&/common.TeamsAPI/Up" +
+      "dateStoryBoardSence:\001*\022\273\001\n\025DeleteStoryBo" +
+      "ardSence\0226.rankquantity.voyager.api.Dele" +
+      "teStoryBoardSenceRequest\0327.rankquantity." +
+      "voyager.api.DeleteStoryBoardSenceRespons" +
+      "e\"1\202\323\344\223\002+\"&/common.TeamsAPI/DeleteStoryB" +
+      "oardSence:\001*\022\273\001\n\025RenderStoryBoardSence\0226" +
+      ".rankquantity.voyager.api.RenderStoryBoa",
+      "rdSenceRequest\0327.rankquantity.voyager.ap" +
+      "i.RenderStoryBoardSenceResponse\"1\202\323\344\223\002+\"" +
+      "&/common.TeamsAPI/RenderStoryBoardSence:" +
+      "\001*\022\277\001\n\026RenderStoryBoardSences\0227.rankquan" +
+      "tity.voyager.api.RenderStoryBoardSencesR" +
+      "equest\0328.rankquantity.voyager.api.Render" +
+      "StoryBoardSencesResponse\"2\202\323\344\223\002,\"\'/commo" +
+      "n.TeamsAPI/RenderStoryBoardSences:\001*\022\317\001\n" +
+      "\032GetStoryBoardSenceGenerate\022;.rankquanti" +
+      "ty.voyager.api.GetStoryBoardSenceGenerat" +
+      "eRequest\032<.rankquantity.voyager.api.GetS" +
+      "toryBoardSenceGenerateResponse\"6\202\323\344\223\0020\"+" +
+      "/common.TeamsAPI/GetStoryBoardSenceGener" +
+      "ate:\001*\022\273\001\n\025GetStoryBoardGenerate\0226.rankq" +
+      "uantity.voyager.api.GetStoryBoardGenerat" +
+      "eRequest\0327.rankquantity.voyager.api.GetS" +
+      "toryBoardGenerateResponse\"1\202\323\344\223\002+\"&/comm" +
+      "on.TeamsAPI/GetStoryBoardGenerate:\001*\022\233\001\n" +
+      "\rLikeStoryRole\022..rankquantity.voyager.ap" +
+      "i.LikeStoryRoleRequest\032/.rankquantity.vo" +
+      "yager.api.LikeStoryRoleResponse\")\202\323\344\223\002#\"" +
+      "\036/common.TeamsAPI/LikeStoryRole:\001*\022\243\001\n\017U" +
+      "nLikeStoryRole\0220.rankquantity.voyager.ap" +
+      "i.UnLikeStoryRoleRequest\0321.rankquantity." +
+      "voyager.api.UnLikeStoryRoleResponse\"+\202\323\344" +
+      "\223\002%\" /common.TeamsAPI/UnLikeStoryRole:\001*" +
+      "\022\243\001\n\017FollowStoryRole\0220.rankquantity.voya" +
+      "ger.api.FollowStoryRoleRequest\0321.rankqua" +
+      "ntity.voyager.api.FollowStoryRoleRespons" +
+      "e\"+\202\323\344\223\002%\" /common.TeamsAPI/FollowStoryR" +
+      "ole:\001*\022\253\001\n\021UnFollowStoryRole\0222.rankquant" +
+      "ity.voyager.api.UnFollowStoryRoleRequest" +
+      "\0323.rankquantity.voyager.api.UnFollowStor" +
+      "yRoleResponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/" +
+      "UnFollowStoryRole:\001*\022\233\001\n\rSearchStories\022." +
+      ".rankquantity.voyager.api.SearchStoriesR" +
+      "equest\032/.rankquantity.voyager.api.Search" +
+      "StoriesResponse\")\202\323\344\223\002#\"\036/common.TeamsAP" +
+      "I/SearchStories:\001*\022\223\001\n\013SearchGroup\022,.ran" +
+      "kquantity.voyager.api.SearchGroupRequest" +
+      "\032-.rankquantity.voyager.api.SearchGroupR" +
+      "esponse\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/Search" +
+      "Group:\001*\022\223\001\n\013SearchRoles\022,.rankquantity." +
+      "voyager.api.SearchRolesRequest\032-.rankqua" +
+      "ntity.voyager.api.SearchRolesResponse\"\'\202" +
+      "\323\344\223\002!\"\034/common.TeamsAPI/SearchRoles:\001*\022\253" +
+      "\001\n\021RestoreStoryboard\0222.rankquantity.voya" +
+      "ger.api.RestoreStoryboardRequest\0323.rankq" +
+      "uantity.voyager.api.RestoreStoryboardRes" +
+      "ponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/RestoreS" +
+      "toryboard:\001*\022\313\001\n\031GetUserCreatedStoryboar" +
+      "ds\022:.rankquantity.voyager.api.GetUserCre" +
+      "atedStoryboardsRequest\032;.rankquantity.vo" +
+      "yager.api.GetUserCreatedStoryboardsRespo" +
+      "nse\"5\202\323\344\223\002/\"*/common.TeamsAPI/GetUserCre" +
+      "atedStoryboards:\001*\022\263\001\n\023GetUserCreatedRol" +
+      "es\0224.rankquantity.voyager.api.GetUserCre" +
+      "atedRolesRequest\0325.rankquantity.voyager." +
+      "api.GetUserCreatedRolesResponse\"/\202\323\344\223\002)\"" +
+      "$/common.TeamsAPI/GetUserCreatedRoles:\001*" +
+      "\022\303\001\n\027GetStoryRoleStoryboards\0228.rankquant" +
+      "ity.voyager.api.GetStoryRoleStoryboardsR" +
+      "equest\0329.rankquantity.voyager.api.GetSto" +
+      "ryRoleStoryboardsResponse\"3\202\323\344\223\002-\"(/comm" +
+      "on.TeamsAPI/GetStoryRoleStoryboards:\001*\022\263" +
+      "\001\n\023GetStoryRoleStories\0224.rankquantity.vo" +
+      "yager.api.GetStoryRoleStoriesRequest\0325.r" +
+      "ankquantity.voyager.api.GetStoryRoleStor" +
+      "iesResponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/Ge" +
+      "tStoryRoleStories:\001*\022\263\001\n\023CreateStoryRole" +
+      "Chat\0224.rankquantity.voyager.api.CreateSt" +
+      "oryRoleChatRequest\0325.rankquantity.voyage" +
+      "r.api.CreateStoryRoleChatResponse\"/\202\323\344\223\002" +
+      ")\"$/common.TeamsAPI/CreateStoryRoleChat:" +
+      "\001*\022\253\001\n\021ChatWithStoryRole\0222.rankquantity." +
+      "voyager.api.ChatWithStoryRoleRequest\0323.r" +
+      "ankquantity.voyager.api.ChatWithStoryRol" +
+      "eResponse\"-\202\323\344\223\002\'\"\"/common.TeamsAPI/Chat" +
+      "WithStoryRole:\001*\022\273\001\n\025UpdateStoryRoleAvat" +
+      "or\0226.rankquantity.voyager.api.UpdateStor" +
+      "yRoleAvatorRequest\0327.rankquantity.voyage" +
+      "r.api.UpdateStoryRoleAvatorResponse\"1\202\323\344" +
+      "\223\002+\"&/common.TeamsAPI/UpdateStoryRoleAva" +
+      "tor:\001*\022\273\001\n\025UpdateStoryRoleDetail\0226.rankq" +
+      "uantity.voyager.api.UpdateStoryRoleDetai" +
+      "lRequest\0327.rankquantity.voyager.api.Upda" +
+      "teStoryRoleDetailResponse\"1\202\323\344\223\002+\"&/comm" +
+      "on.TeamsAPI/UpdateStoryRoleDetail:\001*\022\303\001\n" +
+      "\027GetUserWithRoleChatList\0228.rankquantity." +
+      "voyager.api.GetUserWithRoleChatListReque" +
+      "st\0329.rankquantity.voyager.api.GetUserWit" +
+      "hRoleChatListResponse\"3\202\323\344\223\002-\"(/common.T" +
+      "eamsAPI/GetUserWithRoleChatList:\001*\022\263\001\n\023G" +
+      "etUserChatWithRole\0224.rankquantity.voyage" +
+      "r.api.GetUserChatWithRoleRequest\0325.rankq" +
+      "uantity.voyager.api.GetUserChatWithRoleR" +
+      "esponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/GetUse" +
+      "rChatWithRole:\001*\022\263\001\n\023GetUserChatMessages" +
+      "\0224.rankquantity.voyager.api.GetUserChatM" +
+      "essagesRequest\0325.rankquantity.voyager.ap" +
+      "i.GetUserChatMessagesResponse\"/\202\323\344\223\002)\"$/" +
+      "common.TeamsAPI/GetUserChatMessages:\001*\022\227" +
+      "\001\n\014FetchActives\022-.rankquantity.voyager.a" +
+      "pi.FetchActivesRequest\032..rankquantity.vo" +
+      "yager.api.FetchActivesResponse\"(\202\323\344\223\002\"\"\035" +
+      "/common.TeamsAPI/FetchActives:\001*\022\254\001\n\021Get" +
+      "NextStoryboard\0222.rankquantity.voyager.ap" +
+      "i.GetNextStoryboardRequest\0323.rankquantit" +
+      "y.voyager.api.GetNextStoryboardResponse\"" +
+      ".\202\323\344\223\002(\"#/common.TeamsAPI/GetNextStorybo" +
+      "ards:\001*\022\323\001\n\033RenderStoryRoleContinuously\022" +
+      "<.rankquantity.voyager.api.RenderStoryRo" +
+      "leContinuouslyRequest\032=.rankquantity.voy" +
+      "ager.api.RenderStoryRoleContinuouslyResp" +
+      "onse\"7\202\323\344\223\0021\",/common.TeamsAPI/RenderSto" +
+      "ryRoleContinuously:\001*\022\253\001\n\021PublishStorybo" +
+      "ard\0222.rankquantity.voyager.api.PublishSt" +
+      "oryboardRequest\0323.rankquantity.voyager.a" +
+      "pi.PublishStoryboardResponse\"-\202\323\344\223\002\'\"\"/c" +
+      "ommon.TeamsAPI/PublishStoryboard:\001*\022\247\001\n\020" +
+      "CancelStoryboard\0221.rankquantity.voyager." +
+      "api.CancelStoryboardRequest\0322.rankquanti" +
+      "ty.voyager.api.CancelStoryboardResponse\"" +
+      ",\202\323\344\223\002&\"!/common.TeamsAPI/CancelStoryboa" +
+      "rd:\001*\022\357\001\n\"GetUserWatchStoryActiveStoryBo" +
+      "ards\022C.rankquantity.voyager.api.GetUserW" +
+      "atchStoryActiveStoryBoardsRequest\032D.rank" +
+      "quantity.voyager.api.GetUserWatchStoryAc" +
+      "tiveStoryBoardsResponse\">\202\323\344\223\0028\"3/common" +
+      ".TeamsAPI/GetUserWatchStoryActiveStoryBo" +
+      "ards:\001*\022\353\001\n!GetUserWatchRoleActiveStoryB" +
+      "oards\022B.rankquantity.voyager.api.GetUser" +
+      "WatchRoleActiveStoryBoardsRequest\032C.rank" +
+      "quantity.voyager.api.GetUserWatchRoleAct" +
+      "iveStoryBoardsResponse\"=\202\323\344\223\0027\"2/common." +
+      "TeamsAPI/GetUserWatchRoleActiveStoryBoar" +
+      "ds:\001*\022\277\001\n\026GetUnPublishStoryboard\0227.rankq" +
+      "uantity.voyager.api.GetUnPublishStoryboa" +
+      "rdRequest\0328.rankquantity.voyager.api.Get" +
+      "UnPublishStoryboardResponse\"2\202\323\344\223\002,\"\'/co" +
+      "mmon.TeamsAPI/GetUnPublishStoryboard:\001*\022" +
+      "\303\001\n\027GenerateRoleDescription\0228.rankquanti" +
+      "ty.voyager.api.GenerateRoleDescriptionRe" +
+      "quest\0329.rankquantity.voyager.api.Generat" +
+      "eRoleDescriptionResponse\"3\202\323\344\223\002-\"(/commo" +
+      "n.TeamsAPI/GenerateRoleDescription:\001*\022\273\001" +
+      "\n\025UpdateRoleDescription\0226.rankquantity.v" +
+      "oyager.api.UpdateRoleDescriptionRequest\032" +
+      "7.rankquantity.voyager.api.UpdateRoleDes" +
+      "criptionResponse\"1\202\323\344\223\002+\"&/common.TeamsA" +
+      "PI/UpdateRoleDescription:\001*\022\257\001\n\022Generate" +
+      "RolePrompt\0223.rankquantity.voyager.api.Ge" +
+      "nerateRolePromptRequest\0324.rankquantity.v" +
+      "oyager.api.GenerateRolePromptResponse\".\202" +
+      "\323\344\223\002(\"#/common.TeamsAPI/GenerateRoleProm" +
+      "pt:\001*\022\247\001\n\020UpdateRolePrompt\0221.rankquantit" +
+      "y.voyager.api.UpdateRolePromptRequest\0322." +
+      "rankquantity.voyager.api.UpdateRolePromp" +
+      "tResponse\",\202\323\344\223\002&\"!/common.TeamsAPI/Upda" +
+      "teRolePrompt:\001*\022\257\001\n\022CreateStoryComment\0223" +
+      ".rankquantity.voyager.api.CreateStoryCom" +
+      "mentRequest\0324.rankquantity.voyager.api.C" +
+      "reateStoryCommentResponse\".\202\323\344\223\002(\"#/comm" +
+      "on.TeamsAPI/CreateStoryComment:\001*\022\247\001\n\020Ge" +
+      "tStoryComments\0221.rankquantity.voyager.ap" +
+      "i.GetStoryCommentsRequest\0322.rankquantity" +
+      ".voyager.api.GetStoryCommentsResponse\",\202" +
+      "\323\344\223\002&\"!/common.TeamsAPI/GetStoryComments" +
+      ":\001*\022\257\001\n\022DeleteStoryComment\0223.rankquantit" +
+      "y.voyager.api.DeleteStoryCommentRequest\032" +
+      "4.rankquantity.voyager.api.DeleteStoryCo" +
+      "mmentResponse\".\202\323\344\223\002(\"#/common.TeamsAPI/" +
+      "DeleteStoryComment:\001*\022\277\001\n\026GetStoryCommen" +
+      "tReplies\0227.rankquantity.voyager.api.GetS" +
+      "toryCommentRepliesRequest\0328.rankquantity" +
+      ".voyager.api.GetStoryCommentRepliesRespo" +
+      "nse\"2\202\323\344\223\002,\"\'/common.TeamsAPI/GetStoryCo" +
+      "mmentReplies:\001*\022\303\001\n\027CreateStoryCommentRe" +
+      "ply\0228.rankquantity.voyager.api.CreateSto" +
+      "ryCommentReplyRequest\0329.rankquantity.voy" +
+      "ager.api.CreateStoryCommentReplyResponse" +
+      "\"3\202\323\344\223\002-\"(/common.TeamsAPI/CreateStoryCo" +
+      "mmentReply:\001*\022\303\001\n\027DeleteStoryCommentRepl" +
+      "y\0228.rankquantity.voyager.api.DeleteStory" +
+      "CommentReplyRequest\0329.rankquantity.voyag" +
+      "er.api.DeleteStoryCommentReplyResponse\"3" +
+      "\202\323\344\223\002-\"(/common.TeamsAPI/DeleteStoryComm" +
+      "entReply:\001*\022\273\001\n\025GetStoryBoardComments\0226." +
+      "rankquantity.voyager.api.GetStoryBoardCo" +
+      "mmentsRequest\0327.rankquantity.voyager.api" +
+      ".GetStoryBoardCommentsResponse\"1\202\323\344\223\002+\"&" +
+      "/common.TeamsAPI/GetStoryBoardComments:\001" +
+      "*\022\303\001\n\027CreateStoryBoardComment\0228.rankquan" +
+      "tity.voyager.api.CreateStoryBoardComment" +
+      "Request\0329.rankquantity.voyager.api.Creat" +
+      "eStoryBoardCommentResponse\"3\202\323\344\223\002-\"(/com" +
+      "mon.TeamsAPI/CreateStoryBoardComment:\001*\022" +
+      "\303\001\n\027DeleteStoryBoardComment\0228.rankquanti" +
+      "ty.voyager.api.DeleteStoryBoardCommentRe" +
+      "quest\0329.rankquantity.voyager.api.DeleteS" +
+      "toryBoardCommentResponse\"3\202\323\344\223\002-\"(/commo" +
+      "n.TeamsAPI/DeleteStoryBoardComment:\001*\022\323\001" +
+      "\n\033GetStoryBoardCommentReplies\022<.rankquan" +
+      "tity.voyager.api.GetStoryBoardCommentRep" +
+      "liesRequest\032=.rankquantity.voyager.api.G" +
+      "etStoryBoardCommentRepliesResponse\"7\202\323\344\223" +
+      "\0021\",/common.TeamsAPI/GetStoryBoardCommen" +
+      "tReplies:\001*\022\223\001\n\013LikeComment\022,.rankquanti" +
+      "ty.voyager.api.LikeCommentRequest\032-.rank" +
+      "quantity.voyager.api.LikeCommentResponse" +
+      "\"\'\202\323\344\223\002!\"\034/common.TeamsAPI/LikeComment:\001" +
+      "*\022\237\001\n\016DislikeComment\022/.rankquantity.voya" +
+      "ger.api.DislikeCommentRequest\0320.rankquan" +
+      "tity.voyager.api.DislikeCommentResponse\"" +
+      "*\202\323\344\223\002$\"\037/common.TeamsAPI/DislikeComment" +
+      ":\001*\022\247\001\n\020GetStoryRoleList\0221.rankquantity." +
+      "voyager.api.GetStoryRoleListRequest\0322.ra" +
+      "nkquantity.voyager.api.GetStoryRoleListR" +
+      "esponse\",\202\323\344\223\002&\"!/common.TeamsAPI/GetSto" +
+      "ryRoleList:\001*\022\233\001\n\rTrendingStory\022..rankqu" +
+      "antity.voyager.api.TrendingStoryRequest\032" +
+      "/.rankquantity.voyager.api.TrendingStory" +
+      "Response\")\202\323\344\223\002#\"\036/common.TeamsAPI/Trend" +
+      "ingStory:\001*\022\253\001\n\021TrendingStoryRole\0222.rank" +
+      "quantity.voyager.api.TrendingStoryRoleRe" +
+      "quest\0323.rankquantity.voyager.api.Trendin" +
+      "gStoryRoleResponse\"-\202\323\344\223\002\'\"\"/common.Team" +
+      "sAPI/TrendingStoryRole:\001*\022\217\001\n\nFollowUser" +
+      "\022+.rankquantity.voyager.api.FollowUserRe" +
+      "quest\032,.rankquantity.voyager.api.FollowU" +
+      "serResponse\"&\202\323\344\223\002 \"\033/common.TeamsAPI/Fo" +
+      "llowUser:\001*\022\227\001\n\014UnfollowUser\022-.rankquant" +
+      "ity.voyager.api.UnfollowUserRequest\032..ra" +
+      "nkquantity.voyager.api.UnfollowUserRespo" +
+      "nse\"(\202\323\344\223\002\"\"\035/common.TeamsAPI/UnfollowUs" +
+      "er:\001*\022\233\001\n\rGetFollowList\022..rankquantity.v" +
+      "oyager.api.GetFollowListRequest\032/.rankqu" +
+      "antity.voyager.api.GetFollowListResponse" +
+      "\")\202\323\344\223\002#\"\036/common.TeamsAPI/GetFollowList" +
+      ":\001*\022\243\001\n\017GetFollowerList\0220.rankquantity.v" +
+      "oyager.api.GetFollowerListRequest\0321.rank" +
+      "quantity.voyager.api.GetFollowerListResp" +
+      "onse\"+\202\323\344\223\002%\" /common.TeamsAPI/GetFollow" +
+      "erList:\001*\022\273\001\n\025UpdateStoryRolePrompt\0226.ra" +
+      "nkquantity.voyager.api.UpdateStoryRolePr" +
+      "omptRequest\0327.rankquantity.voyager.api.U" +
+      "pdateStoryRolePromptResponse\"1\202\323\344\223\002+\"&/c" +
+      "ommon.TeamsAPI/UpdateStoryRolePrompt:\001*\022" +
+      "\347\001\n UpdateStoryRoleDescriptionDetail\022A.r" +
+      "ankquantity.voyager.api.UpdateStoryRoleD" +
+      "escriptionDetailRequest\032B.rankquantity.v" +
+      "oyager.api.UpdateStoryRoleDescriptionDet" +
+      "ailResponse\"<\202\323\344\223\0026\"1/common.TeamsAPI/Up" +
+      "dateStoryRoleDescriptionDetail:\001*\022\243\001\n\017Qu" +
+      "eryTaskStatus\0220.rankquantity.voyager.api" +
+      ".QueryTaskStatusRequest\0321.rankquantity.v" +
+      "oyager.api.QueryTaskStatusResponse\"+\202\323\344\223" +
+      "\002%\" /common.TeamsAPI/QueryTaskStatus:\001*\022" +
+      "\257\001\n\022GetStoryImageStyle\0223.rankquantity.vo" +
+      "yager.api.GetStoryImageStyleRequest\0324.ra" +
+      "nkquantity.voyager.api.GetStoryImageStyl" +
+      "eResponse\".\202\323\344\223\002(\"#/common.TeamsAPI/GetS" +
+      "toryImageStyle:\001*\022\273\001\n\025UpdateStoryImageSt" +
+      "yle\0226.rankquantity.voyager.api.UpdateSto" +
+      "ryImageStyleRequest\0327.rankquantity.voyag" +
+      "er.api.UpdateStoryImageStyleResponse\"1\202\323" +
+      "\344\223\002+\"&/common.TeamsAPI/UpdateStoryImageS" +
+      "tyle:\001*\022\313\001\n\031UpdateStorySenceMaxNumber\022:." +
+      "rankquantity.voyager.api.UpdateStorySenc" +
+      "eMaxNumberRequest\032;.rankquantity.voyager" +
+      ".api.UpdateStorySenceMaxNumberResponse\"5" +
+      "\202\323\344\223\002/\"*/common.TeamsAPI/UpdateStorySenc" +
+      "eMaxNumber:\001*\022\253\001\n\021UpdateStoryAvatar\0222.ra" +
+      "nkquantity.voyager.api.UpdateStoryAvatar" +
+      "Request\0323.rankquantity.voyager.api.Updat" +
+      "eStoryAvatarResponse\"-\202\323\344\223\002\'\"\"/common.Te" +
+      "amsAPI/UpdateStoryAvatar:\001*\022\247\001\n\020UpdateSt" +
+      "oryCover\0221.rankquantity.voyager.api.Upda" +
+      "teStoryCoverRequest\0322.rankquantity.voyag" +
+      "er.api.UpdateStoryCoverResponse\",\202\323\344\223\002&\"" +
+      "!/common.TeamsAPI/UpdateStoryCover:\001*\022\263\001" +
+      "\n\023SaveStoryboardCraft\0224.rankquantity.voy" +
+      "ager.api.SaveStoryboardCraftRequest\0325.ra" +
+      "nkquantity.voyager.api.SaveStoryboardCra" +
+      "ftResponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/Sav" +
+      "eStoryboardCraft:\001*\022\267\001\n\024GetStoryParticip" +
+      "ants\0225.rankquantity.voyager.api.GetStory" +
+      "ParticipantsRequest\0326.rankquantity.voyag" +
+      "er.api.GetStoryParticipantsResponse\"0\202\323\344" +
+      "\223\002*\"%/common.TeamsAPI/GetStoryParticipan" +
+      "ts:\001*\022\303\001\n\027GenerateStorySceneVideo\0228.rank" +
+      "quantity.voyager.api.GenerateStorySceneV" +
+      "ideoRequest\0329.rankquantity.voyager.api.G" +
+      "enerateStorySceneVideoResponse\"3\202\323\344\223\002-\"(" +
+      "/common.TeamsAPI/GenerateStorySceneVideo" +
+      ":\001*\022\257\001\n\022GenerateRoleAvatar\0223.rankquantit" +
+      "y.voyager.api.GenerateRoleAvatarRequest\032" +
+      "4.rankquantity.voyager.api.GenerateRoleA" +
+      "vatarResponse\".\202\323\344\223\002(\"#/common.TeamsAPI/" +
+      "GenerateRoleAvatar:\001*\022\273\001\n\026FetchUserGenTa" +
+      "skStatus\0227.rankquantity.voyager.api.Fetc" +
+      "hUserGenTaskStatusRequest\0328.rankquantity" +
+      ".voyager.api.FetchUserGenTaskStatusRespo" +
+      "nse\".\202\323\344\223\002(\"#/common.TeamsAPI/QueryGenTa" +
+      "skStatus:\001*\022\303\001\n\027GenerateStoryRolePoster\022" +
+      "8.rankquantity.voyager.api.GenerateStory" +
+      "RolePosterRequest\0329.rankquantity.voyager" +
+      ".api.GenerateStoryRolePosterResponse\"3\202\323" +
+      "\344\223\002-\"(/common.TeamsAPI/GenerateStoryRole" +
+      "Poster:\001*\022\273\001\n\025UpdateStoryRolePoster\0226.ra" +
+      "nkquantity.voyager.api.UpdateStoryRolePo" +
+      "sterRequest\0327.rankquantity.voyager.api.U" +
+      "pdateStoryRolePosterResponse\"1\202\323\344\223\002+\"&/c" +
+      "ommon.TeamsAPI/UpdateStoryRolePoster:\001*\022" +
+      "\263\001\n\023LikeStoryRolePoster\0224.rankquantity.v" +
+      "oyager.api.LikeStoryRolePosterRequest\0325." +
+      "rankquantity.voyager.api.LikeStoryRolePo" +
+      "sterResponse\"/\202\323\344\223\002)\"$/common.TeamsAPI/L" +
+      "ikeStoryRolePoster:\001*\022\273\001\n\025UnLikeStoryRol" +
+      "ePoster\0226.rankquantity.voyager.api.UnLik" +
+      "eStoryRolePosterRequest\0327.rankquantity.v" +
+      "oyager.api.UnLikeStoryRolePosterResponse" +
+      "\"1\202\323\344\223\002+\"&/common.TeamsAPI/UnLikeStoryRo" +
+      "lePoster:\001*\022\277\001\n\026GetStoryRolePosterList\0227" +
+      ".rankquantity.voyager.api.GetStoryRolePo" +
+      "sterListRequest\0328.rankquantity.voyager.a" +
+      "pi.GetStoryRolePosterListResponse\"2\202\323\344\223\002" +
+      ",\"\'/common.TeamsAPI/GetStoryRolePosterLi" +
+      "st:\001*\022\277\001\n\026GenerateStoryRoleVideo\0227.rankq" +
+      "uantity.voyager.api.GenerateStoryRoleVid" +
+      "eoRequest\0328.rankquantity.voyager.api.Gen" +
+      "erateStoryRoleVideoResponse\"2\202\323\344\223\002,\"\'/co" +
+      "mmon.TeamsAPI/GenerateStoryRoleVideo:\001*\022" +
+      "\307\001\n\030UpdateStoryboardForkAble\0229.rankquant" +
+      "ity.voyager.api.UpdateStoryboardForkAble" +
+      "Request\032:.rankquantity.voyager.api.Updat" +
+      "eStoryboardForkAbleResponse\"4\202\323\344\223\002.\")/co" +
+      "mmon.TeamsAPI/UpdateStoryboardForkAble:\001" +
+      "*\022\303\001\n\027UserStoryboardDraftlist\0228.rankquan" +
+      "tity.voyager.api.UserStoryboardDraftlist" +
+      "Request\0329.rankquantity.voyager.api.UserS" +
+      "toryboardDraftlistResponse\"3\202\323\344\223\002-\"(/com" +
+      "mon.TeamsAPI/UserStoryboardDraftlist:\001*\022" +
+      "\313\001\n\031UserStoryboardDraftDetail\022:.rankquan" +
+      "tity.voyager.api.UserDraftStoryboardDeta" +
+      "ilRequest\032;.rankquantity.voyager.api.Use" +
+      "rDraftStoryboardDetailResponse\"5\202\323\344\223\002/\"*" +
+      "/common.TeamsAPI/UserStoryboardDraftDeta" +
+      "il:\001*\022\313\001\n\031DeleteUserStoryboardDraft\022:.ra" +
+      "nkquantity.voyager.api.DeleteUserStorybo" +
+      "ardDraftRequest\032;.rankquantity.voyager.a" +
+      "pi.DeleteUserStoryboardDraftResponse\"5\202\323" +
+      "\344\223\002/\"*/common.TeamsAPI/DeleteStoryboardU" +
+      "serDraft:\001*\022\251\001\n\021UserActiveHeatmap\0221.rank" +
+      "quantity.voyager.api.UserActiveHeamapReq" +
+      "uest\0322.rankquantity.voyager.api.UserActi" +
+      "veHeamapResponse\"-\202\323\344\223\002\'\"\"/common.TeamsA" +
+      "PI/UserActiveHeatmap:\001*\022\255\001\n\022GroupActiveH" +
+      "eatmap\0222.rankquantity.voyager.api.GroupA" +
+      "ctiveHeamapRequest\0323.rankquantity.voyage" +
+      "r.api.GroupActiveHeamapResponse\".\202\323\344\223\002(\"" +
+      "#/common.TeamsAPI/GroupActiveHeatmap:\001*\022" +
+      "\303\001\n\027GetActiveHeatmapDetails\0228.rankquanti" +
+      "ty.voyager.api.GetActiveHeatmapDetailsRe" +
+      "quest\0329.rankquantity.voyager.api.GetActi" +
+      "veHeatmapDetailsResponse\"3\202\323\344\223\002-\"(/commo" +
+      "n.TeamsAPI/GetActiveHeatmapDetails:\001*\022\346\001" +
+      "\n\036GetStoryboardGenerationRoadmap\022?.rankq" +
+      "uantity.voyager.api.GetStoryboardGenerat" +
+      "ionRoadmapRequest\032@.rankquantity.voyager" +
+      ".api.GetStoryboardGenerationRoadmapRespo" +
+      "nse\"A\202\323\344\223\002;\"6/common.TeamsAPI/GetStorybo" +
+      "ardGenerationRoadmapRequest:\001*B\324\001\n\034com.r" +
+      "ankquantity.voyager.apiB\014ServiceProtoP\001Z" +
+      "$github.com/grapery/common-protoc/gen\242\002\003" +
+      "RVA\252\002\030Rankquantity.Voyager.Api\312\002\030Rankqua" +
+      "ntity\\Voyager\\Api\342\002$Rankquantity\\Voyager" +
+      "\\Api\\GPBMetadata\352\002\032Rankquantity::Voyager" +
+      "::Apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4312,308 +4347,326 @@ public final class ServiceProto extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateGroupProfileResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
-    internal_static_rankquantity_voyager_api_GetStoryRolePosterListRequest_descriptor =
+    internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsRequest_descriptor =
       getDescriptor().getMessageTypes().get(87);
+    internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsRequest_descriptor,
+        new java.lang.String[] { "GroupId", "UserId", "Timestamp", });
+    internal_static_rankquantity_voyager_api_ActiveHeatmapDetail_descriptor =
+      getDescriptor().getMessageTypes().get(88);
+    internal_static_rankquantity_voyager_api_ActiveHeatmapDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rankquantity_voyager_api_ActiveHeatmapDetail_descriptor,
+        new java.lang.String[] { "GroupId", "Data", "Info", });
+    internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(89);
+    internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rankquantity_voyager_api_GetActiveHeatmapDetailsResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", "Data", "TotalCount", });
+    internal_static_rankquantity_voyager_api_GetStoryRolePosterListRequest_descriptor =
+      getDescriptor().getMessageTypes().get(90);
     internal_static_rankquantity_voyager_api_GetStoryRolePosterListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRolePosterListRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_RolePosterDetail_descriptor =
-      getDescriptor().getMessageTypes().get(88);
+      getDescriptor().getMessageTypes().get(91);
     internal_static_rankquantity_voyager_api_RolePosterDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RolePosterDetail_descriptor,
         new java.lang.String[] { "Id", "StoryId", "RoleId", "PosterUrl", "Prompt", "LikeCount", "IsLikedByUser", "Creator", "CreatedAt", "UpdatedAt", });
     internal_static_rankquantity_voyager_api_GetStoryRolePosterListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(89);
+      getDescriptor().getMessageTypes().get(92);
     internal_static_rankquantity_voyager_api_GetStoryRolePosterListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRolePosterListResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Posters", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_LikeStoryRolePosterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(90);
+      getDescriptor().getMessageTypes().get(93);
     internal_static_rankquantity_voyager_api_LikeStoryRolePosterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryRolePosterRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "PosterId", });
     internal_static_rankquantity_voyager_api_LikeStoryRolePosterResponse_descriptor =
-      getDescriptor().getMessageTypes().get(91);
+      getDescriptor().getMessageTypes().get(94);
     internal_static_rankquantity_voyager_api_LikeStoryRolePosterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryRolePosterResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "CurrentLikeCount", });
     internal_static_rankquantity_voyager_api_UnLikeStoryRolePosterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(92);
+      getDescriptor().getMessageTypes().get(95);
     internal_static_rankquantity_voyager_api_UnLikeStoryRolePosterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryRolePosterRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "PosterId", });
     internal_static_rankquantity_voyager_api_UnLikeStoryRolePosterResponse_descriptor =
-      getDescriptor().getMessageTypes().get(93);
+      getDescriptor().getMessageTypes().get(96);
     internal_static_rankquantity_voyager_api_UnLikeStoryRolePosterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryRolePosterResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "CurrentLikeCount", });
     internal_static_rankquantity_voyager_api_FetchUserGenTaskStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(94);
+      getDescriptor().getMessageTypes().get(97);
     internal_static_rankquantity_voyager_api_FetchUserGenTaskStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FetchUserGenTaskStatusRequest_descriptor,
         new java.lang.String[] { "UserId", "TaskId", "Timestamp", "PageNum", "PageSize", });
     internal_static_rankquantity_voyager_api_StoryGentaskDetail_descriptor =
-      getDescriptor().getMessageTypes().get(95);
+      getDescriptor().getMessageTypes().get(98);
     internal_static_rankquantity_voyager_api_StoryGentaskDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryGentaskDetail_descriptor,
         new java.lang.String[] { "StoryId", "BoardId", "StoryboardDesc", "SenceId", "SenceDesc", "Prompt", "TaskType", "TaskStage", "StartImageUrl", "EndImageUrl", "VideoUrl", "RegImageUrl", "Style", });
     internal_static_rankquantity_voyager_api_UserGenTaskStatus_descriptor =
-      getDescriptor().getMessageTypes().get(96);
+      getDescriptor().getMessageTypes().get(99);
     internal_static_rankquantity_voyager_api_UserGenTaskStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserGenTaskStatus_descriptor,
         new java.lang.String[] { "TaskId", "UserId", "Status", "Detail", "CreateTime", "UpdateTime", });
     internal_static_rankquantity_voyager_api_FetchUserGenTaskStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(97);
+      getDescriptor().getMessageTypes().get(100);
     internal_static_rankquantity_voyager_api_FetchUserGenTaskStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FetchUserGenTaskStatusResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Tasks", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_GenerateRoleAvatarRequest_descriptor =
-      getDescriptor().getMessageTypes().get(98);
+      getDescriptor().getMessageTypes().get(101);
     internal_static_rankquantity_voyager_api_GenerateRoleAvatarRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateRoleAvatarRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "RefAvatarUrl", "Description", "Style", "ImageRatios", });
     internal_static_rankquantity_voyager_api_GenerateRoleAvatarResponse_descriptor =
-      getDescriptor().getMessageTypes().get(99);
+      getDescriptor().getMessageTypes().get(102);
     internal_static_rankquantity_voyager_api_GenerateRoleAvatarResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateRoleAvatarResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "AvatarUrl", });
     internal_static_rankquantity_voyager_api_GenerateStorySceneVideoRequest_descriptor =
-      getDescriptor().getMessageTypes().get(100);
+      getDescriptor().getMessageTypes().get(103);
     internal_static_rankquantity_voyager_api_GenerateStorySceneVideoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStorySceneVideoRequest_descriptor,
         new java.lang.String[] { "StoryId", "BoardId", "SenceId", "UserId", "TokenSource", "Prompt", "NegativePrompt", });
     internal_static_rankquantity_voyager_api_GenerateStorySceneVideoTaskDetail_descriptor =
-      getDescriptor().getMessageTypes().get(101);
+      getDescriptor().getMessageTypes().get(104);
     internal_static_rankquantity_voyager_api_GenerateStorySceneVideoTaskDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStorySceneVideoTaskDetail_descriptor,
         new java.lang.String[] { "TaskId", "TaskStatus", "VideoUrl", "VideoThumbnailUrl", "Duration", "Resolution", "VideoFormat", });
     internal_static_rankquantity_voyager_api_GenerateStorySceneVideoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(102);
+      getDescriptor().getMessageTypes().get(105);
     internal_static_rankquantity_voyager_api_GenerateStorySceneVideoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStorySceneVideoResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Detail", });
     internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoRequest_descriptor =
-      getDescriptor().getMessageTypes().get(103);
+      getDescriptor().getMessageTypes().get(106);
     internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "PosterId", "RefBackgroundUrl", "RefAvatarUrl", "TextPrompt", "ImageRatios", "Style", });
     internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoTaskDetail_descriptor =
-      getDescriptor().getMessageTypes().get(104);
+      getDescriptor().getMessageTypes().get(107);
     internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoTaskDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoTaskDetail_descriptor,
         new java.lang.String[] { "TaskId", "TaskStatus", "VideoUrl", "VideoThumbnailUrl", "Duration", "Resolution", "VideoFormat", });
     internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(105);
+      getDescriptor().getMessageTypes().get(108);
     internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStoryRoleVideoResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Detail", });
     internal_static_rankquantity_voyager_api_GetStoryParticipantsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(106);
+      getDescriptor().getMessageTypes().get(109);
     internal_static_rankquantity_voyager_api_GetStoryParticipantsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryParticipantsRequest_descriptor,
         new java.lang.String[] { "StoryId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryParticipantsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(107);
+      getDescriptor().getMessageTypes().get(110);
     internal_static_rankquantity_voyager_api_GetStoryParticipantsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryParticipantsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Participants", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_UpdateStoryAvatarRequest_descriptor =
-      getDescriptor().getMessageTypes().get(108);
+      getDescriptor().getMessageTypes().get(111);
     internal_static_rankquantity_voyager_api_UpdateStoryAvatarRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryAvatarRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "AvatarUrl", });
     internal_static_rankquantity_voyager_api_UpdateStoryAvatarResponse_descriptor =
-      getDescriptor().getMessageTypes().get(109);
+      getDescriptor().getMessageTypes().get(112);
     internal_static_rankquantity_voyager_api_UpdateStoryAvatarResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryAvatarResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateStoryCoverRequest_descriptor =
-      getDescriptor().getMessageTypes().get(110);
+      getDescriptor().getMessageTypes().get(113);
     internal_static_rankquantity_voyager_api_UpdateStoryCoverRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryCoverRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "CoverUrl", "UseAiCover", });
     internal_static_rankquantity_voyager_api_UpdateStoryCoverResponse_descriptor =
-      getDescriptor().getMessageTypes().get(111);
+      getDescriptor().getMessageTypes().get(114);
     internal_static_rankquantity_voyager_api_UpdateStoryCoverResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryCoverResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetStoryImageStyleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(112);
+      getDescriptor().getMessageTypes().get(115);
     internal_static_rankquantity_voyager_api_GetStoryImageStyleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryImageStyleRequest_descriptor,
         new java.lang.String[] { "StoryId", });
     internal_static_rankquantity_voyager_api_StoryStyleDesc_descriptor =
-      getDescriptor().getMessageTypes().get(113);
+      getDescriptor().getMessageTypes().get(116);
     internal_static_rankquantity_voyager_api_StoryStyleDesc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryStyleDesc_descriptor,
         new java.lang.String[] { "Id", "Style", "Description", });
     internal_static_rankquantity_voyager_api_GetStoryImageStyleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(114);
+      getDescriptor().getMessageTypes().get(117);
     internal_static_rankquantity_voyager_api_GetStoryImageStyleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryImageStyleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Style", });
     internal_static_rankquantity_voyager_api_UpdateStoryImageStyleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(115);
+      getDescriptor().getMessageTypes().get(118);
     internal_static_rankquantity_voyager_api_UpdateStoryImageStyleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryImageStyleRequest_descriptor,
         new java.lang.String[] { "StoryId", "StyleId", "Style", "UserId", });
     internal_static_rankquantity_voyager_api_UpdateStoryImageStyleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(116);
+      getDescriptor().getMessageTypes().get(119);
     internal_static_rankquantity_voyager_api_UpdateStoryImageStyleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryImageStyleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateStorySenceMaxNumberRequest_descriptor =
-      getDescriptor().getMessageTypes().get(117);
+      getDescriptor().getMessageTypes().get(120);
     internal_static_rankquantity_voyager_api_UpdateStorySenceMaxNumberRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStorySenceMaxNumberRequest_descriptor,
         new java.lang.String[] { "StoryId", "MaxNumber", "UserId", });
     internal_static_rankquantity_voyager_api_UpdateStorySenceMaxNumberResponse_descriptor =
-      getDescriptor().getMessageTypes().get(118);
+      getDescriptor().getMessageTypes().get(121);
     internal_static_rankquantity_voyager_api_UpdateStorySenceMaxNumberResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStorySenceMaxNumberResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateStoryRolePromptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(119);
+      getDescriptor().getMessageTypes().get(122);
     internal_static_rankquantity_voyager_api_UpdateStoryRolePromptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRolePromptRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "Prompt", });
     internal_static_rankquantity_voyager_api_UpdateStoryRolePromptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(120);
+      getDescriptor().getMessageTypes().get(123);
     internal_static_rankquantity_voyager_api_UpdateStoryRolePromptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRolePromptResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDescriptionDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(121);
+      getDescriptor().getMessageTypes().get(124);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDescriptionDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleDescriptionDetailRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "CharacterDetail", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDescriptionDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(122);
+      getDescriptor().getMessageTypes().get(125);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDescriptionDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleDescriptionDetailResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GenerateStoryRoleParams_descriptor =
-      getDescriptor().getMessageTypes().get(123);
+      getDescriptor().getMessageTypes().get(126);
     internal_static_rankquantity_voyager_api_GenerateStoryRoleParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStoryRoleParams_descriptor,
         new java.lang.String[] { "OriginImageUrl", "AdditionalImageUrls", "TextPrompt", "NegativePrompt", "Style", });
     internal_static_rankquantity_voyager_api_GenerateStoryRolePosterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(124);
+      getDescriptor().getMessageTypes().get(127);
     internal_static_rankquantity_voyager_api_GenerateStoryRolePosterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStoryRolePosterRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "Params", });
     internal_static_rankquantity_voyager_api_GenerateStoryRolePosterResponse_descriptor =
-      getDescriptor().getMessageTypes().get(125);
+      getDescriptor().getMessageTypes().get(128);
     internal_static_rankquantity_voyager_api_GenerateStoryRolePosterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateStoryRolePosterResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "ImageUrl", "PosterId", });
     internal_static_rankquantity_voyager_api_UpdateStoryRolePosterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(126);
+      getDescriptor().getMessageTypes().get(129);
     internal_static_rankquantity_voyager_api_UpdateStoryRolePosterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRolePosterRequest_descriptor,
         new java.lang.String[] { "StoryId", "RoleId", "UserId", "PosterId", "ImageUrl", "IsPublic", });
     internal_static_rankquantity_voyager_api_UpdateStoryRolePosterResponse_descriptor =
-      getDescriptor().getMessageTypes().get(127);
+      getDescriptor().getMessageTypes().get(130);
     internal_static_rankquantity_voyager_api_UpdateStoryRolePosterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRolePosterResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "PosterId", });
     internal_static_rankquantity_voyager_api_GetFollowListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(128);
+      getDescriptor().getMessageTypes().get(131);
     internal_static_rankquantity_voyager_api_GetFollowListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetFollowListRequest_descriptor,
         new java.lang.String[] { "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetFollowListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(129);
+      getDescriptor().getMessageTypes().get(132);
     internal_static_rankquantity_voyager_api_GetFollowListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetFollowListResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Followers", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetFollowerListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(130);
+      getDescriptor().getMessageTypes().get(133);
     internal_static_rankquantity_voyager_api_GetFollowerListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetFollowerListRequest_descriptor,
         new java.lang.String[] { "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetFollowerListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(131);
+      getDescriptor().getMessageTypes().get(134);
     internal_static_rankquantity_voyager_api_GetFollowerListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetFollowerListResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Followers", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_FollowUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(132);
+      getDescriptor().getMessageTypes().get(135);
     internal_static_rankquantity_voyager_api_FollowUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FollowUserRequest_descriptor,
         new java.lang.String[] { "UserId", "FollowerId", });
     internal_static_rankquantity_voyager_api_FollowUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(133);
+      getDescriptor().getMessageTypes().get(136);
     internal_static_rankquantity_voyager_api_FollowUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FollowUserResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UnfollowUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(134);
+      getDescriptor().getMessageTypes().get(137);
     internal_static_rankquantity_voyager_api_UnfollowUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnfollowUserRequest_descriptor,
         new java.lang.String[] { "UserId", "FollowerId", });
     internal_static_rankquantity_voyager_api_UnfollowUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(135);
+      getDescriptor().getMessageTypes().get(138);
     internal_static_rankquantity_voyager_api_UnfollowUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnfollowUserResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_TrendingStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(136);
+      getDescriptor().getMessageTypes().get(139);
     internal_static_rankquantity_voyager_api_TrendingStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_TrendingStoryRoleRequest_descriptor,
         new java.lang.String[] { "Start", "End", "PageSize", "PageNumber", });
     internal_static_rankquantity_voyager_api_TrendingStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(137);
+      getDescriptor().getMessageTypes().get(140);
     internal_static_rankquantity_voyager_api_TrendingStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_TrendingStoryRoleResponse_descriptor,
@@ -4625,13 +4678,13 @@ public final class ServiceProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_TrendingStoryRoleResponse_Data_descriptor,
         new java.lang.String[] { "List", "PageSize", "PageNumber", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_TrendingStoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(138);
+      getDescriptor().getMessageTypes().get(141);
     internal_static_rankquantity_voyager_api_TrendingStoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_TrendingStoryRequest_descriptor,
         new java.lang.String[] { "Start", "End", "PageSize", "PageNumber", });
     internal_static_rankquantity_voyager_api_TrendingStoryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(139);
+      getDescriptor().getMessageTypes().get(142);
     internal_static_rankquantity_voyager_api_TrendingStoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_TrendingStoryResponse_descriptor,
@@ -4643,775 +4696,775 @@ public final class ServiceProto extends com.google.protobuf.GeneratedFile {
         internal_static_rankquantity_voyager_api_TrendingStoryResponse_Data_descriptor,
         new java.lang.String[] { "List", "PageSize", "PageNumber", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetStoryRoleListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(140);
+      getDescriptor().getMessageTypes().get(143);
     internal_static_rankquantity_voyager_api_GetStoryRoleListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleListRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "BoardId", "SearchKey", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryRoleListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(141);
+      getDescriptor().getMessageTypes().get(144);
     internal_static_rankquantity_voyager_api_GetStoryRoleListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleListResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Roles", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_ArchiveStoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(142);
+      getDescriptor().getMessageTypes().get(145);
     internal_static_rankquantity_voyager_api_ArchiveStoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ArchiveStoryRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", });
     internal_static_rankquantity_voyager_api_ArchiveStoryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(143);
+      getDescriptor().getMessageTypes().get(146);
     internal_static_rankquantity_voyager_api_ArchiveStoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ArchiveStoryResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_CreateStoryCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(144);
+      getDescriptor().getMessageTypes().get(147);
     internal_static_rankquantity_voyager_api_CreateStoryCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryCommentRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "Content", });
     internal_static_rankquantity_voyager_api_CreateStoryCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(145);
+      getDescriptor().getMessageTypes().get(148);
     internal_static_rankquantity_voyager_api_CreateStoryCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryCommentResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Comment", });
     internal_static_rankquantity_voyager_api_GetStoryCommentsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(146);
+      getDescriptor().getMessageTypes().get(149);
     internal_static_rankquantity_voyager_api_GetStoryCommentsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryCommentsRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_StoryComment_descriptor =
-      getDescriptor().getMessageTypes().get(147);
+      getDescriptor().getMessageTypes().get(150);
     internal_static_rankquantity_voyager_api_StoryComment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryComment_descriptor,
         new java.lang.String[] { "CommentId", "StoryId", "BoardId", "RoleId", "PrevId", "RootCommentId", "UserId", "Content", "CreatedAt", "UpdatedAt", "LikeCount", "ReplyCount", "IsLiked", "Creator", "CreatedAtTimestamp", });
     internal_static_rankquantity_voyager_api_GetStoryCommentsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(148);
+      getDescriptor().getMessageTypes().get(151);
     internal_static_rankquantity_voyager_api_GetStoryCommentsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryCommentsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Comments", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_DeleteStoryCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(149);
+      getDescriptor().getMessageTypes().get(152);
     internal_static_rankquantity_voyager_api_DeleteStoryCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryCommentRequest_descriptor,
         new java.lang.String[] { "CommentId", "UserId", });
     internal_static_rankquantity_voyager_api_DeleteStoryCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(150);
+      getDescriptor().getMessageTypes().get(153);
     internal_static_rankquantity_voyager_api_DeleteStoryCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryCommentResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetStoryCommentRepliesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(151);
+      getDescriptor().getMessageTypes().get(154);
     internal_static_rankquantity_voyager_api_GetStoryCommentRepliesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryCommentRepliesRequest_descriptor,
         new java.lang.String[] { "CommentId", "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryCommentRepliesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(152);
+      getDescriptor().getMessageTypes().get(155);
     internal_static_rankquantity_voyager_api_GetStoryCommentRepliesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryCommentRepliesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Replies", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_CreateStoryCommentReplyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(153);
+      getDescriptor().getMessageTypes().get(156);
     internal_static_rankquantity_voyager_api_CreateStoryCommentReplyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryCommentReplyRequest_descriptor,
         new java.lang.String[] { "CommentId", "UserId", "Content", });
     internal_static_rankquantity_voyager_api_CreateStoryCommentReplyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(154);
+      getDescriptor().getMessageTypes().get(157);
     internal_static_rankquantity_voyager_api_CreateStoryCommentReplyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryCommentReplyResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Comment", });
     internal_static_rankquantity_voyager_api_DeleteStoryCommentReplyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(155);
+      getDescriptor().getMessageTypes().get(158);
     internal_static_rankquantity_voyager_api_DeleteStoryCommentReplyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryCommentReplyRequest_descriptor,
         new java.lang.String[] { "ReplyId", "UserId", });
     internal_static_rankquantity_voyager_api_DeleteStoryCommentReplyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(156);
+      getDescriptor().getMessageTypes().get(159);
     internal_static_rankquantity_voyager_api_DeleteStoryCommentReplyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryCommentReplyResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(157);
+      getDescriptor().getMessageTypes().get(160);
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardCommentsRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(158);
+      getDescriptor().getMessageTypes().get(161);
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardCommentsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Comments", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_CreateStoryBoardCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(159);
+      getDescriptor().getMessageTypes().get(162);
     internal_static_rankquantity_voyager_api_CreateStoryBoardCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryBoardCommentRequest_descriptor,
         new java.lang.String[] { "BoardId", "UserId", "Content", });
     internal_static_rankquantity_voyager_api_CreateStoryBoardCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(160);
+      getDescriptor().getMessageTypes().get(163);
     internal_static_rankquantity_voyager_api_CreateStoryBoardCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryBoardCommentResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Comment", });
     internal_static_rankquantity_voyager_api_DeleteStoryBoardCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(161);
+      getDescriptor().getMessageTypes().get(164);
     internal_static_rankquantity_voyager_api_DeleteStoryBoardCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryBoardCommentRequest_descriptor,
         new java.lang.String[] { "BoardId", "CommentId", "UserId", });
     internal_static_rankquantity_voyager_api_DeleteStoryBoardCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(162);
+      getDescriptor().getMessageTypes().get(165);
     internal_static_rankquantity_voyager_api_DeleteStoryBoardCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteStoryBoardCommentResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentRepliesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(163);
+      getDescriptor().getMessageTypes().get(166);
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentRepliesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardCommentRepliesRequest_descriptor,
         new java.lang.String[] { "CommentId", "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentRepliesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(164);
+      getDescriptor().getMessageTypes().get(167);
     internal_static_rankquantity_voyager_api_GetStoryBoardCommentRepliesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryBoardCommentRepliesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Replies", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_LikeCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(165);
+      getDescriptor().getMessageTypes().get(168);
     internal_static_rankquantity_voyager_api_LikeCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeCommentRequest_descriptor,
         new java.lang.String[] { "CommentId", "UserId", });
     internal_static_rankquantity_voyager_api_LikeCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(166);
+      getDescriptor().getMessageTypes().get(169);
     internal_static_rankquantity_voyager_api_LikeCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeCommentResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_DislikeCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(167);
+      getDescriptor().getMessageTypes().get(170);
     internal_static_rankquantity_voyager_api_DislikeCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DislikeCommentRequest_descriptor,
         new java.lang.String[] { "CommentId", "UserId", });
     internal_static_rankquantity_voyager_api_DislikeCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(168);
+      getDescriptor().getMessageTypes().get(171);
     internal_static_rankquantity_voyager_api_DislikeCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DislikeCommentResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateRolePromptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(169);
+      getDescriptor().getMessageTypes().get(172);
     internal_static_rankquantity_voyager_api_UpdateRolePromptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateRolePromptRequest_descriptor,
         new java.lang.String[] { "UserId", "RoleId", "Prompt", });
     internal_static_rankquantity_voyager_api_UpdateRolePromptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(170);
+      getDescriptor().getMessageTypes().get(173);
     internal_static_rankquantity_voyager_api_UpdateRolePromptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateRolePromptResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GenerateRolePromptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(171);
+      getDescriptor().getMessageTypes().get(174);
     internal_static_rankquantity_voyager_api_GenerateRolePromptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateRolePromptRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "RoleId", "Prompt", });
     internal_static_rankquantity_voyager_api_GenerateRolePromptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(172);
+      getDescriptor().getMessageTypes().get(175);
     internal_static_rankquantity_voyager_api_GenerateRolePromptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateRolePromptResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Prompt", });
     internal_static_rankquantity_voyager_api_UpdateRoleDescriptionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(173);
+      getDescriptor().getMessageTypes().get(176);
     internal_static_rankquantity_voyager_api_UpdateRoleDescriptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateRoleDescriptionRequest_descriptor,
         new java.lang.String[] { "UserId", "RoleId", "Description", });
     internal_static_rankquantity_voyager_api_UpdateRoleDescriptionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(174);
+      getDescriptor().getMessageTypes().get(177);
     internal_static_rankquantity_voyager_api_UpdateRoleDescriptionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateRoleDescriptionResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GenerateRoleDescriptionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(175);
+      getDescriptor().getMessageTypes().get(178);
     internal_static_rankquantity_voyager_api_GenerateRoleDescriptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateRoleDescriptionRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "RoleId", "Description", });
     internal_static_rankquantity_voyager_api_GenerateRoleDescriptionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(176);
+      getDescriptor().getMessageTypes().get(179);
     internal_static_rankquantity_voyager_api_GenerateRoleDescriptionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerateRoleDescriptionResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "CharacterDetail", });
     internal_static_rankquantity_voyager_api_GetUnPublishStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(177);
+      getDescriptor().getMessageTypes().get(180);
     internal_static_rankquantity_voyager_api_GetUnPublishStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUnPublishStoryboardRequest_descriptor,
         new java.lang.String[] { "UserId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetUnPublishStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(178);
+      getDescriptor().getMessageTypes().get(181);
     internal_static_rankquantity_voyager_api_GetUnPublishStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUnPublishStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Storyboardactives", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetUserWatchRoleActiveStoryBoardsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(179);
+      getDescriptor().getMessageTypes().get(182);
     internal_static_rankquantity_voyager_api_GetUserWatchRoleActiveStoryBoardsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserWatchRoleActiveStoryBoardsRequest_descriptor,
         new java.lang.String[] { "UserId", "RoleId", "Offset", "PageSize", "Filter", });
     internal_static_rankquantity_voyager_api_GetUserWatchRoleActiveStoryBoardsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(180);
+      getDescriptor().getMessageTypes().get(183);
     internal_static_rankquantity_voyager_api_GetUserWatchRoleActiveStoryBoardsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserWatchRoleActiveStoryBoardsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Storyboards", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetUserWatchStoryActiveStoryBoardsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(181);
+      getDescriptor().getMessageTypes().get(184);
     internal_static_rankquantity_voyager_api_GetUserWatchStoryActiveStoryBoardsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserWatchStoryActiveStoryBoardsRequest_descriptor,
         new java.lang.String[] { "UserId", "StoryId", "Offset", "PageSize", "Filter", });
     internal_static_rankquantity_voyager_api_GetUserWatchStoryActiveStoryBoardsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(182);
+      getDescriptor().getMessageTypes().get(185);
     internal_static_rankquantity_voyager_api_GetUserWatchStoryActiveStoryBoardsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserWatchStoryActiveStoryBoardsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Storyboards", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_SaveStoryboardCraftRequest_descriptor =
-      getDescriptor().getMessageTypes().get(183);
+      getDescriptor().getMessageTypes().get(186);
     internal_static_rankquantity_voyager_api_SaveStoryboardCraftRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_SaveStoryboardCraftRequest_descriptor,
         new java.lang.String[] { "StoryboardId", "UserId", });
     internal_static_rankquantity_voyager_api_SaveStoryboardCraftResponse_descriptor =
-      getDescriptor().getMessageTypes().get(184);
+      getDescriptor().getMessageTypes().get(187);
     internal_static_rankquantity_voyager_api_SaveStoryboardCraftResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_SaveStoryboardCraftResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_PublishStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(185);
+      getDescriptor().getMessageTypes().get(188);
     internal_static_rankquantity_voyager_api_PublishStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_PublishStoryboardRequest_descriptor,
         new java.lang.String[] { "StoryboardId", "UserId", });
     internal_static_rankquantity_voyager_api_PublishStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(186);
+      getDescriptor().getMessageTypes().get(189);
     internal_static_rankquantity_voyager_api_PublishStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_PublishStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_CancelStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(187);
+      getDescriptor().getMessageTypes().get(190);
     internal_static_rankquantity_voyager_api_CancelStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CancelStoryboardRequest_descriptor,
         new java.lang.String[] { "StoryboardId", "UserId", });
     internal_static_rankquantity_voyager_api_CancelStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(188);
+      getDescriptor().getMessageTypes().get(191);
     internal_static_rankquantity_voyager_api_CancelStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CancelStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleContinuouslyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(189);
+      getDescriptor().getMessageTypes().get(192);
     internal_static_rankquantity_voyager_api_RenderStoryRoleContinuouslyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleContinuouslyRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "StoryId", "Prompt", "ReferenceImage", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleContinuouslyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(190);
+      getDescriptor().getMessageTypes().get(193);
     internal_static_rankquantity_voyager_api_RenderStoryRoleContinuouslyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleContinuouslyResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Detail", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetNextStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(191);
+      getDescriptor().getMessageTypes().get(194);
     internal_static_rankquantity_voyager_api_GetNextStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetNextStoryboardRequest_descriptor,
         new java.lang.String[] { "StoryboardId", "UserId", "StoryId", "IsMultiBranch", "Offset", "PageSize", "Total", "OrderBy", });
     internal_static_rankquantity_voyager_api_GetNextStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(192);
+      getDescriptor().getMessageTypes().get(195);
     internal_static_rankquantity_voyager_api_GetNextStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetNextStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Storyboards", "IsMultiBranch", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetUserChatMessagesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(193);
+      getDescriptor().getMessageTypes().get(196);
     internal_static_rankquantity_voyager_api_GetUserChatMessagesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserChatMessagesRequest_descriptor,
         new java.lang.String[] { "UserId", "ChatId", "RoleId", "Timestamp", });
     internal_static_rankquantity_voyager_api_GetUserChatMessagesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(194);
+      getDescriptor().getMessageTypes().get(197);
     internal_static_rankquantity_voyager_api_GetUserChatMessagesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserChatMessagesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Messages", "Timestamp", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetUserChatWithRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(195);
+      getDescriptor().getMessageTypes().get(198);
     internal_static_rankquantity_voyager_api_GetUserChatWithRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserChatWithRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", });
     internal_static_rankquantity_voyager_api_GetUserChatWithRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(196);
+      getDescriptor().getMessageTypes().get(199);
     internal_static_rankquantity_voyager_api_GetUserChatWithRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserChatWithRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Messages", "ChatContext", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetStoryRoleStoryboardsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(197);
+      getDescriptor().getMessageTypes().get(200);
     internal_static_rankquantity_voyager_api_GetStoryRoleStoryboardsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleStoryboardsRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "StoryId", "Filter", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryRoleStoryboardsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(198);
+      getDescriptor().getMessageTypes().get(201);
     internal_static_rankquantity_voyager_api_GetStoryRoleStoryboardsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleStoryboardsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Storyboardactives", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetStoryRoleStoriesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(199);
+      getDescriptor().getMessageTypes().get(202);
     internal_static_rankquantity_voyager_api_GetStoryRoleStoriesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleStoriesRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "Filter", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetStoryRoleStoriesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(200);
+      getDescriptor().getMessageTypes().get(203);
     internal_static_rankquantity_voyager_api_GetStoryRoleStoriesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleStoriesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Stories", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_CreateStoryRoleChatRequest_descriptor =
-      getDescriptor().getMessageTypes().get(201);
+      getDescriptor().getMessageTypes().get(204);
     internal_static_rankquantity_voyager_api_CreateStoryRoleChatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryRoleChatRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", });
     internal_static_rankquantity_voyager_api_ChatContext_descriptor =
-      getDescriptor().getMessageTypes().get(202);
+      getDescriptor().getMessageTypes().get(205);
     internal_static_rankquantity_voyager_api_ChatContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChatContext_descriptor,
         new java.lang.String[] { "ChatId", "RoleId", "UserId", "Timestamp", "LastUpdateTime", "TotalTokens", "TotalMessages", "LastMessage", "User", "Role", });
     internal_static_rankquantity_voyager_api_CreateStoryRoleChatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(203);
+      getDescriptor().getMessageTypes().get(206);
     internal_static_rankquantity_voyager_api_CreateStoryRoleChatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryRoleChatResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "ChatContext", });
     internal_static_rankquantity_voyager_api_ChatWithStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(204);
+      getDescriptor().getMessageTypes().get(207);
     internal_static_rankquantity_voyager_api_ChatWithStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChatWithStoryRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "Messages", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_ChatWithStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(205);
+      getDescriptor().getMessageTypes().get(208);
     internal_static_rankquantity_voyager_api_ChatWithStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChatWithStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "ReplyMessages", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(206);
+      getDescriptor().getMessageTypes().get(209);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleDetailRequest_descriptor,
         new java.lang.String[] { "RoleId", "Role", "UserId", "NeedRegen", "BackgroundImage", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(207);
+      getDescriptor().getMessageTypes().get(210);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleDetailResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleAvatorRequest_descriptor =
-      getDescriptor().getMessageTypes().get(208);
+      getDescriptor().getMessageTypes().get(211);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleAvatorRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleAvatorRequest_descriptor,
         new java.lang.String[] { "RoleId", "Avator", "UserId", });
     internal_static_rankquantity_voyager_api_UpdateStoryRoleAvatorResponse_descriptor =
-      getDescriptor().getMessageTypes().get(209);
+      getDescriptor().getMessageTypes().get(212);
     internal_static_rankquantity_voyager_api_UpdateStoryRoleAvatorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryRoleAvatorResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetUserWithRoleChatListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(210);
+      getDescriptor().getMessageTypes().get(213);
     internal_static_rankquantity_voyager_api_GetUserWithRoleChatListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserWithRoleChatListRequest_descriptor,
         new java.lang.String[] { "UserId", "StoryId", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetUserWithRoleChatListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(211);
+      getDescriptor().getMessageTypes().get(214);
     internal_static_rankquantity_voyager_api_GetUserWithRoleChatListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserWithRoleChatListResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Chats", "Total", "Offset", "PageSize", "HaveMore", });
     internal_static_rankquantity_voyager_api_GetUserCreatedStoryboardsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(212);
+      getDescriptor().getMessageTypes().get(215);
     internal_static_rankquantity_voyager_api_GetUserCreatedStoryboardsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserCreatedStoryboardsRequest_descriptor,
         new java.lang.String[] { "UserId", "StoryId", "Stage", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetUserCreatedStoryboardsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(213);
+      getDescriptor().getMessageTypes().get(216);
     internal_static_rankquantity_voyager_api_GetUserCreatedStoryboardsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserCreatedStoryboardsResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Storyboards", "Total", "HaveMore", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetUserCreatedRolesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(214);
+      getDescriptor().getMessageTypes().get(217);
     internal_static_rankquantity_voyager_api_GetUserCreatedRolesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserCreatedRolesRequest_descriptor,
         new java.lang.String[] { "UserId", "StoryId", "Stage", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_GetUserCreatedRolesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(215);
+      getDescriptor().getMessageTypes().get(218);
     internal_static_rankquantity_voyager_api_GetUserCreatedRolesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserCreatedRolesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Roles", "Total", "HaveMore", "Offset", "PageSize", });
     internal_static_rankquantity_voyager_api_LikeStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(216);
+      getDescriptor().getMessageTypes().get(219);
     internal_static_rankquantity_voyager_api_LikeStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_LikeStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(217);
+      getDescriptor().getMessageTypes().get(220);
     internal_static_rankquantity_voyager_api_LikeStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UnLikeStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(218);
+      getDescriptor().getMessageTypes().get(221);
     internal_static_rankquantity_voyager_api_UnLikeStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_UnLikeStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(219);
+      getDescriptor().getMessageTypes().get(222);
     internal_static_rankquantity_voyager_api_UnLikeStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_FollowStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(220);
+      getDescriptor().getMessageTypes().get(223);
     internal_static_rankquantity_voyager_api_FollowStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FollowStoryRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_FollowStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(221);
+      getDescriptor().getMessageTypes().get(224);
     internal_static_rankquantity_voyager_api_FollowStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_FollowStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UnFollowStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(222);
+      getDescriptor().getMessageTypes().get(225);
     internal_static_rankquantity_voyager_api_UnFollowStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnFollowStoryRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_UnFollowStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(223);
+      getDescriptor().getMessageTypes().get(226);
     internal_static_rankquantity_voyager_api_UnFollowStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnFollowStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_SearchStoriesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(224);
+      getDescriptor().getMessageTypes().get(227);
     internal_static_rankquantity_voyager_api_SearchStoriesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_SearchStoriesRequest_descriptor,
         new java.lang.String[] { "UserId", "Keyword", "Offset", "PageSize", "Scope", "GroupId", });
     internal_static_rankquantity_voyager_api_SearchStoriesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(225);
+      getDescriptor().getMessageTypes().get(228);
     internal_static_rankquantity_voyager_api_SearchStoriesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_SearchStoriesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Stories", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_SearchRolesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(226);
+      getDescriptor().getMessageTypes().get(229);
     internal_static_rankquantity_voyager_api_SearchRolesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_SearchRolesRequest_descriptor,
         new java.lang.String[] { "UserId", "Keyword", "Offset", "PageSize", "Scope", "StoryId", "GroupId", });
     internal_static_rankquantity_voyager_api_SearchRolesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(227);
+      getDescriptor().getMessageTypes().get(230);
     internal_static_rankquantity_voyager_api_SearchRolesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_SearchRolesResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Roles", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_RestoreStoryboardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(228);
+      getDescriptor().getMessageTypes().get(231);
     internal_static_rankquantity_voyager_api_RestoreStoryboardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RestoreStoryboardRequest_descriptor,
         new java.lang.String[] { "StoryboardId", "UserId", "StoryId", });
     internal_static_rankquantity_voyager_api_RestoreStoryboardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(229);
+      getDescriptor().getMessageTypes().get(232);
     internal_static_rankquantity_voyager_api_RestoreStoryboardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RestoreStoryboardResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Store", });
     internal_static_rankquantity_voyager_api_StoryboardStageStore_descriptor =
-      getDescriptor().getMessageTypes().get(230);
+      getDescriptor().getMessageTypes().get(233);
     internal_static_rankquantity_voyager_api_StoryboardStageStore_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryboardStageStore_descriptor,
         new java.lang.String[] { "Storyboard", "Sences", "Stage", "LastUpdateTime", "Version", "UserId", });
     internal_static_rankquantity_voyager_api_GetUserProfileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(231);
+      getDescriptor().getMessageTypes().get(234);
     internal_static_rankquantity_voyager_api_GetUserProfileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserProfileRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_rankquantity_voyager_api_GetUserProfileResponse_descriptor =
-      getDescriptor().getMessageTypes().get(232);
+      getDescriptor().getMessageTypes().get(235);
     internal_static_rankquantity_voyager_api_GetUserProfileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetUserProfileResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Info", });
     internal_static_rankquantity_voyager_api_UpdateUserProfileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(233);
+      getDescriptor().getMessageTypes().get(236);
     internal_static_rankquantity_voyager_api_UpdateUserProfileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateUserProfileRequest_descriptor,
         new java.lang.String[] { "UserId", "BackgroundImage", "Avatar", "Name", "Description", "Location", "Email", });
     internal_static_rankquantity_voyager_api_UpdateUserProfileResponse_descriptor =
-      getDescriptor().getMessageTypes().get(234);
+      getDescriptor().getMessageTypes().get(237);
     internal_static_rankquantity_voyager_api_UpdateUserProfileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateUserProfileResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UpdateUserBackgroundImageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(235);
+      getDescriptor().getMessageTypes().get(238);
     internal_static_rankquantity_voyager_api_UpdateUserBackgroundImageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateUserBackgroundImageRequest_descriptor,
         new java.lang.String[] { "UserId", "BackgroundImage", });
     internal_static_rankquantity_voyager_api_UpdateUserBackgroundImageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(236);
+      getDescriptor().getMessageTypes().get(239);
     internal_static_rankquantity_voyager_api_UpdateUserBackgroundImageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateUserBackgroundImageResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_CreateStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(237);
+      getDescriptor().getMessageTypes().get(240);
     internal_static_rankquantity_voyager_api_CreateStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryRoleRequest_descriptor,
         new java.lang.String[] { "UserId", "Role", });
     internal_static_rankquantity_voyager_api_CreateStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(238);
+      getDescriptor().getMessageTypes().get(241);
     internal_static_rankquantity_voyager_api_CreateStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_CreateStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_GetStoryRoleDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(239);
+      getDescriptor().getMessageTypes().get(242);
     internal_static_rankquantity_voyager_api_GetStoryRoleDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleDetailRequest_descriptor,
         new java.lang.String[] { "RoleId", });
     internal_static_rankquantity_voyager_api_GetStoryRoleDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(240);
+      getDescriptor().getMessageTypes().get(243);
     internal_static_rankquantity_voyager_api_GetStoryRoleDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryRoleDetailResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Info", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(241);
+      getDescriptor().getMessageTypes().get(244);
     internal_static_rankquantity_voyager_api_RenderStoryRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "Prompt", "RefImages", "UserId", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleDetail_descriptor =
-      getDescriptor().getMessageTypes().get(242);
+      getDescriptor().getMessageTypes().get(245);
     internal_static_rankquantity_voyager_api_RenderStoryRoleDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleDetail_descriptor,
         new java.lang.String[] { "RoleId", "GenId", "IsFinished", "RoleDescription", "RoleCharacter", "RoleBehavior", "RoleGoal", "BackgroundImage", "AvatarImage", "Background", "Appearance", "Personality", "AbilityFeatures", });
     internal_static_rankquantity_voyager_api_RenderStoryRoleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(243);
+      getDescriptor().getMessageTypes().get(246);
     internal_static_rankquantity_voyager_api_RenderStoryRoleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_RenderStoryRoleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Detail", });
     internal_static_rankquantity_voyager_api_LikeStoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(244);
+      getDescriptor().getMessageTypes().get(247);
     internal_static_rankquantity_voyager_api_LikeStoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", });
     internal_static_rankquantity_voyager_api_LikeStoryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(245);
+      getDescriptor().getMessageTypes().get(248);
     internal_static_rankquantity_voyager_api_LikeStoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_LikeStoryResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UnLikeStoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(246);
+      getDescriptor().getMessageTypes().get(249);
     internal_static_rankquantity_voyager_api_UnLikeStoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", });
     internal_static_rankquantity_voyager_api_UnLikeStoryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(247);
+      getDescriptor().getMessageTypes().get(250);
     internal_static_rankquantity_voyager_api_UnLikeStoryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UnLikeStoryResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_DeleteUserStoryboardDraftRequest_descriptor =
-      getDescriptor().getMessageTypes().get(248);
+      getDescriptor().getMessageTypes().get(251);
     internal_static_rankquantity_voyager_api_DeleteUserStoryboardDraftRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteUserStoryboardDraftRequest_descriptor,
         new java.lang.String[] { "UserId", "DraftId", "StoryId", });
     internal_static_rankquantity_voyager_api_DeleteUserStoryboardDraftResponse_descriptor =
-      getDescriptor().getMessageTypes().get(249);
+      getDescriptor().getMessageTypes().get(252);
     internal_static_rankquantity_voyager_api_DeleteUserStoryboardDraftResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_DeleteUserStoryboardDraftResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_HeatmapDataItem_descriptor =
-      getDescriptor().getMessageTypes().get(250);
+      getDescriptor().getMessageTypes().get(253);
     internal_static_rankquantity_voyager_api_HeatmapDataItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_HeatmapDataItem_descriptor,
         new java.lang.String[] { "Date", "Count", "Level", });
     internal_static_rankquantity_voyager_api_UserActiveHeamapRequest_descriptor =
-      getDescriptor().getMessageTypes().get(251);
+      getDescriptor().getMessageTypes().get(254);
     internal_static_rankquantity_voyager_api_UserActiveHeamapRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserActiveHeamapRequest_descriptor,
         new java.lang.String[] { "UserId", "StartTime", "EndTime", });
     internal_static_rankquantity_voyager_api_UserActiveHeamapResponse_descriptor =
-      getDescriptor().getMessageTypes().get(252);
+      getDescriptor().getMessageTypes().get(255);
     internal_static_rankquantity_voyager_api_UserActiveHeamapResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserActiveHeamapResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", "TotalCount", });
     internal_static_rankquantity_voyager_api_GroupActiveHeamapRequest_descriptor =
-      getDescriptor().getMessageTypes().get(253);
+      getDescriptor().getMessageTypes().get(256);
     internal_static_rankquantity_voyager_api_GroupActiveHeamapRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GroupActiveHeamapRequest_descriptor,
         new java.lang.String[] { "GroupId", "UserId", "StartTime", "EndTime", });
     internal_static_rankquantity_voyager_api_GroupActiveHeamapResponse_descriptor =
-      getDescriptor().getMessageTypes().get(254);
+      getDescriptor().getMessageTypes().get(257);
     internal_static_rankquantity_voyager_api_GroupActiveHeamapResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GroupActiveHeamapResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Data", "TotalCount", "MemberCount", });
     internal_static_rankquantity_voyager_api_UpdateStoryboardForkAbleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(255);
+      getDescriptor().getMessageTypes().get(258);
     internal_static_rankquantity_voyager_api_UpdateStoryboardForkAbleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryboardForkAbleRequest_descriptor,
         new java.lang.String[] { "UserId", "StoryboardId", "ForkAble", });
     internal_static_rankquantity_voyager_api_UpdateStoryboardForkAbleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(256);
+      getDescriptor().getMessageTypes().get(259);
     internal_static_rankquantity_voyager_api_UpdateStoryboardForkAbleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UpdateStoryboardForkAbleResponse_descriptor,
         new java.lang.String[] { "Code", "Message", });
     internal_static_rankquantity_voyager_api_UserStoryboardDraftlistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(257);
+      getDescriptor().getMessageTypes().get(260);
     internal_static_rankquantity_voyager_api_UserStoryboardDraftlistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserStoryboardDraftlistRequest_descriptor,
         new java.lang.String[] { "UserId", "Offset", "PageSize", "StoryId", });
     internal_static_rankquantity_voyager_api_UserStoryboardDraftlistResponse_descriptor =
-      getDescriptor().getMessageTypes().get(258);
+      getDescriptor().getMessageTypes().get(261);
     internal_static_rankquantity_voyager_api_UserStoryboardDraftlistResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserStoryboardDraftlistResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Drafts", "Total", "HaveMore", });
     internal_static_rankquantity_voyager_api_StoryboardDraftDetail_descriptor =
-      getDescriptor().getMessageTypes().get(259);
+      getDescriptor().getMessageTypes().get(262);
     internal_static_rankquantity_voyager_api_StoryboardDraftDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryboardDraftDetail_descriptor,
-        new java.lang.String[] { "DraftId", "StoryId", "StoryboardId", "Title", "Content", "Background", "Roles", "Sences", "Params", "CreatedAt", "UpdatedAt", "Stage", "UserId", });
+        new java.lang.String[] { "DraftId", "StoryId", "StoryboardId", "Title", "Content", "Background", "Roles", "Sences", "Params", "CreatedAt", "UpdatedAt", "Stage", "UserId", "PrevStoryboardId", });
     internal_static_rankquantity_voyager_api_UserDraftStoryboardDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(260);
+      getDescriptor().getMessageTypes().get(263);
     internal_static_rankquantity_voyager_api_UserDraftStoryboardDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserDraftStoryboardDetailRequest_descriptor,
         new java.lang.String[] { "UserId", "DraftId", });
     internal_static_rankquantity_voyager_api_UserDraftStoryboardDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(261);
+      getDescriptor().getMessageTypes().get(264);
     internal_static_rankquantity_voyager_api_UserDraftStoryboardDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_UserDraftStoryboardDetailResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Detail", });
     internal_static_rankquantity_voyager_api_TokenConsumption_descriptor =
-      getDescriptor().getMessageTypes().get(262);
+      getDescriptor().getMessageTypes().get(265);
     internal_static_rankquantity_voyager_api_TokenConsumption_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_TokenConsumption_descriptor,
         new java.lang.String[] { "TokenCount", "SourceType", "SourceId", "ConsumedAt", "Purpose", });
     internal_static_rankquantity_voyager_api_AIPolishRecord_descriptor =
-      getDescriptor().getMessageTypes().get(263);
+      getDescriptor().getMessageTypes().get(266);
     internal_static_rankquantity_voyager_api_AIPolishRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_AIPolishRecord_descriptor,
         new java.lang.String[] { "OriginalContent", "PolishedContent", "PolishedAt", "PolishType", "TokenConsumption", });
     internal_static_rankquantity_voyager_api_ChapterTranslationRecord_descriptor =
-      getDescriptor().getMessageTypes().get(264);
+      getDescriptor().getMessageTypes().get(267);
     internal_static_rankquantity_voyager_api_ChapterTranslationRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_ChapterTranslationRecord_descriptor,
         new java.lang.String[] { "ChapterId", "ChapterTitle", "OriginalScene", "TranslatedScene", "OriginalImageDesc", "TranslatedImageDesc", "TranslatedAt", "TokenConsumption", });
     internal_static_rankquantity_voyager_api_GenerationPromptRecord_descriptor =
-      getDescriptor().getMessageTypes().get(265);
+      getDescriptor().getMessageTypes().get(268);
     internal_static_rankquantity_voyager_api_GenerationPromptRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GenerationPromptRecord_descriptor,
         new java.lang.String[] { "ContentType", "ContentId", "ImagePrompt", "VideoPrompt", "GeneratedImages", "GeneratedVideo", "GeneratedAt", "TokenConsumption", });
     internal_static_rankquantity_voyager_api_StoryGenerationHistory_descriptor =
-      getDescriptor().getMessageTypes().get(266);
+      getDescriptor().getMessageTypes().get(269);
     internal_static_rankquantity_voyager_api_StoryGenerationHistory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_StoryGenerationHistory_descriptor,
         new java.lang.String[] { "StoryInfo", "Roles", "PolishRecords", "ChapterInfo", "TranslationRecords", "PromptRecords", "FinalContent", "Creator", "TotalTokenConsumptions", "ChildStoryboardCount", "CreatedAt", "UpdatedAt", });
     internal_static_rankquantity_voyager_api_GetStoryboardGenerationRoadmapRequest_descriptor =
-      getDescriptor().getMessageTypes().get(267);
+      getDescriptor().getMessageTypes().get(270);
     internal_static_rankquantity_voyager_api_GetStoryboardGenerationRoadmapRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryboardGenerationRoadmapRequest_descriptor,
         new java.lang.String[] { "StoryId", "UserId", "StoryboardId", });
     internal_static_rankquantity_voyager_api_GetStoryboardGenerationRoadmapResponse_descriptor =
-      getDescriptor().getMessageTypes().get(268);
+      getDescriptor().getMessageTypes().get(271);
     internal_static_rankquantity_voyager_api_GetStoryboardGenerationRoadmapResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_GetStoryboardGenerationRoadmapResponse_descriptor,

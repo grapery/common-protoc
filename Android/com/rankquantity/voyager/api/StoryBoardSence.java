@@ -34,9 +34,9 @@ private static final long serialVersionUID = 0L;
     imagePrompts_ = "";
     audioPrompts_ = "";
     videoPrompts_ = "";
-    genResult_ = "";
     images_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
+    imageUrl_ = "";
     audioUrl_ = "";
     videoUrl_ = "";
   }
@@ -302,51 +302,12 @@ private static final long serialVersionUID = 0L;
     return isGenerating_;
   }
 
-  public static final int GEN_RESULT_FIELD_NUMBER = 11;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object genResult_ = "";
-  /**
-   * <code>string gen_result = 11 [json_name = "genResult"];</code>
-   * @return The genResult.
-   */
-  @java.lang.Override
-  public java.lang.String getGenResult() {
-    java.lang.Object ref = genResult_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      genResult_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string gen_result = 11 [json_name = "genResult"];</code>
-   * @return The bytes for genResult.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getGenResultBytes() {
-    java.lang.Object ref = genResult_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      genResult_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int IMAGES_FIELD_NUMBER = 12;
+  public static final int IMAGES_FIELD_NUMBER = 11;
   @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringArrayList images_ =
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @return A list containing the images.
    */
   public com.google.protobuf.ProtocolStringList
@@ -354,14 +315,14 @@ private static final long serialVersionUID = 0L;
     return images_;
   }
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @return The count of images.
    */
   public int getImagesCount() {
     return images_.size();
   }
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @param index The index of the element to return.
    * @return The images at the given index.
    */
@@ -369,13 +330,52 @@ private static final long serialVersionUID = 0L;
     return images_.get(index);
   }
   /**
-   * <code>repeated string images = 12 [json_name = "images"];</code>
+   * <code>repeated string images = 11 [json_name = "images"];</code>
    * @param index The index of the value to return.
    * @return The bytes of the images at the given index.
    */
   public com.google.protobuf.ByteString
       getImagesBytes(int index) {
     return images_.getByteString(index);
+  }
+
+  public static final int IMAGE_URL_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUrl_ = "";
+  /**
+   * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+   * @return The imageUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getImageUrl() {
+    java.lang.Object ref = imageUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      imageUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+   * @return The bytes for imageUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getImageUrlBytes() {
+    java.lang.Object ref = imageUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      imageUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int AUDIO_URL_FIELD_NUMBER = 13;
@@ -533,11 +533,11 @@ private static final long serialVersionUID = 0L;
     if (isGenerating_ != 0) {
       output.writeInt32(10, isGenerating_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(genResult_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 11, genResult_);
-    }
     for (int i = 0; i < images_.size(); i++) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 12, images_.getRaw(i));
+      com.google.protobuf.GeneratedMessage.writeString(output, 11, images_.getRaw(i));
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(imageUrl_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, imageUrl_);
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(audioUrl_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 13, audioUrl_);
@@ -603,9 +603,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(10, isGenerating_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(genResult_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(11, genResult_);
-    }
     {
       int dataSize = 0;
       for (int i = 0; i < images_.size(); i++) {
@@ -613,6 +610,9 @@ private static final long serialVersionUID = 0L;
       }
       size += dataSize;
       size += 1 * getImagesList().size();
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(imageUrl_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(12, imageUrl_);
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(audioUrl_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(13, audioUrl_);
@@ -667,10 +667,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVideoPrompts())) return false;
     if (getIsGenerating()
         != other.getIsGenerating()) return false;
-    if (!getGenResult()
-        .equals(other.getGenResult())) return false;
     if (!getImagesList()
         .equals(other.getImagesList())) return false;
+    if (!getImageUrl()
+        .equals(other.getImageUrl())) return false;
     if (!getAudioUrl()
         .equals(other.getAudioUrl())) return false;
     if (!getVideoUrl()
@@ -718,12 +718,12 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVideoPrompts().hashCode();
     hash = (37 * hash) + IS_GENERATING_FIELD_NUMBER;
     hash = (53 * hash) + getIsGenerating();
-    hash = (37 * hash) + GEN_RESULT_FIELD_NUMBER;
-    hash = (53 * hash) + getGenResult().hashCode();
     if (getImagesCount() > 0) {
       hash = (37 * hash) + IMAGES_FIELD_NUMBER;
       hash = (53 * hash) + getImagesList().hashCode();
     }
+    hash = (37 * hash) + IMAGE_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getImageUrl().hashCode();
     hash = (37 * hash) + AUDIO_URL_FIELD_NUMBER;
     hash = (53 * hash) + getAudioUrl().hashCode();
     hash = (37 * hash) + VIDEO_URL_FIELD_NUMBER;
@@ -878,9 +878,9 @@ private static final long serialVersionUID = 0L;
       audioPrompts_ = "";
       videoPrompts_ = "";
       isGenerating_ = 0;
-      genResult_ = "";
       images_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
+      imageUrl_ = "";
       audioUrl_ = "";
       videoUrl_ = "";
       status_ = 0;
@@ -951,11 +951,11 @@ private static final long serialVersionUID = 0L;
         result.isGenerating_ = isGenerating_;
       }
       if (((from_bitField0_ & 0x00000400) != 0)) {
-        result.genResult_ = genResult_;
-      }
-      if (((from_bitField0_ & 0x00000800) != 0)) {
         images_.makeImmutable();
         result.images_ = images_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.imageUrl_ = imageUrl_;
       }
       if (((from_bitField0_ & 0x00001000) != 0)) {
         result.audioUrl_ = audioUrl_;
@@ -1031,19 +1031,19 @@ private static final long serialVersionUID = 0L;
       if (other.getIsGenerating() != 0) {
         setIsGenerating(other.getIsGenerating());
       }
-      if (!other.getGenResult().isEmpty()) {
-        genResult_ = other.genResult_;
-        bitField0_ |= 0x00000400;
-        onChanged();
-      }
       if (!other.images_.isEmpty()) {
         if (images_.isEmpty()) {
           images_ = other.images_;
-          bitField0_ |= 0x00000800;
+          bitField0_ |= 0x00000400;
         } else {
           ensureImagesIsMutable();
           images_.addAll(other.images_);
         }
+        onChanged();
+      }
+      if (!other.getImageUrl().isEmpty()) {
+        imageUrl_ = other.imageUrl_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.getAudioUrl().isEmpty()) {
@@ -1143,14 +1143,14 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 80
             case 90: {
-              genResult_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000400;
-              break;
-            } // case 90
-            case 98: {
               java.lang.String s = input.readStringRequireUtf8();
               ensureImagesIsMutable();
               images_.add(s);
+              break;
+            } // case 90
+            case 98: {
+              imageUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
               break;
             } // case 98
             case 106: {
@@ -1754,88 +1754,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object genResult_ = "";
-    /**
-     * <code>string gen_result = 11 [json_name = "genResult"];</code>
-     * @return The genResult.
-     */
-    public java.lang.String getGenResult() {
-      java.lang.Object ref = genResult_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        genResult_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string gen_result = 11 [json_name = "genResult"];</code>
-     * @return The bytes for genResult.
-     */
-    public com.google.protobuf.ByteString
-        getGenResultBytes() {
-      java.lang.Object ref = genResult_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        genResult_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string gen_result = 11 [json_name = "genResult"];</code>
-     * @param value The genResult to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGenResult(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      genResult_ = value;
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string gen_result = 11 [json_name = "genResult"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearGenResult() {
-      genResult_ = getDefaultInstance().getGenResult();
-      bitField0_ = (bitField0_ & ~0x00000400);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string gen_result = 11 [json_name = "genResult"];</code>
-     * @param value The bytes for genResult to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGenResultBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      genResult_ = value;
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.LazyStringArrayList images_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensureImagesIsMutable() {
       if (!images_.isModifiable()) {
         images_ = new com.google.protobuf.LazyStringArrayList(images_);
       }
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @return A list containing the images.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1844,14 +1772,14 @@ private static final long serialVersionUID = 0L;
       return images_;
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @return The count of images.
      */
     public int getImagesCount() {
       return images_.size();
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @param index The index of the element to return.
      * @return The images at the given index.
      */
@@ -1859,7 +1787,7 @@ private static final long serialVersionUID = 0L;
       return images_.get(index);
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @param index The index of the value to return.
      * @return The bytes of the images at the given index.
      */
@@ -1868,7 +1796,7 @@ private static final long serialVersionUID = 0L;
       return images_.getByteString(index);
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @param index The index to set the value at.
      * @param value The images to set.
      * @return This builder for chaining.
@@ -1878,12 +1806,12 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       ensureImagesIsMutable();
       images_.set(index, value);
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @param value The images to add.
      * @return This builder for chaining.
      */
@@ -1892,12 +1820,12 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       ensureImagesIsMutable();
       images_.add(value);
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @param values The images to add.
      * @return This builder for chaining.
      */
@@ -1906,23 +1834,23 @@ private static final long serialVersionUID = 0L;
       ensureImagesIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, images_);
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @return This builder for chaining.
      */
     public Builder clearImages() {
       images_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000800);;
+      bitField0_ = (bitField0_ & ~0x00000400);;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string images = 12 [json_name = "images"];</code>
+     * <code>repeated string images = 11 [json_name = "images"];</code>
      * @param value The bytes of the images to add.
      * @return This builder for chaining.
      */
@@ -1932,6 +1860,78 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       ensureImagesIsMutable();
       images_.add(value);
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object imageUrl_ = "";
+    /**
+     * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+     * @return The imageUrl.
+     */
+    public java.lang.String getImageUrl() {
+      java.lang.Object ref = imageUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        imageUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+     * @return The bytes for imageUrl.
+     */
+    public com.google.protobuf.ByteString
+        getImageUrlBytes() {
+      java.lang.Object ref = imageUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        imageUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+     * @param value The imageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImageUrl(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      imageUrl_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImageUrl() {
+      imageUrl_ = getDefaultInstance().getImageUrl();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string image_url = 12 [json_name = "imageUrl"];</code>
+     * @param value The bytes for imageUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImageUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      imageUrl_ = value;
       bitField0_ |= 0x00000800;
       onChanged();
       return this;

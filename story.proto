@@ -815,9 +815,9 @@ message StoryBoardSence{
   string audio_prompts = 8;
   string video_prompts = 9;
   int32 is_generating = 10;
-  string gen_result = 11;
-
-  repeated string images = 12;
+  
+  repeated string images = 11;
+  string image_url = 12;
   string audio_url = 13;
   string video_url = 14;
   

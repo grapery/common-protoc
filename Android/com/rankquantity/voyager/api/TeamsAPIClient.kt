@@ -4018,6 +4018,21 @@ public class TeamsAPIClient(
   )
 
 
+  /**
+   * / 根据选中的heatmap的热点，获取热点时间范围内的用户active动态,同时支持小组内和个人
+   */
+  override suspend fun getActiveHeatmapDetails(request: GetActiveHeatmapDetailsRequest, headers: Headers): ResponseMessage<GetActiveHeatmapDetailsResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/GetActiveHeatmapDetails",
+      com.rankquantity.voyager.api.GetActiveHeatmapDetailsRequest::class,
+      com.rankquantity.voyager.api.GetActiveHeatmapDetailsResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
   override suspend fun getStoryboardGenerationRoadmap(request: GetStoryboardGenerationRoadmapRequest, headers: Headers): ResponseMessage<GetStoryboardGenerationRoadmapResponse> = client.unary(
     request,
     headers,
